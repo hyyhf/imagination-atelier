@@ -1,0 +1,105 @@
+{
+  "scope": "Actual same-source science Canvas/SVG or geometry+GLSL scene output; not browser screenshots.",
+  "items": [
+    {
+      "id": "21-fit",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/21-fit/review/default.png",
+      "image": "/images/21-fit.png",
+      "sha256": "ddb46bff7b509820b2ac3f4359e2a793e51ccd8a86bff1b2042962265a2fa58e",
+      "size": [
+        1500,
+        1060
+      ]
+    },
+    {
+      "id": "22-optimization",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/22-optimization/review/default-3d.png",
+      "image": "/images/22-optimization.png",
+      "sha256": "3512bd16232d01b7ea7f5a8acefd17bc5e1d2bb18a75b16938d6e8098e558e25",
+      "size": [
+        1400,
+        1000
+      ]
+    },
+    {
+      "id": "23-orbit",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/23-orbit/review/default-3d.png",
+      "image": "/images/23-orbit.png",
+      "sha256": "c1312f6872fa0e15038f8545859cf20defbd60f4d94688478befea2488ff869c",
+      "size": [
+        1400,
+        900
+      ]
+    },
+    {
+      "id": "24-circuit",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/24-circuit/review/default-report.png",
+      "image": "/images/24-circuit.png",
+      "sha256": "31fec5e994fdf3e17ac09a72d9e1fe1270afe3dda3d031c24109fee4260c67d6",
+      "size": [
+        1960,
+        1400
+      ]
+    },
+    {
+      "id": "25-watershed",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/25-watershed/review/default-3d.png",
+      "image": "/images/25-watershed.png",
+      "sha256": "bb3667249a05447c94bcfcfee5718da3da6e1510132f24104d4dba8defd7dcaf",
+      "size": [
+        1400,
+        950
+      ]
+    },
+    {
+      "id": "26-globe",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/26-globe/review/default-3d.png",
+      "image": "/images/26-globe.png",
+      "sha256": "405ab24a08cef9281b9772e455809bdb270da24882cdf3e5c53778efe7bc633a",
+      "size": [
+        1400,
+        1100
+      ]
+    },
+    {
+      "id": "27-network",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/27-network/review/initial-final.png",
+      "image": "/images/27-network.png",
+      "sha256": "20ab85dbc902d7e06c68d4c5c7424717cf13f74801e8b22d74164525bebad5ad",
+      "size": [
+        1600,
+        900
+      ]
+    },
+    {
+      "id": "28-compression",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/28-compression/review/initial-final.png",
+      "image": "/images/28-compression.png",
+      "sha256": "f35e3b1d2c155830373f14bbd1e5e0d18918df366b883c033eb4de319e4d4e21",
+      "size": [
+        1600,
+        1120
+      ]
+    },
+    {
+      "id": "29-transformer",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/29-transformer/review/default.png",
+      "image": "/images/29-transformer.png",
+      "sha256": "5db09054769bd22a822def592c0909aba09b045f0e013913fbd4deaadb6e40d3",
+      "size": [
+        1500,
+        1040
+      ]
+    },
+    {
+      "id": "30-rag",
+      "source": "/workspace/scratch/e8da9104517d/imagination-science-v5/source/30-rag/review/initial-final.png",
+      "image": "/images/30-rag.png",
+      "sha256": "cf8073fbc960fb14d6213fad287d13945fffccf7ac00bb937de89ca2703285d6",
+      "size": [
+        1600,
+        1040
+      ]
+    }
+  ]
+}

@@ -1,0 +1,925 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>把光送过去 · A LINE THROUGH SPACE</title><style>
+:root{--bg:#10171d;--panel:#172027;--text:#e7ede8;--dim:#9aadae;--line:#3d4f54;--beam:#ffb056;--hit:#dcf08f}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.6 system-ui,-apple-system,"Microsoft YaHei",sans-serif}button,input{font:inherit}button{padding:9px 14px;border:1px solid #657b7d;color:inherit;background:transparent;cursor:pointer;border-radius:3px}button:hover{background:#283a3e}button.primary{background:var(--beam);color:#142024;border-color:var(--beam)}button[aria-pressed=true]{border-color:var(--hit);color:var(--hit)}button:focus-visible,input:focus-visible,canvas:focus-visible{outline:3px solid var(--hit);outline-offset:3px}header{padding:27px 34px 22px;display:flex;align-items:flex-end;gap:30px;max-width:1600px;margin:auto}h1{font-size:36px;letter-spacing:.07em;font-weight:500;margin:3px 0 0}header .sup{font:10px monospace;letter-spacing:.2em;color:var(--beam)}header p{max-width:365px;margin:0 0 3px auto;color:var(--dim);font-size:13px}.workbench{display:grid;grid-template-columns:1fr 292px;max-width:1600px;margin:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.scene{position:relative;min-width:0;min-height:640px;height:75vh;max-height:900px;background:#10171d}canvas{width:100%;height:100%;display:block;touch-action:none}.scene .caption{position:absolute;top:25px;left:32px;right:32px;pointer-events:none;display:flex;justify-content:space-between;gap:15px;font:11px/1.5 monospace;color:#b6c4c5;letter-spacing:.04em}.legend{position:absolute;bottom:26px;left:32px;right:32px;pointer-events:none;display:flex;justify-content:space-between;gap:20px;color:#b6c4c5;font-size:12px}.legend strong{display:block;color:var(--beam);font-weight:500;font-size:16px;margin-bottom:4px}.stepmark{position:absolute;color:#fff;background:#142027dd;border:1px solid #829493;padding:2px 7px;border-radius:100%;font:11px monospace;pointer-events:none;transform:translate(-50%,-160%)}aside{padding:27px 22px;border-left:1px solid var(--line);background:var(--panel)}aside h2{font-size:17px;font-weight:500;margin:0 0 16px}.mirror-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:25px}.mirror-pick button{padding:10px 0;font:14px monospace}.control{margin:18px 0}.label{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#d3dfdd}.label input{background:#0e171b;color:var(--beam);border:1px solid #4a6065;width:76px;padding:4px 6px;text-align:right}input[type=range]{width:100%;accent-color:var(--beam);margin-top:13px}.fine{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:16px 0 22px}.fine button{padding:5px}.note{font-size:12px;color:var(--dim);margin:16px 0;min-height:62px}.rail{border-top:1px solid var(--line);padding-top:19px;margin-top:20px}.rail button{width:100%;margin:5px 0}.status{padding:18px 0 0;color:var(--beam);font-size:13px;min-height:83px}.below{display:flex;gap:10px;flex-wrap:wrap;max-width:1600px;margin:0 auto;padding:22px 34px}.below .spacer{flex:1}.foot{max-width:1532px;margin:0 auto;padding:10px 0 35px;color:var(--dim);font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:42px}.foot p{margin:0}.foot strong{color:#d6e4df;font-weight:500}#error{position:absolute;inset:30%;display:none;background:#19272b;padding:30px;font-size:15px}.notify{max-width:1532px;margin:0 auto;min-height:30px;color:var(--hit);font-size:13px}#file{display:none}@media(max-width:1580px){.foot,.notify{margin:0 34px}}@media(max-width:900px){.workbench{grid-template-columns:1fr}.scene{height:62vh;min-height:430px}aside{border-left:0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:0 24px}aside h2,.mirror-pick,.note,.rail,.status{grid-column:1/-1}.mirror-pick{max-width:360px;margin-bottom:0}.rail{display:flex;gap:10px;margin-top:0;padding-top:10px}.rail button{width:auto;flex:1}.fine{margin:0;align-self:center}.note{min-height:0}.status{min-height:45px}.foot{grid-template-columns:1fr;gap:18px}header p{max-width:280px}h1{font-size:30px}}@media(max-width:560px){header{padding:22px 19px;display:block}header p{margin:12px 0 0;max-width:none}.scene .caption,.legend{left:19px;right:19px}.legend>div:last-child{display:none}h1{font-size:28px}.below{padding:18px}.below button{padding:8px 11px}.foot,.notify{margin-left:19px;margin-right:19px}.label{font-size:13px}.label input{width:62px}.foot{padding-bottom:28px}}
+</style><meta name="atelier-version" content="4.0.0">
+</head><body><header><div><span class="sup">A LINE THROUGH SPACE / 06</span><h1>把光送过去</h1></div><p>转动一面镜子，让一条线穿过三个不同的高度。目标不是更亮，而是刚好抵达。</p></header><main><div class="workbench"><div class="scene" id="stage"><canvas id="canvas" tabindex="0" aria-label="三维光学台，可拖动旋转观察，滚轮缩放。角度可通过右侧数值控制。"></canvas><div class="caption"><span>FINITE MIRRORS<br>ONE CONTINUOUS PATH</span><span id="traceSummary">03 REFLECTIONS</span></div><div id="marks"></div><div class="legend"><div><strong id="hintTitle">从第三面镜子开始。</strong><span id="hintText">试着减小水平角，让最后一段光向靶心靠拢。</span></div><div>拖动观察 · 滚轮靠近<br>方位可变，光路遵守同一规则。</div></div><div id="error" role="alert"></div></div><aside><h2>你正在转动哪一面？</h2><div class="mirror-pick"><button data-m="0">01</button><button data-m="1">02</button><button data-m="2" aria-pressed="true">03</button></div><div class="control"><label class="label" for="yawN">水平角 / °<input id="yawN" type="number" min="-180" max="180" step="0.1"></label><input id="yaw" aria-label="水平角" type="range" min="-180" max="180" step="0.1"></div><div class="control"><label class="label" for="pitchN">仰俯角 / °<input id="pitchN" type="number" min="-65" max="65" step="0.1"></label><input id="pitch" aria-label="仰俯角" type="range" min="-65" max="65" step="0.1"></div><div class="fine"><button data-fine="yaw,-0.2" aria-label="水平减0.2度">←</button><button data-fine="yaw,0.2" aria-label="水平加0.2度">→</button><button data-fine="pitch,-0.2" aria-label="仰俯减0.2度">↑</button><button data-fine="pitch,0.2" aria-label="仰俯加0.2度">↓</button></div><p class="note">光线只在真正撞到镜面时反射。有限的圆形边界、不同的镜面高度和挡板都会改变路径。</p><div class="rail"><button id="solve" class="primary">看一条抵达的光路</button><button id="blocker" aria-pressed="false">插入挡板</button></div><div class="status" id="status" role="status"></div></aside></div><div class="below"><button id="reset">恢复挑战</button><button id="viewReset">经典视角</button><button id="top">俯视光路</button><span class="spacer"></span><button id="png">导出 3D 画面</button><button id="save">保存方案</button><button id="load">打开方案</button><input id="file" type="file" accept=".json,application/json"></div><div class="notify" id="notify" aria-live="polite"></div><div class="foot"><p><strong>观察一条线如何抵达</strong><br>镜面几何和反射计算使用同一个角度。光路在三个高度间折转，靶面只接收圆形区域内的实际交点。单击镜子编号后，用滑条、数字或微调箭头改变方向。示范会恢复无遮挡的可达方案，仍可继续编辑。</p><p><strong>这是几何光学的可操作示意</strong><br>光线是用来阅读路径的显示线；镜面高光采用简化的显示材质，未生成整个场景的光学镜像，也未模拟波动、真实损耗或空气散射。作品为虚构光学台，没有测量数据。仅在状态或视角变化时重绘，完全离线。</p></div></main>
+<script id="atelier-engine">/* Atelier3D — dependency-free WebGL1 scene renderer and portable frame exporter.
+ * Column-major matrices. Right-handed world, +Y up. Angles are radians except
+ * camera.fov (degrees). No DOM is accessed until Renderer or Orbit is created.
+ */
+(function (root, factory) {
+  'use strict';
+  var api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) root.Atelier3D = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  var TAU = Math.PI * 2, geometrySerial = 0;
+  var clamp = function (x, a, b) { return Math.max(a, Math.min(b, x)); };
+  var vec3 = {
+    add: function (a,b) { return [a[0]+b[0],a[1]+b[1],a[2]+b[2]]; },
+    sub: function (a,b) { return [a[0]-b[0],a[1]-b[1],a[2]-b[2]]; },
+    scale: function (a,s) { return [a[0]*s,a[1]*s,a[2]*s]; },
+    dot: function (a,b) { return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]; },
+    cross: function (a,b) { return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]; },
+    length: function (a) { return Math.hypot(a[0],a[1],a[2]); },
+    normalize: function (a) { var n=Math.hypot(a[0],a[1],a[2]); return n>1e-12 ? [a[0]/n,a[1]/n,a[2]/n] : [0,1,0]; }
+  };
+  function identity() { return [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]; }
+  function multiply(a,b) {
+    var o=new Array(16);
+    for(var c=0;c<4;c++) for(var r=0;r<4;r++) {
+      var s=0; for(var k=0;k<4;k++) s+=a[k*4+r]*b[c*4+k]; o[c*4+r]=s;
+    }
+    return o;
+  }
+  function translation(x,y,z) { var o=identity(); o[12]=x;o[13]=y;o[14]=z;return o; }
+  function scaling(x,y,z) { if(y===undefined)y=x;if(z===undefined)z=x;return [x,0,0,0,0,y,0,0,0,0,z,0,0,0,0,1]; }
+  function rotationX(a) { var c=Math.cos(a),s=Math.sin(a);return [1,0,0,0,0,c,s,0,0,-s,c,0,0,0,0,1]; }
+  function rotationY(a) { var c=Math.cos(a),s=Math.sin(a);return [c,0,-s,0,0,1,0,0,s,0,c,0,0,0,0,1]; }
+  function rotationZ(a) { var c=Math.cos(a),s=Math.sin(a);return [c,s,0,0,-s,c,0,0,0,0,1,0,0,0,0,1]; }
+  function compose(options) {
+    options=options||{};
+    var p=options.position||[0,0,0],r=options.rotation||[0,0,0],s=options.scale===undefined?[1,1,1]:options.scale;
+    if(typeof s==='number')s=[s,s,s];
+    return multiply(translation(p[0],p[1],p[2]),multiply(rotationZ(r[2]),multiply(rotationY(r[1]),multiply(rotationX(r[0]),scaling(s[0],s[1],s[2])))));
+  }
+  function lookAt(eye,target,up) {
+    up=up||[0,1,0]; var z=vec3.normalize(vec3.sub(eye,target)),x=vec3.cross(up,z);
+    if(vec3.length(x)<1e-6)x=vec3.cross(Math.abs(z[2])<0.9?[0,0,1]:[1,0,0],z);
+    x=vec3.normalize(x); var y=vec3.cross(z,x);
+    return [x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-vec3.dot(x,eye),-vec3.dot(y,eye),-vec3.dot(z,eye),1];
+  }
+  function perspective(fov,aspect,near,far) {
+    var f=1/Math.tan(fov*Math.PI/360),nf=1/(near-far);
+    return [f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*nf,-1,0,0,2*far*near*nf,0];
+  }
+  function orthographic(left,right,bottom,top,near,far) {
+    return [2/(right-left),0,0,0,0,2/(top-bottom),0,0,0,0,-2/(far-near),0,-(right+left)/(right-left),-(top+bottom)/(top-bottom),-(far+near)/(far-near),1];
+  }
+  function normalMatrix(m) {
+    var a=[m[0],m[1],m[2]],b=[m[4],m[5],m[6]],c=[m[8],m[9],m[10]];
+    var x=vec3.cross(b,c),y=vec3.cross(c,a),z=vec3.cross(a,b),d=vec3.dot(a,x);
+    if(Math.abs(d)<1e-12) return [1,0,0,0,1,0,0,0,1];
+    return x.concat(y,z).map(function(v){return v/d;});
+  }
+  function transformPoint(m,p) {
+    var w=m[3]*p[0]+m[7]*p[1]+m[11]*p[2]+m[15];
+    return [(m[0]*p[0]+m[4]*p[1]+m[8]*p[2]+m[12])/w,(m[1]*p[0]+m[5]*p[1]+m[9]*p[2]+m[13])/w,(m[2]*p[0]+m[6]*p[1]+m[10]*p[2]+m[14])/w];
+  }
+  function cameraMatrices(camera,aspect) {
+    camera=camera||{}; var eye=camera.position||camera.eye||[6,4,7],target=camera.target||[0,0,0];
+    var near=camera.near===undefined?0.05:camera.near,far=camera.far===undefined?150:camera.far;
+    if(!(near>0&&far>near))throw new Error('Camera requires 0 < near < far.');
+    var view=lookAt(eye,target,camera.up),projection;
+    if(camera.ortho) { var h=typeof camera.ortho==='number'?camera.ortho:10;projection=orthographic(-h*aspect/2,h*aspect/2,-h/2,h/2,near,far); }
+    else projection=perspective(camera.fov===undefined?42:camera.fov,aspect,near,far);
+    return {view:view,projection:projection,viewProjection:multiply(projection,view),eye:eye,target:target};
+  }
+  function project(point,camera,width,height) {
+    var m=cameraMatrices(camera,width/height).viewProjection,p=transformPoint(m,point);
+    var w=m[3]*point[0]+m[7]*point[1]+m[11]*point[2]+m[15];
+    return {x:(p[0]*.5+.5)*width,y:(.5-p[1]*.5)*height,z:p[2],visible:w>0&&p[2]>=-1&&p[2]<=1&&Math.abs(p[0])<=1&&Math.abs(p[1])<=1};
+  }
+  function flatNumbers(values) {
+    if(!values)return [];
+    var result=[];for(var i=0;i<values.length;i++) {
+      if(Array.isArray(values[i])||ArrayBuffer.isView(values[i])) for(var j=0;j<values[i].length;j++)result.push(Number(values[i][j]));
+      else result.push(Number(values[i]));
+    }return result;
+  }
+  function triangles(positions,indices,normals) {
+    var p=flatNumbers(positions),idx=indices===undefined||indices===null?null:flatNumbers(indices),n=normals?flatNumbers(normals):null;
+    if(!p.length||p.length%3)throw new Error('Geometry positions must contain xyz vertices.');
+    if(p.some(function(v){return !Number.isFinite(v);}))throw new Error('Geometry positions contain non-finite numbers.');
+    var count=p.length/3;if(count>65535)throw new Error('Split geometry into meshes with at most 65535 vertices.');
+    if(!idx){idx=[];for(var i=0;i<count;i++)idx.push(i);}
+    if(idx.length%3)throw new Error('Triangle indices must be a multiple of three.');
+    if(idx.some(function(v){return !Number.isInteger(v)||v<0||v>=count;}))throw new Error('Geometry index is outside its vertex array.');
+    if(!n) {
+      n=new Array(p.length).fill(0);
+      for(var k=0;k<idx.length;k+=3) {
+        var a=idx[k]*3,b=idx[k+1]*3,c=idx[k+2]*3;
+        var ab=[p[b]-p[a],p[b+1]-p[a+1],p[b+2]-p[a+2]],ac=[p[c]-p[a],p[c+1]-p[a+1],p[c+2]-p[a+2]],face=vec3.cross(ab,ac);
+        for(var q=0;q<3;q++)for(var e=0;e<3;e++)n[idx[k+q]*3+e]+=face[e];
+      }
+      for(var t=0;t<n.length;t+=3){var nn=vec3.normalize(n.slice(t,t+3));n[t]=nn[0];n[t+1]=nn[1];n[t+2]=nn[2];}
+    }
+    if(n.length!==p.length||n.some(function(v){return !Number.isFinite(v);}))throw new Error('Geometry normals must match positions and be finite.');
+    return {id:'a3d_g'+(++geometrySerial),version:0,attributes:{aPosition:{size:3,data:p},aNormal:{size:3,data:n}},indices:idx,indexType:'uint16'};
+  }
+  function box(w,h,d) {
+    w=w===undefined?1:w;h=h===undefined?1:h;d=d===undefined?1:d;
+    var p=[],n=[],idx=[];
+    var faces=[
+      [[w/2,0,0],[0,0,-d],[0,h,0],[1,0,0]],
+      [[-w/2,0,0],[0,0,d],[0,h,0],[-1,0,0]],
+      [[0,h/2,0],[w,0,0],[0,0,-d],[0,1,0]],
+      [[0,-h/2,0],[w,0,0],[0,0,d],[0,-1,0]],
+      [[0,0,d/2],[w,0,0],[0,h,0],[0,0,1]],
+      [[0,0,-d/2],[-w,0,0],[0,h,0],[0,0,-1]]
+    ];
+    faces.forEach(function(f){var off=p.length/3;[[-.5,-.5],[.5,-.5],[.5,.5],[-.5,.5]].forEach(function(t){for(var q=0;q<3;q++)p.push(f[0][q]+f[1][q]*t[0]+f[2][q]*t[1]);n.push.apply(n,f[3]);});idx.push(off,off+1,off+2,off,off+2,off+3);});
+    return triangles(p,idx,n);
+  }
+  function roundBox(width,height,depth,radius) {
+    width=width===undefined?1:width;height=height===undefined?1:height;depth=depth===undefined?1:depth;
+    var half=[width/2,height/2,depth/2],radius=Math.min(radius===undefined?.006:radius,Math.min(width,height,depth)*.2),steps=4,positions=[],normals=[],indices=[];
+    // Project subdivided faces onto a rounded cuboid: every axis bound is retained.
+    var axes=[[0,1,2,1],[0,2,1,-1],[1,2,0,1],[1,0,2,-1],[2,0,1,1],[2,1,0,-1]];
+    axes.forEach(function(f){var offset=positions.length/3,axis=f[0],u=f[1],v=f[2],sign=f[3];
+      for(var j=0;j<=steps;j++)for(var i=0;i<=steps;i++){
+        var point=[0,0,0];point[axis]=half[axis]*sign;
+        var knots=[-1,-1+2*radius/(2*half[u]),0,1-2*radius/(2*half[u]),1];point[u]=knots[i]*half[u];
+        knots=[-1,-1+radius/half[v],0,1-radius/half[v],1];point[v]=knots[j]*half[v];
+        var inner=point.map(function(x,k){return clamp(x,-half[k]+radius,half[k]-radius)}),normal=vec3.normalize(vec3.sub(point,inner));
+        positions.push.apply(positions,vec3.add(inner,vec3.scale(normal,radius)));normals.push.apply(normals,normal);
+      }
+      for(var y=0;y<steps;y++)for(var x=0;x<steps;x++){var a=offset+y*(steps+1)+x,c=a+steps+1;indices.push(a,a+1,c,a+1,c+1,c);}
+    });return triangles(positions,indices,normals);
+  }
+  function plane(w,d,nx,nz,heightFunction) {
+    w=w===undefined?1:w;d=d===undefined?1:d;nx=Math.max(1,Math.floor(nx||1));nz=Math.max(1,Math.floor(nz||1));
+    var p=[],idx=[],normals=heightFunction?null:[];
+    for(var z=0;z<=nz;z++)for(var x=0;x<=nx;x++) {
+      var px=(x/nx-.5)*w,pz=(z/nz-.5)*d;p.push(px,heightFunction?heightFunction(px,pz,x,z):0,pz);if(normals)normals.push(0,1,0);
+    }
+    for(var j=0;j<nz;j++)for(var i=0;i<nx;i++){var a=j*(nx+1)+i,b=a+1,c=a+nx+1,e=c+1;idx.push(a,c,b,b,c,e);}
+    return triangles(p,idx,normals);
+  }
+  function sphere(radius,segments,rings) {
+    radius=radius===undefined?1:radius;segments=Math.max(3,Math.floor(Math.max(segments||40,32)));rings=Math.max(2,Math.floor(rings||24));
+    var p=[],n=[],idx=[];
+    for(var j=0;j<=rings;j++){var phi=j/rings*Math.PI;
+      for(var i=0;i<=segments;i++){var theta=i/segments*TAU,x=Math.sin(phi)*Math.cos(theta),y=Math.cos(phi),z=Math.sin(phi)*Math.sin(theta);p.push(radius*x,radius*y,radius*z);n.push(x,y,z);}
+    }
+    for(var y=0;y<rings;y++)for(var x=0;x<segments;x++){var a=y*(segments+1)+x,b=a+segments+1;if(y>0)idx.push(a,a+1,b);if(y<rings-1)idx.push(a+1,b+1,b);}
+    return triangles(p,idx,n);
+  }
+  function cylinder(radiusTop,radiusBottom,height,segments,capped) {
+    radiusTop=radiusTop===undefined?.5:radiusTop;radiusBottom=radiusBottom===undefined?radiusTop:radiusBottom;height=height===undefined?1:height;
+    segments=Math.max(3,Math.floor(Math.max(segments||40,32)));capped=capped!==false;
+    var p=[],n=[],idx=[],slope=(radiusBottom-radiusTop)/Math.max(1e-9,height);
+    for(var y=0;y<2;y++)for(var i=0;i<=segments;i++){var a=i/segments*TAU,r=y?radiusTop:radiusBottom,nn=vec3.normalize([Math.cos(a),slope,Math.sin(a)]);p.push(r*Math.cos(a),(y-.5)*height,r*Math.sin(a));n.push.apply(n,nn);}
+    for(var s=0;s<segments;s++){var b=s+segments+1;idx.push(s,b,s+1,s+1,b,b+1);}
+    if(capped)for(var end=0;end<2;end++) {
+      var rr=end?radiusTop:radiusBottom;if(rr<=0)continue;var center=p.length/3,yy=(end-.5)*height;p.push(0,yy,0);n.push(0,end?1:-1,0);
+      for(var t=0;t<=segments;t++){var aa=t/segments*TAU;p.push(rr*Math.cos(aa),yy,rr*Math.sin(aa));n.push(0,end?1:-1,0);}
+      for(var j=0;j<segments;j++){if(end)idx.push(center,center+j+2,center+j+1);else idx.push(center,center+j+1,center+j+2);}
+    }
+    return triangles(p,idx,n);
+  }
+  function torus(majorRadius,minorRadius,radialSegments,tubularSegments,arc) {
+    majorRadius=majorRadius===undefined?1:majorRadius;minorRadius=minorRadius===undefined?.22:minorRadius;
+    radialSegments=Math.max(3,Math.floor(radialSegments||16));tubularSegments=Math.max(3,Math.floor(tubularSegments||64));arc=arc===undefined?TAU:arc;
+    var p=[],n=[],idx=[];
+    for(var i=0;i<=tubularSegments;i++){var u=i/tubularSegments*arc;
+      for(var j=0;j<=radialSegments;j++){var v=j/radialSegments*TAU,cv=Math.cos(v),sv=Math.sin(v),cu=Math.cos(u),su=Math.sin(u);p.push((majorRadius+minorRadius*cv)*cu,minorRadius*sv,(majorRadius+minorRadius*cv)*su);n.push(cv*cu,sv,cv*su);}
+    }
+    for(var y=0;y<tubularSegments;y++)for(var x=0;x<radialSegments;x++){var a=y*(radialSegments+1)+x,b=a+radialSegments+1;idx.push(a,a+1,b,a+1,b+1,b);}
+    return triangles(p,idx,n);
+  }
+  function lathe(profile,segments) {
+    if(!profile||profile.length<2)throw new Error('Lathe needs at least two [radius,y] profile points.');
+    segments=Math.max(3,Math.floor(Math.max(segments||48,72)));var p=[],n=[],idx=[];
+    for(var j=0;j<profile.length;j++) {
+      var prev=profile[Math.max(0,j-1)],next=profile[Math.min(profile.length-1,j+1)],dr=next[0]-prev[0],dy=next[1]-prev[1];
+      for(var i=0;i<=segments;i++){var a=i/segments*TAU,nn=vec3.normalize([dy*Math.cos(a),-dr,dy*Math.sin(a)]);p.push(profile[j][0]*Math.cos(a),profile[j][1],profile[j][0]*Math.sin(a));n.push.apply(n,nn);}
+    }
+    for(var y=0;y<profile.length-1;y++)for(var x=0;x<segments;x++){var aa=y*(segments+1)+x,b=aa+segments+1;idx.push(aa,b,aa+1,aa+1,b,b+1);}
+    return triangles(p,idx,n);
+  }
+  function tube(points,radius,sides,options) {
+    radius=radius===undefined?.05:radius;sides=Math.max(3,Math.floor(sides||10));options=options||{};
+    if(!points||points.length<2)throw new Error('Tube needs at least two xyz points.');
+    var p=[],n=[],idx=[],lastNormal=null,tangents=[],frames=[];
+    for(var i=0;i<points.length;i++) {
+      var tangent=vec3.normalize(vec3.sub(points[Math.min(points.length-1,i+1)],points[Math.max(0,i-1)]));
+      var normal=lastNormal?vec3.sub(lastNormal,vec3.scale(tangent,vec3.dot(lastNormal,tangent))):vec3.cross(tangent,Math.abs(tangent[1])<.9?[0,1,0]:[1,0,0]);
+      if(vec3.length(normal)<1e-6)normal=vec3.cross(tangent,Math.abs(tangent[1])<.9?[0,1,0]:[1,0,0]);
+      normal=vec3.normalize(normal);var binormal=vec3.normalize(vec3.cross(tangent,normal));lastNormal=normal;tangents.push(tangent);frames.push([normal,binormal]);
+    }
+    if(options.closed&&vec3.length(vec3.sub(points[0],points[points.length-1]))<1e-6) {
+      var end=frames[frames.length-1][0],start=frames[0][0],t0=tangents[0];
+      var twist=Math.atan2(vec3.dot(vec3.cross(end,start),t0),vec3.dot(end,start));
+      for(var f=0;f<frames.length;f++){var angle=twist*f/(frames.length-1),nn=frames[f][0],bb=frames[f][1];frames[f]=[vec3.add(vec3.scale(nn,Math.cos(angle)),vec3.scale(bb,Math.sin(angle))),vec3.add(vec3.scale(bb,Math.cos(angle)),vec3.scale(nn,-Math.sin(angle)))];}
+      frames[frames.length-1]=frames[0];
+    }
+    for(var a=0;a<points.length;a++)for(var s=0;s<=sides;s++){
+      var ang=s/sides*TAU,direction=vec3.add(vec3.scale(frames[a][0],Math.cos(ang)),vec3.scale(frames[a][1],Math.sin(ang)));
+      var r=typeof radius==='function'?radius(a/(points.length-1),a):radius;p.push.apply(p,vec3.add(points[a],vec3.scale(direction,r)));n.push.apply(n,direction);
+    }
+    for(var y=0;y<points.length-1;y++)for(var x=0;x<sides;x++){var v=y*(sides+1)+x,w=v+sides+1;idx.push(v,v+1,w,v+1,w+1,w);}
+    if(options.caps!==false&&!options.closed)for(var e=0;e<2;e++){
+      var row=e?points.length-1:0,normal=vec3.scale(tangents[row],e?1:-1),center=p.length/3;p.push.apply(p,points[row]);n.push.apply(n,normal);
+      for(var t=0;t<=sides;t++){var off=(row*(sides+1)+t)*3;p.push(p[off],p[off+1],p[off+2]);n.push.apply(n,normal);}
+      for(var q=0;q<sides;q++){if(e)idx.push(center,center+q+1,center+q+2);else idx.push(center,center+q+2,center+q+1);}
+    }
+    return triangles(p,idx,n);
+  }
+  function touch(geometry) { geometry.version=(geometry.version||0)+1;return geometry; }
+  function cachedPrimitive(fn,limit) {var cache=new Map();return function(){var args=Array.prototype.slice.call(arguments),key=JSON.stringify(args);if(cache.has(key))return cache.get(key);var g=fn.apply(null,args);cache.set(key,g);if(cache.size>limit)cache.delete(cache.keys().next().value);return g;};}
+  var plainBox=box;box=cachedPrimitive(function(w,h,d){var g=plainBox(w,h,d);g.boxSize=[w===undefined?1:w,h===undefined?1:h,d===undefined?1:d];return g;},256); roundBox=cachedPrimitive(roundBox,384); sphere=cachedPrimitive(sphere,96); cylinder=cachedPrimitive(cylinder,160); torus=cachedPrimitive(torus,96); lathe=cachedPrimitive(lathe,128);
+  function color(value,fallback) {
+    if(value===undefined||value===null)value=fallback===undefined?[.8,.8,.8]:fallback;
+    if(typeof value==='string') {
+      var s=value.replace('#','');if(s.length===3)s=s.split('').map(function(x){return x+x;}).join('');
+      if(!/^[0-9a-fA-F]{6}$/.test(s))throw new Error('Colors must be #RGB, #RRGGBB or [r,g,b] in sRGB.');
+      return [parseInt(s.slice(0,2),16)/255,parseInt(s.slice(2,4),16)/255,parseInt(s.slice(4,6),16)/255];
+    }return [Number(value[0]),Number(value[1]),Number(value[2])];
+  }
+  function linearColor(value,fallback) { return color(value,fallback).map(function(x){return x<=.04045?x/12.92:Math.pow((x+.055)/1.055,2.4);}); }
+  var mainVertex = `
+precision highp float;
+attribute vec3 aPosition;
+attribute vec3 aNormal;
+uniform mat4 uModel;
+uniform mat3 uNormalMatrix;
+uniform mat4 uViewProjection;
+uniform mat4 uLightViewProjection;
+varying vec3 vWorld;
+varying vec3 vLocal;
+varying vec3 vSurface;
+varying vec3 vNormal;
+varying vec4 vShadow;
+void main() {
+  vec4 world=uModel*vec4(aPosition,1.0);
+  vWorld=world.xyz;vLocal=aPosition;vSurface=aPosition*vec3(length(uModel[0].xyz),length(uModel[1].xyz),length(uModel[2].xyz));vNormal=uNormalMatrix*aNormal;
+  vShadow=uLightViewProjection*world;
+  gl_Position=uViewProjection*world;
+}
+`;
+  var mainFragment = `
+precision highp float;
+varying vec3 vWorld;
+varying vec3 vLocal;
+varying vec3 vSurface;
+varying vec3 vNormal;
+varying vec4 vShadow;
+uniform mat3 uNormalMatrix;
+uniform vec3 uColor;
+uniform vec3 uEmission;
+uniform vec3 uEye;
+uniform vec3 uLightDirection;
+uniform vec3 uLightColor;
+uniform vec3 uEnvSky;
+uniform vec3 uEnvGround;
+uniform vec3 uFogColor;
+uniform vec4 uClipPlane;
+uniform vec2 uShadowTexel;
+uniform sampler2D uShadowMap;
+uniform float uRoughness;
+uniform float uMetalness;
+uniform float uOpacity;
+uniform float uTexture;
+uniform float uTextureScale;
+uniform float uTextureStrength;
+uniform float uUnlit;
+uniform float uLightIntensity;
+uniform float uEnvIntensity;
+uniform float uStudio;
+uniform float uExposure;
+uniform float uFogDensity;
+uniform float uFogHeight;
+uniform float uTime;
+uniform float uShadowEnabled;
+uniform float uReceiveShadow;
+uniform float uShadowBias;
+uniform float uShadowSoftness;
+uniform float uShadowStrength;
+uniform float uAO;
+uniform float uClipEnabled;
+const float PI=3.141592653589793;
+float hash3(vec3 p) { p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z); }
+float noise3(vec3 p) {
+  vec3 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);
+  return mix(mix(mix(hash3(i),hash3(i+vec3(1,0,0)),f.x),mix(hash3(i+vec3(0,1,0)),hash3(i+vec3(1,1,0)),f.x),f.y),
+    mix(mix(hash3(i+vec3(0,0,1)),hash3(i+vec3(1,0,1)),f.x),mix(hash3(i+vec3(0,1,1)),hash3(i+vec3(1,1,1)),f.x),f.y),f.z);
+}
+float fbm(vec3 p) { return .5714*noise3(p)+.2857*noise3(p*2.07)+.1429*noise3(p*4.17); }
+float unpackDepth(vec4 c) { return dot(c,(255.0/256.0)*vec4(1.0/16777216.0,1.0/65536.0,1.0/256.0,1.0)); }
+uniform sampler2D uCameraDepth;
+uniform mat4 uCameraVP;
+uniform mat4 uInverseVP;
+uniform float uContactEnabled;
+uniform float uContactRadius;
+uniform float uContactStrength;
+vec3 restoreWorld(vec2 uv,float depth){vec4 q=uInverseVP*vec4(uv*2.0-1.0,depth*2.0-1.0,1.0);return q.xyz/q.w;}
+float contactShade(vec3 normal){
+ if(uContactEnabled<.5||uUnlit>.5)return 1.0;
+ vec3 tangent=normalize(cross(normal,abs(normal.y)<.9?vec3(0,1,0):vec3(1,0,0))),bitangent=cross(normal,tangent);
+ float occluded=0.0;
+ for(int i=0;i<12;i++){
+  float fi=float(i),angle=fi*2.39996323,z=.15+.78*(fi+.5)/12.0,rad=sqrt(1.0-z*z);
+  vec3 direction=tangent*cos(angle)*rad+bitangent*sin(angle)*rad+normal*z;
+  vec3 samplePos=vWorld+direction*uContactRadius;vec4 clip=uCameraVP*vec4(samplePos,1.0);vec3 screen=clip.xyz/clip.w*.5+.5;
+  if(clip.w>0.0&&screen.x>.001&&screen.x<.999&&screen.y>.001&&screen.y<.999){
+   float depth=unpackDepth(texture2D(uCameraDepth,screen.xy));vec3 actual=restoreWorld(screen.xy,depth);
+   float range=length(actual-vWorld),blocked=step(depth+.00003,screen.z);
+   occluded+=blocked*(1.0-smoothstep(uContactRadius,uContactRadius*2.4,range))*step(.007*uContactRadius,range);
+  }
+ }
+ return clamp(1.0-occluded/12.0*uContactStrength,.22,1.0);
+}
+
+float shadowVisibility(vec3 n,vec3 l) {
+  if(uShadowEnabled<.5||uReceiveShadow<.5)return 1.0;
+  vec3 p=vShadow.xyz/vShadow.w*.5+.5;
+  if(p.x<=0.0||p.x>=1.0||p.y<=0.0||p.y>=1.0||p.z<=0.0||p.z>=1.0)return 1.0;
+  float slope=1.0-max(dot(n,l),0.0);
+  float bias=uShadowBias*(1.0+3.0*slope);
+  float sum=0.0;
+  for(int y=0;y<4;y++)for(int x=0;x<4;x++){
+    vec2 offset=(vec2(float(x),float(y))-1.5)*uShadowTexel*uShadowSoftness;
+    sum+=step(p.z-bias,unpackDepth(texture2D(uShadowMap,p.xy+offset)));
+  }
+  return mix(1.0,sum/16.0,uShadowStrength);
+}
+vec3 fresnel(float cosine,vec3 f0) { return f0+(1.0-f0)*pow(1.0-cosine,5.0); }
+float distribution(float nh,float roughness) {
+  float a=roughness*roughness,a2=a*a,d=nh*nh*(a2-1.0)+1.0;
+  return a2/max(PI*d*d,.000001);
+}
+float visibilityTerm(float nd,float roughness) {
+  float k=(roughness+1.0);k=k*k*.125;return nd/(nd*(1.0-k)+k);
+}
+float softbox(vec3 direction,vec3 center,vec2 size,float roughness) {
+  vec3 side=normalize(cross(vec3(0,1,0),center)),up=cross(center,side);
+  float facing=dot(direction,center);
+  vec2 q=vec2(dot(direction,side),dot(direction,up))/max(facing,.001);
+  float blur=.018+roughness*roughness*1.8;
+  vec2 box=1.0-smoothstep(size+vec2(blur*.1),size+vec2(blur),abs(q));
+  return box.x*box.y*step(.0,facing);
+}
+vec3 environment(vec3 direction,float roughness) {
+  vec3 env=mix(uEnvGround,uEnvSky,smoothstep(-.7,.85,direction.y))*.55;
+  float broad=softbox(direction,normalize(vec3(-.55,.70,.45)),vec2(.36,.72),roughness);
+  float strip=softbox(direction,normalize(vec3(.72,.30,-.45)),vec2(.13,.65),roughness);
+  float overhead=pow(max(dot(direction,normalize(vec3(.15,1.0,.05))),0.0),mix(120.0,4.0,roughness));
+  env+=uStudio*(vec3(1.0,.90,.76)*broad+vec3(.68,.82,1.0)*strip*.9+vec3(1.0)*overhead*.6)*mix(2.4,.8,roughness);
+  return env*uEnvIntensity;
+}
+vec3 filmic(vec3 c) { return clamp((c*(2.51*c+.03))/(c*(2.43*c+.59)+.14),0.0,1.0); }
+vec3 toSRGB(vec3 c) {
+  return mix(c*12.92,1.055*pow(max(c,vec3(0)),vec3(1.0/2.4))-.055,step(vec3(.0031308),c));
+}
+void main() {
+  if(uClipEnabled>.5&&dot(vec4(vWorld,1.0),uClipPlane)<0.0)discard;
+  vec3 n=normalize(vNormal);if(!gl_FrontFacing)n=-n;
+  vec3 geometricNormal=n,p=vLocal*uTextureScale,base=uColor;
+  float rough=clamp(uRoughness,.055,1.0),metal=clamp(uMetalness,0.0,1.0);
+  if(uTexture>.5&&uTexture<1.5) {
+    p=vSurface*uTextureScale;
+    float warp=fbm(vec3(p.x*3.0,p.y*.35,p.z*.35));
+    float ring=.5+.5*sin(p.x*175.0+sin(p.z*2.0)*.8+warp*8.0);
+    float fine=noise3(vec3(p.x*230.0,p.y*1.2,p.z*1.2));
+    base*=mix(1.0,.82+.14*ring+.05*fine,uTextureStrength);
+    rough=clamp(rough+(ring-.5)*.09*uTextureStrength,.08,1.0);
+  } else if(uTexture>1.5&&uTexture<2.5) {
+    float grain=noise3(p*95.0),speck=step(.82,grain);
+    base*=mix(1.0,.97+.055*grain-.09*speck,uTextureStrength);
+    rough=clamp(rough+(grain-.5)*.075*uTextureStrength,.07,1.0);
+  } else if(uTexture>2.5&&uTexture<3.5) {
+    float rock=fbm(p*3.8),vein=smoothstep(.44,.48,rock)-smoothstep(.49,.53,rock);
+    base*=mix(1.0,.58+.67*rock+.14*vein,uTextureStrength);
+    float e=.035,v=noise3(p*9.0);
+    vec3 grad=vec3(noise3(p*9.0+vec3(e,0,0))-v,noise3(p*9.0+vec3(0,e,0))-v,noise3(p*9.0+vec3(0,0,e))-v)/e;
+    vec3 worldGradient=uNormalMatrix*grad;
+    n=normalize(n-uTextureStrength*.09*(worldGradient-n*dot(worldGradient,n)));
+    rough=max(rough,.72);
+  } else if(uTexture>3.5&&uTexture<4.5) {
+    float a=p.x*3.1+p.z*1.6+uTime*.75,b=p.z*4.0-p.x*1.2-uTime*.52;
+    vec3 wave=vec3(.095*cos(a)+.028*cos(b*2.1),0.0,.07*sin(b)+.03*sin(a*1.7));
+    wave=uNormalMatrix*wave;
+    n=normalize(n+uTextureStrength*(wave-n*dot(wave,n)));
+    base*=.94+.06*sin(a+b);
+  }
+  vec3 v=normalize(uEye-vWorld),l=normalize(uLightDirection),h=normalize(v+l);
+  float nl=max(dot(n,l),0.0),nv=max(dot(n,v),.0001),nh=max(dot(n,h),0.0),vh=max(dot(v,h),0.0);
+  vec3 f0=mix(vec3(.04),base,metal),f=fresnel(vh,f0);
+  float d=distribution(nh,rough),g=visibilityTerm(nv,rough)*visibilityTerm(nl,rough);
+  vec3 spec=d*g*f/max(4.0*nv*nl,.0001),kd=(1.0-f)*(1.0-metal);
+  float shadow=shadowVisibility(geometricNormal,l);
+  vec3 direct=(kd*base/PI+spec)*uLightColor*uLightIntensity*nl*shadow;
+  vec3 hemi=mix(uEnvGround,uEnvSky,smoothstep(-.75,.85,n.y))*uEnvIntensity;
+  vec3 grazing=f0+(max(vec3(1.0-rough),f0)-f0)*pow(1.0-nv,5.0);
+  vec3 ambient=(1.0-grazing)*(1.0-metal)*base*hemi+environment(reflect(-v,n),rough)*grazing*mix(1.0,.62,rough);
+  vec3 lit=direct+ambient*uAO*contactShade(geometricNormal)+uEmission;
+  vec3 mapped=uUnlit>.5?base+uEmission:filmic(lit*uExposure);
+  float distanceToEye=length(uEye-vWorld);
+  float density=uFogDensity*exp(-max(vWorld.y,0.0)*uFogHeight);
+  float fog=1.0-exp(-density*distanceToEye);
+  mapped=mix(mapped,uFogColor,clamp(fog,0.0,1.0));
+  gl_FragColor=vec4(toSRGB(mapped),uOpacity);
+}
+`;
+  var shadowVertex = `
+precision highp float;
+attribute vec3 aPosition;
+uniform mat4 uModel;
+uniform mat4 uLightViewProjection;
+varying vec3 vWorld;
+void main(){vec4 world=uModel*vec4(aPosition,1.0);vWorld=world.xyz;gl_Position=uLightViewProjection*world;}
+`;
+  var shadowFragment = `
+precision highp float;
+varying vec3 vWorld;
+uniform vec4 uClipPlane;
+uniform float uClipEnabled;
+vec4 packDepth(float depth) {
+  vec4 encoded=fract(depth*vec4(16777216.0,65536.0,256.0,1.0));
+  return (encoded-encoded.xxyz*vec4(0.0,1.0/256.0,1.0/256.0,1.0/256.0))*(256.0/255.0);
+}
+void main(){if(uClipEnabled>.5&&dot(vec4(vWorld,1.0),uClipPlane)<0.0)discard;gl_FragColor=packDepth(gl_FragCoord.z);}
+`;
+  var backgroundVertex = `
+precision highp float;
+attribute vec3 aPosition;
+void main(){gl_Position=vec4(aPosition,1.0);}
+`;
+  var backgroundFragment = `
+precision highp float;
+uniform vec2 uResolution;
+uniform vec3 uTop;
+uniform vec3 uBottom;
+uniform float uVignette;
+void main(){
+  vec2 uv=gl_FragCoord.xy/uResolution;
+  vec3 color=mix(uBottom,uTop,smoothstep(0.0,1.0,uv.y));
+  float edge=dot((uv-.5)*vec2(1.15,1.0),(uv-.5)*vec2(1.15,1.0));
+  gl_FragColor=vec4(color*(1.0-uVignette*edge),1.0);
+}
+`;
+  var programs={
+    main:{vertex:mainVertex,fragment:mainFragment},
+    shadow:{vertex:shadowVertex,fragment:shadowFragment},
+    background:{vertex:backgroundVertex,fragment:backgroundFragment}
+  };
+  var backgroundGeometry={id:'a3d_background',version:0,attributes:{aPosition:{size:3,data:[-1,-1,0,3,-1,0,-1,3,0]}},indices:[0,1,2],indexType:'uint16'};
+  var textureTypes={none:0,wood:1,ceramic:2,rock:3,water:4};
+  function uniform(type,value){return {type:type,value:ArrayBuffer.isView(value)?Array.from(value):value};}
+  function resolve(value,time){return typeof value==='function'?value(time):value;}
+  function Scene(options) {
+    Object.assign(this,{camera:{position:[6,4,7],target:[0,0,0],fov:42},background:'#ece9e2',light:{direction:[-3,7,5]},objects:[]},options||{});
+  }
+  function frame(scene,width,height,time) {
+    time=time===undefined?0:time;scene=resolve(scene,time)||{};
+    width=Math.max(1,Math.floor(width));height=Math.max(1,Math.floor(height));
+    var camera=cameraMatrices(scene.camera,width/height),light=scene.light||{},environmentSpec=scene.environment||{},fog=scene.fog||{};
+    var direction=vec3.normalize(light.direction||[-3,7,5]),target=light.target||[0,0,0],extent=light.shadowExtent===undefined?8:light.shadowExtent;
+    var lightDistance=light.shadowDistance===undefined?Math.max(12,extent*3):light.shadowDistance,near=light.shadowNear===undefined?.1:light.shadowNear,far=light.shadowFar===undefined?lightDistance+extent*3:light.shadowFar;
+    var lightEye=vec3.add(target,vec3.scale(direction,lightDistance));
+    var lightVP=multiply(orthographic(-extent,extent,-extent,extent,near,far),lookAt(lightEye,target,[0,1,0]));
+    var shadows=light.shadows!==false,shadowSize=shadows?Math.max(64,Math.min(4096,Math.floor(light.shadowSize||1024))):1;
+    var background=scene.background===undefined?'#ece9e2':scene.background,bgObject=typeof background==='object'&&!Array.isArray(background)&&!ArrayBuffer.isView(background);
+    var top=color(bgObject?background.top:background,'#ece9e2'),bottom=color(bgObject?background.bottom:background,top);
+    var sceneUniforms={
+      uViewProjection:uniform('mat4',camera.viewProjection),uLightViewProjection:uniform('mat4',lightVP),uEye:uniform('vec3',camera.eye),
+      uLightDirection:uniform('vec3',direction),uLightColor:uniform('vec3',linearColor(light.color,'#fff4e4')),uLightIntensity:uniform('float',light.intensity===undefined?3.2:light.intensity),
+      uEnvSky:uniform('vec3',linearColor(environmentSpec.sky,'#b8c4d5')),uEnvGround:uniform('vec3',linearColor(environmentSpec.ground,'#615951')),
+      uEnvIntensity:uniform('float',environmentSpec.intensity===undefined?.75:environmentSpec.intensity),uStudio:uniform('float',environmentSpec.studio===false?0:1),
+      uExposure:uniform('float',scene.exposure===undefined?1.05:scene.exposure),uTime:uniform('float',time),
+      uFogColor:uniform('vec3',linearColor(fog.color,bottom)),uFogDensity:uniform('float',fog.density||0),uFogHeight:uniform('float',fog.heightFalloff||0),
+      uShadowEnabled:uniform('float',shadows?1:0),uShadowTexel:uniform('vec2',[1/shadowSize,1/shadowSize]),
+      uShadowBias:uniform('float',light.shadowBias===undefined?Math.max(.00035,2.6*(2*extent/shadowSize)/(far-near)):light.shadowBias),
+      uShadowSoftness:uniform('float',light.shadowSoftness===undefined?1.25:light.shadowSoftness),uShadowStrength:uniform('float',light.shadowStrength===undefined?1:clamp(light.shadowStrength,0,1))
+    };
+    var geometries={a3d_background:backgroundGeometry},opaque=[],transparent=[],shadowDraws=[];
+    (scene.objects||[]).forEach(function(object,index) {
+      if(!object||resolve(object.visible,time)===false)return;
+      var geometry=resolve(object.geometry,time);if(!geometry)return;
+      if(!geometry.id)geometry.id='a3d_g'+(++geometrySerial);
+      geometries[geometry.id]=geometry;
+      var material=resolve(object.material,time)||{},model=resolve(object.model,time)||compose({position:resolve(object.position,time)||[0,0,0],rotation:resolve(object.rotation,time)||[0,0,0],scale:resolve(object.scale,time)||[1,1,1]});
+      var base=linearColor(material.color,'#c7c4bb'),emission=material.emission===undefined?[0,0,0]:(typeof material.emission==='number'?base.map(function(c){return c*material.emission;}):linearColor(material.emission));
+      var opacity=material.opacity===undefined?1:clamp(material.opacity,0,1),clip=resolve(object.clipPlane,time)||material.clipPlane;
+      var common={uModel:uniform('mat4',model),uClipPlane:uniform('vec4',clip||[0,1,0,0]),uClipEnabled:uniform('float',clip?1:0)};
+      var uniforms=Object.assign({},common,{
+        uNormalMatrix:uniform('mat3',normalMatrix(model)),uColor:uniform('vec3',base),uEmission:uniform('vec3',emission),
+        uRoughness:uniform('float',material.roughness===undefined?.45:clamp(material.roughness,.055,1)),uMetalness:uniform('float',material.metalness===undefined?0:clamp(material.metalness,0,1)),
+        uOpacity:uniform('float',opacity),uTexture:uniform('float',typeof material.texture==='number'?material.texture:(textureTypes[material.texture]||0)),
+        uTextureScale:uniform('float',material.textureScale===undefined?1:material.textureScale),uTextureStrength:uniform('float',material.textureStrength===undefined?1:material.textureStrength),
+        uUnlit:uniform('float',material.unlit?1:0),uAO:uniform('float',material.ao===undefined?1:clamp(material.ao,0,1)),uReceiveShadow:uniform('float',object.receiveShadow===false?0:1)
+      });
+      var draw={program:'main',geometry:geometry.id,label:object.name||object.id||('object_'+index),uniforms:uniforms,cullFace:object.doubleSided||material.doubleSided?null:'back'};
+      if(opacity<1){draw.blend='alpha';draw.depthWrite=false;draw._distance=vec3.length(vec3.sub([model[12],model[13],model[14]],camera.eye));transparent.push(draw);}
+      else opaque.push(draw);
+      if(shadows&&object.castShadow!==false&&(opacity>=.95||object.castShadow===true))shadowDraws.push({program:'shadow',geometry:geometry.id,label:draw.label,uniforms:common,cullFace:draw.cullFace});
+    });
+    transparent.sort(function(a,b){return b._distance-a._distance;});transparent.forEach(function(d){delete d._distance;});
+    var passes=[];
+    if(shadows)passes.push({target:'a3d_shadow',clearColor:[1,1,1,1],clearDepth:1,depthTest:true,depthWrite:true,cullFace:'back',frontFace:'ccw',polygonOffset:{factor:1.5,units:2},uniforms:{uLightViewProjection:sceneUniforms.uLightViewProjection},draws:shadowDraws});
+    var backgroundDraw={program:'background',geometry:'a3d_background',depthTest:false,depthWrite:false,cullFace:null,uniforms:{uResolution:uniform('vec2',[width,height]),uTop:uniform('vec3',top),uBottom:uniform('vec3',bottom),uVignette:uniform('float',bgObject?(background.vignette||0):0)}};
+    passes.push({target:null,clearColor:bottom.concat(1),clearDepth:1,depthTest:true,depthWrite:true,cullFace:'back',frontFace:'ccw',uniforms:sceneUniforms,textures:{uShadowMap:'a3d_shadow'},draws:[backgroundDraw].concat(opaque,transparent)});
+    return {schema:'native-scene-frame-v1',generator:'Atelier3D 1.0',width:width,height:height,glesVersion:2,scene:{camera:scene.camera||{},time:time,objectCount:opaque.length+transparent.length,shadowExtent:extent},programs:programs,geometries:geometries,textures:{a3d_shadow:shadows?{width:shadowSize,height:shadowSize,renderTarget:true,depthBuffer:true,minFilter:'nearest',magFilter:'nearest',wrapS:'clamp_to_edge',wrapT:'clamp_to_edge'}:{width:1,height:1,pixels:[255,255,255,255],minFilter:'nearest',magFilter:'nearest'}},passes:passes};
+  }
+  function inverseMatrix(m){
+    var a=m.slice(),o=identity();for(var col=0;col<4;col++){
+      var pivot=col;for(var r=col+1;r<4;r++)if(Math.abs(a[col*4+r])>Math.abs(a[col*4+pivot]))pivot=r;
+      if(Math.abs(a[col*4+pivot])<1e-14)return identity();
+      for(var c=0;c<4;c++){var t=a[c*4+col];a[c*4+col]=a[c*4+pivot];a[c*4+pivot]=t;t=o[c*4+col];o[c*4+col]=o[c*4+pivot];o[c*4+pivot]=t;}
+      var div=a[col*4+col];for(var c=0;c<4;c++){a[c*4+col]/=div;o[c*4+col]/=div;}
+      for(var r=0;r<4;r++)if(r!==col){var k=a[col*4+r];for(var c=0;c<4;c++){a[c*4+r]-=k*a[c*4+col];o[c*4+r]-=k*o[c*4+col];}}
+    }return o;
+  }
+  var sourceFrame=frame;
+  frame=function(scene,width,height,time){
+    var settings=typeof globalThis!=='undefined'&&globalThis.AtelierDisplay||{},quality=settings.quality||'fine';
+    var displayScene=Object.assign({},scene);
+    displayScene.objects=scene.objects.map(function(o){if(!o.geometry||!o.geometry.boxSize||o.bevel===false||quality==='fast')return o;
+      var matrix=o.model?o.model.slice():compose(o),scale=[0,1,2].map(function(k){return Math.hypot(matrix[k*4],matrix[k*4+1],matrix[k*4+2]);});
+      if(scale.some(function(x){return x<1e-8;}))return o;
+      var dims=o.geometry.boxSize.map(function(v,k){return v*scale[k];});
+      var bevel=Math.min(.012,Math.min.apply(null,dims)*.045);
+      if(bevel<.00001)return o;
+      for(var k=0;k<3;k++)for(var r=0;r<3;r++)matrix[k*4+r]/=scale[k];
+      // Do not round sheared transforms: the scientific shape must remain faithful.
+      if(Math.abs(matrix[0]*matrix[4]+matrix[1]*matrix[5]+matrix[2]*matrix[6])>.0001)return o;
+      return Object.assign({},o,{model:matrix,geometry:roundBox(dims[0],dims[1],dims[2],bevel)});
+    });
+    if(quality==='fast'&&scene.light)displayScene.light=Object.assign({},scene.light,{shadowSize:768});
+    var packet=sourceFrame(displayScene,width,height,time),main=packet.passes.find(function(p){return p.target===null;}),vp=main.uniforms.uViewProjection.value;
+    var enable=scene.contactShadows!==false&&quality!=='fast'&&(!scene.light||scene.light.shadows!==false),extent=packet.scene.shadowExtent||6;var depthScale=Math.min(1,1280/packet.width,960/packet.height);
+    main.uniforms.uCameraVP=uniform('mat4',vp);main.uniforms.uInverseVP=uniform('mat4',inverseMatrix(vp));main.uniforms.uContactEnabled=uniform('float',enable?1:0);
+    main.uniforms.uContactRadius=uniform('float',scene.contactRadius||Math.max(.018,extent*.030));main.uniforms.uContactStrength=uniform('float',scene.contactStrength===undefined?.68:scene.contactStrength);
+    packet.textures.a3d_camera_depth=enable?{width:Math.max(1,Math.round(packet.width*depthScale)),height:Math.max(1,Math.round(packet.height*depthScale)),renderTarget:true,depthBuffer:true,minFilter:'nearest',magFilter:'nearest',wrapS:'clamp_to_edge',wrapT:'clamp_to_edge'}:{width:1,height:1,pixels:[255,255,255,255]};
+    main.textures.uCameraDepth='a3d_camera_depth';
+    if(enable)packet.passes.unshift({target:'a3d_camera_depth',clearColor:[1,1,1,1],clearDepth:1,depthTest:true,depthWrite:true,cullFace:'back',frontFace:'ccw',uniforms:{uLightViewProjection:uniform('mat4',vp)},draws:main.draws.filter(function(d){return d.program==='main'&&d.uniforms.uOpacity.value>=.98}).map(function(d){return {program:'shadow',geometry:d.geometry,cullFace:d.cullFace,uniforms:{uModel:d.uniforms.uModel,uClipPlane:d.uniforms.uClipPlane,uClipEnabled:d.uniforms.uClipEnabled}};})});
+    packet.generator='Atelier3D 2.0 / v4 display pipeline';return packet;
+  };
+  var enumNames={triangles:'TRIANGLES',triangle_strip:'TRIANGLE_STRIP',triangle_fan:'TRIANGLE_FAN',lines:'LINES',line_strip:'LINE_STRIP',line_loop:'LINE_LOOP',points:'POINTS',back:'BACK',front:'FRONT',front_and_back:'FRONT_AND_BACK',cw:'CW',ccw:'CCW',nearest:'NEAREST',linear:'LINEAR',clamp_to_edge:'CLAMP_TO_EDGE',repeat:'REPEAT',mirrored_repeat:'MIRRORED_REPEAT',less:'LESS',lequal:'LEQUAL',always:'ALWAYS',zero:'ZERO',one:'ONE',src_alpha:'SRC_ALPHA',one_minus_src_alpha:'ONE_MINUS_SRC_ALPHA',dst_alpha:'DST_ALPHA',one_minus_dst_alpha:'ONE_MINUS_DST_ALPHA'};
+  function Renderer(canvas,options) {
+    if(!canvas||typeof canvas.getContext!=='function')throw new Error('Renderer needs a canvas.');
+    this.canvas=canvas;this.options=options||{};
+    this.gl=canvas.getContext('webgl',{alpha:false,antialias:this.options.antialias!==false,premultipliedAlpha:false,preserveDrawingBuffer:!!this.options.preserveDrawingBuffer});
+    if(!this.gl)throw new Error('WebGL is unavailable in this browser or device.');
+    this.programs={};this.geometries={};this.textures={};this.enabledAttributes=[];this.lastFrame=null;
+  }
+  Renderer.prototype._enum=function(name){return this.gl[enumNames[name]||name];};
+  Renderer.prototype._program=function(id,spec) {
+    var gl=this.gl,existing=this.programs[id];if(existing&&existing.vertex===spec.vertex&&existing.fragment===spec.fragment)return existing;
+    if(existing)gl.deleteProgram(existing.handle);
+    function compile(type,source){var s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){var message=gl.getShaderInfoLog(s);gl.deleteShader(s);throw new Error('Atelier3D shader compilation failed: '+message);}return s;}
+    var vertex=compile(gl.VERTEX_SHADER,spec.vertex),fragment=compile(gl.FRAGMENT_SHADER,spec.fragment),program=gl.createProgram();
+    gl.attachShader(program,vertex);gl.attachShader(program,fragment);gl.linkProgram(program);gl.deleteShader(vertex);gl.deleteShader(fragment);
+    if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error('Atelier3D shader link failed: '+gl.getProgramInfoLog(program));
+    var out={handle:program,vertex:spec.vertex,fragment:spec.fragment,uniforms:{},attributes:{}};this.programs[id]=out;return out;
+  };
+  Renderer.prototype._geometry=function(id,spec) {
+    var gl=this.gl,old=this.geometries[id];if(old&&old.source===spec&&old.version===(spec.version||0))return old;
+    if(old){Object.keys(old.attributes).forEach(function(k){gl.deleteBuffer(old.attributes[k].buffer);});if(old.indexBuffer)gl.deleteBuffer(old.indexBuffer);}
+    var out={source:spec,version:spec.version||0,attributes:{},count:0,indexBuffer:null};
+    Object.keys(spec.attributes).forEach(function(name){var attribute=spec.attributes[name],buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(attribute.data),gl.STATIC_DRAW);out.attributes[name]={buffer:buffer,size:attribute.size};out.count=attribute.data.length/attribute.size;});
+    if(spec.indices!==undefined&&spec.indices!==null){if(spec.indexType&&spec.indexType!=='uint16')throw new Error('Atelier3D browser renderer supports uint16 indices.');var indices=Array.isArray(spec.indices)||ArrayBuffer.isView(spec.indices)?spec.indices:spec.indices.data;out.indexBuffer=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,out.indexBuffer);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indices),gl.STATIC_DRAW);out.count=indices.length;}
+    this.geometries[id]=out;return out;
+  };
+  Renderer.prototype._texture=function(id,spec) {
+    var pixelKey=spec.pixels&&spec.pixels.length<=64?Array.from(spec.pixels).join(','):null;
+    var gl=this.gl,key=[spec.width,spec.height,spec.renderTarget,spec.depthBuffer,spec.minFilter,spec.magFilter,spec.wrapS,spec.wrapT,spec.version||0,pixelKey].join('|'),old=this.textures[id],self=this;
+    if(old&&old.key===key&&(!spec.pixels||old.pixels===spec.pixels||pixelKey!==null))return old;
+    if(old){gl.deleteTexture(old.texture);if(old.framebuffer)gl.deleteFramebuffer(old.framebuffer);if(old.depthBuffer)gl.deleteRenderbuffer(old.depthBuffer);}
+    var texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,texture);
+    [[gl.TEXTURE_MIN_FILTER,spec.minFilter||'nearest'],[gl.TEXTURE_MAG_FILTER,spec.magFilter||'nearest'],[gl.TEXTURE_WRAP_S,spec.wrapS||'clamp_to_edge'],[gl.TEXTURE_WRAP_T,spec.wrapT||'clamp_to_edge']].forEach(function(pair){gl.texParameteri(gl.TEXTURE_2D,pair[0],self._enum(pair[1]));});
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,spec.width,spec.height,0,gl.RGBA,gl.UNSIGNED_BYTE,spec.pixels?new Uint8Array(spec.pixels):null);
+    var out={texture:texture,framebuffer:null,depthBuffer:null,width:spec.width,height:spec.height,key:key,pixels:spec.pixels};
+    if(spec.renderTarget){out.framebuffer=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,out.framebuffer);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,texture,0);if(spec.depthBuffer!==false){out.depthBuffer=gl.createRenderbuffer();gl.bindRenderbuffer(gl.RENDERBUFFER,out.depthBuffer);gl.renderbufferStorage(gl.RENDERBUFFER,gl.DEPTH_COMPONENT16,spec.width,spec.height);gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,out.depthBuffer);}if(gl.checkFramebufferStatus(gl.FRAMEBUFFER)!==gl.FRAMEBUFFER_COMPLETE)throw new Error('Atelier3D framebuffer is incomplete.');}
+    this.textures[id]=out;return out;
+  };
+  Renderer.prototype._uniform=function(program,name,spec) {
+    var gl=this.gl,loc;if(Object.prototype.hasOwnProperty.call(program.uniforms,name))loc=program.uniforms[name];else{loc=gl.getUniformLocation(program.handle,name);program.uniforms[name]=loc;}
+    if(loc===null)return;var type=spec.type,v=spec.value;
+    if(type==='float'||type==='1f')gl.uniform1f(loc,v);
+    else if(type==='int'||type==='bool'||type==='sampler2D'||type==='1i')gl.uniform1i(loc,v);
+    else if(type==='vec2')gl.uniform2fv(loc,v);
+    else if(type==='vec3')gl.uniform3fv(loc,v);
+    else if(type==='vec4')gl.uniform4fv(loc,v);
+    else if(type==='mat3')gl.uniformMatrix3fv(loc,false,v);
+    else if(type==='mat4')gl.uniformMatrix4fv(loc,false,v);
+    else if(type==='float[]')gl.uniform1fv(loc,v);
+    else if(type==='vec2[]')gl.uniform2fv(loc,v);
+    else if(type==='vec3[]')gl.uniform3fv(loc,v);
+    else if(type==='vec4[]')gl.uniform4fv(loc,v);
+    else throw new Error('Unsupported frame uniform type: '+type);
+  };
+  Renderer.prototype._state=function(spec) {
+    var gl=this.gl,self=this;function enabled(cap,yes){if(yes)gl.enable(cap);else gl.disable(cap);}
+    enabled(gl.DEPTH_TEST,spec.depthTest!==false);gl.depthFunc(this._enum(spec.depthFunc||'less'));gl.depthMask(spec.depthWrite!==false);
+    enabled(gl.CULL_FACE,!!spec.cullFace);if(spec.cullFace)gl.cullFace(this._enum(spec.cullFace));gl.frontFace(this._enum(spec.frontFace||'ccw'));
+    enabled(gl.BLEND,!!spec.blend);if(spec.blend==='alpha')gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);else if(spec.blend==='additive')gl.blendFunc(gl.SRC_ALPHA,gl.ONE);else if(spec.blend&&typeof spec.blend==='object')gl.blendFunc(this._enum(spec.blend.src||'src_alpha'),this._enum(spec.blend.dst||'one_minus_src_alpha'));
+    enabled(gl.POLYGON_OFFSET_FILL,!!spec.polygonOffset);if(spec.polygonOffset)gl.polygonOffset(spec.polygonOffset.factor||0,spec.polygonOffset.units||0);
+    gl.lineWidth(spec.lineWidth||1);var mask=spec.colorMask||[true,true,true,true];gl.colorMask(mask[0],mask[1],mask[2],mask[3]);
+  };
+  Renderer.prototype._prune=function(packet) {
+    var gl=this.gl,self=this;
+    Object.keys(this.geometries).forEach(function(id){if(Object.prototype.hasOwnProperty.call(packet.geometries,id))return;var geometry=self.geometries[id];Object.keys(geometry.attributes).forEach(function(name){gl.deleteBuffer(geometry.attributes[name].buffer);});if(geometry.indexBuffer)gl.deleteBuffer(geometry.indexBuffer);delete self.geometries[id];});
+    Object.keys(this.textures).forEach(function(id){if(packet.textures&&Object.prototype.hasOwnProperty.call(packet.textures,id))return;var texture=self.textures[id];gl.deleteTexture(texture.texture);if(texture.framebuffer)gl.deleteFramebuffer(texture.framebuffer);if(texture.depthBuffer)gl.deleteRenderbuffer(texture.depthBuffer);delete self.textures[id];});
+    Object.keys(this.programs).forEach(function(id){if(Object.prototype.hasOwnProperty.call(packet.programs,id))return;gl.deleteProgram(self.programs[id].handle);delete self.programs[id];});
+  };
+  Renderer.prototype.drawFrame=function(packet) {
+    var gl=this.gl,self=this;if(this.canvas.width!==packet.width)this.canvas.width=packet.width;if(this.canvas.height!==packet.height)this.canvas.height=packet.height;
+    Object.keys(packet.programs).forEach(function(id){self._program(id,packet.programs[id]);});
+    Object.keys(packet.geometries).forEach(function(id){self._geometry(id,packet.geometries[id]);});
+    Object.keys(packet.textures||{}).forEach(function(id){self._texture(id,packet.textures[id]);});
+    this._prune(packet);
+    packet.passes.forEach(function(pass){
+      var target=pass.target?self.textures[pass.target]:null;gl.bindFramebuffer(gl.FRAMEBUFFER,target?target.framebuffer:null);
+      var viewport=pass.viewport||[0,0,target?target.width:packet.width,target?target.height:packet.height];gl.viewport(viewport[0],viewport[1],viewport[2],viewport[3]);
+      self._state(pass);var mask=0;
+      if(pass.clearColor){gl.clearColor(pass.clearColor[0],pass.clearColor[1],pass.clearColor[2],pass.clearColor[3]);mask|=gl.COLOR_BUFFER_BIT;}
+      if(pass.clearDepth!==false){gl.clearDepth(pass.clearDepth===undefined?1:pass.clearDepth);mask|=gl.DEPTH_BUFFER_BIT;}if(mask)gl.clear(mask);
+      (pass.draws||[]).forEach(function(draw){
+        var program=self.programs[draw.program],geometry=self.geometries[draw.geometry],state=Object.assign({},pass,draw);self._state(state);gl.useProgram(program.handle);
+        var uniforms=Object.assign({},pass.uniforms||{},draw.uniforms||{});Object.keys(uniforms).forEach(function(name){self._uniform(program,name,uniforms[name]);});
+        var textures=Object.assign({},pass.textures||{},draw.textures||{});Object.keys(textures).forEach(function(name,unit){gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,self.textures[textures[name]].texture);self._uniform(program,name,{type:'sampler2D',value:unit});});
+        self.enabledAttributes.forEach(function(location){gl.disableVertexAttribArray(location);});self.enabledAttributes=[];
+        Object.keys(geometry.attributes).forEach(function(name){var loc;if(Object.prototype.hasOwnProperty.call(program.attributes,name))loc=program.attributes[name];else{loc=gl.getAttribLocation(program.handle,name);program.attributes[name]=loc;}if(loc<0)return;var attr=geometry.attributes[name];gl.bindBuffer(gl.ARRAY_BUFFER,attr.buffer);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,attr.size,gl.FLOAT,false,0,0);self.enabledAttributes.push(loc);});
+        var mode=self._enum(draw.mode||'triangles'),count=draw.count===undefined?geometry.count:draw.count,first=draw.first||0;
+        if(geometry.indexBuffer){gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,geometry.indexBuffer);gl.drawElements(mode,count,gl.UNSIGNED_SHORT,first*2);}else gl.drawArrays(mode,first,count);
+      });
+    });
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);this.lastFrame=packet;return packet;
+  };
+  Renderer.prototype.resize=function(width,height,pixelRatio) {
+    var ratio=pixelRatio===undefined?1:pixelRatio;this.canvas.width=Math.max(1,Math.round(width*ratio));this.canvas.height=Math.max(1,Math.round(height*ratio));this._manualSize=true;return this;
+  };
+  Renderer.prototype.render=function(scene,time) {
+    if(!this._manualSize&&this.options.autoResize!==false){var ratio=this.options.pixelRatio===undefined?Math.min(typeof devicePixelRatio==='number'?devicePixelRatio:1,2):this.options.pixelRatio,w=Math.round((this.canvas.clientWidth||this.canvas.width)*ratio),h=Math.round((this.canvas.clientHeight||this.canvas.height)*ratio);if(this.canvas.width!==w)this.canvas.width=w;if(this.canvas.height!==h)this.canvas.height=h;}
+    return this.drawFrame(frame(scene,this.canvas.width,this.canvas.height,time));
+  };
+  Renderer.prototype.dispose=function() {
+    var gl=this.gl;Object.values(this.programs).forEach(function(p){gl.deleteProgram(p.handle);});Object.values(this.geometries).forEach(function(g){Object.values(g.attributes).forEach(function(a){gl.deleteBuffer(a.buffer);});if(g.indexBuffer)gl.deleteBuffer(g.indexBuffer);});Object.values(this.textures).forEach(function(t){gl.deleteTexture(t.texture);if(t.framebuffer)gl.deleteFramebuffer(t.framebuffer);if(t.depthBuffer)gl.deleteRenderbuffer(t.depthBuffer);});this.programs={};this.geometries={};this.textures={};this.lastFrame=null;
+  };
+  function Orbit(canvas,camera,options) {
+    if(!canvas||!camera)throw new Error('Orbit needs a canvas and a mutable camera object.');
+    this.canvas=canvas;this.camera=camera;this.options=options||{};this.initial={position:(camera.position||camera.eye||[6,4,7]).slice(),target:(camera.target||[0,0,0]).slice(),ortho:camera.ortho};
+    camera.position=this.initial.position.slice();camera.target=this.initial.target.slice();this.pointers=new Map();this.listeners=[];this.sync();
+    var self=this;
+    function listen(type,fn,opts){canvas.addEventListener(type,fn,opts);self.listeners.push([type,fn,opts]);}
+    if(canvas.style)canvas.style.touchAction='none';
+    listen('pointerdown',function(e){if(e.button!==undefined&&e.button>2)return;self.dragPan=e.button===1||e.button===2||e.shiftKey;self.pointers.set(e.pointerId,[e.clientX,e.clientY]);if(canvas.setPointerCapture)canvas.setPointerCapture(e.pointerId);});
+    listen('pointermove',function(e){if(!self.pointers.has(e.pointerId))return;var prev=self.pointers.get(e.pointerId),before=Array.from(self.pointers.values());self.pointers.set(e.pointerId,[e.clientX,e.clientY]);var after=Array.from(self.pointers.values());if(after.length>1){var oldDistance=Math.hypot(before[0][0]-before[1][0],before[0][1]-before[1][1]),newDistance=Math.hypot(after[0][0]-after[1][0],after[0][1]-after[1][1]);if(newDistance>1&&oldDistance>1)self.zoom(oldDistance/newDistance);self.pan((after[0][0]+after[1][0]-before[0][0]-before[1][0])*.5,(after[0][1]+after[1][1]-before[0][1]-before[1][1])*.5);}else if(self.dragPan)self.pan(e.clientX-prev[0],e.clientY-prev[1]);else self.rotate(-(e.clientX-prev[0])*.006*(self.options.rotateSpeed||1),-(e.clientY-prev[1])*.006*(self.options.rotateSpeed||1));});
+    function release(e){self.pointers.delete(e.pointerId);}listen('pointerup',release);listen('pointercancel',release);listen('lostpointercapture',release);
+    listen('contextmenu',function(e){e.preventDefault();});listen('wheel',function(e){e.preventDefault();self.zoom(Math.exp(clamp(e.deltaY,-120,120)*.0015*(self.options.zoomSpeed||1)));},{passive:false});
+  }
+  Orbit.prototype.sync=function(){var d=vec3.sub(this.camera.position,this.camera.target);this.radius=Math.max(1e-6,vec3.length(d));this.theta=Math.atan2(d[0],d[2]);this.phi=Math.acos(clamp(d[1]/this.radius,-1,1));return this;};
+  Orbit.prototype._update=function(){this.phi=clamp(this.phi,this.options.minPhi===undefined?.06:this.options.minPhi,this.options.maxPhi===undefined?Math.PI-.06:this.options.maxPhi);this.radius=clamp(this.radius,this.options.minDistance===undefined?.5:this.options.minDistance,this.options.maxDistance===undefined?150:this.options.maxDistance);var sin=Math.sin(this.phi),offset=[this.radius*sin*Math.sin(this.theta),this.radius*Math.cos(this.phi),this.radius*sin*Math.cos(this.theta)];this.camera.position=vec3.add(this.camera.target,offset);if(this.options.onChange)this.options.onChange(this.camera);return this;};
+  Orbit.prototype.rotate=function(yaw,pitch){this.theta+=yaw;this.phi+=pitch||0;return this._update();};
+  Orbit.prototype.zoom=function(factor){if(this.camera.ortho&&typeof this.camera.ortho==='number')this.camera.ortho=clamp(this.camera.ortho*factor,.1,1000);else this.radius*=factor;return this._update();};
+  Orbit.prototype.pan=function(dx,dy){var f=vec3.normalize(vec3.sub(this.camera.target,this.camera.position)),r=vec3.normalize(vec3.cross(f,[0,1,0])),u=vec3.normalize(vec3.cross(r,f)),scale=(this.camera.ortho||2*this.radius*Math.tan((this.camera.fov||45)*Math.PI/360))/Math.max(1,this.canvas.clientHeight||this.canvas.height),delta=vec3.add(vec3.scale(r,-dx*scale),vec3.scale(u,dy*scale));this.camera.target=vec3.add(this.camera.target,delta);return this._update();};
+  Orbit.prototype.reset=function(){this.camera.position=this.initial.position.slice();this.camera.target=this.initial.target.slice();this.camera.ortho=this.initial.ortho;this.sync();return this._update();};
+  Orbit.prototype.dispose=function(){var canvas=this.canvas;this.listeners.forEach(function(entry){canvas.removeEventListener(entry[0],entry[1],entry[2]);});this.listeners=[];this.pointers.clear();};
+  return {version:'2.0.0',Scene:Scene,Renderer:Renderer,Orbit:Orbit,frame:frame,programs:programs,box:box,roundBox:roundBox,inverseMatrix:inverseMatrix,plane:plane,sphere:sphere,cylinder:cylinder,torus:torus,lathe:lathe,tube:tube,triangles:triangles,touch:touch,compose:compose,project:project,cameraMatrices:cameraMatrices,color:color,linearColor:linearColor,vec3:vec3,clamp:clamp,mat4:{identity:identity,multiply:multiply,translation:translation,scaling:scaling,rotationX:rotationX,rotationY:rotationY,rotationZ:rotationZ,lookAt:lookAt,perspective:perspective,orthographic:orthographic,normalMatrix:normalMatrix,transformPoint:transformPoint},TAU:TAU};
+});
+
+</script>
+<script id="scene-code">
+(function(){'use strict';const A=Atelier3D,V=A.vec3,PI=Math.PI,RAD=PI/180;const POS=[[-2.55,1.05,-.1],[-.3,1.55,-2.1],[2.35,2.1,-.25]],SOURCE=[-4.2,1.05,-2.95],TARGET=[.9,2.75,2.25],TARGET_R=.36;const MESH={box:A.box(1,1,1),sphere:A.sphere(1,18,12),cylinder:A.cylinder(1,1,1,36),ring:A.torus(1,.015,8,64),face:A.cylinder(.59,.59,.032,64),mirrorRing:A.torus(.675,.052,12,72),frame:A.box(1,1,1),base:A.cylinder(.28,.34,.12,40),plate:A.box(9.2,.16,7.1),rim:A.box(9.32,.05,7.22)};
+function normalize(v){return V.normalize(v);}function add(a,b){return V.add(a,b);}function sub(a,b){return V.sub(a,b);}function mul(a,n){return V.scale(a,n);}function dot(a,b){return V.dot(a,b);}function normal(o){const p=o.pitch*RAD,y=o.yaw*RAD;return[Math.sin(y)*Math.cos(p),-Math.sin(p),Math.cos(y)*Math.cos(p)];}function basis(o){const p=o.pitch*RAD,y=o.yaw*RAD;return{n:normal(o),u:[Math.cos(y),0,-Math.sin(y)],v:[Math.sin(y)*Math.sin(p),Math.cos(p),Math.cos(y)*Math.sin(p)]};}function reflect(d,n){return normalize(sub(d,mul(n,2*dot(d,n))));}function toAngles(n){return{yaw:Math.atan2(n[0],n[2])/RAD,pitch:-Math.asin(n[1])/RAD};}
+function solution(){return POS.map((p,i)=>{const incoming=normalize(sub(p,i?POS[i-1]:SOURCE)),outgoing=normalize(sub(i===POS.length-1?TARGET:POS[i+1],p));return toAngles(normalize(sub(incoming,outgoing)));});}
+const TARGET_N=normalize(sub(POS[2],TARGET)),TARGET_ANGLES=toAngles(TARGET_N);
+function camera(){return{position:[-6.5,7.1,9],target:[-.35,.65,-.3],fov:36,near:.05,far:90};}
+function initialState(){const mirrors=solution();mirrors[2].yaw+=9.5;return{mirrors,selected:2,blocker:false,camera:camera()};}
+function validate(s){if(!s||!Array.isArray(s.mirrors)||s.mirrors.length!==3)throw Error('需要恰好三面镜子的角度。');const mirrors=s.mirrors.map(m=>{if(!m||!Number.isFinite(m.yaw)||!Number.isFinite(m.pitch)||m.yaw<-180||m.yaw>180||m.pitch<-65||m.pitch>65)throw Error('镜面角度越界或不是数字。');return{yaw:m.yaw,pitch:m.pitch};});if(typeof s.blocker!=='boolean'||!Number.isInteger(s.selected)||s.selected<0||s.selected>2)throw Error('状态字段不完整。');return{mirrors,selected:s.selected,blocker:s.blocker,camera:camera()};}
+function planeHit(o,d,c,b,rx,ry,disc=false){const denom=dot(d,b.n);if(Math.abs(denom)<1e-8)return null;const t=dot(sub(c,o),b.n)/denom;if(t<1e-4)return null;const p=add(o,mul(d,t)),q=sub(p,c),u=dot(q,b.u),v=dot(q,b.v);if(disc?u*u+v*v>rx*rx:Math.abs(u)>rx||Math.abs(v)>ry)return null;return{t,p,n:b.n};}
+function boxHit(o,d,lo,hi){let near=-Infinity,far=Infinity;for(let k=0;k<3;k++){if(Math.abs(d[k])<1e-9){if(o[k]<lo[k]||o[k]>hi[k])return null;}else{let a=(lo[k]-o[k])/d[k],b=(hi[k]-o[k])/d[k];if(a>b)[a,b]=[b,a];near=Math.max(near,a);far=Math.min(far,b);}}const t=near>1e-4?near:far;if(far<near||t<1e-4)return null;return{t,p:add(o,mul(d,t))};}
+function trace(s){let o=SOURCE.slice(),d=normalize(sub(POS[0],SOURCE)),segments=[],hits=[],reason='escaped',hitTarget=false;for(let bounce=0;bounce<12;bounce++){let best={t:9,p:add(o,mul(d,9)),kind:'escaped'};for(let i=0;i<3;i++){const h=planeHit(o,d,POS[i],basis(s.mirrors[i]),.59,.59,true);if(h&&h.t<best.t)best={...h,kind:'mirror',i};}const t=planeHit(o,d,TARGET,basis(TARGET_ANGLES),TARGET_R,TARGET_R,true);if(t&&t.t<best.t)best={...t,kind:'target'};if(s.blocker){const b=boxHit(o,d,[.9,.14,-1.1],[1.5,2.5,-.15]);if(b&&b.t<best.t)best={...b,kind:'blocker'};}if(d[1]<-1e-8){const k=(.13-o[1])/d[1];if(k>1e-4&&k<best.t)best={t:k,p:add(o,mul(d,k)),kind:'table'};}const room=boxHit(o,d,[-5,.01,-4],[5,4.8,4]);if(room&&room.t<best.t)best={...room,kind:'escaped'};segments.push({a:o.slice(),b:best.p.slice()});if(best.kind==='mirror'){hits.push(best.i);d=reflect(d,best.n);o=add(best.p,mul(d,.001));reason='limit';}else{reason=best.kind;hitTarget=best.kind==='target';break;}}return{segments,hits,reason,hitTarget,end:segments.length?segments[segments.length-1].b:SOURCE};}
+function obj(geometry,color,position,scale,rotation=[0,0,0],extra={}){return{geometry,material:{color,roughness:.5,...extra},model:A.compose({position,scale,rotation})};}
+function oriented(geometry,color,center,angles,local,scale,extra={},rotation=[0,0,0]){const m=A.compose({position:center,rotation:[angles.pitch*RAD,angles.yaw*RAD,0]});return{geometry,model:A.mat4.multiply(m,A.compose({position:local,scale,rotation})),material:{color,roughness:.4,...extra}};}
+function buildScene(s,time=0){const ray=trace(s),objects=[];objects.push(obj(MESH.rim,'#60757b',[0,-.04,0],[1,1,1],[0,0,0],{metalness:.8,roughness:.25}));objects.push(obj(MESH.plate,'#26353b',[0,0,0],[1,1,1],[0,0,0],{metalness:.65,roughness:.66}));
+// Repeated holes and edge grooves describe a machined optical breadboard.
+for(let ix=-4;ix<=4;ix++)for(let iz=-3;iz<=3;iz++){objects.push(obj(MESH.cylinder,'#0b141a',[ix,.087,iz],[.026,.008,.026],[0,0,0],{roughness:1}));}for(const z of[-3.4,3.4])objects.push(obj(MESH.box,'#9bafb2',[0,.082,z],[8.8,.006,.009],[0,0,0],{metalness:.4}));
+for(let i=0;i<3;i++){const p=POS[i],a=s.mirrors[i],selected=s.selected===i;
+objects.push(obj(MESH.base,'#607983',[p[0],.14,p[2]],[1,1,1],[0,0,0],{metalness:.45,roughness:.45}));
+objects.push(obj(MESH.cylinder,'#9badae',[p[0],(p[1]-.55)/2+.12,p[2]],[.05,p[1]-.55,.05],[0,0,0],{metalness:.55,roughness:.42}));
+objects.push(oriented(MESH.face,'#c9dfe1',p,a,[0,0,0],[1,1,1],{metalness:.48,roughness:.22},[PI/2,0,0]));
+objects.push(oriented(MESH.mirrorRing,selected?'#afcdbb':'#697f86',p,a,[0,0,-.03],[1,1,1],{metalness:.9,roughness:.3},[PI/2,0,0]));
+for(let j=0;j<3;j++){const t=j*PI*2/3+PI/2,x=.677*Math.cos(t),y=.677*Math.sin(t);objects.push(oriented(MESH.cylinder,'#c59c60',p,a,[x,y,-.095],[.071,.16,.071],{metalness:.78,roughness:.3},[PI/2,0,0]));objects.push(oriented(MESH.cylinder,'#d9bc81',p,a,[x,y,.008],[.043,.027,.043],{metalness:.65,roughness:.28},[PI/2,0,0]));}
+objects.push(oriented(MESH.box,'#314c55',p,a,[0,-.72,-.12],[.45,.11,.24],{metalness:.8}));
+const b=basis(a);for(const side of[-1,1]){const from=add(add(p,mul(b.u,side*.68)),mul(b.n,-.03)),to=add(add(p,mul(b.u,side*.83)),mul(b.n,-.03));objects.push({geometry:A.tube([from,to],.034,10),material:{color:'#a9baba',metalness:1,roughness:.3}});objects.push(obj(MESH.sphere,'#b2c8c6',to,[.072,.072,.072],[0,0,0],{metalness:.9,roughness:.25}));}
+for(let j=0;j<3;j++){const t=j*PI*2/3;objects.push(obj(MESH.cylinder,'#08151c',[p[0]+.22*Math.cos(t),.207,p[2]+.22*Math.sin(t)],[.035,.015,.035],[0,0,0],{roughness:.8}));}
+}
+const startDir=normalize(sub(POS[0],SOURCE)),sourceAngles=toAngles(startDir);objects.push(oriented(MESH.box,'#c36b32',SOURCE,sourceAngles,[0,0,-.28],[.48,.39,.68],{metalness:.6,roughness:.35}));objects.push(oriented(MESH.box,'#293d43',SOURCE,sourceAngles,[0,0,.06],[.28,.26,.12],{metalness:.9,roughness:.2}));objects.push(obj(MESH.cylinder,'#536d74',[SOURCE[0],.5,SOURCE[2]],[.055,.85,.055],[0,0,0],{metalness:.55,roughness:.42}));objects.push(obj(MESH.base,'#607983',[SOURCE[0],.16,SOURCE[2]],[1.1,1,1.1],[0,0,0],{metalness:.45,roughness:.45}));
+objects.push(oriented(MESH.cylinder,ray.hitTarget?'#a4cc70':'#344c60',TARGET,TARGET_ANGLES,[0,0,-.025],[.43,.05,.43],{metalness:.3,roughness:.6},[PI/2,0,0]));for(const z of[.009,-.06])for(const r of[.11,.23,.36]){const m=A.compose({position:TARGET,rotation:[TARGET_ANGLES.pitch*RAD,TARGET_ANGLES.yaw*RAD,0]});objects.push({geometry:MESH.ring,material:{color:ray.hitTarget?'#e5ffaf':'#bdd3e7',emission:ray.hitTarget?.6:0,roughness:.5},model:A.mat4.multiply(m,A.compose({position:[0,0,z],rotation:[PI/2,0,0],scale:[r,r,r]}))});}objects.push(obj(MESH.cylinder,'#7c9198',[TARGET[0],TARGET[1]/2,TARGET[2]],[.045,TARGET[1],.045],[0,0,0],{metalness:.55,roughness:.42}));objects.push(obj(MESH.base,'#607983',[TARGET[0],.14,TARGET[2]],[1.2,1,1.2],[0,0,0],{metalness:.45,roughness:.45}));
+for(const seg of ray.segments){objects.push({geometry:A.tube([seg.a,seg.b],.012,8),material:{color:'#ffa74d',emission:3.5,roughness:.7},castShadow:false});objects.push({geometry:A.tube([seg.a,seg.b],.034,8),material:{color:'#ff9b38',emission:.5,opacity:.14,unlit:true},castShadow:false});objects.push(obj(MESH.sphere,'#ffe5ab',seg.b,[.025,.025,.025],[0,0,0],{emission:3}));}if(s.blocker){objects.push(obj(MESH.box,'#507079',[1.2,1.32,-.625],[.6,2.36,.95],[0,0,0],{metalness:.5,roughness:.64}));objects.push(obj(MESH.box,'#b9c1a6',[1.2,2.51,-.625],[.61,.024,.96],[0,0,0],{metalness:.6}));}
+return{camera:s.camera,background:{top:'#080f17',bottom:'#1b2c35'},light:{direction:[-3,8,4],target:[0,1,0],intensity:2.8,color:'#f9f1dd',shadowExtent:7,shadowSize:2048,shadowSoftness:1.3,shadowBias:.0007},environment:{sky:'#bbcfd9',ground:'#1c303d',intensity:1.35,studio:true},exposure:.9,objects};}
+globalThis.SceneApp={initialState,buildScene,trace,validate,solution,normal,basis,reflect,planeHit,boxHit,POS,SOURCE,TARGET,camera};
+})();
+</script>
+<script>/* Imagination Atelier v4 — case-specific comparison, portable experiments.
+ * Pure model adapter: no network, no DOM, no executable content from imports.
+ * MIT, hyyhf and contributors. */
+(function(root){'use strict';
+const ID=6, M=root.AppModel||root.SceneApp||root.Artwork;
+const clone=x=>JSON.parse(JSON.stringify(x));
+const row=(label,value,unit='',note='')=>({label,value:Number.isFinite(value)?value:typeof value==='number'?String(value):value,unit,note});
+const round=(v,n=3)=>Number.isFinite(v)?+v.toFixed(n):v;
+const range=(v,a,b)=>Math.max(a,Math.min(b,v));
+function validate(raw){
+ if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('记录需要一个完整的作品状态');
+ let p=clone(raw),i=ID;
+ // Early editorial pieces need explicit structure checks, not blind Object.assign.
+ if(i===1){if(!['square','slot','circle'].includes(p.shape)||!['size','offset','altitude'].every(k=>Number.isFinite(p[k])))throw Error('天窗记录无效');p=M.normalize(p);}
+ else if(i===2)p=M.restore(M.snapshot(p));
+ else if(i===3){if(!['depth','azimuth','fold','yaw','pitch','zoom'].every(k=>Number.isFinite(p[k])))throw Error('剖切参数无效');p=M.normalizeState(p);}
+ else if(i===4)p=M.unpack(M.pack(p));
+ else if(i===5)p=M.validateState(p);
+ else if(i===6)p=M.validate(p);
+ else if(i===7){p={plan:M.validate(p.plan),t:range(Number(p.t)||0,0,180)};}
+ else if(i===8)p=M.validateState(p);
+ else if(i===9){const init=M.initialState();if(!Array.isArray(p.choices)||p.choices.length!==4||p.choices.some(x=>x!==null&&!['A','B'].includes(x))||!Array.isArray(p.visited)||p.visited.some(x=>!M.evidence.some(e=>e.id===x)))throw Error('地图记录损坏');p={...init,mode:['inspect','trace','result'].includes(p.mode)?p.mode:'inspect',choices:p.choices,visited:[...new Set(p.visited)],activeGap:range(Math.floor(p.activeGap||0),0,3),selectedEvidence:M.evidence.some(e=>e.id===p.selectedEvidence)?p.selectedEvidence:null,lens:{enabled:!!p.lens?.enabled,x:range(Number(p.lens?.x)||349,35,1285),y:range(Number(p.lens?.y)||340,33,845)}};if(p.mode==='result'&&M.evaluate(p.choices))p=M.archive(p);else if(p.mode==='result')p.mode='trace';}
+ else if(i===10){let b=M.initialState();if(!['x','z','yaw','pitch','maxS','clock','travel'].every(k=>Number.isFinite(p[k]))||!M.walkable(p.x,p.z))throw Error('探索存档的位置无效');p={...b,...p,seen:{...p.seen},guide:null,guideKind:null,flip:null};p.pitch=range(p.pitch,-1.2,1.2);if(JSON.stringify(p).length>12000)throw Error('探索记录过大');}
+ else if(i===11||i===12||i===13){const v=M.validate(p);if(!v.ok)throw Error(v.errors.join('；'));if(i===11&&p.appearance){if(!['oak','ink','birch'].includes(p.appearance.finish)||!['day','studio','soft'].includes(p.appearance.lighting))throw Error('材料或光线方案无效');p.appearance={finish:p.appearance.finish,lighting:p.appearance.lighting,cut:!!p.appearance.cut,decor:p.appearance.decor!==false};}}
+ else if(i===20){M.validate(p.state);if(p.format!=='atelier-audio-project'||p.version!==1||!Array.isArray(p.media)||p.media.length!==p.state.sources.length)throw Error('音频记录缺少原始媒体');for(const m of p.state.sources){const a=p.media.filter(x=>x.id===m.id);if(a.length!==1)throw Error('媒体索引无效');if(m.kind==='pcm'&&(!Array.isArray(a[0].data)||a[0].data.length!==m.channels||a[0].data.some(x=>typeof x!=='string'||x.length!==Math.ceil(m.frames*4/3)*4)))throw Error('媒体采样长度无效');}}
+ else {let v=M.validate(p);if(v&&typeof v==='object'&&('format'in v||'kind'in v||'schema'in v))p=v;}
+ return p;
+}
+function metrics(p){let d;const i=ID;
+ if(i===1){d=M.describe(p);return [row('天窗开口',round(d.area,2),'m²'),row('太阳高度',p.altitude,'°'),row('横向偏移',round(p.offset,2),'m'),row('光斑中心 X',round(d.projectedCenter[0],2),'m','沿用原几何光线模型')];}
+ if(i===2){d=M.derive(p);return[row('左轮',round(d.rpmL,2),'rpm'),row('右轮',round(d.rpmR,2),'rpm'),row('输入转速',p.rpm,'rpm'),row('平均约束残差',round((d.rpmL+d.rpmR)/2-d.rpmC,9),'rpm','理想运动学；不是受力分析')];}
+ if(i===3){d=M.getModel(p).summary;return[row('切入比例',round(p.depth*100,1),'%'),row('剖面暴露岩层',d.exposedLayers,'层'),row('剖面宽度',round(d.span,2),'模型单位'),row('褶皱幅度',p.fold,'','合成连续地层，不是勘探数据')];}
+ if(i===4){d=M.measures(p);return[row('瓶口 / 腹部',d.ratio,'%'),row('高度 / 腹宽',d.squat,'%'),row('壁厚',p.wall,'模型单位'),row('材质',M.clayNames[p.clay],'')];}
+ if(i===5){d=M.neighborhood(p.focusId);return[row('实际第一近邻',d.count,'个'),row('片段外续接位置',d.missing.length,'个'),row('上 / 同 / 下层',`${d.layers.up} / ${d.layers.middle} / ${d.layers.down}`),row('中心位置',p.focusId,'a/2','有限 FCC 片段；空圈不算实际原子')];}
+ if(i===6){d=M.trace(p);return[row('反射次数',d.hits.length,'次'),row('抵达靶面',d.hitTarget?'是':'否'),row('路径终止',d.reason),row('实际光程',round(d.segments.reduce((a,x)=>a+Math.hypot(...x.a.map((v,k)=>v-x.b[k])),0),3),'模型单位','有限镜面、实际相交判定')];}
+ if(i===7){d=M.metrics(M.simulate(p.plan,180));return[row('车辆平均延误',round(d.carDelay,2),'s','固定180秒，相同种子；含尚在等候者'),row('行人平均等候',round(d.pedDelay,2),'s'),row('车辆完成 / 剩余',`${d.carDone} / ${d.carRemaining}`),row('行人完成 / 剩余',`${d.pedDone} / ${d.pedRemaining}`)];}
+ if(i===8)return[row('文字长度',Array.from(p.text).length,'码点'),row('风场能量',round(M.energy(p),3),'相对量'),row('版式',Number(p.preset)+1),row('随机种子',p.seed,'','相同文字、风场和种子可复现')];
+ if(i===9)return[row('已勘读线索',p.visited.length,'/ 8'),row('已选择缺口',p.choices.filter(Boolean).length,'/ 4'),row('路线假设',p.choices.map(x=>x||'—').join(' · ')),row('归档状态',p.result?`${p.result.supported} / 4 得到支持`:'尚未归档','', '选择不等于证据支持；保存不揭示答案')];
+ if(i===10){d=M.describe(p);return[row('所在章节',d.chapter),row('实际行走',round(p.travel,1),'m · 场景标尺'),row('已见位置',Object.values(p.seen).filter(Boolean).length,'处'),row('池边秘密',p.opened?'已发现':'尚未打开','', '书签保留当前探索；不把复位当作结局')];}
+ if(i===11){d=M.derive(p);return[row('采购合计',round(d.cost,2),'元'),row('占地比',round(d.footprint/d.area*100,1),'%','矩形占地相加，不是可通行性证明'),row('位置冲突',d.hard,'处'),row('间距待复核',d.warnings.filter(x=>x.kind==='gap').length,'处')];}
+ if(i===12){d=M.derive(p);return[row('纸样需要',`${round(d.required.w,1)} × ${round(d.required.h,1)}`,'mm · 含边距'),row('选定纸张可容纳',d.fit||d.rotatedFit?'可以':'不可以'),row('用纸面积比例',round(d.paperUse,2),'%'),row('净内部体积',round(d.volume,3),'L')];}
+ if(i===13){d=M.derive(p);return[row('板材总成本',round(d.cost,2),'元'),row('整板数量',d.sheets.length,'张'),row('材料利用率',round(d.use,2),'%'),row('未排入板件',d.unplaced.length,'件','启发式排样，不承诺全局最优')];}
+ if(i===14){d=M.derive(p);return[row('填土净量',round(d.totalLiters,1),'L','几何净量，不估算湿土承重'),row('按株距位置',d.totalPlants,'株'),row('箱体占地',round(d.occupied,2),'m²'),row('位置待复核',d.issues.length,'处')];}
+ if(i===15){d=M.derive(p);return[row('开始备餐',M.clock(d.schedule.start)),row('时间跨度',d.schedule.span,'min'),row('采购缺口',d.shopping.filter(x=>x.buy>0).length,'种','沿用相同菜谱与库存，不能假设增加人数不增加操作时长'),row('启用菜谱',d.active,'道')];}
+ if(i===16){d=M.derive(p);return[row('环节总时长',d.total,'min'),row('相对预算',d.delta,'min'),row('到场学生',d.present,'人'),row('分组数量',d.groups.length,'组')];}
+ if(i===17){d=M.derive(p);return[row('总镜头时长',d.duration,'s'),row('水平视角',round(d.hFov,1),'°'),row('当前焦距',M.shot(p).lens,'mm'),row('相机至目标',round(d.distance,2),'m')];}
+ if(i===18){d=M.derive(p);return[row('原始来源',d.sources,'篇'),row('证据卡',d.cards,'张'),row('尚未归类',d.unassigned,'张'),row('引用需复核',d.unmatched,'张','逐字匹配不等于研究结论成立')];}
+ if(i===19){d=M.derive(p);return[row('计划总重量',round(d.allWeight,2),'kg · 含空箱'),row('已安排',`${d.placed} / ${d.total}`,'件'),row('越界 / 重叠',`${d.outside.length} / ${d.overlaps.length}`),row('位置与重量检查',d.ready?'通过':'有待处理','', '矩形包围盒模型；实际装入后仍须检查')];}
+ if(i===20){d=M.derive(p.state);return[row('混音长度',round(d.duration,3),'s'),row('有效片段',d.active,'段'),row('主增益',p.state.masterDb,'dB'),row('源采样已随记录',p.media.length,'份','恢复时同时恢复媒体；不自动上传')];}
+ if(i===21){d=M.derive(p);if(!d.ok)return[row('拟合状态','不可识别'),row('原因',d.error||d.message||'当前数据不足')];return[row('训练 RMSE',round(d.rmse,5),p.yUnit),row('留出 RMSE',d.validationRMSE==null?'无留出点':round(d.validationRMSE,5),p.yUnit),row('查询估计',round(d.query.y,5),p.yUnit),row('训练 / 留出',`${d.n} / ${d.validation}`,'点','同一数据不增加证据独立性')];}
+ if(i===22){d=M.derive(p);return d.runs.map(r=>{const end=r.points[r.points.length-1];return row(r.id+' 最终目标',round(end.f,7),'',`${r.points.length-1}步；${r.reason}`)});}
+ if(i===23){d=M.derive(p);return[row('总速度增量',round(d.dv,5),'km/s'),row('转移飞行时间',round(d.time/3600,4),'h'),row('当前轨道高度',round(d.altitude,2),'km'),row('求解残差',d.keplerResidual,'rad','理想二体霍曼转移；不包含摄动或变轨面机动')];}
+ if(i===24){d=M.derive(p);return[row('探测节点',p.probe),row('当前电压',round(d.current?.volt[p.probe],6),'V'),row('节点电流残差',d.current?.kcl??d.dc?.kcl??'无解','A'),row('离散时间步长',p.dt,'s','后向欧拉，减小步长检查数值收敛')];}
+ if(i===25){d=M.derive(p);return[row('选定汇水面积',round(d.selectedArea,1),'m²'),row('估算径流体积',round(d.selectedVolume,2),'m³'),row('填洼体积',round(d.fillVolume,2),'m³'),row('上游格网',d.count,'格','合成 / 用户DEM；不是水动力洪水预测')];}
+ if(i===26){d=M.derive(p);return[row('球面路线距离',round(d.total,3),'km'),row('纬向尺度',round(d.scales.east,4),'倍'),row('经向尺度',round(d.scales.north,4),'倍'),row('面积尺度',round(d.scales.area,4),'倍','地图投影不改变球面计算距离')];}
+ if(i===27){d=M.simulate(p);const x=d.metrics||M.metrics(d,d.end);return[row('交付 / 发送',`${x.delivered} / ${x.sent}`,'包'),row('丢包率',round(x.loss*100,2),'%'),row('平均完成时延',round(x.mean,3),'ms'),row('P95 完成时延',round(x.p95,3),'ms','只对交付包统计时延；另列丢包率')];}
+ if(i===28){d=M.derive(p);return[row('实际 PX8 大小',d.binary.length,'bytes'),row('相对原始 RGB',round(d.binary.length/(d.width*d.height*3)*100,2),'%'),row('重建 PSNR',d.metrics?round(d.metrics.psnr,3):'无原图','dB'),row('非零系数',d.nonzero,'项','实际编码与解码，不用质量参数冒充误差')];}
+ if(i===29){const v=M.view(p);return[row('训练步数',p.step,'步'),row('最可能的下一个字',v.rank[0]?.char||'—'),row('最高概率',round((v.rank[0]?.p||0)*100,3),'%'),row('观察分布熵',round(v.entropy,5),'bits','相同权重与上下文，观察消融如何改变分布；不是生成结果')];}
+ if(i===30){d=M.derive(p);return[row('平均 Recall@k',round(d.evaluation.mean.recall,4)),row('平均 nDCG@k',round(d.evaluation.mean.ndcg,4)),row('可评测问题',`${d.evaluation.eligible} / ${d.evaluation.total}`),row('提示词长度',d.prompt.characters,'码点','词法检索；相关性判断范围决定指标含义')];}
+ return [];
+}
+function variants(raw){const p=clone(raw),i=ID;const make=(name,why,fn)=>{let n=clone(p);const r=fn(n);return {name,why,payload:validate(r||n)}};
+ let out=[];
+ const add=(...x)=>{try{out.push(make(...x))}catch(e){out.push({name:x[0],why:x[1],error:e.message})}};
+ if(i===1){add('低角度光','同一天窗，太阳高度改为 25°。',n=>{n.altitude=25});add('高角度光','同一天窗，太阳高度改为 72°。',n=>{n.altitude=72});add('改为圆窗','保留尺度和光线，检查开口形状的差异。',n=>{n.shape='circle'});}
+ if(i===2){for(const [t,l]of [[0,'直行'],[.45,'左转'],[-.45,'右转']])add(l,'保持输入转速，转向改为 '+Math.round(t*100)+'%。',n=>{n.turn=t;n.playing=false});}
+ if(i===3){add('切到中央','同一地层、同一方向，切入一半。',n=>{n.depth=.5});add('旋转剖面','保留切入深度，方位增加 45°。',n=>{n.azimuth=range(n.azimuth+45,-70,70);n.depth=Math.max(.35,n.depth)});add('不褶皱的对照','保持切面，只将褶皱幅度归零。',n=>{n.fold=0;n.depth=Math.max(.5,n.depth)});}
+ if(i===4){add('收住瓶口','只推瓶口附近，保留腹部与足部。',n=>M.sculpt(n,1,-.15,.22));add('打开肩部','在肩部局部放开，不重新起坯。',n=>M.sculpt(n,.78,.12,.24));add('换米釉看轮廓','几何完全不变，只比较表面材质。',n=>{n.clay='cream'});}
+ if(i===5){add('只看第一近邻','不换中心，只去掉更远的点阵。',n=>{n.mode='shell';n.layer='all'});add('从内部看','不换中心，视点移到该原子。',n=>{n.mode='inside';n.insideZoom=1});add('边界原子','比较有限片段的表面站位；不是另一种晶格。',n=>{n.focusId=M.stations.face||Object.values(M.stations)[1];n.mode='shell';n.layer='all'});}
+ if(i===6){add('理想对准','按本台三个镜心与靶心求解；这是解答参考。',n=>{n.mirrors=clone(M.solution());n.blocker=false});add('末镜偏差 0.6°','先理想对准，再只偏转最后一面镜子。',n=>{n.mirrors=clone(M.solution());n.mirrors[2].yaw+=.6;n.blocker=false});add('插入挡板','保持你的角度，检查真正的遮挡。',n=>{n.blocker=true});}
+ if(i===7){for(const [ns,ped,l]of [[23,10,'均衡配时'],[29,10,'增加南北'],[19,16,'增加行人']])add(l,'同一180秒窗口、需求与随机种子。',n=>{n.plan.ns=ns;n.plan.ped=ped;n.t=180});}
+ if(i===8){add('无风对照','文字、版式、种子不变，仅移除扰动。',n=>M.calm(n));add('逆风','只反转风向，观察相同文字的反应。',n=>{n.wind.dx*=-1;n.wind.dy*=-1});add('更轻的风','强度减半，保留中心与方向。',n=>{n.wind.dx*=.5;n.wind.dy*=.5});}
+ if(i===9||i===10) return [];
+ if(i===11){add('木色 · 日间','尺寸、位置和采购不变，只更换空间表面。',n=>{n.appearance={finish:'oak',lighting:'day'}});add('深色 · 展陈','同一布置，深色金属与暖白墙面。',n=>{n.appearance={finish:'ink',lighting:'studio'}});add('桦木 · 柔光','同一布置，浅木色与低对比度照明。',n=>{n.appearance={finish:'birch',lighting:'soft'}});}
+ if(i===12){add('只看纸样','你的尺寸、颜色和文字不变，完全展开。',n=>{n.fold=0;n.open=0});add('合盖状态','按实际几何闭合，不改变礼物尺寸。',n=>{n.fold=100;n.open=0});add('更厚的纸','纸厚增加 0.2 mm，检查插舌与纸张余量。',n=>{n.thickness=range(n.thickness+.2,.1,3)});}
+ if(i===13){add('按木纹排样','保持柜体，约束纹理方向并重新排。',n=>{n.stock.grain=true});add('允许旋转排样','仍为同一柜体，放开木纹约束作对照。',n=>{n.stock.grain=false});add('减少一层','只减少一层活动层板，重算板件与成本。',n=>{n.cabinet.shelves=Math.max(0,n.cabinet.shelves-1)});}
+ if(i===14){add('株距加 20%','箱体与填土不变，比较稀植的几何位置数。',n=>{n.boxes.forEach(b=>b.spacing=range(Math.round(b.spacing*1.2),5,150))});add('填土减 5 cm','不改株距，仅计算更浅填土的净量；不是种植建议。',n=>{n.boxes.forEach(b=>b.soil=Math.max(3,b.soil-5))});add('株距减 15%','只作几何容量对照，不据此推断产量。',n=>{n.boxes.forEach(b=>b.spacing=range(Math.round(b.spacing*.85),5,150))});}
+ if(i===15){add('增加一位帮手','同菜谱与设备，只增加人手资源容量。',n=>{const r=n.resources.find(x=>x.id==='hands');if(!r)throw Error('你的资源中没有 hands；请手动调整相应人手');r.capacity=Math.min(12,r.capacity+1)});add('晚 30 分钟上桌','相同工作量，整体上桌时刻后移。',n=>{let[h,m]=n.serve.split(':').map(Number),t=Math.min(1439,h*60+m+30);n.serve=String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')});add('多两位客人','食材按人数换算，步骤时间维持你填写的值。',n=>{n.guests=Math.min(100,n.guests+2)});}
+ if(i===16){add('多 5 分钟讨论','只给最后一个环节增加5分钟，显示预算差额。',n=>{if(!n.activities.length)throw Error('先添加环节');n.activities[n.activities.length-1].minutes+=5});add('四人小组','保持名单、缺席与随机种子，只比较每组目标人数。',n=>{n.grouping.mode='size';n.grouping.value=4});add('六人小组','相同名单，六人一组，保留人数不整除的分配。',n=>{n.grouping.mode='size';n.grouping.value=6});}
+ if(i===17){for(const lens of [24,50,85])add(lens+' mm','锁定机位与目标，只改变当前镜头焦距。',n=>{const q=M.shot(n);q.lens=lens});}
+ if(i===18) return [];
+ if(i===19){add('重新自动排布','同一箱体和物品，使用原有启发式重新安排。',n=>M.autoPack(n));add('箱深增加 3 cm','对照更深的箱体，重新排布；重量上限不变。',n=>{n.case.depth=Math.min(200,n.case.depth+3);return M.autoPack(n)});add('轻量方案','仅将每种衣物数量减一（至少保留一件），重新排布。',n=>{n.entries.forEach(e=>{if(e.type==='clothes')e.qty=Math.max(1,e.qty-1)});return M.autoPack(n)});}
+ if(i===20){add('主音量减 3 dB','源采样与剪辑点不变，整体降低增益。',n=>{n.state.masterDb=Math.max(-36,n.state.masterDb-3)});add('背景轨更轻','只对第二轨片段减6dB，不修改源采样。',n=>{n.state.clips.forEach(c=>{if(c.track===1)c.gainDb=Math.max(-36,c.gainDb-6)})});add('结尾缓缓落下','每段尾部淡出至少1秒且不超过有效片长。',n=>{n.state.clips.forEach(c=>{c.fadeOut=Math.min(c.out-c.in,Math.max(c.fadeOut,1))})});}
+ if(i===21){add('直线','同一数据、权重、留出划分，只比较模型。',n=>{n.model='linear'});add('二次曲线','训练拟合可能更好，应同时检查留出误差。',n=>{n.model='quadratic'});add('指数模型','仅对可识别、满足正值条件的数据尝试。',n=>{n.model='exponential'});}
+ if(i===22){add('学习率减半','目标函数、起点、步数不变。',n=>{n.methods.forEach(m=>m.rate=Math.max(.00001,m.rate*.5))});add('学习率倍增','观察可能的发散；不隐藏停止原因。',n=>{n.methods.forEach(m=>m.rate=Math.min(2,m.rate*2))});add('迭代预算倍增','保持算法参数，最多2000步。',n=>{n.steps=Math.min(2000,n.steps*2)});}
+ if(i===23){add('目标高度减少 20%','保持中心天体与出发圆轨道。',n=>{n.h2=Math.max(1,n.h2*.8)});add('目标高度增加 20%','比较理想转移的时间与速度代价。',n=>{n.h2=Math.min(10000000,n.h2*1.2)});add('转移到中点','所有轨道参数不变，只取飞行时间中点。',n=>{n.progress=.5});}
+ if(i===24){add('时间步长减半','同一电路，检查数值离散对结果的影响。',n=>{n.dt=Math.max(.000001,n.dt/2)});add('电容翻倍','只改变所有电容的容量，输入单位仍为 µF。',n=>{n.parts.forEach(x=>{if(x.type==='C')x.value*=2})});add('电阻翻倍','只改变电阻，其余拓扑与源保持不变。',n=>{n.parts.forEach(x=>{if(x.type==='R')x.value*=2})});}
+ if(i===25){add('雨量减半','同一DEM、出水口与径流系数。',n=>{n.rain*=.5});add('雨量翻倍','估算体积按同一简化规则改变；非洪峰预测。',n=>{n.rain=Math.min(1000,n.rain*2)});add('地形夸张关闭','地形数据和计算完全不变，只还原竖向显示比例。',n=>{n.exaggeration=1});}
+ if(i===26){for(const[k,l]of [['equalArea','等积圆柱'],['mercator','墨卡托'],['equirect','等距圆柱']])add(l,'球面路线与航点不变，只比较投影。',n=>{n.projection=k});}
+ if(i===27){add('瓶颈带宽翻倍','找到启用链路中最小带宽，仅将它们翻倍。',n=>{const a=n.links.filter(x=>x.enabled),m=Math.min(...a.map(x=>x.mbps));a.filter(x=>x.mbps===m).forEach(x=>x.mbps*=2)});add('队列容量翻倍','带宽与传播时延不变；比较丢包和尾部时延。',n=>{n.links.forEach(x=>x.buffer=Math.min(1000,x.buffer*2))});add('发包间隔翻倍','同样包数和大小，减少瞬时到达压力。',n=>{n.flows.forEach(x=>x.interval=Math.min(10000,x.interval*2))});}
+ if(i===28){add('细节优先','同一工作像素，质量85、保留64项。',n=>{if(n.source.kind==='px8')throw Error('请先将解码结果设为工作原图');n.params.quality=85;n.params.keep=64});add('平衡试验','质量55、保留28项；测实际文件与像素误差。',n=>{if(n.source.kind==='px8')throw Error('请先将解码结果设为工作原图');n.params.quality=55;n.params.keep=28});add('更小的码流','质量25、保留12项；比较有多少细节丢失。',n=>{if(n.source.kind==='px8')throw Error('请先将解码结果设为工作原图');n.params.quality=25;n.params.keep=12});}
+ if(i===29){add('观察移除位置编码','仅改变可视化观察条件，不重新训练权重。',n=>{n.settings.position=false});add('观察消融头 0','同一权重，禁用第一注意力头的观察路径。',n=>{n.settings.ablate=0});add('观察消融头 1','同一权重，禁用第二注意力头的观察路径。',n=>{n.settings.ablate=1});}
+ if(i===30){add('BM25','同一资料与判断，切换词法排序方法。',n=>{n.params.method='bm25'});add('TF-IDF','同一分块，比较余弦得分的排序。',n=>{n.params.method='tfidf'});add('更多检索证据','只把 k 增加2，保留提示词字符预算。',n=>{n.params.k=Math.min(20,n.params.k+2)});}
+ return out;
+}
+function diff(a,b){const out=[];function go(a,b,path,depth){if(out.length>=32)return;if(JSON.stringify(a)===JSON.stringify(b))return;if(depth>4||typeof a!==typeof b||a==null||b==null||typeof a!=='object'){out.push({path,from:brief(a),to:brief(b)});return;}if(Array.isArray(a)||Array.isArray(b)){if(!Array.isArray(a)||!Array.isArray(b)||a.length!==b.length){out.push({path,from:brief(a),to:brief(b)});return;}if(a.length>80){out.push({path,from:`${a.length}项`,to:`${b.length}项 · 内容已改变`});return;}}for(const k of new Set([...Object.keys(a),...Object.keys(b)]))go(a[k],b[k],path?path+'.'+k:k,depth+1)}go(a,b,'',0);return out;}
+function brief(x){if(x===undefined)return'—';if(x===null)return'空';if(Array.isArray(x))return x.length+'项';if(x&&typeof x==='object')return Object.keys(x).length+'字段';return String(x).slice(0,120);}
+root.AtelierLab={id:ID,version:4,clone,validate,metrics,variants,diff};
+})(globalThis);
+
+/* v4 spatial inspection and display-only refinements. MIT. */
+(function(){'use strict';const A=globalThis.Atelier3D, S=globalThis.SceneApp, M=globalThis.AppModel, ID=6;
+if(!A||!S)return;
+A.screenRay=function(x,y,camera,w,h){const inv=A.inverseMatrix(A.cameraMatrices(camera,w/h).viewProjection),q=[x/w*2-1,1-y/h*2],near=A.mat4.transformPoint(inv,[q[0],q[1],-1]),far=A.mat4.transformPoint(inv,[q[0],q[1],1]);return {origin:near,direction:A.vec3.normalize(A.vec3.sub(far,near))};};
+A.rayBox=function(ray,min,max){let lo=0,hi=Infinity;for(let i=0;i<3;i++){if(Math.abs(ray.direction[i])<1e-10){if(ray.origin[i]<min[i]||ray.origin[i]>max[i])return null;continue;}let a=(min[i]-ray.origin[i])/ray.direction[i],b=(max[i]-ray.origin[i])/ray.direction[i];if(a>b)[a,b]=[b,a];lo=Math.max(lo,a);hi=Math.min(hi,b);if(lo>hi)return null;}return Number.isFinite(lo)?lo:null;};
+if(ID===11){
+ const original=S.buildScene;
+ M.pick3D=function(s,camera,w,h,x,y){const ray=A.screenRay(x,y,camera,w,h);let nearest=Infinity,item=null;for(const obj of s.items){const b=M.bbox(obj),low=[(b.x1-s.room.w/2)/1000,0,(b.y1-s.room.d/2)/1000],high=[(b.x2-s.room.w/2)/1000,obj.h/1000,(b.y2-s.room.d/2)/1000],t=A.rayBox(ray,low,high);if(t!==null&&t<nearest){nearest=t;item=obj;}}const wallH=(s.appearance?.cut?Math.min(1.25,s.room.h/1000):s.room.h/1000),w0=s.room.w/1000,d0=s.room.d/1000;for(const wall of [[[-w0/2-.11,0,-d0/2],[ -w0/2,h,d0/2]],[[-w0/2-.06,0,-d0/2-.11],[w0/2+.06,wallH,-d0/2]]]){const t=A.rayBox(ray,wall[0],wall[1]);if(t!==null&&t<nearest-.01)return null;}return item?{id:item.id,t:nearest,point:A.vec3.add(ray.origin,A.vec3.scale(ray.direction,nearest))}:null;};
+ M.ground3D=function(camera,w,h,x,y){const ray=A.screenRay(x,y,camera,w,h);if(Math.abs(ray.direction[1])<1e-7)return null;const t=-ray.origin[1]/ray.direction[1];if(t<0||t>1e5)return null;return A.vec3.add(ray.origin,A.vec3.scale(ray.direction,t));};
+ const themes={oak:{wood:'#b28659',body:'#ba7553',wall:'#eeeadf',side:'#c1cbb7',floor:'#bcb299',seat:'#83927c'},ink:{wood:'#554b42',body:'#3d5757',wall:'#d7ded8',side:'#6b7e7b',floor:'#a69b84',seat:'#b89168'},birch:{wood:'#d5bc91',body:'#d0b283',wall:'#f0eadc',side:'#d9dbc8',floor:'#c8bea7',seat:'#8eaba0'}};
+ S.buildScene=function(s){const scene=original(s),a=s.appearance||{},pal=themes[a.finish]||themes.oak,w=s.room.w/1000,d=s.room.d/1000,h=s.room.h/1000,lighting=['day','studio','soft'].includes(a.lighting)?a.lighting:'day';
+ scene.objects=scene.objects.filter(o=>o.name!=='floor seam').map(o=>{const name=o.name||'';let material={...o.material};if(material.texture==='wood')material={...material,color:pal.wood,roughness:.54,textureStrength:.12};if(/ body$|pedestal$/.test(name))material={...material,color:pal.body,roughness:.56};if(/seat$/.test(name))material={...material,color:pal.seat,roughness:.85};if(name==='rear wall')material={color:pal.wall,roughness:.93};if(name==='side wall')material={color:pal.side,roughness:.94};if(/ceramic|vase/.test(name))material={...material,roughness:.24,textureStrength:.06};if(name==='floor slab')material={...material,color:pal.floor,roughness:.63,texture:'wood',textureScale:1.5,textureStrength:.15};return {...o,material};});
+ function box(name,mat,p,scale){scene.objects.push({name:'环境示意 '+name,geometry:A.box(1,1,1),material:mat,position:p,scale});}
+ // Floor joints, staggered endpoints, frame relief and track fixtures. Their decoration is
+ // explicitly not part of furniture inventory or procurement quantities.
+ const edge={color:'#8e836d',roughness:.85};for(let x=-w/2+.26;x<w/2;x+=.26){box('木板缝',edge,[x,.001,0],[.003,.001,d]);const j=Math.floor((x+w/2)/.26);for(let z=-d/2+.6+(j%3)*.48;z<d/2;z+=1.45)box('错缝',edge,[x-.13,.0015,z],[.256,.001,.003]);}
+ if(a.decor!==false&&h>2){const rail=Math.min(w*.64,4.8),black={color:'#313c3c',metalness:.65,roughness:.36};box('灯轨',black,[0,h-.14,-d*.06],[rail,.024,.028]);for(let i=0;i<4;i++){const x=-rail*.43+i*rail*.86/3;box('吊杆',black,[x,h-.24,-d*.06],[.014,.18,.014]);scene.objects.push({name:'环境示意 射灯',geometry:A.cylinder(.045,.045,.16,40),position:[x,h-.35,-d*.06],rotation:[.3,0,0],material:black});scene.objects.push({name:'环境示意 灯面',geometry:A.cylinder(.040,.040,.002,40),position:[x,h-.432,-d*.085],material:{color:'#ffefc5',emission:.65,roughness:.2}});}
+ // Framed abstract wall relief on the left; calculated within wall dimensions.
+ if(d>2.2){const cz=Math.min(d*.22,.8),xx=-w/2+.024,yy=Math.min(h*.56,1.65),ww=Math.min(.88,d*.22),hh=Math.min(1.18,h*.42);box('画框',black,[xx,yy,cz],[.032,hh,ww]);box('画纸',{color:'#ece2c9',roughness:1},[xx+.021,yy,cz],[.014,hh-.05,ww-.05]);for(let k=0;k<6;k++)box('几何浮雕',{color:k%2?pal.body:pal.seat,roughness:.9},[xx+.033,yy-hh*.32+k*hh*.11,cz+Math.sin(k*.7)*ww*.13],[.012,hh*.07,ww*(.32+.04*k)]);}
+ }
+ // Fine selected footprint remains an accurate dimension witness, not a bounding-box hit mesh.
+ const selected=s.items.find(x=>x.id===s.selected);if(selected){const b=M.bbox(selected),x0=(b.x1-s.room.w/2)/1000,x1=(b.x2-s.room.w/2)/1000,z0=(b.y1-s.room.d/2)/1000,z1=(b.y2-s.room.d/2)/1000;scene.objects.push({name:'选中家具实际占地',geometry:A.tube([[x0,.014,z0],[x1,.014,z0],[x1,.014,z1],[x0,.014,z1],[x0,.014,z0]],.008,8),material:{color:'#ac5738',unlit:true},bevel:false});}
+ if(a.cut){scene.objects=scene.objects.map(o=>{if(!['rear wall','side wall'].includes(o.name))return o;const model=o.model.slice(),cut=Math.min(1.25,h);model[5]=cut;model[13]=cut/2;return{...o,model};});}
+ const map={day:{direction:[-3.5,7,4.5],intensity:3.15,sky:'#e9edf3',ground:'#8a806e',env:.67,bg:['#eeeadf','#d8d3c5'],exposure:1},studio:{direction:[4,6,3],intensity:2.65,sky:'#d7e3e7',ground:'#53554d',env:.7,bg:['#e4e7df','#bac5bf'],exposure:1},soft:{direction:[-1.5,8,1],intensity:2.5,sky:'#e8ebdd',ground:'#98917e',env:.85,bg:['#f1ecdd','#dcd6c4'],exposure:1}}[lighting]||{};
+ scene.light={...scene.light,direction:map.direction,intensity:map.intensity,shadowSize:1536,shadowSoftness:1.8};scene.environment={...scene.environment,sky:map.sky,ground:map.ground,intensity:map.env,studio:true};scene.background={top:map.bg[0],bottom:map.bg[1]};scene.contactRadius=.17;scene.contactStrength=.52;return scene;
+ };
+}
+})();
+
+
+(function(){'use strict';const $=id=>document.getElementById(id),A=Atelier3D,S=SceneApp,c=$('canvas');let s=S.initialState(),renderer,orbit;try{renderer=new A.Renderer(c,{preserveDrawingBuffer:true});orbit=new A.Orbit(c,s.camera,{minDistance:5,maxDistance:22,minPhi:.15,maxPhi:1.45,onChange:draw});}catch(err){$('error').style.display='block';$('error').textContent='当前浏览器无法建立 3D 画面：'+err.message;return;}
+function round(v){return Math.round(v*10)/10;}function draw(){const scene=S.buildScene(s);renderer.render(scene,0);const t=S.trace(s);$('traceSummary').textContent=String(t.hits.length).padStart(2,'0')+' REFLECTIONS / '+(t.hitTarget?'ARRIVED':'IN PROGRESS');$('status').textContent=t.hitTarget?'光已抵达靶面。你可以换一个视角，或插入挡板看看这条路径怎样被截断。':t.reason==='blocker'?'光被挡板截住了；目标在挡板之后。':t.reason==='table'?'光先撞到台面，请检查仰俯角。':t.hits.length<3?'光没有依次到达三面镜子。转动时留意有限的镜面边缘。':'第三次反射后尚未命中靶面。继续小幅调整第三面镜子。';$('hintTitle').textContent=t.hitTarget?'一条线，刚好抵达。':s.blocker?'空间里有一个阻挡。':'从第三面镜子开始。';$('hintText').textContent=t.hitTarget?'换一个角度看，三个高度之间的折转仍然连续。':s.blocker?'光线停在它真正遇到的表面。':'试着减小水平角，让最后一段光向靶心靠拢。';const holder=$('marks');holder.replaceChildren();S.POS.forEach((p,i)=>{const q=A.project([p[0],p[1]+.62,p[2]],s.camera,c.clientWidth,c.clientHeight);if(!q.visible)return;const e=document.createElement('span');e.className='stepmark';e.textContent='0'+(i+1);e.style.left=q.x+'px';e.style.top=q.y+'px';holder.append(e);});}
+function sync(){const m=s.mirrors[s.selected];for(const k of['yaw','pitch']){$(k).value=m[k];$(k+'N').value=round(m[k]);}document.querySelectorAll('[data-m]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.m)===s.selected));$('blocker').setAttribute('aria-pressed',s.blocker);$('blocker').textContent=s.blocker?'移开挡板':'插入挡板';draw();}
+function setAngle(k,v){if(!Number.isFinite(v))return;const max=k==='yaw'?180:65;s.mirrors[s.selected][k]=Math.max(-max,Math.min(max,v));sync();}
+for(const k of['yaw','pitch']){$(k).oninput=e=>setAngle(k,Number(e.target.value));$(k+'N').onchange=e=>{if(e.target.value.trim()===''){sync();return;}setAngle(k,Number(e.target.value));};}document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{s.selected=Number(b.dataset.m);sync();});document.querySelectorAll('[data-fine]').forEach(b=>b.onclick=()=>{const[k,v]=b.dataset.fine.split(',');setAngle(k,s.mirrors[s.selected][k]+Number(v));});$('solve').onclick=()=>{s.mirrors=S.solution();s.blocker=false;sync();$('notify').textContent='已载入一条精确抵达的空间路径，可以继续编辑。';};$('blocker').onclick=()=>{s.blocker=!s.blocker;sync();};function replaceState(n){s=n;orbit.dispose();orbit=new A.Orbit(c,s.camera,{minDistance:5,maxDistance:22,minPhi:.15,maxPhi:1.45,onChange:draw});sync();}$('reset').onclick=()=>{replaceState(S.initialState());$('notify').textContent='已恢复第三面镜子略失准的挑战。';};$('viewReset').onclick=()=>{Object.assign(s.camera,S.camera());orbit.sync();draw();};$('top').onclick=()=>{Object.assign(s.camera,{position:[.1,13,.1],target:[0,0,0]});orbit.sync();draw();};function dl(data,name,type){const blob=data instanceof Blob?data:new Blob([data],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);}$('png').onclick=()=>{draw();c.toBlob(blob=>{if(blob){dl(blob,'a-line-through-space.png');$('notify').textContent='已生成当前3D画面的PNG。';}else $('notify').textContent='画面导出失败，请重试。';},'image/png');};$('save').onclick=()=>dl(JSON.stringify({schema:'line-through-space-v1',state:s},null,2),'line-through-space.json','application/json');$('load').onclick=()=>$('file').click();$('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{if(f.size>100000)throw Error('文件过大。');const d=JSON.parse(await f.text());if(d.schema!=='line-through-space-v1')throw Error('不是本作品的方案格式。');replaceState(S.validate(d.state));$('notify').textContent='已恢复镜面角度与挡板状态；使用经典观察视角。';}catch(err){$('notify').textContent='未载入：'+err.message;}e.target.value='';};c.addEventListener('keydown',e=>{const keys={ArrowLeft:['yaw',-.2],ArrowRight:['yaw',.2],ArrowUp:['pitch',-.2],ArrowDown:['pitch',.2]};if(keys[e.key]){e.preventDefault();const[k,d]=keys[e.key];setAngle(k,s.mirrors[s.selected][k]+d);}});new ResizeObserver(()=>draw()).observe($('stage'));sync();
+
+/* v4: explicit adapter to this case's authoritative state and transaction API. */
+globalThis.AtelierBridge={caseId:6,peek(){return AtelierLab.clone(s);},capture(){ return AtelierLab.clone(s);},restore(raw){const p=AtelierLab.validate(raw);replaceState(S.validate(p)); return true;},redraw(){draw();},view(){return typeof orbit!=='undefined'&&orbit?AtelierLab.clone(orbit.camera):null;},restoreView(v){if(typeof orbit!=='undefined'&&orbit&&v){Object.assign(orbit.camera,v);orbit.sync();this.redraw();}}};
+})();
+</script><script data-atelier-upgrade="v4">
+/* v4 workbench. All experiments are computed from the current case model.
+ * Portable file storage; no tracking, no remote services. MIT. */
+(function(){'use strict';
+const C={"id":6,"slug":"06-optics","title":"把光送过去","category":"光学 / 反射","accent":"#455f51","book":"实验册","intent":"把一次命中，变成能解释的光路。","method":"从当前有限镜面计算光线，比较准确命中、微小失准和挡板遮挡。","limit":"几何光学示意。对有限镜面作相交判定，不包含衍射、能量守恒或安全激光操作指导。","focus":"#stage","steps":[["调最后一面镜子","小步调整水平角和仰俯角，查看是否真正抵达靶面。","#yaw"],["做可控对照","在相同空间里分别载入精确路径、轻微失准与挡板。",null],["保留证据","保存各条路径并比较实际光程与终止原因。","#save"]],"variants":true,"variantTitle":"用当前数据，做一次受控对照","variantHint":"三个方向都从当前有效状态复制；计算不会改动原作品。遇到非法输入会拒绝，不隐藏不利结果。","compareHint":"对照由当前作品自己的计算模型产生。","check":"输入与单位是你实际要用的；数据与画面属于同一方案；导出文件能在另一份页面里恢复。"}, L=globalThis.AtelierLab, B=globalThis.AtelierBridge;
+const host=document.createElement('atelier-studio');host.setAttribute('data-version','4.0');
+const shadow=host.attachShadow({mode:'open'});document.body.append(host);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MAX_BYTES=96*1024*1024,MAX_RECORDS=8;let records=[],selected=new Set(),baseline=null,proposals=[],activeTab='now',busy=false,epoch=0,dirty=false,focus=null,focusBackdrop=null;
+const fmt=v=>typeof v==='number'?new Intl.NumberFormat('zh-CN',{maximumFractionDigits:7}).format(v):String(v??'—');
+shadow.innerHTML=`<style>
+:host{--a:${C.accent};--bg:#faf9f5;--ink:#202724;--muted:#657168;--line:#dedfd5;position:fixed;right:18px;bottom:44px;z-index:2147483500;font:14px/1.6 system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--ink);color-scheme:light}*{box-sizing:border-box}button,input,textarea,select{font:inherit}button{cursor:pointer;min-height:40px;padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}button:hover{background:#eeefe6;border-color:#b7c1b1}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--a);outline-offset:3px}button.hot{background:var(--a);color:white;border-color:var(--a)}button.quiet{background:transparent}button.selected{border-color:var(--a);box-shadow:inset 0 -3px var(--a)}button.small{padding:4px 10px;min-height:32px}.launch{display:flex;gap:5px;box-shadow:0 5px 24px #13271f24;border-radius:13px;padding:5px;background:#fffffff2;border:1px solid #d3dbd1;backdrop-filter:blur(10px)}.launch button{border:0;background:none}.launch b{color:var(--a)}.launch .count{font-size:11px;border:1px solid var(--line);border-radius:20px;padding:2px 6px;margin-left:7px}.launch .focus{border-left:1px solid var(--line);border-radius:0}dialog{margin:auto;border:1px solid #cbd0c4;border-radius:18px;padding:0;width:min(1120px,calc(100vw - 30px));height:min(840px,calc(100dvh - 30px));max-height:calc(100dvh - 30px);color:var(--ink);background:var(--bg);box-shadow:0 24px 100px #0e211450;overflow:hidden}dialog::backdrop{background:#10201688;backdrop-filter:blur(5px)}.shell{height:100%;display:flex;flex-direction:column}.top{padding:22px 28px 14px;background:white;display:flex;gap:20px;align-items:start;border-bottom:1px solid var(--line)}.top .brand{flex:1}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--a);font-weight:750}h1{font-size:25px;line-height:1.35;margin:4px 0}h2{font-size:22px;line-height:1.4;margin:0 0 8px}h3{font-size:15px;margin:0 0 10px}p{margin:6px 0 12px}.muted{color:var(--muted)}.micro{font-size:12px}.tabs{display:flex;gap:6px;flex-wrap:wrap;background:white;padding:10px 28px;border-bottom:1px solid var(--line)}.tabs button{border-color:transparent;background:none}.tabs button[aria-selected=true]{background:#e7ebe2;color:var(--a)}.scroll{overflow:auto;padding:28px;flex:1;min-height:0;scrollbar-gutter:stable}.footer{padding:11px 28px;display:flex;align-items:center;gap:14px;min-height:49px;border-top:1px solid var(--line);font-size:12px;background:white}.footer .message{flex:1}.intro{display:flex;gap:30px;align-items:start;margin-bottom:24px}.intro>div:first-child{flex:1}.tag{display:inline-block;font-size:11px;letter-spacing:.5px;padding:3px 8px;background:#e6ebdf;border-radius:5px;color:var(--a)}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0}.metric{padding:16px;background:white;border:1px solid var(--line);border-radius:10px}.metric span{display:block;color:var(--muted);font-size:12px}.metric strong{display:block;font-size:24px;font-weight:600;line-height:1.35;margin:8px 0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.metric small{color:var(--muted);display:block;line-height:1.45}.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{background:white;border:1px solid var(--line);padding:18px;border-radius:11px;min-width:0}.card .index{font-size:11px;color:var(--a);letter-spacing:2px;margin-bottom:12px}.card p{font-size:13px;color:var(--muted)}.card .results{margin:16px 0;font-size:12px}.value{font-weight:650;font-variant-numeric:tabular-nums}.row{display:flex;gap:10px;justify-content:space-between;padding:5px 0;border-bottom:1px dotted var(--line)}.note{border-left:3px solid var(--a);padding:12px 16px;background:#e9ecdf88;margin:20px 0;color:#4c5a4f;font-size:12px}label.field{display:flex;flex-direction:column;gap:5px;margin:12px 0;font-size:12px}input,textarea,select{background:white;border:1px solid #c6cfc1;color:var(--ink);padding:10px 12px;border-radius:7px;min-width:0}textarea{width:100%;resize:vertical;min-height:80px}.savebar{background:#f0f1e9;border:1px solid var(--line);border-radius:10px;padding:16px;margin:20px 0}.savebar .name{flex:1}.savebar input{width:100%}.record{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:20px;background:white;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}.record img{width:160px;aspect-ratio:3/2;object-fit:contain;border:1px solid var(--line);border-radius:6px;background:#f6f5ef}.record .placeholder{width:160px;aspect-ratio:3/2;display:grid;place-items:center;background:#edf0e4;border-radius:6px;font-size:34px;color:var(--a)}.record h3{margin-bottom:2px}.empty{padding:44px 22px;text-align:center;border:1px dashed #bbc7b5;border-radius:12px;background:#f4f5ed}.empty strong{font-size:22px;display:block}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:white}table{border-collapse:collapse;width:100%;font-size:13px;text-align:left}td,th{padding:13px 16px;border-bottom:1px solid #e3e5dc;vertical-align:top;min-width:145px}th{background:#eef1e5;font-weight:650}td:first-child,th:first-child{min-width:155px}.delta{display:block;font-size:11px;color:var(--a);margin-top:5px}details{border-top:1px solid var(--line);padding:12px 0;font-size:12px}summary{cursor:pointer;min-height:34px}.trace{max-height:200px;overflow:auto;font:11px/1.6 ui-monospace,monospace;overflow-wrap:anywhere;padding:10px;background:#f5f5ef}.step{display:grid;grid-template-columns:36px 1fr;gap:16px;padding:20px;border:1px solid var(--line);border-radius:10px;background:white;margin:12px 0}.step>span{font-size:26px;color:var(--a)}.step b{font-size:15px}.step p{font-size:13px}.kbd{font:11px/1.6 ui-monospace,monospace;background:#e9eee1;border:1px solid #ccd4c5;padding:2px 5px;border-radius:3px}.search{width:100%;margin-bottom:16px}.command{display:flex;width:100%;justify-content:space-between;margin:6px 0;text-align:left}.hidden{display:none!important}.statusbar{height:3px;background:var(--a);opacity:.7;animation:loading 1s ease-in-out infinite;transform-origin:left}@keyframes loading{50%{transform:scaleX(.2)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}@media(max-width:740px){:host{right:10px;bottom:12px;font-size:13px}dialog{width:calc(100vw - 14px);height:calc(100dvh - 14px);max-height:calc(100dvh - 14px);border-radius:13px}.top,.tabs,.footer{padding:12px 16px}.scroll{padding:18px 16px}.metrics{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.intro{display:block}.record{grid-template-columns:1fr}.record img{width:100%;max-height:180px}.record .placeholder{display:none}h1{font-size:20px}.metric strong{font-size:22px}.footer .version{display:none}.tabs{gap:2px}.tabs button{padding:6px 9px;min-height:38px}}
+</style><div class="launch"><button id="open" aria-haspopup="dialog"><b>◈</b> ${esc(C.book)}<span class="count">v4</span></button><button id="focus" class="focus" title="放大主要画面，退出可恢复原布局">⛶ <span>专注</span></button></div>
+<dialog id="dialog" aria-labelledby="title"><div class="shell"><div class="top"><div class="brand"><div class="eyebrow">IMAGINATION ATELIER / WORKING EDITION</div><h1 id="title">${esc(C.title)} · ${esc(C.book)}</h1><div class="micro muted">保留一次判断，再放心做下一次尝试。</div></div><button id="close" class="quiet" aria-label="关闭方案册">关闭 ×</button></div><div class="tabs" role="tablist" aria-label="方案册页面"><button role="tab" data-tab="now">当前与试验</button><button role="tab" data-tab="records">保存的版本 <span id="n">0</span></button><button role="tab" data-tab="compare">并排比较</button><button role="tab" data-tab="guide">使用路径</button><button role="tab" data-tab="commands">快速操作</button></div><div id="busybar" class="statusbar hidden"></div><main id="content" class="scroll" role="tabpanel"></main><div class="footer"><span id="message" class="message" role="status" aria-live="polite">版本册只在当前会话里保留；关闭网页前请下载备份。</span><span class="version">v4.0 · 本地计算</span><button id="backup" class="small">下载版本册</button></div></div></dialog><input id="bookfile" type="file" accept=".json,application/json" hidden>`;
+const $=x=>shadow.getElementById(x),dialog=$('dialog'),content=$('content');
+function message(t){$('message').textContent=t;}
+function mark(){dirty=true;epoch++;$('n').textContent=records.length;}
+function setBusy(v){busy=v;$('busybar').classList.toggle('hidden',!v);shadow.querySelectorAll('button[data-compute]').forEach(b=>b.disabled=v);}
+const yieldPaint=()=>new Promise(resolve=>setTimeout(resolve,30));
+async function task(fn){if(busy)return;setBusy(true);await yieldPaint();try{await fn();}catch(e){message('未完成：'+e.message);}finally{setBusy(false);}}
+function capture(){if(!B)throw Error('原作品尚未初始化，或图形能力不可用。保留页面上的原始能力提示。');return L.validate(B.capture());}
+function download(name,text,type){const bytes=typeof text==='string'?new Blob([text],{type:type||'application/json;charset=utf-8'}):text;if(bytes.size>MAX_BYTES)throw Error('超过96 MiB容量，请减少版本或分别保存原作品方案；当前记录仍保留。');const u=URL.createObjectURL(bytes),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);}
+function validateView(v){if(v==null)return null;if(typeof v!=='object'||!Array.isArray(v.position)||!Array.isArray(v.target)||v.position.length!==3||v.target.length!==3||[...v.position,...v.target].some(x=>!Number.isFinite(x)||Math.abs(x)>1e12)||Math.hypot(...v.position.map((x,i)=>x-v.target[i]))<1e-8)throw Error('镜头数据无效');const out={position:v.position.slice(),target:v.target.slice()};if(v.up){if(!Array.isArray(v.up)||v.up.length!==3||v.up.some(x=>!Number.isFinite(x))||Math.hypot(...v.up)<1e-8)throw Error('镜头向上轴无效');out.up=v.up.slice();}for(const k of ['fov','near','far','ortho'])if(v[k]!=null){if(!Number.isFinite(v[k])||v[k]<=0)throw Error('镜头参数无效');out[k]=v[k];}if(out.fov&&(out.fov<1||out.fov>175)||out.far&&out.near&&out.far<=out.near)throw Error('镜头裁切参数无效');return out;}
+function sizeBook(list=records){return new Blob([JSON.stringify({format:'atelier-case-notebook',version:1,caseId:C.id,records:list})]).size;}
+function snapshotImage(){try{const cs=[...document.querySelectorAll('canvas')].filter(c=>c.width&&c.height&&c.getBoundingClientRect().width>180).sort((a,b)=>b.clientWidth*b.clientHeight-a.clientWidth*a.clientHeight);if(!cs.length)return null;const src=cs[0],cv=document.createElement('canvas');cv.width=480;cv.height=Math.round(480*src.height/src.width);if(cv.height>480)cv.height=480;const ctx=cv.getContext('2d');ctx.fillStyle='#eceee4';ctx.fillRect(0,0,cv.width,cv.height);const r=Math.min(cv.width/src.width,cv.height/src.height);ctx.drawImage(src,(cv.width-src.width*r)/2,(cv.height-src.height*r)/2,src.width*r,src.height*r);return cv.toDataURL('image/jpeg',.72);}catch{return null;}}
+function addRecord(payload,name,note='',thumb=null,view=null){if(records.length>=MAX_RECORDS)throw Error('最多8个版本。请先下载版本册，再移除不需要的记录。');const p=L.validate(payload);const n={id:'v'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:String(name||'未命名版本').trim().slice(0,80),note:String(note).slice(0,10000),created:new Date().toISOString(),payload:p,metrics:L.metrics(p),thumb,view:validateView(view)};const all=records.concat(n);if(sizeBook(all)+2048>MAX_BYTES)throw Error('完整备份会超过96 MiB，本次未加入。请减少版本或缩短音频。');records=all;selected.add(n.id);while(selected.size>3)selected.delete([...selected][0]);mark();return n;}
+function metricsHTML(rows){return `<div class="metrics">${rows.map(r=>`<div class="metric"><span>${esc(r.label)}</span><strong>${esc(fmt(r.value))}</strong><span>${esc(r.unit)}</span>${r.note?`<small>${esc(r.note)}</small>`:''}</div>`).join('')}</div>`;}
+function availableCommands(){return [...document.querySelectorAll('button,a[download]')].filter(e=>!e.disabled&&e.getClientRects().length>0&&e.getAttribute('aria-hidden')!=='true').map(e=>({element:e,label:(e.getAttribute('aria-label')||e.title||e.textContent).replace(/\s+/g,' ').trim()})).filter(x=>x.label&&x.label.length<140);}
+function bindButtons(){content.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>actions[b.dataset.action]?.(b));content.querySelectorAll('[data-record-select]').forEach(b=>b.onchange=()=>{if(b.checked){if(selected.size>=3){b.checked=false;message('一次最多比较3个版本，请先取消一个选择。');return;}selected.add(b.dataset.recordSelect);}else selected.delete(b.dataset.recordSelect);});content.querySelectorAll('[data-note]').forEach(t=>t.onchange=()=>{const r=records.find(r=>r.id===t.dataset.note);if(r){r.note=t.value.slice(0,10000);mark();}});content.querySelectorAll('[data-record-name]').forEach(t=>t.onchange=()=>{const r=records.find(r=>r.id===t.dataset.recordName);if(r){r.name=t.value.trim().slice(0,80)||'未命名版本';mark();}});}
+function selectTab(t){activeTab=t;shadow.querySelectorAll('[data-tab]').forEach(b=>{b.setAttribute('aria-selected',b.dataset.tab===t);b.tabIndex=b.dataset.tab===t?0:-1;});render();}
+function render(){
+ if(activeTab==='now'){
+  let rows=[],error='';try{if(!baseline)baseline=capture();rows=L.metrics(baseline);}catch(e){error=e.message;}
+  content.innerHTML=`<div class="intro"><div><span class="tag">${esc(C.category)}</span><h2 style="margin-top:10px">${esc(C.intent)}</h2><p class="muted">${esc(C.method)}</p></div><button class="quiet" data-action="refresh" data-compute>↻ 读取当前状态</button></div>${error?`<div class="note">${esc(error)}</div>`:metricsHTML(rows)}<div class="savebar"><div class="actions"><label class="name field" style="margin:0">版本名称<input id="name" maxlength="80" placeholder="例如：保留的基线 / 第二次尝试" value="第 ${records.length+1} 个版本"></label><button class="hot" data-action="save" data-compute>＋ 记录当前版本</button></div><p class="micro muted" style="margin:10px 0 0">保存的是完整可恢复状态，不只是图片。${C.id===20?'音频源采样一起保存。':C.id===29?'开始记录时会暂停训练，冻结当前权重。':'记录后可继续使用原作品全部编辑功能。'}</p></div>${lastRestore?'<div class="actions"><button data-action="revert" data-compute>↶ 返回上一次应用前的状态</button></div>':''}<h3>${esc(C.variantTitle)}</h3><p class="micro muted">${esc(C.variantHint)}</p><div class="actions" style="margin:12px 0"><button class="hot" data-action="variants" data-compute>${esc(C.variants?'计算三种对照':'建立带注释的观察记录')}</button></div><div id="proposals" class="grid"></div><div class="note">${esc(C.limit)}</div>${globalThis.Atelier3D?`<details><summary>画面质量与镜头操作</summary><p>精细档使用抗锯齿（取决于浏览器能力）、接触遮蔽和微倒角。快速档保留几何与科学模型，降低阴影成本。右键 / Shift 拖动平移；双指捏合缩放和平移。退出专注后恢复原布局。</p><div class="actions"><button data-action="quality" data-quality="fine">精细画面</button><button data-action="quality" data-quality="fast">快速画面</button></div></details>`:''}`;
+  renderProposals();
+ }else if(activeTab==='records'){
+ content.innerHTML=`<div class="intro"><div><h2>每次尝试，都有回头的路。</h2><p class="muted">${records.length} / ${MAX_RECORDS} 个版本 · 备份约 ${(sizeBook()/1048576).toFixed(2)} MiB。选择至多三个版本并排比较。</p></div><div class="actions"><button data-action="import">载入版本册</button><button class="hot" data-action="goto-compare">比较所选</button></div></div>${records.length?records.map((r,i)=>`<article class="record">${r.thumb?`<img src="${esc(r.thumb)}" alt="保存时的当前画面缩略图，比较以保存数据为准">`:`<div class="placeholder">${String(i+1).padStart(2,'0')}</div>`}<div><label class="micro"><input type="checkbox" data-record-select="${r.id}" ${selected.has(r.id)?'checked':''}> 加入比较</label><label class="field">名称<input data-record-name="${r.id}" maxlength="80" value="${esc(r.name)}"></label><div class="micro muted">${esc(new Date(r.created).toLocaleString('zh-CN'))} · 数据校验后可恢复</div><label class="field">为什么保留这一次<textarea data-note="${r.id}" maxlength="10000" placeholder="观察、待确认问题、下一步…">${esc(r.note)}</textarea></label><div class="actions"><button class="hot" data-action="restore" data-id="${r.id}" data-compute>恢复并继续编辑</button><button data-action="export-one" data-id="${r.id}">单独备份</button><button class="quiet" data-action="remove" data-id="${r.id}">移除记录</button></div></div></article>`).join(''):`<div class="empty"><strong>第一步，先留住一个版本。</strong><p class="muted">回到「当前与试验」，记录当前状态。这里不替你存到云端。</p><button class="hot" data-action="goto-now">记录当前状态</button></div>`}`;
+ }else if(activeTab==='compare'){
+ const rs=records.filter(r=>selected.has(r.id));content.innerHTML=`<div class="intro"><div><h2>让差别自己说话。</h2><p class="muted">${esc(C.compareHint)} 数字升降本身不代表方案优劣；先核对改变的输入。</p></div><button data-action="report" data-compute>导出比较报告</button></div>${rs.length<2?`<div class="empty"><strong>至少选择两个版本。</strong><p>先记录一次基线，再保留另一种尝试。</p><button data-action="goto-records">去选择版本</button></div>`:comparisonHTML(rs)}<div class="note">${esc(C.limit)} 比较表按保存的完整状态重新计算，不使用缓存的截图或旧指标。</div>`;
+ }else if(activeTab==='guide'){
+ content.innerHTML=`<div class="intro"><div><span class="tag">从愿望到结果</span><h2 style="margin-top:10px">${esc(C.intent)}</h2><p class="muted">${esc(C.method)}</p></div></div>${C.steps.map((s,i)=>`<div class="step"><span>0${i+1}</span><div><b>${esc(s[0])}</b><p>${esc(s[1])}</p>${s[2]?`<button class="small" data-action="locate" data-selector="${esc(s[2])}">定位操作位置 ↗</button>`:''}</div></div>`).join('')}<div class="note">${esc(C.limit)}</div><h3>保存之前，检查这三件事</h3><p class="micro">${esc(C.check)}</p><p class="micro muted">新版本册不改变原生 JSON、CSV、SVG、图片或媒体导出功能。关闭网页会清空未下载的版本册；浏览器暂存不是长期备份。</p>`;
+ }else{
+ content.innerHTML='<h2>不必翻面板，直接找到操作。</h2><p class="muted">只列出当前作品实际可用的按钮；不添加假功能。</p><input class="search" id="search" placeholder="搜索：导出、镜头、撤销、载入…" aria-label="搜索当前可用操作"><div id="commands"></div><p class="micro muted">快捷键：Ctrl / ⌘ + K 打开操作入口。Esc 关闭方案册或退出专注。</p>';
+ const cmds=availableCommands();function show(q=''){const list=cmds.filter(x=>x.label.toLocaleLowerCase().includes(q.toLocaleLowerCase())).slice(0,60);$('commands').innerHTML=list.map((c,i)=>`<button class="command" data-cmd="${i}"><span>${esc(c.label)}</span><span>↗</span></button>`).join('')||'<p>没有匹配的可用操作。</p>';$('commands').querySelectorAll('button').forEach(b=>b.onclick=()=>{const e=list[Number(b.dataset.cmd)].element;dialog.close();e.scrollIntoView({block:'center',behavior:'smooth'});e.focus();e.click();});}$('search').oninput=e=>show(e.target.value);show();
+ }
+ bindButtons();
+}
+function comparisonHTML(rs){const sets=rs.map(r=>L.metrics(L.validate(r.payload))),labels=[...new Set(sets.flatMap(xs=>xs.map(x=>x.label)))];let body=`<div class="tablewrap"><table><thead><tr><th>对照项目</th>${rs.map(r=>`<th>${esc(r.name)}</th>`).join('')}</tr></thead><tbody>${labels.map(label=>`<tr><td>${esc(label)}</td>${sets.map((xs,i)=>{const a=xs.find(x=>x.label===label),b=sets[0].find(x=>x.label===label),delta=i&&a&&b&&a.unit===b.unit&&typeof a.value==='number'&&typeof b.value==='number'?a.value-b.value:null;return `<td><b>${esc(a?fmt(a.value):'—')}</b> <span class="muted">${esc(a?.unit||'')}</span>${delta!==null?`<span class="delta">相对首列 ${delta>0?'+':''}${esc(fmt(delta))}</span>`:''}<small class="muted" style="display:block">${esc(a?.note||'')}</small></td>`;}).join('')}</tr>`).join('')}</tbody></table></div>`;for(let i=1;i<rs.length;i++){const diff=L.diff(rs[0].payload,rs[i].payload);body+=`<details open><summary>${esc(rs[i].name)} 相对 ${esc(rs[0].name)} 改变了什么</summary><div class="trace">${diff.length?diff.map(d=>`${esc(d.path)}：${esc(d.from)} → ${esc(d.to)}`).join('<br>'):'相同输入；不是独立的另一组实验。'}</div></details>`;}body+=rs.map(r=>r.note?`<div class="note"><b>${esc(r.name)}</b><br>${esc(r.note).replace(/\n/g,'<br>')}</div>`:'').join('');return body;}
+function renderProposals(){const p=$('proposals');if(!p)return;p.innerHTML=proposals.map((r,i)=>`<article class="card"><div class="index">${String(i+1).padStart(2,'0')} / WHAT CHANGES</div><h3>${esc(r.name)}</h3><p>${esc(r.why||r.note||'')}</p>${r.error?`<div class="note">${esc(r.error)}</div>`:`<div class="results">${r.metrics.map(m=>`<div class="row"><span>${esc(m.label)}</span><span class="value">${esc(fmt(m.value))} ${esc(m.unit)}</span></div>`).join('')}</div><details><summary>${r.diff.length?'查看改变的参数':'与基线参数相同'}</summary><div class="trace">${r.diff.map(d=>`${esc(d.path)}：${esc(d.from)} → ${esc(d.to)}`).join('<br>')||'此设置已与当前相同，不制造虚假的提升。'}</div></details><div class="actions"><button class="hot" data-action="try" data-i="${i}" data-compute>应用并观察</button><button data-action="keep" data-i="${i}" data-compute>保留对照</button></div>`}</article>`).join('');bindButtons();}
+async function restore(p,label,view=null){const clean=L.validate(p),validView=validateView(view),before={payload:capture(),view:B?.view?.()};try{await B.restore(clean);if(validView)B.restoreView?.(validView);const actual=capture();baseline=actual;proposals=[];dialog.close();message(label+'；原作品已有撤销时沿用原撤销。');lastRestore=before;}catch(e){let restored=false;try{await B.restore(before.payload);if(before.view)B.restoreView?.(before.view);restored=true;}catch(_){}throw Error((restored?'应用未完成，已还原应用前状态：':'应用未完成，还原也失败，请载入原作品备份：')+e.message);}}
+let lastRestore=null;
+const actions={revert:()=>task(()=>{if(lastRestore)return restore(lastRestore.payload,'已返回上一次应用前状态',lastRestore.view);}),
+ refresh:()=>task(()=>{baseline=capture();proposals=[];render();message('已读取原作品当前有效状态。');}),
+ save:()=>task(()=>{const p=capture();addRecord(p,$('name')?.value||'当前版本','',snapshotImage(),B?.view?.());baseline=p;selectTab('records');message('已记录完整状态。关闭网页前请下载版本册。');}),
+ variants:()=>task(async()=>{baseline=capture();if(!C.variants){addRecord(baseline,C.book+' '+(records.length+1),'记录当时的观察；不要补写尚未读到的证据或尚未到达的位置。',snapshotImage(),B?.view?.());selectTab('records');return;}message('按当前数据逐个计算对照…');proposals=[];for(const v of L.variants(baseline)){await yieldPaint();try{proposals.push({...v,metrics:v.error?[]:L.metrics(v.payload),diff:v.error?[]:L.diff(baseline,v.payload)});}catch(e){proposals.push({...v,error:e.message});}}render();message('对照已计算，尚未改变原作品。应用时建议先保留基线。');}),
+ try:b=>task(()=>restore(proposals[+b.dataset.i].payload,'已应用对照设置')),
+ keep:b=>task(()=>{const r=proposals[+b.dataset.i];addRecord(r.payload,r.name,r.why||r.note||'同一输入的对照');message('已加入版本册，可到「保存的版本」选择比较。');}),
+ restore:b=>task(()=>restore(records.find(r=>r.id===b.dataset.id).payload,'已恢复保存的版本',records.find(r=>r.id===b.dataset.id).view)),
+ 'export-one':b=>task(()=>{const r=records.find(r=>r.id===b.dataset.id);download(C.id+'-'+r.name.replace(/[\\/:*?"<>|]/g,'-')+'.notebook.json',JSON.stringify({format:'atelier-case-notebook',version:1,caseId:C.id,title:C.title,records:[r]}));message('已生成单版本备份。');}),
+ remove:b=>{const r=records.find(r=>r.id===b.dataset.id);if(!confirm('从当前版本册移除「'+r.name+'」？未下载的记录将丢失，原作品不受影响。'))return;records=records.filter(x=>x.id!==r.id);selected.delete(r.id);mark();render();},
+ 'goto-now':()=>selectTab('now'),'goto-records':()=>selectTab('records'),'goto-compare':()=>selectTab('compare'),
+ import:()=>$('bookfile').click(),
+ report:()=>task(()=>{const rs=records.filter(r=>selected.has(r.id));if(rs.length<2)throw Error('先选择至少两个版本。');const html='<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(C.title)+' · 方案对照</title><style>body{font:15px/1.75 system-ui,sans-serif;max-width:1100px;margin:40px auto;padding:0 24px;color:#203127}table{border-collapse:collapse;width:100%}td,th{border:1px solid #cad2c2;padding:12px;text-align:left}th{background:#edf1e7}small,.delta{display:block;font-size:12px;color:#59634f}.note{margin:20px 0;padding:14px;border-left:3px solid #748260;background:#f6f7ef}.trace{font:12px/1.8 monospace;overflow-wrap:anywhere;padding:10px}summary{font-weight:600;margin:18px 0}.tablewrap{overflow-x:auto}@media print{details{display:block}body{margin:0;padding:0}tr{break-inside:avoid}}</style><h1>'+esc(C.title)+' · '+esc(C.book)+'对照</h1><p>'+esc(C.intent)+'</p><p>生成时间：'+esc(new Date().toLocaleString('zh-CN'))+'</p>'+comparisonHTML(rs)+'<div class="note">'+esc(C.limit)+'</div><p>报告含可读指标与注释，不含可恢复的完整媒体与项目状态。继续编辑请保存版本册 JSON。</p></html>';download(C.id+'-comparison.html',html,'text/html;charset=utf-8');message('已生成可打印的比较报告；完整恢复请另存版本册。');}),
+ locate:b=>{dialog.close();const e=document.querySelector(b.dataset.selector);if(e){e.scrollIntoView({block:'center',behavior:'smooth'});e.focus?.();const prior=e.style.outline;e.style.outline='3px solid '+C.accent;setTimeout(()=>e.style.outline=prior,1800);}else message('此操作随当前模式显示，请从原作品工具栏进入。');},
+ quality:b=>{globalThis.AtelierDisplay={quality:b.dataset.quality};B?.redraw?.();message(b.dataset.quality==='fast'?'已切换快速显示；原始数据与模型不变。':'已切换精细显示；硬件支持决定实时表现。');}
+};
+function open(){if(focus)toggleFocus();baseline=null;proposals=[];selectTab('now');dialog.showModal();}
+shadow.addEventListener('keydown',e=>{if(dialog.open)e.stopPropagation();});$('open').onclick=open;$('close').onclick=()=>dialog.close();shadow.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>selectTab(b.dataset.tab));shadow.querySelector('.tabs').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const tabs=[...shadow.querySelectorAll('[data-tab]')],i=tabs.indexOf(shadow.activeElement),n=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;selectTab(tabs[n].dataset.tab);tabs[n].focus();});
+$('backup').onclick=()=>task(()=>{if(!records.length)throw Error('请先记录至少一个版本。');download('atelier-'+C.id+'-notebook.json',JSON.stringify({format:'atelier-case-notebook',version:1,caseId:C.id,title:C.title,records}));dirty=false;message('已生成完整版本册文件。请确认浏览器已下载成功，再关闭网页。');});
+$('bookfile').onchange=async e=>{const file=e.target.files?.[0];e.target.value='';if(!file)return;const token=++epoch;await task(async()=>{if(file.size>MAX_BYTES)throw Error('文件超过96 MiB，未读取。');const d=JSON.parse(await file.text());if(token!==epoch)throw Error('读取期间记录已改变，请重试。');if(d.format!=='atelier-case-notebook'||d.version!==1||d.caseId!==C.id||!Array.isArray(d.records)||d.records.length>MAX_RECORDS)throw Error('不是此作品的有效版本册。');const next=[];for(const raw of d.records){const p=L.validate(raw.payload);next.push({id:'v'+Date.now().toString(36)+'-'+next.length,name:String(raw.name||'已载入版本').slice(0,80),note:String(raw.note||'').slice(0,10000),created:Number.isFinite(Date.parse(raw.created))?raw.created:new Date().toISOString(),payload:p,metrics:L.metrics(p),view:validateView(raw.view),thumb:typeof raw.thumb==='string'&&/^data:image\/(jpeg|png);base64,[A-Za-z0-9+/=]+$/.test(raw.thumb)&&raw.thumb.length<700000?raw.thumb:null});await yieldPaint();}if(token!==epoch)throw Error('读取期间记录已改变，请重试。');if(sizeBook(next)+2048>MAX_BYTES)throw Error('还原记录超过容量。');if(records.length&&!confirm('用载入的版本册替换当前记录？请先保存当前版本册。原作品不会被自动替换。'))return;records=next;selected=new Set(next.slice(0,3).map(r=>r.id));mark();selectTab('records');message('版本册已校验并载入。点击某条记录的「恢复」才会修改原作品。');});};
+function toggleFocus(){if(focus){focus.classList.remove('av4-focus-target');focus=null;focusBackdrop?.remove();focusBackdrop=null;$('focus').querySelector('span').textContent='专注';}else{const target=document.querySelector(C.focus);if(!target){message('当前没有可放大的主要视图。');return;}focus=target;if(!document.getElementById('av4-focus-css')){const st=document.createElement('style');st.id='av4-focus-css';st.textContent='.av4-focus-target{position:fixed!important;inset:18px 18px 82px!important;width:auto!important;height:auto!important;max-width:none!important;max-height:none!important;z-index:2147483001!important;background:var(--paper,#f1f0e7);box-shadow:0 20px 100px #0006;border-radius:10px;overflow:hidden!important;min-height:0!important;margin:0!important}.av4-focus-backdrop{position:fixed;inset:0;background:#13211be8;z-index:2147483000}';document.head.append(st);}focusBackdrop=document.createElement('div');focusBackdrop.className='av4-focus-backdrop';focusBackdrop.onclick=toggleFocus;document.body.append(focusBackdrop);target.classList.add('av4-focus-target');$('focus').querySelector('span').textContent='退出专注';}window.dispatchEvent(new Event('resize'));B?.redraw?.();}
+$('focus').onclick=toggleFocus;document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focus){e.preventDefault();toggleFocus();}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(!dialog.open){if(focus)toggleFocus();dialog.showModal();}selectTab('commands');$('search')?.focus();}});
+// Minimal, read-only handshake for the included local acceptance harness. The parent gets
+// only model check results, never documents, audio, corpus, or a full state snapshot.
+window.addEventListener('message',e=>{if(e.source!==window.parent||e.source===window)return;const q=e.data;if(!q||q.type!=='atelier:inspect-v4'||typeof q.requestId!=='string')return;let result;try{const p=L.validate(B.peek());result={caseId:C.id,version:4,ready:true,valid:true,metricCount:L.metrics(p).length};}catch(err){result={caseId:C.id,version:4,ready:!!B,valid:false,error:err.message};}e.source.postMessage({type:'atelier:inspection-v4',requestId:q.requestId,result},'*');});
+globalThis.AtelierNotebook={version:4,open,close:()=>dialog.close(),get count(){return records.length},record:()=>{const p=capture();return addRecord(p,'当前状态');},restoreLast:()=>lastRestore&&restore(lastRestore.payload,'已返回应用前',lastRestore.view)};
+})();
+
+</script>
+</body></html>

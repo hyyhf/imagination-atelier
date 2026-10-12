@@ -1,0 +1,462 @@
+{
+  "archive_sha256": "983337fbdffe920be63611df6cdbb6d355bbd1377f8092315477bebc3d3797a7",
+  "archive_complete": false,
+  "recovered_files": [
+    {
+      "name": ".gitignore",
+      "size": 105,
+      "sha256": "be28ed21a1f7e38fab9f7fdf39568e7bc9a6549c20ef831447f77316a3120a27"
+    },
+    {
+      "name": "README.md",
+      "size": 4777,
+      "sha256": "db4f5789524747804fbc784018ce46b5fd049f3535f5251f895e69d4a86209da"
+    },
+    {
+      "name": "image-provenance.json",
+      "size": 2442,
+      "sha256": "117e6572010c1519a5ca38afa09819df234733659a49a2b044280f4c7845bcf3"
+    },
+    {
+      "name": "index.html",
+      "size": 696,
+      "sha256": "e4165a94363ba765fe575a4477045d3d35a5070b9bd93226d71af791a2204cb2"
+    },
+    {
+      "name": "package-lock.json",
+      "size": 108687,
+      "sha256": "2112e44a0711643711c882ff2a5b9bf87c0d17b03f346b9d1cb21ebd32e8e038"
+    },
+    {
+      "name": "package.json",
+      "size": 652,
+      "sha256": "05349aab32cd6da4a6ae32bac002de0d30006cfc563d6f739613aec1cd17a12f"
+    },
+    {
+      "name": "public/downloads/meta-prompt.txt",
+      "size": 20988,
+      "sha256": "fbb8a6298415568fc653b745d116bf7f1afccea08aa47aae2b70134b54114fe9"
+    },
+    {
+      "name": "public/downloads/science-review.txt",
+      "size": 18423,
+      "sha256": "4b2b902d44fc64bfeaa2fc6bd49498cdfc48d2ff25d082846a587a3c19588b76"
+    },
+    {
+      "name": "public/downloads/下载文件说明.txt",
+      "size": 1014,
+      "sha256": "280e70216438eb9a1371ec37388690c4871ba62507370a1062ae08510d598f09"
+    },
+    {
+      "name": "public/favicon.svg",
+      "size": 286,
+      "sha256": "04852227b9beaea4477fecce291a28724d8cf300a988d03feb1d8c8a8de39d10"
+    },
+    {
+      "name": "public/image-provenance.json",
+      "size": 5437,
+      "sha256": "675c18b31f1e96a80ebbf61f2c2b6599dec75f1dd78a7f03d853bf3e63710dea"
+    },
+    {
+      "name": "public/images/01-lightroom.png",
+      "size": 404265,
+      "sha256": "6cd987f8ecdc35b1bafe4258ecde96117083ac31314ba87a0a0e379a4b324b41"
+    },
+    {
+      "name": "public/images/02-differential.png",
+      "size": 311688,
+      "sha256": "a93d2ccddbc880428122a5076d88c13e081a01c74aa2881a69c6622a6a1d16fb"
+    },
+    {
+      "name": "public/images/03-strata.png",
+      "size": 292832,
+      "sha256": "364e2b232722bd7ee61cad9c0eec87699eb4233407e6ef80af00d80747ec3cec"
+    },
+    {
+      "name": "public/images/04-pottery.png",
+      "size": 524375,
+      "sha256": "e8dc949f4071cc3872935e433fcca6c415f1c750f09a7ae4428012bb053d75e6"
+    },
+    {
+      "name": "public/images/05-crystal.png",
+      "size": 283950,
+      "sha256": "444a60e7a683e8adb3621d2077535a7a302c39fb3b597c0a95fe1510bf95420d"
+    },
+    {
+      "name": "public/images/06-optics.png",
+      "size": 186731,
+      "sha256": "151de7c8832da20a902a628a85e1fe7975cd9c1aadb60beb66a4723584cc6d45"
+    },
+    {
+      "name": "public/images/07-crossing.png",
+      "size": 124406,
+      "sha256": "563cec572c159d710f1d61c37aa944ec4c89fe4527a6f6c23b15833429a8f78f"
+    },
+    {
+      "name": "public/images/08-typewind.png",
+      "size": 408317,
+      "sha256": "3c726244c5a71d0e6f87d70cdce255fe031ea507ec0d2839a9abb8475def2829"
+    },
+    {
+      "name": "public/images/09-waterway.png",
+      "size": 868769,
+      "sha256": "af28a4b63fb09756e1e0a04505da51d94b694b6f7bd03da0453569eda4dabf89"
+    },
+    {
+      "name": "public/images/10-tidewalk.png",
+      "size": 674612,
+      "sha256": "1abea759091ca991e3f90df26fd5222439a4c72e23a5360705a1fdc9efa6616e"
+    },
+    {
+      "name": "public/images/11-popup.png",
+      "size": 200358,
+      "sha256": "7df6e0bdb0ea9b012cf2d88379e4151d8f80b39a426651e4fedeab48ca703962"
+    },
+    {
+      "name": "public/images/12-packaging.png",
+      "size": 36653,
+      "sha256": "1eb65eb2a2be76f137caaf610f5516b5bb105e9e480bbe0e2a01a88a5555dd52"
+    },
+    {
+      "name": "public/images/13-cutlist.png",
+      "size": 177639,
+      "sha256": "7e50c6c342be43bb372b9abe7d5f036fc1afc2260adbc3b6c312a2178632554f"
+    },
+    {
+      "name": "public/images/14-garden.png",
+      "size": 456378,
+      "sha256": "3a6466291d03ca53f87fc809c9afb15ffcd2d68005857ae03f35a2c69ef72b1a"
+    },
+    {
+      "name": "public/images/15-mealprep.png",
+      "size": 153421,
+      "sha256": "01739d580fa9bba36995ae010f22aba70a5115635f9d49eeb9f7ce9cfbdb4d75"
+    },
+    {
+      "name": "public/images/16-lesson.png",
+      "size": 156082,
+      "sha256": "68da71f7af76f9b3822c90da1c149cac15217c7ecbff0d8da163e075be967e30"
+    },
+    {
+      "name": "public/images/17-shotplanner.png",
+      "size": 653773,
+      "sha256": "7e618eb205eda7b08884d3dc2afebbbbb29babca75f5dbeb35a9d34eec2ecc7d"
+    },
+    {
+      "name": "public/images/18-research.png",
+      "size": 544979,
+      "sha256": "b6c27bc994124baed7a6f72e92ceaf89a60397ae07bed336cc4abd7c02d4fe6a"
+    },
+    {
+      "name": "public/images/19-packing.png",
+      "size": 262001,
+      "sha256": "c806f64875072b91a4aad961b858af4691044b672dba0bfe424f6b1aeb2b5805"
+    },
+    {
+      "name": "public/images/20-audio.png",
+      "size": 105261,
+      "sha256": "488ba190de71430159e4844926f434e7c108a4a8146e6425f9d855e5db829911"
+    },
+    {
+      "name": "public/images/21-fit.png",
+      "size": 144352,
+      "sha256": "ddb46bff7b509820b2ac3f4359e2a793e51ccd8a86bff1b2042962265a2fa58e"
+    },
+    {
+      "name": "public/images/22-optimization.png",
+      "size": 78876,
+      "sha256": "3512bd16232d01b7ea7f5a8acefd17bc5e1d2bb18a75b16938d6e8098e558e25"
+    },
+    {
+      "name": "public/images/23-orbit.png",
+      "size": 55495,
+      "sha256": "c1312f6872fa0e15038f8545859cf20defbd60f4d94688478befea2488ff869c"
+    },
+    {
+      "name": "public/images/24-circuit.png",
+      "size": 166571,
+      "sha256": "31fec5e994fdf3e17ac09a72d9e1fe1270afe3dda3d031c24109fee4260c67d6"
+    },
+    {
+      "name": "public/images/25-watershed.png",
+      "size": 70767,
+      "sha256": "bb3667249a05447c94bcfcfee5718da3da6e1510132f24104d4dba8defd7dcaf"
+    },
+    {
+      "name": "public/images/26-globe.png",
+      "size": 238122,
+      "sha256": "405ab24a08cef9281b9772e455809bdb270da24882cdf3e5c53778efe7bc633a"
+    },
+    {
+      "name": "public/images/27-network.png",
+      "size": 101442,
+      "sha256": "20ab85dbc902d7e06c68d4c5c7424717cf13f74801e8b22d74164525bebad5ad"
+    },
+    {
+      "name": "public/images/28-compression.png",
+      "size": 295303,
+      "sha256": "f35e3b1d2c155830373f14bbd1e5e0d18918df366b883c033eb4de319e4d4e21"
+    },
+    {
+      "name": "public/images/29-transformer.png",
+      "size": 168274,
+      "sha256": "5db09054769bd22a822def592c0909aba09b045f0e013913fbd4deaadb6e40d3"
+    },
+    {
+      "name": "public/images/30-rag.png",
+      "size": 269448,
+      "sha256": "cf8073fbc960fb14d6213fad287d13945fffccf7ac00bb937de89ca2703285d6"
+    },
+    {
+      "name": "public/images/hero-still.png",
+      "size": 402391,
+      "sha256": "df6c22f8c2bab584b56bede8833d53d09065092208a77a841d6c413f0abeda5b"
+    },
+    {
+      "name": "public/images/pottery-after.png",
+      "size": 524375,
+      "sha256": "e8dc949f4071cc3872935e433fcca6c415f1c750f09a7ae4428012bb053d75e6"
+    },
+    {
+      "name": "public/images/pottery-before.png",
+      "size": 512866,
+      "sha256": "830aefb2c0c75b6311716bbba264d2f8ab76353d3808401ef228f4298b284659"
+    },
+    {
+      "name": "public/practical-image-provenance.json",
+      "size": 3402,
+      "sha256": "085391422abf7b652cb8fa5efca42fd2f1cf3e9b55655a9ebb7159bbf032e83d"
+    },
+    {
+      "name": "public/science-image-provenance.json",
+      "size": 3430,
+      "sha256": "7184ea48efdfed6539dc1ca9e8ebc0fe9ec2734d1e1450b3f9089abed528d7ed"
+    },
+    {
+      "name": "public/works/01-lightroom/index.html",
+      "size": 80096,
+      "sha256": "e67ce18f5b0faeaaf79af8f19987051bab4dda9c5ca885daf1b96396693ec0f4"
+    },
+    {
+      "name": "public/works/01-lightroom/prompt.txt",
+      "size": 3959,
+      "sha256": "d1a94c9723a03e94f5d679b450f86c7ed600bfe2e19d42e8400b3d5777804dba"
+    },
+    {
+      "name": "public/works/01-lightroom/readme.txt",
+      "size": 3627,
+      "sha256": "9ff2a4179ec982528e6ca927a191f7ca60a5071d8b2f2fbdbf936ad902275226"
+    },
+    {
+      "name": "public/works/01-lightroom/record.txt",
+      "size": 9080,
+      "sha256": "90db423f420737aa74eadbeaf9098d288e2a4da04871d7d0bfb06ca7275a7c73"
+    },
+    {
+      "name": "public/works/02-differential/index.html",
+      "size": 85131,
+      "sha256": "b3fc397801489f4c2cbe7a1c182ae903cf50175e2f9a35b6c2062007d3d036d7"
+    },
+    {
+      "name": "public/works/02-differential/prompt.txt",
+      "size": 4466,
+      "sha256": "913861d44c5c760725211e05d64206e4904bc70f3fa943b000a96bf2fd9adf0f"
+    },
+    {
+      "name": "public/works/02-differential/readme.txt",
+      "size": 3965,
+      "sha256": "81630e5f7740dd609447aeb4a30ad5d1b2aa3facd449324a0470e071414b7568"
+    },
+    {
+      "name": "public/works/02-differential/record.txt",
+      "size": 7885,
+      "sha256": "0d28af0db93fc9a67b8045454a102113ce61dc56b9753dc9a523c0bc1736cfbc"
+    },
+    {
+      "name": "public/works/03-strata/index.html",
+      "size": 91731,
+      "sha256": "b37c891dff3cb8039b8e294979162d99b5f77e6fe6eb2bc72dfbbad66d279155"
+    },
+    {
+      "name": "public/works/03-strata/prompt.txt",
+      "size": 3655,
+      "sha256": "66271fc46d7e65d8d0a0cb0a30e9221a1d8852335c3c709bcb2bbb601ccf53cb"
+    },
+    {
+      "name": "public/works/03-strata/readme.txt",
+      "size": 3172,
+      "sha256": "646fa4b8e74149e41f8862a212d6b2a5e7c6c0a10d3a9b3d5b64af7bcb674951"
+    },
+    {
+      "name": "public/works/03-strata/record.txt",
+      "size": 8385,
+      "sha256": "1c1f980dca7b8518403568c5592b9bcc13af2dbd70191ba402256b45aea61d0f"
+    },
+    {
+      "name": "public/works/04-pottery/index.html",
+      "size": 101788,
+      "sha256": "45454f295516b5f011431aa891e3bb66f5c54faff66d39032db31b5e7d1bc454"
+    },
+    {
+      "name": "public/works/04-pottery/prompt.txt",
+      "size": 4970,
+      "sha256": "55ba55fb81cfb570ed1bb84c6b490e58e023c38be56e62d6977b00c6e5496c71"
+    },
+    {
+      "name": "public/works/04-pottery/readme.txt",
+      "size": 3659,
+      "sha256": "19a247651da449f50fdc83394e4d6c1fe1203b68e8ff2555c03bf2c53eb73d4a"
+    },
+    {
+      "name": "public/works/04-pottery/record.txt",
+      "size": 7597,
+      "sha256": "45be852bcaa1e4d64350c0272995935c0cbc25ff216ab00c75e20862dd624d20"
+    },
+    {
+      "name": "public/works/05-crystal/index.html",
+      "size": 83224,
+      "sha256": "f70a25fc5544bff91d5b6f9e587312e4600b4b73d96e6cef9e1777beaa6c8eec"
+    },
+    {
+      "name": "public/works/05-crystal/prompt.txt",
+      "size": 4599,
+      "sha256": "d7db13dc941414257bc4a56aaa66e509e4b937d3592248bae97213b6c9a178b9"
+    },
+    {
+      "name": "public/works/05-crystal/readme.txt",
+      "size": 5336,
+      "sha256": "72c1deda22f244228582cc20ef4835874b215bcb73dfd1867449269e94796ae9"
+    },
+    {
+      "name": "public/works/05-crystal/record.txt",
+      "size": 8445,
+      "sha256": "5dfc06e7143e33d8f1071a77709a64e6683ab37059c8146a03ec119e271d5966"
+    },
+    {
+      "name": "public/works/06-optics/index.html",
+      "size": 68429,
+      "sha256": "56e4b3b47bc3e7c229cb42c4457f5ebb5458b71ad3c1d2a4d6713e109989be33"
+    },
+    {
+      "name": "public/works/06-optics/prompt.txt",
+      "size": 2393,
+      "sha256": "d09a7791dbc07169bb0fb6e3ee37e6f1e6643807f81dfd1c6f8bf92b0ab27e1e"
+    },
+    {
+      "name": "public/works/06-optics/readme.txt",
+      "size": 1921,
+      "sha256": "5b709fb678d19f7cf8dd4a711fad598cc4f140f919bf46810a6a63ca273b2e2a"
+    },
+    {
+      "name": "public/works/06-optics/record.txt",
+      "size": 2443,
+      "sha256": "9eeb372af9bcf5a620b2749d0a654429f58f99ded24f278b095d916999b1f2b1"
+    },
+    {
+      "name": "public/works/07-crossing/index.html",
+      "size": 71902,
+      "sha256": "84f9a948c4fa68378cbb40bd698c97dd78b474787ffb650202070298d596111a"
+    },
+    {
+      "name": "public/works/07-crossing/prompt.txt",
+      "size": 2774,
+      "sha256": "a90e738bf9d3e0a4d793be9d3592d6ddea3cc1b68f6aab51a82eb9db2289b41f"
+    },
+    {
+      "name": "public/works/07-crossing/readme.txt",
+      "size": 2557,
+      "sha256": "248418fa619958be9972f2a79fc08433ff7619f372c1dfb1b39b02ee27dd0674"
+    },
+    {
+      "name": "public/works/07-crossing/record.txt",
+      "size": 1862,
+      "sha256": "65717a62fd8230e1330e53ee7c992f4706b098e7c8dd7780ae3403260a9959d5"
+    },
+    {
+      "name": "public/works/08-typewind/index.html",
+      "size": 157301,
+      "sha256": "bff08ca790009d0e5ea4676762a5acbfbf5902889ddf19d59970ab2671491b5f"
+    },
+    {
+      "name": "public/works/08-typewind/prompt.txt",
+      "size": 4512,
+      "sha256": "5b4706bd747ebafbd3157cbc226acbe08e8f6f9e7e6b42a08862e374c416f6c1"
+    },
+    {
+      "name": "public/works/08-typewind/readme.txt",
+      "size": 3785,
+      "sha256": "a229bd1c6f3b1d1926474075381477490737b860ae4fad88737be32495558ad8"
+    },
+    {
+      "name": "public/works/08-typewind/record.txt",
+      "size": 5509,
+      "sha256": "1924afbbdf7a55b38ed4712be35d813495e75c79153c97732ec9185556cedbca"
+    },
+    {
+      "name": "public/works/09-waterway/index.html",
+      "size": 261166,
+      "sha256": "88c6087cfdc17337cf1ad0273b3ffe6d350f0fa1f133d680092982485dc08be3"
+    },
+    {
+      "name": "public/works/09-waterway/prompt.txt",
+      "size": 4702,
+      "sha256": "ed9a2a6830f7a8c72deb12f33c70a9b9ea55a3ce20d1075b826f31487ab326da"
+    },
+    {
+      "name": "public/works/09-waterway/readme.txt",
+      "size": 3520,
+      "sha256": "afdda8e2bc1d3ae350000016eddad2f5e413ea7169e31c8cf6df6ef1b8022afc"
+    },
+    {
+      "name": "public/works/09-waterway/record.txt",
+      "size": 8178,
+      "sha256": "0fd7ba5ec32e8efeb0169a6fec72fe87c5fd5b26f3d498c8dd60bf0360f9800e"
+    },
+    {
+      "name": "public/works/10-tidewalk/index.html",
+      "size": 99010,
+      "sha256": "25deeda980e280eabf47241ed823cdd07b4cd287f6be6ca5f6cd4c7119dd6448"
+    },
+    {
+      "name": "public/works/10-tidewalk/prompt.txt",
+      "size": 4275,
+      "sha256": "82c2e5c99c1f0ef077554a3a335b56f95ba6547eed7e26c55e54a6917597679c"
+    },
+    {
+      "name": "public/works/10-tidewalk/readme.txt",
+      "size": 2644,
+      "sha256": "6983de04a4da35ea70dc66fd5ec377d3cdb0414785808ca97501f2db0abf814f"
+    },
+    {
+      "name": "public/works/10-tidewalk/record.txt",
+      "size": 7260,
+      "sha256": "0bce7bbfdf30611349e4ba2ed5134ea6d62040c634715e0bc038746e7bb57782"
+    },
+    {
+      "name": "public/works/11-popup/index.html",
+      "size": 129908,
+      "sha256": "091cfffec7d597a931db1e19c0ca284f0a34f342d11d5e3c6256aea3b3db26f1"
+    },
+    {
+      "name": "public/works/11-popup/prompt.txt",
+      "size": 2450,
+      "sha256": "20be119d7a47012b59673af3259fbdd133d0b8c71976735468145327f62b27b2"
+    },
+    {
+      "name": "public/works/11-popup/readme.txt",
+      "size": 2100,
+      "sha256": "862bf283005412393eb81c4d4994ffe7e3450241e2477190676bb50a79306e3b"
+    },
+    {
+      "name": "public/works/11-popup/record.txt",
+      "size": 3298,
+      "sha256": "8eb6f2822582a85355dbd162f1137d50b8bc2a811bc8da147a2912c7dbaeef21"
+    }
+  ],
+  "unrecovered": [
+    {
+      "name": "imagination-atelier-site/public/works/12-packaging/index.html",
+      "error": "Error -5 while decompressing data: incomplete or truncated stream"
+    }
+  ]
+}

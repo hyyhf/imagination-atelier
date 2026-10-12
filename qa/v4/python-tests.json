@@ -1,0 +1,6 @@
+{
+  "executed": true,
+  "tests": 22,
+  "passed": 22,
+  "scope": "Original Python publisher and trusted Markdown renderer unit tests; remote APIs are mocked. Does not prove GitHub deployment."
+}

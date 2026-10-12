@@ -1,0 +1,904 @@
+[
+  {
+    "number": 1,
+    "slug": "lightroom",
+    "title": "光在小屋里",
+    "domain": "建筑 / 日光",
+    "dimension": "3D",
+    "description": "改变真实天窗开口，观察同一房间内的光与阴影。",
+    "entry": "works/01-lightroom/index.html",
+    "guide": "works/01-lightroom/readme.txt",
+    "source_sha256": "b61aad4104fa5f1659d1b2629f616a946354df261bc1bf95f788304b93280027",
+    "preview": "images/01-lightroom.png",
+    "id": "01-lightroom",
+    "prompt": "works/01-lightroom/prompt.txt",
+    "record": "works/01-lightroom/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 152039,
+    "previous_sha256": "e67ce18f5b0faeaaf79af8f19987051bab4dda9c5ca885daf1b96396693ec0f4",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 2,
+    "slug": "differential",
+    "title": "弯路，留一点余地",
+    "domain": "机械 / 运动",
+    "dimension": "3D",
+    "description": "改变转弯强度，拆开观察差速器的传动关系。",
+    "entry": "works/02-differential/index.html",
+    "guide": "works/02-differential/readme.txt",
+    "source_sha256": "bc291a0c87a5727363d41c0083b28b20cff1f9f01dcc4b995df017daac378ba1",
+    "preview": "images/02-differential.png",
+    "id": "02-differential",
+    "prompt": "works/02-differential/prompt.txt",
+    "record": "works/02-differential/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 157068,
+    "previous_sha256": "b3fc397801489f4c2cbe7a1c182ae903cf50175e2f9a35b6c2062007d3d036d7",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 3,
+    "slug": "strata",
+    "title": "山的里面",
+    "domain": "地层 / 剖面",
+    "dimension": "3D",
+    "description": "推进和旋转切面，查看连续岩层并导出矢量剖面。",
+    "entry": "works/03-strata/index.html",
+    "guide": "works/03-strata/readme.txt",
+    "source_sha256": "9af9b026fcb89893b2465524dd10a22a0a28e84ba590e90410809d0cc2e2df23",
+    "preview": "images/03-strata.png",
+    "id": "03-strata",
+    "prompt": "works/03-strata/prompt.txt",
+    "record": "works/03-strata/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 163560,
+    "previous_sha256": "b37c891dff3cb8039b8e294979162d99b5f77e6fe6eb2bc72dfbbad66d279155",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 4,
+    "slug": "pottery",
+    "title": "收一点",
+    "domain": "陶艺 / 塑形",
+    "dimension": "3D",
+    "description": "捏口、推腹、查看内腔，把器形带走。",
+    "entry": "works/04-pottery/index.html",
+    "guide": "works/04-pottery/readme.txt",
+    "source_sha256": "7f04b5eedf3a0417c970f3b122374c642529cdd1bdcdf648b14a071686e156ad",
+    "preview": "images/04-pottery.png",
+    "id": "04-pottery",
+    "prompt": "works/04-pottery/prompt.txt",
+    "record": "works/04-pottery/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 173649,
+    "previous_sha256": "45454f295516b5f011431aa891e3bb66f5c54faff66d39032db31b5e7d1bc454",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 5,
+    "slug": "crystal",
+    "title": "一个原子的四周",
+    "domain": "晶体 / 几何",
+    "dimension": "3D",
+    "description": "从外部晶格走到中心原子，理解近邻与边界。",
+    "entry": "works/05-crystal/index.html",
+    "guide": "works/05-crystal/readme.txt",
+    "source_sha256": "8a8f9e5981f7bad8422efcbfa417913ee05e0647028b46998c8f6c7cf022d1a2",
+    "preview": "images/05-crystal.png",
+    "id": "05-crystal",
+    "prompt": "works/05-crystal/prompt.txt",
+    "record": "works/05-crystal/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 155038,
+    "previous_sha256": "f70a25fc5544bff91d5b6f9e587312e4600b4b73d96e6cef9e1777beaa6c8eec",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 6,
+    "slug": "optics",
+    "title": "把光送过去",
+    "domain": "光学 / 反射",
+    "dimension": "3D",
+    "description": "调整有限圆镜，让真实反射光线抵达靶面。",
+    "entry": "works/06-optics/index.html",
+    "guide": "works/06-optics/readme.txt",
+    "source_sha256": "767726b7dc278b57186a4204fba7b543c5833a0617b8541e0bd304a9eb44eac7",
+    "preview": "images/06-optics.png",
+    "id": "06-optics",
+    "prompt": "works/06-optics/prompt.txt",
+    "record": "works/06-optics/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 140269,
+    "previous_sha256": "56e4b3b47bc3e7c229cb42c4457f5ebb5458b71ad3c1d2a4d6713e109989be33",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 7,
+    "slug": "crossing",
+    "title": "路口的节拍",
+    "domain": "交通 / 配时",
+    "dimension": "2D",
+    "description": "改变绿灯份额，用相同到达流比较等待代价。",
+    "entry": "works/07-crossing/index.html",
+    "guide": "works/07-crossing/readme.txt",
+    "source_sha256": "5ce2c9be18fe691edbc30a5158fabdbcd5d38928c52ba555ae0f6cbd4b3c6e02",
+    "preview": "images/07-crossing.png",
+    "id": "07-crossing",
+    "prompt": "works/07-crossing/prompt.txt",
+    "record": "works/07-crossing/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 129981,
+    "previous_sha256": "84f9a948c4fa68378cbb40bd698c97dd78b474787ffb650202070298d596111a",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 8,
+    "slug": "typewind",
+    "title": "字有天气",
+    "domain": "文字 / 生成艺术",
+    "dimension": "2D",
+    "description": "把手势变成风，编辑并导出自己的动态字形海报。",
+    "entry": "works/08-typewind/index.html",
+    "guide": "works/08-typewind/readme.txt",
+    "source_sha256": "2653fe624f9d7309a55d8550476df10a59dcd01e14eaa52f5829337c6206e7ac",
+    "preview": "images/08-typewind.png",
+    "id": "08-typewind",
+    "prompt": "works/08-typewind/prompt.txt",
+    "record": "works/08-typewind/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 215228,
+    "previous_sha256": "bff08ca790009d0e5ea4676762a5acbfbf5902889ddf19d59970ab2671491b5f",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 9,
+    "slug": "waterway",
+    "title": "纸下水声",
+    "domain": "地图 / 证据叙事",
+    "dimension": "2D",
+    "description": "勘读八处虚构档案，用证据拼回一条旧水道。",
+    "entry": "works/09-waterway/index.html",
+    "guide": "works/09-waterway/readme.txt",
+    "source_sha256": "43ef5e81aecb0ac6bf84a6939d2e3bba988f8b9c3260c312baa5336f88a35351",
+    "preview": "images/09-waterway.png",
+    "id": "09-waterway",
+    "prompt": "works/09-waterway/prompt.txt",
+    "record": "works/09-waterway/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 319048,
+    "previous_sha256": "88c6087cfdc17337cf1ad0273b3ffe6d350f0fa1f133d680092982485dc08be3",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属观察手记：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 10,
+    "slug": "tidewalk",
+    "title": "墙背后的小海",
+    "domain": "游戏 / 空间叙事",
+    "dimension": "3D",
+    "description": "沿石路穿过拱门与小院，亲自走进去，再从原路回来。",
+    "entry": "works/10-tidewalk/index.html",
+    "guide": "works/10-tidewalk/readme.txt",
+    "source_sha256": "18e18717bade1c83134ea276fbc6ba36456a133ba3c52e9791494c1bcfed714f",
+    "preview": "images/10-tidewalk.png",
+    "id": "10-tidewalk",
+    "prompt": "works/10-tidewalk/prompt.txt",
+    "record": "works/10-tidewalk/record.txt",
+    "series": "explore",
+    "subject": "跨领域",
+    "bytes": 171185,
+    "previous_sha256": "25deeda980e280eabf47241ed823cdd07b4cd287f6be6ca5f6cd4c7119dd6448",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属观察手记：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 11,
+    "slug": "store",
+    "title": "开店之前",
+    "domain": "商业 / 空间陈列",
+    "dimension": "3D + 2D",
+    "description": "用真实尺寸布置小店，检查位置冲突并汇总采购。",
+    "entry": "works/11-popup/index.html",
+    "guide": "works/11-popup/readme.txt",
+    "source_sha256": "7a210d612f222764fa24a09cf487b8eeac60366afd03e701ce849a2d58bcb522",
+    "preview": "images/11-popup.png",
+    "id": "11-popup",
+    "prompt": "works/11-popup/prompt.txt",
+    "record": "works/11-popup/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 207673,
+    "previous_sha256": "091cfffec7d597a931db1e19c0ca284f0a34f342d11d5e3c6256aea3b3db26f1",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "三维拾取、贴地拖动、键盘微调、材料光线、外墙剖切",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 12,
+    "slug": "giftbox",
+    "title": "折成一份心意",
+    "domain": "包装 / 纸结构",
+    "dimension": "3D + 2D",
+    "description": "输入礼物尺寸，折起礼盒并导出毫米尺寸纸样。",
+    "entry": "works/12-packaging/index.html",
+    "guide": "works/12-packaging/readme.txt",
+    "source_sha256": "25ec1b17822bd6808b16c7eede25b0ef253e0628c2d691fb2160e1f837441531",
+    "preview": "images/12-packaging.png",
+    "id": "12-packaging",
+    "prompt": "works/12-packaging/prompt.txt",
+    "record": "works/12-packaging/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 459165,
+    "previous_sha256": "f1f0ea0251a86572eae25e4847e1aed7839ec74957ee5ed9c5ffa381becefbe9",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 13,
+    "slug": "shelf",
+    "title": "一块板的余地",
+    "domain": "木作 / 排料",
+    "dimension": "3D + 2D",
+    "description": "设计书架、展开板件，考虑锯缝与木纹生成下料单。",
+    "entry": "works/13-cutlist/index.html",
+    "guide": "works/13-cutlist/readme.txt",
+    "source_sha256": "9c794510c60a9a908135e9c1f76d5d523c4175dc031efdbf00ad63bbe67db7f4",
+    "preview": "images/13-cutlist.png",
+    "id": "13-cutlist",
+    "prompt": "works/13-cutlist/prompt.txt",
+    "record": "works/13-cutlist/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 338068,
+    "previous_sha256": "0b7d22e7d293af12a9d955a72123ad3020f09cffba07fffe4a604d6e8a0f192e",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 14,
+    "slug": "garden",
+    "title": "阳台的一季",
+    "domain": "园艺 / 养护",
+    "dimension": "3D + 2D",
+    "description": "布置种植箱、核算土量与株数，导出养护日历。",
+    "entry": "works/14-garden/index.html",
+    "guide": "works/14-garden/readme.txt",
+    "source_sha256": "b3024debd69945ed49c326d36030f50a6800093413a86dcf8e5d1e2fcca0a19c",
+    "preview": "images/14-garden.png",
+    "id": "14-garden",
+    "prompt": "works/14-garden/prompt.txt",
+    "record": "works/14-garden/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 164362,
+    "previous_sha256": "3e5f2baf6db93a602119f78f32930d9b84758a0710f060d8a1ba096d19a3f0ac",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 15,
+    "slug": "dinner",
+    "title": "今晚一起开饭",
+    "domain": "备餐 / 排程",
+    "dimension": "2D",
+    "description": "从上桌时间倒排动作，把人手、设备和购物一起安排。",
+    "entry": "works/15-mealprep/index.html",
+    "guide": "works/15-mealprep/readme.txt",
+    "source_sha256": "30a390d6275240277b410ca042aa5632d8d4f9fddd9dfc0185ce07a2df7264d3",
+    "preview": "images/15-mealprep.png",
+    "id": "15-mealprep",
+    "prompt": "works/15-mealprep/prompt.txt",
+    "record": "works/15-mealprep/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 374719,
+    "previous_sha256": "8afb194242b6324c50209407f69eb90b20c91271339f8891a82cb10b4227542c",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 16,
+    "slug": "lesson",
+    "title": "一堂课的导演",
+    "domain": "教学 / 现场组织",
+    "dimension": "2D",
+    "description": "编排教案、控制现场计时、处理名单与分组。",
+    "entry": "works/16-lesson/index.html",
+    "guide": "works/16-lesson/readme.txt",
+    "source_sha256": "ba7985721da72a1824d25429272883018d220fdcc093b2f5da2673d388fea64d",
+    "preview": "images/16-lesson.png",
+    "id": "16-lesson",
+    "prompt": "works/16-lesson/prompt.txt",
+    "record": "works/16-lesson/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 405719,
+    "previous_sha256": "9620cc83351c5a97e398d3a7e5223ade998943b12211af69270c9e46be68033e",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 17,
+    "slug": "storyboard",
+    "title": "镜头先走一步",
+    "domain": "摄影 / 预演",
+    "dimension": "3D",
+    "description": "布置人物和道具，调整机位焦距，输出真实分镜接触表。",
+    "entry": "works/17-shotplanner/index.html",
+    "guide": "works/17-shotplanner/readme.txt",
+    "source_sha256": "f1db5c8b52d592b55be8bfe107d88d930af4e7b88cbd59607ffda52b10809283",
+    "preview": "images/17-shotplanner.png",
+    "id": "17-shotplanner",
+    "prompt": "works/17-shotplanner/prompt.txt",
+    "record": "works/17-shotplanner/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 397184,
+    "previous_sha256": "0a1db8b8c39a6f6914084bd06d39e94fe90605bbbe6b03848a16267b50a71e87",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 18,
+    "slug": "research",
+    "title": "线索成章",
+    "domain": "研究 / 定性分析",
+    "dimension": "2D",
+    "description": "从原始访谈到主题墙，让每条摘录与结论有迹可循。",
+    "entry": "works/18-research/index.html",
+    "guide": "works/18-research/readme.txt",
+    "source_sha256": "d6ee6185cb04b65bfa2bd62734d3fb357341772d7908f62f6eb154b87f435eb7",
+    "preview": "images/18-research.png",
+    "id": "18-research",
+    "prompt": "works/18-research/prompt.txt",
+    "record": "works/18-research/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 428792,
+    "previous_sha256": "e48eb81b879a6cebd1534f67838902b92b5a4186d62d882b0b6541562532691b",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属观察手记：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 19,
+    "slug": "packing",
+    "title": "出发前，装得下",
+    "domain": "出行 / 空间装箱",
+    "dimension": "3D + 2D",
+    "description": "用实测物品尺寸排箱，检查重叠、边界和计划总重。",
+    "entry": "works/19-packing/index.html",
+    "guide": "works/19-packing/readme.txt",
+    "source_sha256": "47d556cb2e201e3c75f52f17beead3a9bc5ae8ce6b4dcfb865e4c3558efd2bf6",
+    "preview": "images/19-packing.png",
+    "id": "19-packing",
+    "prompt": "works/19-packing/prompt.txt",
+    "record": "works/19-packing/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 425302,
+    "previous_sha256": "0cac2ed9c8fdccbf55b1bde839437f5feaf29205627e964b38cc62c56b6a5a2f",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 20,
+    "slug": "audio",
+    "title": "把声音剪好",
+    "domain": "音频 / 内容制作",
+    "dimension": "2D + Audio",
+    "description": "导入短音频，裁切、分割、淡化与混音，导出真实 WAV。",
+    "entry": "works/20-audio/index.html",
+    "guide": "works/20-audio/readme.txt",
+    "source_sha256": "b4150cffdeed658d5e262a058880982d90c90fd1911bb4f54f90ada458208ef7",
+    "preview": "images/20-audio.png",
+    "id": "20-audio",
+    "prompt": "works/20-audio/prompt.txt",
+    "record": "works/20-audio/record.txt",
+    "series": "practical",
+    "subject": "跨领域",
+    "bytes": 317313,
+    "previous_sha256": "0e7ed83b9bc52a699fcdb3344ff64f1c1406019b69f7c77ef6851059d5ae0f83",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 21,
+    "slug": "fit",
+    "title": "数据会说话",
+    "domain": "数学 / 数据与统计",
+    "dimension": "2D",
+    "description": "导入自己的 CSV，比较拟合、残差与独立留出误差。",
+    "entry": "works/21-fit/index.html",
+    "guide": "works/21-fit/readme.txt",
+    "source_sha256": "54cb0d5e4788703d8092e24f952f960322544208aab855e2ee99196ce2edf680",
+    "preview": "images/21-fit.png",
+    "limits": [
+      "限定线性、二次及 ln(y) 空间指数拟合；无任意非线性拟合",
+      "普通法假设独立同方差误差，加权法将输入 σ 视为已知；不处理 x 测量误差",
+      "指数的 σ 定义于 ln(y)，A 标准误为 Delta 近似；不绘制置信带",
+      "最多 200 行；极大预测溢出时结果明确为空值",
+      "核对同源模型与 Canvas 输出；未进行浏览器实机验收"
+    ],
+    "sources": [
+      {
+        "title": "NIST/SEMATECH · Linear Least Squares Regression",
+        "url": "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm"
+      },
+      {
+        "title": "NIST/SEMATECH · Weighted Least Squares Regression",
+        "url": "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd143.htm"
+      }
+    ],
+    "id": "21-fit",
+    "prompt": "works/21-fit/prompt.txt",
+    "record": "works/21-fit/record.txt",
+    "series": "science",
+    "subject": "数学",
+    "bytes": 279263,
+    "previous_sha256": "545e5c9f37757ca064e5315df5cc211e4588d21acb61ac8aa0b010c6f6371438",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 22,
+    "slug": "optimization",
+    "title": "曲面的下一步",
+    "domain": "数学 / 优化",
+    "dimension": "3D + 2D",
+    "description": "比较梯度下降、动量与 Adam，观察曲面上的真实迭代。",
+    "entry": "works/22-optimization/index.html",
+    "guide": "works/22-optimization/readme.txt",
+    "source_sha256": "b3f9147f408155ba421769b3b51c5405732c2253b52a162e22f05045bb3ff18a",
+    "preview": "images/22-optimization.png",
+    "limits": [
+      "限定三个参数化目标函数，不执行任意表达式",
+      "有限观察窗的越界保护不是约束优化，也不表示收敛",
+      "Adam 使用确定性完整梯度；比较依赖所选参数，不是方法排名",
+      "默认高度线性归一化；可选 log(1+f)，两者都不改变优化函数",
+      "同源原生场景和模型已核对；未进行浏览器实机验收"
+    ],
+    "sources": [
+      {
+        "title": "SciPy · Rosenbrock function",
+        "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen.html"
+      },
+      {
+        "title": "SciPy · Rosenbrock derivative",
+        "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.rosen_der.html"
+      },
+      {
+        "title": "Kingma & Ba · Adam: A Method for Stochastic Optimization",
+        "url": "https://arxiv.org/abs/1412.6980"
+      }
+    ],
+    "id": "22-optimization",
+    "prompt": "works/22-optimization/prompt.txt",
+    "record": "works/22-optimization/record.txt",
+    "series": "science",
+    "subject": "数学",
+    "bytes": 352263,
+    "previous_sha256": "6585013718804ee9216484ff0bbb9be10c513c53a760cabee33c5bdf78916d82",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 23,
+    "slug": "orbit",
+    "title": "轨道窗口",
+    "domain": "物理 / 航天力学",
+    "dimension": "3D",
+    "description": "计算理想霍曼转移，让位置随计算时间而变化。",
+    "entry": "works/23-orbit/index.html",
+    "guide": "works/23-orbit/readme.txt",
+    "source_sha256": "9248bca354a68e4d328449d4dfd1866f450f6966380fb3e418e2cd2807769558",
+    "preview": "images/23-orbit.png",
+    "limits": [
+      "二体、共面圆轨道、两次理想瞬时切向脉冲",
+      "不含J2、阻力、多体、燃料与交会相位",
+      "航天器和线宽为放大符号；陆地为原创简化示意",
+      "原生场景和模型已核对；未做浏览器实机验收"
+    ],
+    "sources": [
+      {
+        "title": "NASA / Hohmann Transfer Orbit",
+        "url": "https://science.nasa.gov/resource/hohmann-transfer-orbit/"
+      },
+      {
+        "title": "NASA / Basics of Space Flight",
+        "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter14-1/"
+      },
+      {
+        "title": "JPL / Astrodynamic Parameters",
+        "url": "https://ssd.jpl.nasa.gov/astro_par.html"
+      }
+    ],
+    "id": "23-orbit",
+    "prompt": "works/23-orbit/prompt.txt",
+    "record": "works/23-orbit/record.txt",
+    "series": "science",
+    "subject": "物理",
+    "bytes": 326722,
+    "previous_sha256": "75cef8dfea6320459812147fe1933c8747e37fc8459f314989ca3c4c4c81542b",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 24,
+    "slug": "circuit",
+    "title": "让电路自己回答",
+    "domain": "物理 / 电路",
+    "dimension": "2D",
+    "description": "编辑元件与节点，计算直流和 RC 暂态并输出结果。",
+    "entry": "works/24-circuit/index.html",
+    "guide": "works/24-circuit/readme.txt",
+    "source_sha256": "8d10d8c5f93ab247c687a5958a3aae5246e39a06cc921692408bfebe56726531",
+    "preview": "images/24-circuit.png",
+    "limits": [
+      "理想线性集中参数R/C/V/I，非完整SPICE",
+      "不含电感、非线性器件、容差、热效应",
+      "初态来自阶跃前DC；非整步阶跃在下一采样出现",
+      "未做浏览器与硬件电路实测"
+    ],
+    "sources": [
+      {
+        "title": "Qucs / Modified Nodal Analysis",
+        "url": "https://qucs.sourceforge.net/tech/node14.html"
+      },
+      {
+        "title": "Qucs / Energy-storage components",
+        "url": "https://qucs.sourceforge.net/tech/node26.html"
+      }
+    ],
+    "id": "24-circuit",
+    "prompt": "works/24-circuit/prompt.txt",
+    "record": "works/24-circuit/record.txt",
+    "series": "science",
+    "subject": "物理",
+    "bytes": 260197,
+    "previous_sha256": "af771712713450489c44082aa108a8b7ab2aa5a9d2ee12a1ec7a04171395f467",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 25,
+    "slug": "watershed",
+    "title": "一滴雨的去向",
+    "domain": "地理 / 汇水",
+    "dimension": "3D + 2D",
+    "description": "导入高度格网，查看流向、汇水范围和雨量体积估算。",
+    "entry": "works/25-watershed/index.html",
+    "guide": "works/25-watershed/readme.txt",
+    "source_sha256": "5f94842261b072a1fe220a48316f3f0c342eb1312ba0e0ac59a5570a585dd45d",
+    "preview": "images/25-watershed.png",
+    "limits": [
+      "5—48行列完整正方形格网；无NoData或真实投影",
+      "边界格均为出口；平地按填洼父链路由",
+      "均匀降雨与径流系数只得到体积，不是洪水、水深或流量预测",
+      "原生场景和算法已核对；未做浏览器实机验收"
+    ],
+    "sources": [
+      {
+        "title": "Barnes, Lehman & Mulla / Priority-Flood",
+        "url": "https://arxiv.org/abs/1511.04463"
+      },
+      {
+        "title": "作者算法与说明",
+        "url": "https://github.com/r-barnes/Barnes2013-Depressions"
+      }
+    ],
+    "id": "25-watershed",
+    "prompt": "works/25-watershed/prompt.txt",
+    "record": "works/25-watershed/record.txt",
+    "series": "science",
+    "subject": "地理",
+    "bytes": 350545,
+    "previous_sha256": "be6a227d20356bfeb7c57fe00dd8ef7c1feab79df97d9b0dc72055c05fa14e6a",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 26,
+    "slug": "globe",
+    "title": "把地球摊开",
+    "domain": "地理 / 地图投影",
+    "dimension": "3D + 2D",
+    "description": "在球面与平面间对照路线、距离和投影变形。",
+    "entry": "works/26-globe/index.html",
+    "guide": "works/26-globe/readme.txt",
+    "source_sha256": "3783aa2cc9e8cd7e871448ae222ea611402e52d33608248c1dfd9bed0506d580",
+    "preview": "images/26-globe.png",
+    "limits": [
+      "可编辑半径的球体模型，不是椭球测地线或实际航空规划",
+      "对跖/极近对跖点必须增加中间点，不伪造唯一最短路径",
+      "Mercator 显示裁到 ±85°，导出仍保留真实极地坐标",
+      "Natural Earth 1:110m 公共领域低分辨率陆地，不是精密航图",
+      "同源场景与模型已核对；未进行浏览器实机验收"
+    ],
+    "sources": [
+      {
+        "title": "Natural Earth · Terms of Use",
+        "url": "https://www.naturalearthdata.com/about/terms-of-use/"
+      },
+      {
+        "title": "Natural Earth · 1:110m Land source",
+        "url": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson"
+      },
+      {
+        "title": "PROJ · Mercator",
+        "url": "https://proj.org/en/stable/operations/projections/merc.html"
+      },
+      {
+        "title": "PROJ · Lambert Cylindrical Equal Area",
+        "url": "https://proj.org/en/stable/operations/projections/cea.html"
+      },
+      {
+        "title": "Christopher Veness · Spherical geodesy formulae",
+        "url": "https://www.movable-type.co.uk/scripts/latlong.html"
+      },
+      {
+        "title": "IETF · RFC 7946 GeoJSON",
+        "url": "https://www.rfc-editor.org/rfc/rfc7946"
+      },
+      {
+        "title": "Mapbox · Earcut (production triangulation)",
+        "url": "https://github.com/mapbox/earcut"
+      }
+    ],
+    "id": "26-globe",
+    "prompt": "works/26-globe/prompt.txt",
+    "record": "works/26-globe/record.txt",
+    "series": "science",
+    "subject": "地理",
+    "bytes": 1634139,
+    "previous_sha256": "4342b203c3afe14f09699ffc4d65e5f5967313a52919e0489c2d401f05e95c77",
+    "edition": "4.0.0",
+    "upgrade": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 27,
+    "slug": "network",
+    "title": "一封数据包的旅程",
+    "domain": "计算机 / 网络",
+    "dimension": "2D",
+    "description": "搭建拓扑，改变带宽与队列，追踪包的等待、转发和丢失。",
+    "entry": "works/27-network/index.html",
+    "guide": "works/27-network/readme.txt",
+    "source_sha256": "bcdc37ccb55cc02275020bec8ab738dee24ec505389e6eadc0b3e626293399fe",
+    "preview": "images/27-network.png",
+    "limits": [
+      "教学全双工存储转发模型，无TCP、ACK、重传、协议头或拥塞控制",
+      "Dijkstra代价为发送+传播，不预测队列",
+      "断链约定为清空等待队列，已开始发送及传播继续完成该跳",
+      "无获准浏览器环境，未实测DOM/CSS、指针设备、本地冷启或下载对话框"
+    ],
+    "sources": [
+      {
+        "title": "MIT 6.02 Lecture 17: Packet switching",
+        "url": "https://ocw.mit.edu/courses/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/8f332043eaaa2d41028991a442dd4fb6_MIT6_02F12_lec17.pdf"
+      }
+    ],
+    "id": "27-network",
+    "prompt": "works/27-network/prompt.txt",
+    "record": "works/27-network/record.txt",
+    "series": "science",
+    "subject": "计算机",
+    "bytes": 282308,
+    "previous_sha256": "92465d61bc73a29089890af02deed77e3dc1ab9bee401d805a4e97912fa56a09",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 28,
+    "slug": "compression",
+    "title": "像素的第二种生命",
+    "domain": "计算机 / 图像压缩",
+    "dimension": "2D",
+    "description": "导入图片，检查 DCT 与量化，导出并解码 PX8 文件。",
+    "entry": "works/28-compression/index.html",
+    "guide": "works/28-compression/readme.txt",
+    "source_sha256": "9ec8b167b4643637d6121e5840374b15bb840549efcdd37a7920072adbfcc6a5",
+    "preview": "images/28-compression.png",
+    "limits": [
+      "PX8是自制教学格式，不是JPEG；RGB独立处理，无YCbCr、色度采样或熵编码",
+      "工作图像最大384×384，误差只相对缩放后的RGB",
+      "MSE/PSNR是像素指标，不是感知质量评分",
+      "无获准浏览器环境，图像选择器/解码器及DOM操作尚未设备验收"
+    ],
+    "sources": [
+      {
+        "title": "SciPy 官方 DCT 定义",
+        "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.fft.dct.html"
+      },
+      {
+        "title": "ITU-T T.81 标准目录",
+        "url": "https://www.itu.int/rec/T-REC-T.81-199209-I/en"
+      }
+    ],
+    "id": "28-compression",
+    "prompt": "works/28-compression/prompt.txt",
+    "record": "works/28-compression/record.txt",
+    "series": "science",
+    "subject": "计算机",
+    "bytes": 283044,
+    "previous_sha256": "d88e7078fdecc0d872a06270876cae167441083e9398cdf04a96a607d043b7b4",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 29,
+    "slug": "transformer",
+    "title": "一句话的内部",
+    "domain": "大模型 / 机制学习",
+    "dimension": "2D",
+    "description": "在短语料上训练小型 Transformer，查看注意力并保存训练状态。",
+    "entry": "works/29-transformer/index.html",
+    "guide": "works/29-transformer/readme.txt",
+    "source_sha256": "e7c90c71d0f78ea60217b1d6a3c6cf6ba8a21b784476482a86604af8f6f22cd7",
+    "preview": "images/29-transformer.png",
+    "limits": "单层24维字符级教学模型，非通用大模型；训练损失不代表泛化，注意力不等于因果解释。24字符上下文、语料95种字，观察干预与正常生成分别运行。",
+    "sources": [
+      {
+        "title": "Attention Is All You Need",
+        "url": "https://arxiv.org/abs/1706.03762"
+      },
+      {
+        "title": "Adam: A Method for Stochastic Optimization",
+        "url": "https://arxiv.org/abs/1412.6980"
+      },
+      {
+        "title": "Layer Normalization",
+        "url": "https://arxiv.org/abs/1607.06450"
+      }
+    ],
+    "id": "29-transformer",
+    "prompt": "works/29-transformer/prompt.txt",
+    "record": "works/29-transformer/record.txt",
+    "series": "science",
+    "subject": "大模型",
+    "bytes": 1001963,
+    "previous_sha256": "532fec817850d0eeb84819868571e137c1f04e66777887209416f9af6a342e91",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  },
+  {
+    "number": 30,
+    "slug": "retrieval",
+    "title": "答案之前，先找证据",
+    "domain": "大模型 / 检索基础",
+    "dimension": "2D",
+    "description": "用自己的资料比较 BM25 与 TF-IDF，评测检索并导出证据提示词。",
+    "entry": "works/30-rag/index.html",
+    "guide": "works/30-rag/readme.txt",
+    "source_sha256": "bafc3c32dea0a5376d1afc5f10c9a9a0e7da108eaaa472666b0a51572e5bb4f1",
+    "preview": "images/30-rag.png",
+    "limits": [
+      "真实词项检索，无语义embedding或大模型推理，不生成AI答案",
+      "分词为汉字单字+双字与英文数字词；字符预算不是token预算",
+      "未判断暂按0；缺少已知正例的查询指标未定义；改文后旧判断需复核",
+      "无获准浏览器环境，DOM/CSS、真实文件选择、剪贴板和冷启动未验收"
+    ],
+    "sources": [
+      {
+        "title": "Stanford IR: Okapi BM25",
+        "url": "https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html"
+      },
+      {
+        "title": "Stanford IR: Dot products",
+        "url": "https://nlp.stanford.edu/IR-book/html/htmledition/dot-products-1.html"
+      },
+      {
+        "title": "Stanford IR: Evaluation of ranked retrieval results",
+        "url": "https://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html"
+      },
+      {
+        "title": "Apache Lucene BM25Similarity positive IDF",
+        "url": "https://github.com/apache/lucene/blob/main/lucene/core/src/java/org/apache/lucene/search/similarities/BM25Similarity.java"
+      }
+    ],
+    "id": "30-rag",
+    "prompt": "works/30-rag/prompt.txt",
+    "record": "works/30-rag/record.txt",
+    "series": "science",
+    "subject": "大模型",
+    "bytes": 376527,
+    "previous_sha256": "12be21079e754ac8c8071e3ad8c2faff5cd41e4f33f3647b54aabce628f2b734",
+    "edition": "4.0.0",
+    "upgrade": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ]
+  }
+]

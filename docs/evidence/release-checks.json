@@ -1,0 +1,35 @@
+{
+  "installer_dry_run_no_writes": true,
+  "installer_codex_copy_refuse_overwrite_backup": true,
+  "installer_claude_copy_refuse_overwrite_backup": true,
+  "stager_keeps_existing_entry_and_stages_30_examples": true,
+  "stager_refuses_conflicting_asset": true,
+  "decoded_JPEG_files": 27,
+  "javascript_script_blocks_checked": 109,
+  "javascript_syntax_errors": [],
+  "workflow_template_structure": true,
+  "common_literal_secret_pattern_matches": [],
+  "file_verification": {
+    "scope": "File/metadata/relative-link checks only; no browser or scientific-model tests",
+    "examples": 30,
+    "rendered_images": 26,
+    "local_links_checked": 461,
+    "errors": [],
+    "passed": true
+  },
+  "browser_test": {
+    "attempt": "open original case 22 using file://",
+    "result": "blocked",
+    "error": "ERR_BLOCKED_BY_ADMINISTRATOR",
+    "screenshots_produced": 0,
+    "policy_workaround_attempted": false
+  },
+  "remote_write": {
+    "operation": "GitHub create LICENSE",
+    "result": "403 Resource not accessible by integration",
+    "commit_created": false
+  },
+  "original_vite_source_available": false,
+  "production_build_run_this_turn": false,
+  "remote_pages_deployment_run": false
+}

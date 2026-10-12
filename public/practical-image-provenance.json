@@ -1,0 +1,105 @@
+{
+  "scope": "Actual final same-source scene / Canvas output, not browser screenshots.",
+  "items": [
+    {
+      "id": "11-popup",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/11-popup/review/default-3d.png",
+      "image": "/images/11-popup.png",
+      "sha256": "7df6e0bdb0ea9b012cf2d88379e4151d8f80b39a426651e4fedeab48ca703962",
+      "size": [
+        1440,
+        1040
+      ]
+    },
+    {
+      "id": "12-packaging",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/12-packaging/review/default-3d.png",
+      "image": "/images/12-packaging.png",
+      "sha256": "1eb65eb2a2be76f137caaf610f5516b5bb105e9e480bbe0e2a01a88a5555dd52",
+      "size": [
+        1440,
+        1100
+      ]
+    },
+    {
+      "id": "13-cutlist",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/13-cutlist/review/default-3d.png",
+      "image": "/images/13-cutlist.png",
+      "sha256": "7e50c6c342be43bb372b9abe7d5f036fc1afc2260adbc3b6c312a2178632554f",
+      "size": [
+        1440,
+        1160
+      ]
+    },
+    {
+      "id": "14-garden",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/14-garden/review/default.png",
+      "image": "/images/14-garden.png",
+      "sha256": "3a6466291d03ca53f87fc809c9afb15ffcd2d68005857ae03f35a2c69ef72b1a",
+      "size": [
+        1400,
+        1050
+      ]
+    },
+    {
+      "id": "15-mealprep",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/15-mealprep/review/default.png",
+      "image": "/images/15-mealprep.png",
+      "sha256": "01739d580fa9bba36995ae010f22aba70a5115635f9d49eeb9f7ce9cfbdb4d75",
+      "size": [
+        1440,
+        815
+      ]
+    },
+    {
+      "id": "16-lesson",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/16-lesson/review/default.png",
+      "image": "/images/16-lesson.png",
+      "sha256": "68da71f7af76f9b3822c90da1c149cac15217c7ecbff0d8da163e075be967e30",
+      "size": [
+        1440,
+        1040
+      ]
+    },
+    {
+      "id": "17-shotplanner",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/17-shotplanner/review/contact-sheet.png",
+      "image": "/images/17-shotplanner.png",
+      "sha256": "7e618eb205eda7b08884d3dc2afebbbbb29babca75f5dbeb35a9d34eec2ecc7d",
+      "size": [
+        1800,
+        1341
+      ]
+    },
+    {
+      "id": "18-research",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/18-research/review/default.png",
+      "image": "/images/18-research.png",
+      "sha256": "b6c27bc994124baed7a6f72e92ceaf89a60397ae07bed336cc4abd7c02d4fe6a",
+      "size": [
+        1726,
+        1634
+      ]
+    },
+    {
+      "id": "19-packing",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/19-packing/review/action.png",
+      "image": "/images/19-packing.png",
+      "sha256": "c806f64875072b91a4aad961b858af4691044b672dba0bfe424f6b1aeb2b5805",
+      "size": [
+        1500,
+        1150
+      ]
+    },
+    {
+      "id": "20-audio",
+      "source": "/workspace/scratch/e8da9104517d/imagination-practical-v4/source/20-audio/review/cover.png",
+      "image": "/images/20-audio.png",
+      "sha256": "488ba190de71430159e4844926f434e7c108a4a8146e6425f9d855e5db829911",
+      "size": [
+        1600,
+        870
+      ]
+    }
+  ]
+}

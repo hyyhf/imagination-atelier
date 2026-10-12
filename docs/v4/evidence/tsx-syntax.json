@@ -1,0 +1,12 @@
+{
+  "scope": "Syntax transpilation only; does not check external dependency types or production bundling",
+  "typescript": "5.8.3",
+  "files": [
+    "src/App.tsx",
+    "src/data.ts",
+    "src/main.tsx",
+    "vite.config.ts"
+  ],
+  "failures": [],
+  "pass": true
+}

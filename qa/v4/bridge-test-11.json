@@ -1,0 +1,22 @@
+[
+  {
+    "id": "11-popup",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "木色 · 日间",
+        "pass": true
+      },
+      {
+        "name": "深色 · 展陈",
+        "pass": true
+      },
+      {
+        "name": "桦木 · 柔光",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  }
+]

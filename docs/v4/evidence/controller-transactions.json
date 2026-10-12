@@ -1,0 +1,563 @@
+[
+  {
+    "id": "01-lightroom",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "低角度光",
+        "pass": true
+      },
+      {
+        "name": "高角度光",
+        "pass": true
+      },
+      {
+        "name": "改为圆窗",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "02-differential",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "直行",
+        "pass": true
+      },
+      {
+        "name": "左转",
+        "pass": true
+      },
+      {
+        "name": "右转",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "03-strata",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "切到中央",
+        "pass": true
+      },
+      {
+        "name": "旋转剖面",
+        "pass": true
+      },
+      {
+        "name": "不褶皱的对照",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "04-pottery",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "收住瓶口",
+        "pass": true
+      },
+      {
+        "name": "打开肩部",
+        "pass": true
+      },
+      {
+        "name": "换米釉看轮廓",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "05-crystal",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "只看第一近邻",
+        "pass": true
+      },
+      {
+        "name": "从内部看",
+        "pass": true
+      },
+      {
+        "name": "边界原子",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "06-optics",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "理想对准",
+        "pass": true
+      },
+      {
+        "name": "末镜偏差 0.6°",
+        "pass": true
+      },
+      {
+        "name": "插入挡板",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "07-crossing",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "均衡配时",
+        "pass": true
+      },
+      {
+        "name": "增加南北",
+        "pass": true
+      },
+      {
+        "name": "增加行人",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "08-typewind",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "无风对照",
+        "pass": true
+      },
+      {
+        "name": "逆风",
+        "pass": true
+      },
+      {
+        "name": "更轻的风",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "09-waterway",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "10-tidewalk",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "11-popup",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "木色 · 日间",
+        "pass": true
+      },
+      {
+        "name": "深色 · 展陈",
+        "pass": true
+      },
+      {
+        "name": "桦木 · 柔光",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "12-packaging",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "只看纸样",
+        "pass": true
+      },
+      {
+        "name": "合盖状态",
+        "pass": true
+      },
+      {
+        "name": "更厚的纸",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "13-cutlist",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "按木纹排样",
+        "pass": true
+      },
+      {
+        "name": "允许旋转排样",
+        "pass": true
+      },
+      {
+        "name": "减少一层",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "14-garden",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "株距加 20%",
+        "pass": true
+      },
+      {
+        "name": "填土减 5 cm",
+        "pass": true
+      },
+      {
+        "name": "株距减 15%",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "15-mealprep",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "增加一位帮手",
+        "pass": true
+      },
+      {
+        "name": "晚 30 分钟上桌",
+        "pass": true
+      },
+      {
+        "name": "多两位客人",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "16-lesson",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "多 5 分钟讨论",
+        "pass": true
+      },
+      {
+        "name": "四人小组",
+        "pass": true
+      },
+      {
+        "name": "六人小组",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "17-shotplanner",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "24 mm",
+        "pass": true
+      },
+      {
+        "name": "50 mm",
+        "pass": true
+      },
+      {
+        "name": "85 mm",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "18-research",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "19-packing",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "重新自动排布",
+        "pass": true
+      },
+      {
+        "name": "箱深增加 3 cm",
+        "pass": true
+      },
+      {
+        "name": "轻量方案",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "20-audio",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "主音量减 3 dB",
+        "pass": true
+      },
+      {
+        "name": "背景轨更轻",
+        "pass": true
+      },
+      {
+        "name": "结尾缓缓落下",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "21-fit",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "直线",
+        "pass": true
+      },
+      {
+        "name": "二次曲线",
+        "pass": true
+      },
+      {
+        "name": "指数模型",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "22-optimization",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "学习率减半",
+        "pass": true
+      },
+      {
+        "name": "学习率倍增",
+        "pass": true
+      },
+      {
+        "name": "迭代预算倍增",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "23-orbit",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "目标高度减少 20%",
+        "pass": true
+      },
+      {
+        "name": "目标高度增加 20%",
+        "pass": true
+      },
+      {
+        "name": "转移到中点",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "24-circuit",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "时间步长减半",
+        "pass": true
+      },
+      {
+        "name": "电容翻倍",
+        "pass": true
+      },
+      {
+        "name": "电阻翻倍",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "25-watershed",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "雨量减半",
+        "pass": true
+      },
+      {
+        "name": "雨量翻倍",
+        "pass": true
+      },
+      {
+        "name": "地形夸张关闭",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "26-globe",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "等积圆柱",
+        "pass": true
+      },
+      {
+        "name": "墨卡托",
+        "pass": true
+      },
+      {
+        "name": "等距圆柱",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "27-network",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "瓶颈带宽翻倍",
+        "pass": true
+      },
+      {
+        "name": "队列容量翻倍",
+        "pass": true
+      },
+      {
+        "name": "发包间隔翻倍",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "28-compression",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "细节优先",
+        "pass": true
+      },
+      {
+        "name": "平衡试验",
+        "pass": true
+      },
+      {
+        "name": "更小的码流",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "29-transformer",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "观察移除位置编码",
+        "pass": true
+      },
+      {
+        "name": "观察消融头 0",
+        "pass": true
+      },
+      {
+        "name": "观察消融头 1",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  },
+  {
+    "id": "30-rag",
+    "pass": true,
+    "jsonRoundTrip": true,
+    "variants": [
+      {
+        "name": "BM25",
+        "pass": true
+      },
+      {
+        "name": "TF-IDF",
+        "pass": true
+      },
+      {
+        "name": "更多检索证据",
+        "pass": true
+      }
+    ],
+    "scope": "Original controller transaction functions executed with visual scheduling and DOM outputs stubbed; not browser testing."
+  }
+]

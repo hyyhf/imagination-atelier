@@ -1,0 +1,212 @@
+{
+  "evidenceLevel": "R",
+  "browserTest": false,
+  "shadersTranslated": "precision qualifiers removed; GLSL 1.20 compatibility prefix",
+  "multisampleContext": false,
+  "frames": [
+    {
+      "case": "01-lightroom",
+      "htmlSha256": "b61aad4104fa5f1659d1b2629f616a946354df261bc1bf95f788304b93280027",
+      "imageSha256": "145a372909b68949a9b86c7a7e964e05b1ca705082ebdb3a3606509feb9b68a7",
+      "packetSha256": "561381df05d9615c4388fd77531245d699871abd0845bf8e3e861321eb4d3faf",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "02-differential",
+      "htmlSha256": "bc291a0c87a5727363d41c0083b28b20cff1f9f01dcc4b995df017daac378ba1",
+      "imageSha256": "513f969dba72f34730876b3b85ad2c724d1ddc008c2686638135ced5d85fe9ab",
+      "packetSha256": "92051969e3a3340c71885feafc51c6495784f7b44e5b701aa7accd1ca15ee086",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "03-strata",
+      "htmlSha256": "9af9b026fcb89893b2465524dd10a22a0a28e84ba590e90410809d0cc2e2df23",
+      "imageSha256": "09bd466086fc35484c6ed4cf5b66484ad1b9d434186e46a5a0d23d3c925db6d1",
+      "packetSha256": "9634fffe3574ed1ab4435184382b4c447cc81ff8194317ac078b9788c6eff2de",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "04-pottery",
+      "htmlSha256": "7f04b5eedf3a0417c970f3b122374c642529cdd1bdcdf648b14a071686e156ad",
+      "imageSha256": "92d97ffea4e7a7533d2a784f40e518e606f0ba2f79a449e7f56fadf45f7dc93f",
+      "packetSha256": "3d729882e0918772d1cbb3f0b881c857eba768f644e86394da8d6fcfb3167cea",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "05-crystal",
+      "htmlSha256": "8a8f9e5981f7bad8422efcbfa417913ee05e0647028b46998c8f6c7cf022d1a2",
+      "imageSha256": "5e1a6c7518e1a76b76037b35f476ee47418f7c3dacd7453079b6d22863fd9cb9",
+      "packetSha256": "90a89f9d14e8df7bf3c3c0d54e6e8f253e9e9b80b3259b0c1579d3a4725e19bf",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "06-optics",
+      "htmlSha256": "767726b7dc278b57186a4204fba7b543c5833a0617b8541e0bd304a9eb44eac7",
+      "imageSha256": "c5896029f06f94bae161650ee63988248c199bc64eb8898a1d05d182b946f827",
+      "packetSha256": "0f822c516166f7286c48e5c6e6df9aa1de8c4441728f6a65923547c754971ed0",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "10-tidewalk",
+      "htmlSha256": "18e18717bade1c83134ea276fbc6ba36456a133ba3c52e9791494c1bcfed714f",
+      "imageSha256": "fcdbf18f86cc1625cdf4d1bae2814a07198c2eafff02fff705734c8fc7e0654c",
+      "packetSha256": "8c31decdfe3d40912968151bd81714543b6caa3e0ae6db27808e16cb0e4874e9",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "11-popup",
+      "htmlSha256": "7a210d612f222764fa24a09cf487b8eeac60366afd03e701ce849a2d58bcb522",
+      "imageSha256": "3e417336b3bbca6aedbf1485a2a320b598bfa5391ecf9b85ba56474ba56b1fda",
+      "packetSha256": "6513a242d9bbc28d635657c17a6059a154f20e168813bf2a83f1f0d59b90fa35",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "12-packaging",
+      "htmlSha256": "25ec1b17822bd6808b16c7eede25b0ef253e0628c2d691fb2160e1f837441531",
+      "imageSha256": "6c2acba1f84c39f1e907b49ee54e1c6d7e7d7b64dd5a5033de516b34b8b7d383",
+      "packetSha256": "7b27e73c08c908bd0e35fd9adecba21c79cfec37b8c6f62f33df8c76189019ac",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "13-cutlist",
+      "htmlSha256": "9c794510c60a9a908135e9c1f76d5d523c4175dc031efdbf00ad63bbe67db7f4",
+      "imageSha256": "74b01f0d35f414223cdb6af7922cb72c518061528ddcd20d663748f3d47aaaa8",
+      "packetSha256": "92f611e8919df7defc80c5506a60508edc9af12f845fae2b590bd13f5ff866c6",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "14-garden",
+      "htmlSha256": "b3024debd69945ed49c326d36030f50a6800093413a86dcf8e5d1e2fcca0a19c",
+      "imageSha256": "cd2431785f9238e9d691834aae8c74e69b5b4bb5a88045fc93a9c5694f7b215e",
+      "packetSha256": "6a11de39066384dbf057b75693885a20ffca98d3bfadc53aefcb220e10c92f73",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "17-shotplanner",
+      "htmlSha256": "f1db5c8b52d592b55be8bfe107d88d930af4e7b88cbd59607ffda52b10809283",
+      "imageSha256": "02ae117aa16e44ec8ab9dcfbfb0e568328f9a11157c2a20375dcd3bd4cd656ba",
+      "packetSha256": "f6b641f67ea8a7ade55fb3b34a220bea0ed94b9f3214d3f1fedf030694bc05ef",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "19-packing",
+      "htmlSha256": "47d556cb2e201e3c75f52f17beead3a9bc5ae8ce6b4dcfb865e4c3558efd2bf6",
+      "imageSha256": "3c8d95ded9dd252a5855c1410df801564043c901ad4ec42e96720680915af0c9",
+      "packetSha256": "e09f2bfb788fa618ed0e03da73f520394a7e75a2e74f381e9778951570ca709c",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "22-optimization",
+      "htmlSha256": "b3f9147f408155ba421769b3b51c5405732c2253b52a162e22f05045bb3ff18a",
+      "imageSha256": "376d06fcda20c984caa194c3da593014e69c2645f774892cf5ac618b7b6c9724",
+      "packetSha256": "48f39696797de86be645fb20ddd1f5da0d19bd1b6d2a73e6f4fc584f047ce6a8",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "23-orbit",
+      "htmlSha256": "9248bca354a68e4d328449d4dfd1866f450f6966380fb3e418e2cd2807769558",
+      "imageSha256": "812d9b523167e39bb8a72529fcbf97e0c321bbb1a68737aea2463ecfab7bae4e",
+      "packetSha256": "538890f77af9b8e9402fae8a6b97533c9258537d176361befccf7ac060083989",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "25-watershed",
+      "htmlSha256": "5f94842261b072a1fe220a48316f3f0c342eb1312ba0e0ac59a5570a585dd45d",
+      "imageSha256": "91271d1a81d3e252da6b8c2c2d291847a7fe204f3a1cc06a8c5ef1647624cbd8",
+      "packetSha256": "fc877aeaad1d30681bd61cbc9c66fa96cccb8d0da8c9b8cd2c53c5b960237382",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    },
+    {
+      "case": "26-globe",
+      "htmlSha256": "3783aa2cc9e8cd7e871448ae222ea611402e52d33608248c1dfd9bed0506d580",
+      "imageSha256": "23e081472bbab391b86b350af6f269f7a0b40ddb624ab4784c3fd084b7204a86",
+      "packetSha256": "4254614148443f0ac9d0cf59474b982f7d01ec03bda663cf9e18f7fbfd917e10",
+      "size": [
+        1400,
+        933
+      ],
+      "scope": "Same-model geometry, camera and shaders replayed in native Mesa OpenGL; NOT a browser screenshot",
+      "glError": 0
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "imagination-atelier",
+  "version": "4.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/run-python.cjs scripts/package.py",
+    "build": "tsc --noEmit && vite build && node scripts/run-python.cjs scripts/check_build.py",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "check": "node scripts/run-python.cjs scripts/check_source.py",
+    "test": "node scripts/run-python.cjs -m unittest discover -s qa -p \"test_*.py\"",
+    "publish:github": "node scripts/run-python.cjs scripts/publish.py --repo hyyhf/imagination-atelier",
+    "package": "node scripts/run-python.cjs scripts/package.py",
+    "predev": "node scripts/run-python.cjs scripts/package.py"
+  },
+  "dependencies": {
+    "@heroui/react": "^3.2.1",
+    "@heroui/styles": "^3.2.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-variants": "^3.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "tailwindcss": "^4.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "scope": "Pure JavaScript geometry and domain invariants, not pointer-event/browser tests",
+  "checks": [
+    {
+      "name": "Box slab intersection has hand-calculated entry distance 4",
+      "pass": true
+    },
+    {
+      "name": "Parallel ray outside box is rejected",
+      "pass": true
+    },
+    {
+      "name": "Parallel ray starting inside yields zero",
+      "pass": true
+    },
+    {
+      "name": "Matrix inverse agrees for 500 camera projection points",
+      "pass": true
+    },
+    {
+      "name": "Ground ray at image center hits default camera target",
+      "pass": true
+    },
+    {
+      "name": "Display-only themes preserve quantities and model exports",
+      "pass": true
+    },
+    {
+      "name": "Unrecognized lighting input falls back, rather than crashing a scene",
+      "pass": true
+    },
+    {
+      "name": "Geometry-only bevel stays within original cuboid bounds",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "checkedAtUtc": "2026-10-11T17:31:52.642061+00:00",
+  "release": "3.3.1 recovery packaging / Skill remains v3.3",
+  "originals": {
+    "expected": 30,
+    "sha256Matches": 30,
+    "modifiedArtifactHtml": 0
+  },
+  "sourceRecovery": {
+    "validRescuedFiles": 90,
+    "reactShowcase": "reimplemented because original ZIP was truncated"
+  },
+  "syntax": {
+    "originalInlineJavaScriptBlocks": 108,
+    "typescriptSyntaxOnly": true,
+    "typescriptVersion": "5.8.3",
+    "typescriptFiles": 4,
+    "externalDependencyTypecheck": false
+  },
+  "unitTests": {
+    "passed": 22,
+    "publisherTests": 17,
+    "readmeTests": 5,
+    "remoteEffects": "mocked; no repository changes"
+  },
+  "links": {
+    "markdownLocalTargets": 252,
+    "offlineHtmlLocalTargets": 241,
+    "brokenTargets": 0
+  },
+  "browser": {
+    "status": "blocked",
+    "error": "net::ERR_BLOCKED_BY_ADMINISTRATOR on first file:// START.html navigation",
+    "passedTests": 0,
+    "artifactStartupTests": "not executed; stopped at the block"
+  },
+  "dependencies": {
+    "networkInstall": "unavailable; outbound DNS failed earlier in this run",
+    "offlineNpmCi": {
+      "exitCode": 1,
+      "error": "ENOTCACHED",
+      "firstMissingCachedPackage": "yallist-3.1.1.tgz"
+    },
+    "productionBuild": "not executed; locked dependencies unavailable"
+  },
+  "github": {
+    "repository": "hyyhf/imagination-atelier",
+    "visibility": "public",
+    "integrationWrite": {
+      "path": "LICENSE",
+      "httpStatus": 403,
+      "message": "Resource not accessible by integration"
+    },
+    "installationListing": [],
+    "localReadOnlyPublisherPreflight": {
+      "exitCode": 1,
+      "reason": "No authenticated local GitHub CLI or GH_TOKEN"
+    },
+    "sourcePushed": false,
+    "workflowExecuted": false,
+    "pagesVerified": false
+  },
+  "boundary": "No production build, browser experience or online deployment success is claimed. GitHub Actions will run the full production build and browser smoke checks before permitting a deployment."
+}

@@ -1,0 +1,941 @@
+[
+  {
+    "case": "01-lightroom",
+    "oldSha256": "e67ce18f5b0faeaaf79af8f19987051bab4dda9c5ca885daf1b96396693ec0f4",
+    "newSha256": "b61aad4104fa5f1659d1b2629f616a946354df261bc1bf95f788304b93280027",
+    "bytes": 152039,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "低角度光",
+        "pass": true
+      },
+      {
+        "name": "高角度光",
+        "pass": true
+      },
+      {
+        "name": "改为圆窗",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "02-differential",
+    "oldSha256": "b3fc397801489f4c2cbe7a1c182ae903cf50175e2f9a35b6c2062007d3d036d7",
+    "newSha256": "bc291a0c87a5727363d41c0083b28b20cff1f9f01dcc4b995df017daac378ba1",
+    "bytes": 157068,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "直行",
+        "pass": true
+      },
+      {
+        "name": "左转",
+        "pass": true
+      },
+      {
+        "name": "右转",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "03-strata",
+    "oldSha256": "b37c891dff3cb8039b8e294979162d99b5f77e6fe6eb2bc72dfbbad66d279155",
+    "newSha256": "9af9b026fcb89893b2465524dd10a22a0a28e84ba590e90410809d0cc2e2df23",
+    "bytes": 163560,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "切到中央",
+        "pass": true
+      },
+      {
+        "name": "旋转剖面",
+        "pass": true
+      },
+      {
+        "name": "不褶皱的对照",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "04-pottery",
+    "oldSha256": "45454f295516b5f011431aa891e3bb66f5c54faff66d39032db31b5e7d1bc454",
+    "newSha256": "7f04b5eedf3a0417c970f3b122374c642529cdd1bdcdf648b14a071686e156ad",
+    "bytes": 173649,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "收住瓶口",
+        "pass": true
+      },
+      {
+        "name": "打开肩部",
+        "pass": true
+      },
+      {
+        "name": "换米釉看轮廓",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "05-crystal",
+    "oldSha256": "f70a25fc5544bff91d5b6f9e587312e4600b4b73d96e6cef9e1777beaa6c8eec",
+    "newSha256": "8a8f9e5981f7bad8422efcbfa417913ee05e0647028b46998c8f6c7cf022d1a2",
+    "bytes": 155038,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "只看第一近邻",
+        "pass": true
+      },
+      {
+        "name": "从内部看",
+        "pass": true
+      },
+      {
+        "name": "边界原子",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "06-optics",
+    "oldSha256": "56e4b3b47bc3e7c229cb42c4457f5ebb5458b71ad3c1d2a4d6713e109989be33",
+    "newSha256": "767726b7dc278b57186a4204fba7b543c5833a0617b8541e0bd304a9eb44eac7",
+    "bytes": 140269,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "理想对准",
+        "pass": true
+      },
+      {
+        "name": "末镜偏差 0.6°",
+        "pass": true
+      },
+      {
+        "name": "插入挡板",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "07-crossing",
+    "oldSha256": "84f9a948c4fa68378cbb40bd698c97dd78b474787ffb650202070298d596111a",
+    "newSha256": "5ce2c9be18fe691edbc30a5158fabdbcd5d38928c52ba555ae0f6cbd4b3c6e02",
+    "bytes": 129981,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "均衡配时",
+        "pass": true
+      },
+      {
+        "name": "增加南北",
+        "pass": true
+      },
+      {
+        "name": "增加行人",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "08-typewind",
+    "oldSha256": "bff08ca790009d0e5ea4676762a5acbfbf5902889ddf19d59970ab2671491b5f",
+    "newSha256": "2653fe624f9d7309a55d8550476df10a59dcd01e14eaa52f5829337c6206e7ac",
+    "bytes": 215228,
+    "changes": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "无风对照",
+        "pass": true
+      },
+      {
+        "name": "逆风",
+        "pass": true
+      },
+      {
+        "name": "更轻的风",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "09-waterway",
+    "oldSha256": "88c6087cfdc17337cf1ad0273b3ffe6d350f0fa1f133d680092982485dc08be3",
+    "newSha256": "43ef5e81aecb0ac6bf84a6939d2e3bba988f8b9c3260c312baa5336f88a35351",
+    "bytes": 319048,
+    "changes": [
+      "专属观察手记：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": []
+  },
+  {
+    "case": "10-tidewalk",
+    "oldSha256": "25deeda980e280eabf47241ed823cdd07b4cd287f6be6ca5f6cd4c7119dd6448",
+    "newSha256": "18e18717bade1c83134ea276fbc6ba36456a133ba3c52e9791494c1bcfed714f",
+    "bytes": 171185,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属观察手记：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": []
+  },
+  {
+    "case": "11-popup",
+    "oldSha256": "091cfffec7d597a931db1e19c0ca284f0a34f342d11d5e3c6256aea3b3db26f1",
+    "newSha256": "7a210d612f222764fa24a09cf487b8eeac60366afd03e701ce849a2d58bcb522",
+    "bytes": 207673,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "三维拾取、贴地拖动、键盘微调、材料光线、外墙剖切",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "木色 · 日间",
+        "pass": true
+      },
+      {
+        "name": "深色 · 展陈",
+        "pass": true
+      },
+      {
+        "name": "桦木 · 柔光",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "12-packaging",
+    "oldSha256": "f1f0ea0251a86572eae25e4847e1aed7839ec74957ee5ed9c5ffa381becefbe9",
+    "newSha256": "25ec1b17822bd6808b16c7eede25b0ef253e0628c2d691fb2160e1f837441531",
+    "bytes": 459165,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "只看纸样",
+        "pass": true
+      },
+      {
+        "name": "合盖状态",
+        "pass": true
+      },
+      {
+        "name": "更厚的纸",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "13-cutlist",
+    "oldSha256": "0b7d22e7d293af12a9d955a72123ad3020f09cffba07fffe4a604d6e8a0f192e",
+    "newSha256": "9c794510c60a9a908135e9c1f76d5d523c4175dc031efdbf00ad63bbe67db7f4",
+    "bytes": 338068,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "按木纹排样",
+        "pass": true
+      },
+      {
+        "name": "允许旋转排样",
+        "pass": true
+      },
+      {
+        "name": "减少一层",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "14-garden",
+    "oldSha256": "3e5f2baf6db93a602119f78f32930d9b84758a0710f060d8a1ba096d19a3f0ac",
+    "newSha256": "b3024debd69945ed49c326d36030f50a6800093413a86dcf8e5d1e2fcca0a19c",
+    "bytes": 164362,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "株距加 20%",
+        "pass": true
+      },
+      {
+        "name": "填土减 5 cm",
+        "pass": true
+      },
+      {
+        "name": "株距减 15%",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "15-mealprep",
+    "oldSha256": "8afb194242b6324c50209407f69eb90b20c91271339f8891a82cb10b4227542c",
+    "newSha256": "30a390d6275240277b410ca042aa5632d8d4f9fddd9dfc0185ce07a2df7264d3",
+    "bytes": 374719,
+    "changes": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "增加一位帮手",
+        "pass": true
+      },
+      {
+        "name": "晚 30 分钟上桌",
+        "pass": true
+      },
+      {
+        "name": "多两位客人",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "16-lesson",
+    "oldSha256": "9620cc83351c5a97e398d3a7e5223ade998943b12211af69270c9e46be68033e",
+    "newSha256": "ba7985721da72a1824d25429272883018d220fdcc093b2f5da2673d388fea64d",
+    "bytes": 405719,
+    "changes": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "多 5 分钟讨论",
+        "pass": true
+      },
+      {
+        "name": "四人小组",
+        "pass": true
+      },
+      {
+        "name": "六人小组",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "17-shotplanner",
+    "oldSha256": "0a1db8b8c39a6f6914084bd06d39e94fe90605bbbe6b03848a16267b50a71e87",
+    "newSha256": "f1db5c8b52d592b55be8bfe107d88d930af4e7b88cbd59607ffda52b10809283",
+    "bytes": 397184,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "24 mm",
+        "pass": true
+      },
+      {
+        "name": "50 mm",
+        "pass": true
+      },
+      {
+        "name": "85 mm",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "18-research",
+    "oldSha256": "e48eb81b879a6cebd1534f67838902b92b5a4186d62d882b0b6541562532691b",
+    "newSha256": "d6ee6185cb04b65bfa2bd62734d3fb357341772d7908f62f6eb154b87f435eb7",
+    "bytes": 428792,
+    "changes": [
+      "专属观察手记：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": []
+  },
+  {
+    "case": "19-packing",
+    "oldSha256": "0cac2ed9c8fdccbf55b1bde839437f5feaf29205627e964b38cc62c56b6a5a2f",
+    "newSha256": "47d556cb2e201e3c75f52f17beead3a9bc5ae8ce6b4dcfb865e4c3558efd2bf6",
+    "bytes": 425302,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "重新自动排布",
+        "pass": true
+      },
+      {
+        "name": "箱深增加 3 cm",
+        "pass": true
+      },
+      {
+        "name": "轻量方案",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "20-audio",
+    "oldSha256": "0e7ed83b9bc52a699fcdb3344ff64f1c1406019b69f7c77ef6851059d5ae0f83",
+    "newSha256": "b4150cffdeed658d5e262a058880982d90c90fd1911bb4f54f90ada458208ef7",
+    "bytes": 317313,
+    "changes": [
+      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "主音量减 3 dB",
+        "pass": true
+      },
+      {
+        "name": "背景轨更轻",
+        "pass": true
+      },
+      {
+        "name": "结尾缓缓落下",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "21-fit",
+    "oldSha256": "545e5c9f37757ca064e5315df5cc211e4588d21acb61ac8aa0b010c6f6371438",
+    "newSha256": "54cb0d5e4788703d8092e24f952f960322544208aab855e2ee99196ce2edf680",
+    "bytes": 279263,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "直线",
+        "pass": true
+      },
+      {
+        "name": "二次曲线",
+        "pass": true
+      },
+      {
+        "name": "指数模型",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "22-optimization",
+    "oldSha256": "6585013718804ee9216484ff0bbb9be10c513c53a760cabee33c5bdf78916d82",
+    "newSha256": "b3f9147f408155ba421769b3b51c5405732c2253b52a162e22f05045bb3ff18a",
+    "bytes": 352263,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "学习率减半",
+        "pass": true
+      },
+      {
+        "name": "学习率倍增",
+        "pass": true
+      },
+      {
+        "name": "迭代预算倍增",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "23-orbit",
+    "oldSha256": "75cef8dfea6320459812147fe1933c8747e37fc8459f314989ca3c4c4c81542b",
+    "newSha256": "9248bca354a68e4d328449d4dfd1866f450f6966380fb3e418e2cd2807769558",
+    "bytes": 326722,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "目标高度减少 20%",
+        "pass": true
+      },
+      {
+        "name": "目标高度增加 20%",
+        "pass": true
+      },
+      {
+        "name": "转移到中点",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "24-circuit",
+    "oldSha256": "af771712713450489c44082aa108a8b7ab2aa5a9d2ee12a1ec7a04171395f467",
+    "newSha256": "8d10d8c5f93ab247c687a5958a3aae5246e39a06cc921692408bfebe56726531",
+    "bytes": 260197,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "时间步长减半",
+        "pass": true
+      },
+      {
+        "name": "电容翻倍",
+        "pass": true
+      },
+      {
+        "name": "电阻翻倍",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "25-watershed",
+    "oldSha256": "be6a227d20356bfeb7c57fe00dd8ef7c1feab79df97d9b0dc72055c05fa14e6a",
+    "newSha256": "5f94842261b072a1fe220a48316f3f0c342eb1312ba0e0ac59a5570a585dd45d",
+    "bytes": 350545,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "雨量减半",
+        "pass": true
+      },
+      {
+        "name": "雨量翻倍",
+        "pass": true
+      },
+      {
+        "name": "地形夸张关闭",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "26-globe",
+    "oldSha256": "4342b203c3afe14f09699ffc4d65e5f5967313a52919e0489c2d401f05e95c77",
+    "newSha256": "3783aa2cc9e8cd7e871448ae222ea611402e52d33608248c1dfd9bed0506d580",
+    "bytes": 1634139,
+    "changes": [
+      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "executed",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "等积圆柱",
+        "pass": true
+      },
+      {
+        "name": "墨卡托",
+        "pass": true
+      },
+      {
+        "name": "等距圆柱",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "27-network",
+    "oldSha256": "92465d61bc73a29089890af02deed77e3dc1ab9bee401d805a4e97912fa56a09",
+    "newSha256": "bcdc37ccb55cc02275020bec8ab738dee24ec505389e6eadc0b3e626293399fe",
+    "bytes": 282308,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "瓶颈带宽翻倍",
+        "pass": true
+      },
+      {
+        "name": "队列容量翻倍",
+        "pass": true
+      },
+      {
+        "name": "发包间隔翻倍",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "28-compression",
+    "oldSha256": "d88e7078fdecc0d872a06270876cae167441083e9398cdf04a96a607d043b7b4",
+    "newSha256": "9ec8b167b4643637d6121e5840374b15bb840549efcdd37a7920072adbfcc6a5",
+    "bytes": 283044,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "细节优先",
+        "pass": true
+      },
+      {
+        "name": "平衡试验",
+        "pass": true
+      },
+      {
+        "name": "更小的码流",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "29-transformer",
+    "oldSha256": "532fec817850d0eeb84819868571e137c1f04e66777887209416f9af6a342e91",
+    "newSha256": "e7c90c71d0f78ea60217b1d6a3c6cf6ba8a21b784476482a86604af8f6f22cd7",
+    "bytes": 1001963,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "观察移除位置编码",
+        "pass": true
+      },
+      {
+        "name": "观察消融头 0",
+        "pass": true
+      },
+      {
+        "name": "观察消融头 1",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "case": "30-rag",
+    "oldSha256": "12be21079e754ac8c8071e3ad8c2faff5cd41e4f33f3647b54aabce628f2b734",
+    "newSha256": "bafc3c32dea0a5376d1afc5f10c9a9a0e7da108eaaa472666b0a51572e5bb4f1",
+    "bytes": 376527,
+    "changes": [
+      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+    ],
+    "validation": {
+      "static": "passed-final-syntax-and-hash",
+      "model": "executed",
+      "serializedRoundTrip": "executed",
+      "controllerTransaction": "executed-with-DOM-and-display-stubs",
+      "nativeSceneReplay": "not-newly-rendered",
+      "browser": "blocked-unverified",
+      "completeUserTask": "unverified"
+    },
+    "variantTests": [
+      {
+        "name": "BM25",
+        "pass": true
+      },
+      {
+        "name": "TF-IDF",
+        "pass": true
+      },
+      {
+        "name": "更多检索证据",
+        "pass": true
+      }
+    ]
+  }
+]

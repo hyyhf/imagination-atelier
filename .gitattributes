@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# These standalone artifacts are verified against byte-for-byte SHA-256 hashes.
+public/works/**/index.html -text

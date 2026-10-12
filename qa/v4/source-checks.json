@@ -1,0 +1,161 @@
+{
+  "workCount": 30,
+  "htmlSha256Matches": 30,
+  "inlineScriptsSyntaxChecked": 138,
+  "nodeSyntaxAvailable": true,
+  "includes3D": 17,
+  "buildExecuted": false,
+  "deployed": false,
+  "artifacts": [
+    {
+      "id": "01-lightroom",
+      "sha256": "b61aad4104fa5f1659d1b2629f616a946354df261bc1bf95f788304b93280027",
+      "integrity": "match"
+    },
+    {
+      "id": "02-differential",
+      "sha256": "bc291a0c87a5727363d41c0083b28b20cff1f9f01dcc4b995df017daac378ba1",
+      "integrity": "match"
+    },
+    {
+      "id": "03-strata",
+      "sha256": "9af9b026fcb89893b2465524dd10a22a0a28e84ba590e90410809d0cc2e2df23",
+      "integrity": "match"
+    },
+    {
+      "id": "04-pottery",
+      "sha256": "7f04b5eedf3a0417c970f3b122374c642529cdd1bdcdf648b14a071686e156ad",
+      "integrity": "match"
+    },
+    {
+      "id": "05-crystal",
+      "sha256": "8a8f9e5981f7bad8422efcbfa417913ee05e0647028b46998c8f6c7cf022d1a2",
+      "integrity": "match"
+    },
+    {
+      "id": "06-optics",
+      "sha256": "767726b7dc278b57186a4204fba7b543c5833a0617b8541e0bd304a9eb44eac7",
+      "integrity": "match"
+    },
+    {
+      "id": "07-crossing",
+      "sha256": "5ce2c9be18fe691edbc30a5158fabdbcd5d38928c52ba555ae0f6cbd4b3c6e02",
+      "integrity": "match"
+    },
+    {
+      "id": "08-typewind",
+      "sha256": "2653fe624f9d7309a55d8550476df10a59dcd01e14eaa52f5829337c6206e7ac",
+      "integrity": "match"
+    },
+    {
+      "id": "09-waterway",
+      "sha256": "43ef5e81aecb0ac6bf84a6939d2e3bba988f8b9c3260c312baa5336f88a35351",
+      "integrity": "match"
+    },
+    {
+      "id": "10-tidewalk",
+      "sha256": "18e18717bade1c83134ea276fbc6ba36456a133ba3c52e9791494c1bcfed714f",
+      "integrity": "match"
+    },
+    {
+      "id": "11-popup",
+      "sha256": "7a210d612f222764fa24a09cf487b8eeac60366afd03e701ce849a2d58bcb522",
+      "integrity": "match"
+    },
+    {
+      "id": "12-packaging",
+      "sha256": "25ec1b17822bd6808b16c7eede25b0ef253e0628c2d691fb2160e1f837441531",
+      "integrity": "match"
+    },
+    {
+      "id": "13-cutlist",
+      "sha256": "9c794510c60a9a908135e9c1f76d5d523c4175dc031efdbf00ad63bbe67db7f4",
+      "integrity": "match"
+    },
+    {
+      "id": "14-garden",
+      "sha256": "b3024debd69945ed49c326d36030f50a6800093413a86dcf8e5d1e2fcca0a19c",
+      "integrity": "match"
+    },
+    {
+      "id": "15-mealprep",
+      "sha256": "30a390d6275240277b410ca042aa5632d8d4f9fddd9dfc0185ce07a2df7264d3",
+      "integrity": "match"
+    },
+    {
+      "id": "16-lesson",
+      "sha256": "ba7985721da72a1824d25429272883018d220fdcc093b2f5da2673d388fea64d",
+      "integrity": "match"
+    },
+    {
+      "id": "17-shotplanner",
+      "sha256": "f1db5c8b52d592b55be8bfe107d88d930af4e7b88cbd59607ffda52b10809283",
+      "integrity": "match"
+    },
+    {
+      "id": "18-research",
+      "sha256": "d6ee6185cb04b65bfa2bd62734d3fb357341772d7908f62f6eb154b87f435eb7",
+      "integrity": "match"
+    },
+    {
+      "id": "19-packing",
+      "sha256": "47d556cb2e201e3c75f52f17beead3a9bc5ae8ce6b4dcfb865e4c3558efd2bf6",
+      "integrity": "match"
+    },
+    {
+      "id": "20-audio",
+      "sha256": "b4150cffdeed658d5e262a058880982d90c90fd1911bb4f54f90ada458208ef7",
+      "integrity": "match"
+    },
+    {
+      "id": "21-fit",
+      "sha256": "54cb0d5e4788703d8092e24f952f960322544208aab855e2ee99196ce2edf680",
+      "integrity": "match"
+    },
+    {
+      "id": "22-optimization",
+      "sha256": "b3f9147f408155ba421769b3b51c5405732c2253b52a162e22f05045bb3ff18a",
+      "integrity": "match"
+    },
+    {
+      "id": "23-orbit",
+      "sha256": "9248bca354a68e4d328449d4dfd1866f450f6966380fb3e418e2cd2807769558",
+      "integrity": "match"
+    },
+    {
+      "id": "24-circuit",
+      "sha256": "8d10d8c5f93ab247c687a5958a3aae5246e39a06cc921692408bfebe56726531",
+      "integrity": "match"
+    },
+    {
+      "id": "25-watershed",
+      "sha256": "5f94842261b072a1fe220a48316f3f0c342eb1312ba0e0ac59a5570a585dd45d",
+      "integrity": "match"
+    },
+    {
+      "id": "26-globe",
+      "sha256": "3783aa2cc9e8cd7e871448ae222ea611402e52d33608248c1dfd9bed0506d580",
+      "integrity": "match"
+    },
+    {
+      "id": "27-network",
+      "sha256": "bcdc37ccb55cc02275020bec8ab738dee24ec505389e6eadc0b3e626293399fe",
+      "integrity": "match"
+    },
+    {
+      "id": "28-compression",
+      "sha256": "9ec8b167b4643637d6121e5840374b15bb840549efcdd37a7920072adbfcc6a5",
+      "integrity": "match"
+    },
+    {
+      "id": "29-transformer",
+      "sha256": "e7c90c71d0f78ea60217b1d6a3c6cf6ba8a21b784476482a86604af8f6f22cd7",
+      "integrity": "match"
+    },
+    {
+      "id": "30-rag",
+      "sha256": "bafc3c32dea0a5376d1afc5f10c9a9a0e7da108eaaa472666b0a51572e5bb4f1",
+      "integrity": "match"
+    }
+  ]
+}

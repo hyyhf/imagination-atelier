@@ -1,0 +1,34 @@
+test_askpass_contains_no_secret (test_publish.TestPublisher.test_askpass_contains_no_secret) ... ok
+test_create_pages_once (test_publish.TestPublisher.test_create_pages_once) ... ok
+test_credential_scanner (test_publish.TestPublisher.test_credential_scanner) ... ok
+test_does_not_make_repository_public (test_publish.TestPublisher.test_does_not_make_repository_public) ... ok
+test_enabling_preserves_allowlist (test_publish.TestPublisher.test_enabling_preserves_allowlist) ... ok
+test_existing_pages_no_changes (test_publish.TestPublisher.test_existing_pages_no_changes) ... ok
+test_generated_recursive_archive_is_not_uploaded (test_publish.TestPublisher.test_generated_recursive_archive_is_not_uploaded) ... ok
+test_keeps_authenticated_author (test_publish.TestPublisher.test_keeps_authenticated_author) ... ok
+test_migrate_only_build_type (test_publish.TestPublisher.test_migrate_only_build_type) ... ok
+test_missing_actions_policy_is_not_broadened (test_publish.TestPublisher.test_missing_actions_policy_is_not_broadened) ... ok
+test_no_auth_never_prompts (test_publish.TestPublisher.test_no_auth_never_prompts) ... ok
+test_no_force_push_code (test_publish.TestPublisher.test_no_force_push_code) ... ok
+test_pages_denial_stops (test_publish.TestPublisher.test_pages_denial_stops) ... ok
+test_public_repo_requires_admin (test_publish.TestPublisher.test_public_repo_requires_admin) ... ok
+test_safety_allowlist (test_publish.TestPublisher.test_safety_allowlist) ... ok
+test_source_upload_includes_required_entry_files (test_publish.TestPublisher.test_source_upload_includes_required_entry_files) ... ok
+test_workflow_failure_not_success (test_publish.TestPublisher.test_workflow_failure_not_success) ... Pages configured for GitHub Actions. Existing Actions allowlists and protections preserved.
+Pages configured for GitHub Actions. Existing Actions allowlists and protections preserved.
+Pages configured for GitHub Actions. Existing Actions allowlists and protections preserved.
+Authorized account: person; repository: a/b (public).
+Repository role is NOT proof of token scopes; write operations below are authoritative checks.
+Pages configured for GitHub Actions. Existing Actions allowlists and protections preserved.
+CI/CD: completed; conclusion: failure
+ok
+test_authored_gallery_is_preserved (test_readme.TestReadme.test_authored_gallery_is_preserved) ... ok
+test_code_is_not_executed (test_readme.TestReadme.test_code_is_not_executed) ... ok
+test_code_link (test_readme.TestReadme.test_code_link) ... ok
+test_complete_readme_renders (test_readme.TestReadme.test_complete_readme_renders) ... ok
+test_heading_anchor_and_table (test_readme.TestReadme.test_heading_anchor_and_table) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.111s
+
+OK

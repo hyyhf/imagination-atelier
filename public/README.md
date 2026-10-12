@@ -90,7 +90,7 @@ https://github.com/hyyhf/imagination-atelier
 Skill 位于 skills/imagination-developer，请安装完整目录。
 ```
 
-手动安装时，从仓库复制整个 [skills/imagination-developer](skills/imagination-developer) 文件夹到助手的技能目录，保留其中的 `SKILL.md`、`references`、`assets` 和 `scripts`。
+手动安装时，从仓库复制整个 [skills/imagination-developer](https://github.com/hyyhf/imagination-atelier/tree/main/skills/imagination-developer) 文件夹到助手的技能目录，保留其中的 `SKILL.md`、`references`、`assets` 和 `scripts`。
 
 ### 普通聊天中使用
 

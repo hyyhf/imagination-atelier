@@ -210,7 +210,7 @@ def _production(page, base, output, fixtures):
 
     def dispatch(name):
         page.get_by_role("button", name="导出派工单 ↗", exact=True).click()
-        path = _download(page, page.get_by_role("button", name=re.compile(r"^设备 / 班次派工明细")), output / name)
+        path = _download(page, page.locator('button[data-action="dispatch"]'), output / name)
         page.get_by_role("button", name="关闭弹窗", exact=True).click()
         return path
 

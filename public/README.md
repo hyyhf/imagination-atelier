@@ -1,92 +1,132 @@
-# 想象显影机 v4.0 · 质量回炉工作版
+# 想象显影机 · Imagination Atelier
 
-**从「能演示」向「能反复使用」推进。不是新增案例，也不是给旧作换个版本号。**
+**把一个想法，做成可以亲手使用的作品。**
 
-本包保留原来的 30 件独立 HTML，在每件真实模型上加入可命名、可恢复、可比较的版本记录；17 件空间作品更新兼容渲染与相机控制；《开店之前》额外增加三维拾取、贴地拖动、材料光线和剖切观察。
+想象显影机是面向 AI Agent 的创作 Skill，调用名为 `imagination-developer`。它帮助 AI 把模糊的愿望、参考图片或已有素材，发展为具体的制作方案，并进一步实现可在浏览器中使用的工具、实验、教学演示、故事与艺术作品。
 
-> **发布状态：工作版，待实机验收。** 已执行静态、模型／事务单元测试及同源主画面重放；真实 Chromium 被环境策略阻止导航，因此未宣称浏览器排版、指针、触屏、音频听感和完整任务已通过。不能据此称 30 件都达到参考户型工具的总体水准。
+它把需求梳理、内容组织、视觉设计、交互逻辑和文件交付连接起来：明确用户要完成什么，选择合适的表达方式，让输入、操作和结果形成一段完整体验。你可以先探索方向、只生成制作提示词，也可以直接要求交付成品。
 
-## 先打开，再动手
+[体验 30 件作品](https://hyyhf.github.io/imagination-atelier/) · [安装 Skill](#安装) · [使用方法](#使用) · [阅读 Skill](skills/imagination-developer/SKILL.md)
 
-解压整个包，打开根目录 `START.html`。无需安装依赖即可进入离线目录和独立 HTML。React / HeroUI 只用于开发与发布网站展示层，使用作品不需要启动项目。
+## 作品效果
 
-每件右下角有「方案册」「实验册」或「观察手记」。先保留当前版本，再试一个明确改变条件的对照，最多并排比较三版；可以注释、恢复、下载版本册和导出比较报告。关闭页面前保存；版本册默认只在当前会话中保留，原作品自己的保存入口继续保留。
+仓库收录 30 件独立 HTML 作品，涵盖空间设计、日常工具、科学实验与创意表达。下面是其中 6 件作品的真实浏览器截图；点击图片可查看原图，点击「体验作品」可直接操作。
 
-文字故事与研究不会自动生成“最佳答案”，只保存用户走过的路径、已有证据与观察。
+<table>
+<tr>
+<td width="50%">
+<a href="docs/screenshots/11-popup.png"><img src="docs/screenshots/11-popup.png" alt="开店之前：二维布置图、三维店面与家具属性编辑界面" width="640"></a>
+<strong>开店之前 · 空间布置</strong><br>
+按真实尺寸摆放家具，同时查看平面占地和三维空间，汇总采购清单并保存方案。<br>
+<a href="https://hyyhf.github.io/imagination-atelier/works/11-popup/index.html">体验作品 ↗</a>
+</td>
+<td width="50%">
+<a href="docs/screenshots/12-packaging.png"><img src="docs/screenshots/12-packaging.png" alt="折成一份心意：礼盒展开纸样与三维折叠预览" width="640"></a>
+<strong>折成一份心意 · 包装设计</strong><br>
+输入礼物尺寸，编辑文字与图案，观察礼盒折起效果，导出带毫米尺寸的 SVG 纸样。<br>
+<a href="https://hyyhf.github.io/imagination-atelier/works/12-packaging/index.html">体验作品 ↗</a>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<a href="docs/screenshots/20-audio.png"><img src="docs/screenshots/20-audio.png" alt="把声音剪好：双轨波形、片段裁切与淡入淡出编辑界面" width="640"></a>
+<strong>把声音剪好 · 音频编辑</strong><br>
+导入音频，在双轨时间线上裁切、分割、移动和淡化片段，导出 WAV 与可恢复的方案。<br>
+<a href="https://hyyhf.github.io/imagination-atelier/works/20-audio/index.html">体验作品 ↗</a>
+</td>
+<td width="50%">
+<a href="docs/screenshots/21-fit.png"><img src="docs/screenshots/21-fit.png" alt="数据会说话：拟合曲线、残差与独立留出误差分析" width="640"></a>
+<strong>数据会说话 · 数据分析</strong><br>
+导入 CSV，比较拟合模型、残差与留出误差，把实验条件、图表和结果一起带走。<br>
+<a href="https://hyyhf.github.io/imagination-atelier/works/21-fit/index.html">体验作品 ↗</a>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<a href="docs/screenshots/22-optimization.png"><img src="docs/screenshots/22-optimization.png" alt="曲面的下一步：三维目标函数与三种优化方法的迭代轨迹" width="640"></a>
+<strong>曲面的下一步 · 数学实验</strong><br>
+调整起点与学习率，在同一曲面上比较梯度下降、动量与 Adam，回放并导出迭代轨迹。<br>
+<a href="https://hyyhf.github.io/imagination-atelier/works/22-optimization/index.html">体验作品 ↗</a>
+</td>
+<td width="50%">
+<a href="docs/screenshots/30-rag.png"><img src="docs/screenshots/30-rag.png" alt="答案之前，先找证据：资料列表、检索证据与参数对照界面" width="640"></a>
+<strong>答案之前，先找证据 · 检索实验</strong><br>
+导入自己的资料，比较 BM25 与 TF-IDF，标注相关性，导出带来源的证据包和评测报告。<br>
+<a href="https://hyyhf.github.io/imagination-atelier/works/30-rag/index.html">体验作品 ↗</a>
+</td>
+</tr>
+</table>
 
-## 本轮实际改了什么
+更多作品包括日光观察、陶艺塑形、交通配时、字体海报、备餐排程和镜头预演。每件作品附有制作提示词与使用说明，可在[在线展厅](https://hyyhf.github.io/imagination-atelier/)查看，也可下载 HTML 到本地使用。
 
-- **30 件模型适配**：指标从当前数据重新计算，候选对照说明固定项／变化项，恢复走原作品的验证与事务接口。27 件有适用的计算候选；3 件观察／叙事／研究只做命名记录和对照。
-- **17 件兼容显示更新**：抗锯齿请求默认开启，显示级微倒角，基于深度的环境接触遮蔽，部分几何分段、纹理尺度、镜头平移与快速档。已有 PCF 阴影、金属／粗糙度着色不是新功能。
-- **《开店之前》深改**：实际三维包围盒拾取、墙遮挡判断、地面拖动、原有吸附与撤销、键盘微调、3 组材料、3 组光线和外墙剖切。环境挂画、灯轨是显示示意，不计入采购；实际家具尺寸、数量和成本保留原模型。
+## 它如何工作
 
-这不是 30 件整体重新建模或重新撰写领域内容。公共基础提升与个别作品深改分开记录，见[逐例改动与缺口](docs/v4/30-case-review.md)。
+1. **把愿望变成具体任务。** 从「我想做个小工具」出发，明确谁会使用、带入什么内容、完成什么操作，以及最后需要留下什么成果。
+2. **为题目选择表达方式。** 空间关系用三维，数据规律用图表，时间与声音用时间线，阅读与叙事用适合内容的组织方式。版式、材质、文字和反馈围绕题目决定。
+3. **让内容、操作与结果连起来。** 用同一份数据驱动画面、数值和导出，考虑连续修改、撤销、保存与恢复，让作品能够接受用户自己的内容。
+4. **检查实际交付。** 打开最终文件，核对画面、关键操作与输出；根据任务检查窄屏、异常输入和离线使用，并说明必要的使用范围。
 
-![本轮17件空间主画面重放，非浏览器截图](docs/images/cover-mosaic.jpg)
+适合把教学知识做成可操作的实验，把生活或工作中的小需求做成工具，也适合从参考材料出发创作有独立表达的互动作品。
 
-## 前后对照与证据
+## 安装
 
-[打开本轮审阅页](REVIEW.html) · [打开本地验收入口](QA.html) · [修改清单与哈希](docs/v4/evidence/change-manifest.json)
+### 使用安装命令
 
-配图来自实际模型、几何、着色器和相机的原生 OpenGL 重放，不是浏览器截图。旧版与新版的对比固定状态、镜头与画幅。它可以检查主画面，不能证明菜单、焦点、交互和响应式排版。
-
-## Skill：不是更凶的形容词，而是更明确的门槛
-
-Skill 帮助 AI 从模糊意图形成具体作品：真正的任务、适合媒介、完整内容、统一数据、连续操作、本地成果与分层验收。它不保证任意模型一次产出“惊艳”。
-
-### 无需安装：普通聊天
-
-复制 [完整元提示词](prompts/full-meta-prompt.txt)，在末尾写下你的愿望。默认先形成独立制作提示词；明确说「直接制作并交付文件」则进入制作阶段。
-
-> 我有一批不同尺寸的展品，想亲手安排一个小展览，看到遮挡、动线和标签位置，最后带走布置图。先帮我确定完整主任务，再直接交付本地作品。
-
-### 支持 Skills 的助手
-
-完整目录在 [skills/imagination-developer](skills/imagination-developer/SKILL.md)。使用该助手支持的技能安装入口导入整个目录，或在项目的技能搜索路径中放置它；不要只复制 SKILL.md 而丢掉引用资料。不同助手的路径与调用方式以其文档为准。本包保留原安装脚本与[安装指南](docs/INSTALL.md)。
-
-技能包含核心指令、对标门槛、连续操作、显示与科学验证参考，以及可选兼容渲染器。**优先成熟库的制作时离线打包；小引擎不是默认答案。**
-
-## 三十件，三类任务
-
-[离线目录](START.html)提供搜索、系列筛选、说明、原始制作提示词、新增改动和 HTML 下载。编号、原输入格式和原生功能保留。素材大文件请按作品说明使用完整备份，音频版本册保存源采样，模型版本册保存恢复所需权重状态。
-
-## 开发网站
-
-需要 Node.js 22.12+ 和 Python 3.10+。Windows 可使用 Python 官方安装包，或已安装的 uv 管理 Python；npm 脚本会自动查找本机解释器，并以 UTF-8 读取中文内容。
-
-```bash
-npm ci
-npm run check
-npm test
-npm run build
-npm run dev
-```
-
-开发地址为 `http://127.0.0.1:5173/`。生产构建输出在 `dist/`，可运行 `npm run preview` 在 `http://127.0.0.1:4173/` 验证。独立作品仍可通过根目录 `START.html` 离线使用。
-
-2026-10-12 本地复验：依赖安装、源文件检查、22 项 Python 单元测试、TypeScript 检查及生产构建已通过；浏览器已检查分类、搜索、详情提示词，以及 30 件独立作品的初始加载。初始加载检查不代表每件作品的完整编辑、触屏或音频功能均已验收。
-
-## GitHub Pages 自动部署
-
-工作流位于 [.github/workflows/pages.yml](https://github.com/hyyhf/imagination-atelier/blob/main/.github/workflows/pages.yml)。仓库 Settings → Pages → Build and deployment 的 Source 应设为 **GitHub Actions**。
-
-- 每次推送到 `main`，自动检查源文件、运行单元测试、安装依赖、构建网站，并用 Chromium 检查展厅交互和 30 件作品启动；全部通过后部署 `dist/`。
-- 发往 `main` 的 Pull Request 运行相同构建检查，不发布网站。
-- 可在 Actions 页面手动运行工作流。新推送会取消同一分支上尚未完成的旧任务，以部署最新版本。
-- 部署后自动核对在线 `build-info.json` 的提交 SHA、静态资源和全部 30 件 HTML 的哈希，避免把旧站点误认为更新成功。
-
-网站地址：[hyyhf.github.io/imagination-atelier](https://hyyhf.github.io/imagination-atelier/)。部署记录以 [GitHub Actions](https://github.com/hyyhf/imagination-atelier/actions) 的实际结果为准。Vite 使用相对资源路径，兼容此仓库子路径及本地预览。
-
-后续更新只需提交并推送：
+在装有 Node.js 的终端中运行：
 
 ```bash
-git add .
-git commit -m "Update website"
-git push origin main
+npx skills add hyyhf/imagination-atelier --skill imagination-developer
 ```
 
-## 许可与溯源
+通过 [Skills CLI](https://github.com/vercel-labs/skills) 安装到当前项目，支持的助手包括 Codex、Claude Code 和 Cursor。如需在多个项目中使用，可在命令末尾加上 `--global`。
 
-原创代码、指令和文档按 [MIT License](LICENSE) 使用；第三方库、字体或既有嵌入资源保留各自许可证，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。没有增加外部字体文件。参考项目 [wy51ai/floorplan-3d](https://github.com/wy51ai/floorplan-3d) 用于研究能力与设计关系，不把它的完整应用代码伪装成本项目作品。
+### 让 Agent 安装
 
-v4 的规则来自本轮工程观察与修订；没有把这些人工修订全部归因于元提示词，也未进行跨模型盲测。
+把下面这段话交给支持安装 Skills 的助手：
+
+```text
+请帮我安装 imagination-developer Skill：
+https://github.com/hyyhf/imagination-atelier
+Skill 位于 skills/imagination-developer，请安装完整目录。
+```
+
+手动安装时，从仓库复制整个 [skills/imagination-developer](skills/imagination-developer) 文件夹到助手的技能目录，保留其中的 `SKILL.md`、`references`、`assets` 和 `scripts`。
+
+### 普通聊天中使用
+
+不支持 Skills 的助手也可以使用：复制[完整创作提示词](prompts/full-meta-prompt.txt)，在末尾追加你的需求，然后一起发送给 AI。
+
+## 使用
+
+安装后，在任务中点名使用 `imagination-developer`，并说明想要方向、提示词还是成品。
+
+### 还没有明确方向
+
+```text
+使用 imagination-developer。我想让中学生通过亲手操作理解光的反射，
+请提出三个不同的互动作品方向，说明每个方向中学生会做什么、看到什么。
+```
+
+### 先生成制作提示词
+
+```text
+使用 imagination-developer。我想做一个小展览布置工具：
+输入展厅和展品尺寸，尝试摆放，检查遮挡，最后导出布置图。
+请把这个想法写成可以交给另一个 AI 独立执行的完整制作提示词。
+```
+
+### 直接制作作品
+
+```text
+使用 imagination-developer，直接制作一个可本地打开的礼盒设计工具。
+我希望输入礼物尺寸、修改文字和颜色、查看折起效果，并导出 SVG 纸样。
+请交付完整 HTML 文件和简短使用说明。
+```
+
+有参考截图、数据、文案或现成项目时，可以一并提供。已有作品也可以要求继续改进，例如「让布置图和采购清单随家具修改同步更新，补上保存与恢复」。
+
+只要求制作提示词时，得到的是包含内容、视觉、交互和验收要求的完整指令；明确要求制作时，得到的是实际作品文件。默认交付目标是一个或少量可在本地浏览器中打开的 HTML 文件，按任务提供图像、SVG、CSV、JSON 或音频等成果。
+
+## 许可
+
+原创代码、Skill 和文档采用 [MIT License](LICENSE)。作品中使用的第三方资源保留各自许可，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

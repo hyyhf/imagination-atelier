@@ -12,6 +12,6 @@ class TestReadme(unittest.TestCase):
   self.assertIn('<img src="picture.png">',render('<table>\n<tr><td><img src="picture.png"></td></tr>\n</table>'))
  def test_complete_readme_renders(self):
   p=Path(__file__).resolve().parent.parent/'README.md';result=document(p.read_text())
-  self.assertIn('src="docs/images/cover-mosaic.jpg"',result)
+  self.assertIn('src="docs/screenshots/11-popup.png"',result)
   self.assertNotIn('\x00',result)
 if __name__=='__main__':unittest.main()

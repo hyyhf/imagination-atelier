@@ -24,6 +24,8 @@ def main():
  for item in items:
   for key in ['entry','guide','prompt','record','preview']:
    p=ROOT/'public'/item[key];assert p.is_file() and p.stat().st_size>0,f'Missing {key}: {p}'
+  preview=ROOT/'public'/item['preview'];image=preview.read_bytes()
+  assert (preview.suffix=='.png' and image.startswith(b'\x89PNG\r\n\x1a\n')) or (preview.suffix in ('.jpg','.jpeg') and image.startswith(b'\xff\xd8\xff') and image.endswith(b'\xff\xd9')),f'Preview format differs from extension: {preview}'
   p=ROOT/'public'/item['entry'];actual=hashlib.sha256(p.read_bytes()).hexdigest()
   assert actual==item['source_sha256'],f'Artifact changed: {item["id"]}'
   text=p.read_text();assert '</html>' in text.lower(),f'Truncated HTML: {p}'

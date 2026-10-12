@@ -39,7 +39,10 @@ def verify_live(base: str, sha: str, attempts: int = 1) -> dict:
                 data=read(item['entry'])
                 if hashlib.sha256(data).hexdigest()!=item['source_sha256']:raise ValueError('Artifact hash mismatch: '+item['id'])
                 image=read(item['preview'])
-                if not image.startswith(b'\x89PNG'):raise ValueError('Invalid preview image: '+item['id'])
+                suffix=urlsplit(item['preview']).path.rsplit('.',1)[-1].lower()
+                valid_png=suffix=='png' and image.startswith(b'\x89PNG\r\n\x1a\n')
+                valid_jpeg=suffix in ('jpg','jpeg') and image.startswith(b'\xff\xd8\xff') and image.endswith(b'\xff\xd9')
+                if not (valid_png or valid_jpeg):raise ValueError('Invalid preview image or extension: '+item['id'])
             for path in ['START.html','README.html','downloads/meta-prompt.txt']:
                 if not read(path):raise ValueError('Empty resource '+path)
             result={'sha':sha,'workCount':30,'assetCount':len(parser.items),'artifactHashes':'30/30 match','url':base}

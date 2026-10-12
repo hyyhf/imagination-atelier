@@ -15,13 +15,13 @@
 <table>
 <tr>
 <td width="50%">
-<a href="docs/screenshots/11-popup.png"><img src="docs/screenshots/11-popup.png" alt="开店之前：二维布置图、三维店面与家具属性编辑界面" width="640"></a>
+<a href="docs/screenshots/11-popup.jpg"><img src="docs/screenshots/11-popup.jpg" alt="开店之前：二维布置图、三维店面与家具属性编辑界面" width="640"></a>
 <strong>开店之前 · 空间布置</strong><br>
 按房间生成起步布置，检查从入口到陈列的通路，同时管理家具尺寸、预算与现场方案。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/11-popup/index.html">体验作品 ↗</a>
 </td>
 <td width="50%">
-<a href="docs/screenshots/12-packaging.png"><img src="docs/screenshots/12-packaging.png" alt="折成一份心意：礼盒展开纸样与三维折叠预览" width="640"></a>
+<a href="docs/screenshots/12-packaging.jpg"><img src="docs/screenshots/12-packaging.jpg" alt="折成一份心意：礼盒展开纸样与三维折叠预览" width="640"></a>
 <strong>折成一份心意 · 包装设计</strong><br>
 输入礼物尺寸，设计专属印记，观察折起效果，用家用 A4 打印机输出 1:1 拼接纸样。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/12-packaging/index.html">体验作品 ↗</a>
@@ -29,13 +29,13 @@
 </tr>
 <tr>
 <td width="50%">
-<a href="docs/screenshots/20-audio.png"><img src="docs/screenshots/20-audio.png" alt="把声音剪好：双轨波形、片段裁切与淡入淡出编辑界面" width="640"></a>
+<a href="docs/screenshots/20-audio.jpg"><img src="docs/screenshots/20-audio.jpg" alt="把声音剪好：双轨波形、片段裁切与淡入淡出编辑界面" width="640"></a>
 <strong>把声音剪好 · 音频编辑</strong><br>
 导入音频，在双轨时间线上裁切、分割、移动和淡化片段，导出 WAV 与可恢复的方案。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/20-audio/index.html">体验作品 ↗</a>
 </td>
 <td width="50%">
-<a href="docs/screenshots/21-fit.png"><img src="docs/screenshots/21-fit.png" alt="数据会说话：拟合曲线、残差与独立留出误差分析" width="640"></a>
+<a href="docs/screenshots/21-fit.jpg"><img src="docs/screenshots/21-fit.jpg" alt="数据会说话：拟合曲线、残差与独立留出误差分析" width="640"></a>
 <strong>数据会说话 · 数据分析</strong><br>
 粘贴表格并选择数据列，同屏比较模型、追踪疑点、进行标定，带走完整分析报告。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/21-fit/index.html">体验作品 ↗</a>
@@ -43,13 +43,13 @@
 </tr>
 <tr>
 <td width="50%">
-<a href="docs/screenshots/22-optimization.png"><img src="docs/screenshots/22-optimization.png" alt="曲面的下一步：三维目标函数与三种优化方法的迭代轨迹" width="640"></a>
+<a href="docs/screenshots/22-optimization.jpg"><img src="docs/screenshots/22-optimization.jpg" alt="曲面的下一步：三维目标函数与三种优化方法的迭代轨迹" width="640"></a>
 <strong>曲面的下一步 · 数学实验</strong><br>
 调整起点与学习率，在同一曲面上比较梯度下降、动量与 Adam，回放并导出迭代轨迹。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/22-optimization/index.html">体验作品 ↗</a>
 </td>
 <td width="50%">
-<a href="docs/screenshots/30-rag.png"><img src="docs/screenshots/30-rag.png" alt="答案之前，先找证据：资料列表、检索证据与参数对照界面" width="640"></a>
+<a href="docs/screenshots/30-rag.jpg"><img src="docs/screenshots/30-rag.jpg" alt="答案之前，先找证据：资料列表、检索证据与参数对照界面" width="640"></a>
 <strong>答案之前，先找证据 · 检索实验</strong><br>
 导入自己的资料，比较 BM25 与 TF-IDF，标注相关性，导出带来源的证据包和评测报告。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/30-rag/index.html">体验作品 ↗</a>

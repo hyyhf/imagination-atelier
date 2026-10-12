@@ -242,23 +242,22 @@
     "title": "开店之前",
     "domain": "商业 / 空间陈列",
     "dimension": "3D + 2D",
-    "description": "用真实尺寸布置小店，检查位置冲突并汇总采购。",
+    "description": "带入房间尺寸，布置家具，检查入口通路与预算，带走现场布置单。",
     "entry": "works/11-popup/index.html",
     "guide": "works/11-popup/readme.txt",
-    "source_sha256": "7a210d612f222764fa24a09cf487b8eeac60366afd03e701ce849a2d58bcb522",
+    "source_sha256": "316bf2257f439bef2fa4476f9dcce8adfa85ca472d0e00f6db976ddae7fcaa13",
     "preview": "images/11-popup.png",
     "id": "11-popup",
     "prompt": "works/11-popup/prompt.txt",
     "record": "works/11-popup/record.txt",
     "series": "practical",
     "subject": "跨领域",
-    "bytes": 207673,
+    "bytes": 245791,
     "previous_sha256": "091cfffec7d597a931db1e19c0ca284f0a34f342d11d5e3c6256aea3b3db26f1",
     "edition": "4.0.0",
     "upgrade": [
-      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
-      "三维拾取、贴地拖动、键盘微调、材料光线、外墙剖切",
-      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+      "按入口与通路宽计算可达区域，平面与三维同步显示路线；整理家具保留数量、尺寸和价格",
+      "空间尺寸、真实预算与可打印现场布置单连接成完整开店流程"
     ]
   },
   {
@@ -267,22 +266,22 @@
     "title": "折成一份心意",
     "domain": "包装 / 纸结构",
     "dimension": "3D + 2D",
-    "description": "输入礼物尺寸，折起礼盒并导出毫米尺寸纸样。",
+    "description": "输入礼物尺寸与自己的图形，预览折盒，生成实际尺寸的 A4 拼接纸样。",
     "entry": "works/12-packaging/index.html",
     "guide": "works/12-packaging/readme.txt",
-    "source_sha256": "25ec1b17822bd6808b16c7eede25b0ef253e0628c2d691fb2160e1f837441531",
+    "source_sha256": "1f07f1fba33b79f803387d51635b34afd1a7e649e03b0e43ff6a7352624cbadc",
     "preview": "images/12-packaging.png",
     "id": "12-packaging",
     "prompt": "works/12-packaging/prompt.txt",
     "record": "works/12-packaging/record.txt",
     "series": "practical",
     "subject": "跨领域",
-    "bytes": 459165,
+    "bytes": 484999,
     "previous_sha256": "f1f0ea0251a86572eae25e4847e1aed7839ec74957ee5ed9c5ffa381becefbe9",
     "edition": "4.0.0",
     "upgrade": [
-      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
-      "专属方案册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+      "本地图形转为可拖动单色印记，文案、纸样和折盒使用同一设计",
+      "生成 1:1 A4 拼接打印页，含重叠、页码、校准尺与折装引导"
     ]
   },
   {
@@ -479,10 +478,10 @@
     "title": "数据会说话",
     "domain": "数学 / 数据与统计",
     "dimension": "2D",
-    "description": "导入自己的 CSV，比较拟合、残差与独立留出误差。",
+    "description": "粘贴自己的表格，比较三种模型，追踪异常，完成预测与反向标定。",
     "entry": "works/21-fit/index.html",
     "guide": "works/21-fit/readme.txt",
-    "source_sha256": "54cb0d5e4788703d8092e24f952f960322544208aab855e2ee99196ce2edf680",
+    "source_sha256": "492bfff633f40996360c1904c93a7d602fb5c1568e562a7ba5fb83a7929f0bbf",
     "preview": "images/21-fit.png",
     "limits": [
       "限定线性、二次及 ln(y) 空间指数拟合；无任意非线性拟合",
@@ -506,11 +505,12 @@
     "record": "works/21-fit/record.txt",
     "series": "science",
     "subject": "数学",
-    "bytes": 279263,
+    "bytes": 320187,
     "previous_sha256": "545e5c9f37757ca064e5315df5cc211e4588d21acb61ac8aa0b010c6f6371438",
     "edition": "4.0.0",
     "upgrade": [
-      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+      "CSV / TSV 列映射与单位、训练及留出分配、同屏模型误差比较",
+      "观测与残差相互定位，预测、反向标定及完整离线分析报告"
     ]
   },
   {

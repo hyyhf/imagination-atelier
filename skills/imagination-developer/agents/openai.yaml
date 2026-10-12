@@ -1,4 +1,4 @@
 interface:
-  display_name: "想象显影机 · v4"
-  short_description: "把模糊意图做成可用作品；用真实对照升级完成度"
-  default_prompt: "使用 imagination-developer，把我的意图发展成完整制作提示词或按授权交付本地作品。参照实际任务、领域模型、视觉与连续操作，准确说明验证范围。"
+  display_name: "想象显影机"
+  short_description: "将模糊想法变成有独立表达、能直接使用并带走成果的本地 HTML 作品"
+  default_prompt: "使用 $imagination-developer，把我的想法发展成具体制作提示词；我要求成品时，交付可以直接本地打开的完整作品。"

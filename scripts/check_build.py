@@ -26,7 +26,10 @@ def main():
   for field in ['guide','prompt','record','preview']:assert (dist/w[field]).is_file()
  for filename in ['START.html','README.html','build-info.json','.nojekyll']:
   assert (dist/filename).is_file(),f'Missing {filename}'
- for filename in ['portfolio-source.zip','atelier-all-30.zip','atelier-science.zip','atelier-practical.zip','atelier-explore.zip','imagination-developer-v4.0.zip']:
+ for filename in ['portfolio-source.zip','atelier-all-30.zip','atelier-science.zip','atelier-practical.zip','atelier-explore.zip','imagination-developer-v4.0.zip','imagination-developer.zip','imagination-atelier-creative-kit.zip']:
   with zipfile.ZipFile(dist/'downloads'/filename) as z:assert z.testzip() is None,filename
- print('PASS: compiled React entry, all local assets, 30 unchanged artifacts and offline documentation.')
+ with zipfile.ZipFile(dist/'downloads/imagination-atelier-creative-kit.zip') as z:
+  assert z.read('meta-prompt.txt')==(ROOT/'prompts/full-meta-prompt.txt').read_bytes()
+  assert z.read('imagination-developer/SKILL.md')==(ROOT/'skills/imagination-developer/SKILL.md').read_bytes()
+ print('PASS: compiled React entry, all local assets, 30 verified artifacts, offline documentation and current creative kit.')
 if __name__=='__main__':main()

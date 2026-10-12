@@ -20,7 +20,8 @@ ALLOWED_FILES = {'README.md', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'CONTRIBUTING
                  'PUBLISH.command', 'PUBLISH.cmd'}
 GENERATED = {'public/docs', 'public/skills', 'public/prompts', 'public/README.html',
              'public/build-info.json', 'public/downloads/portfolio-source.zip',
-             'public/downloads/atelier-all-30.zip', 'public/downloads/portfolio-source.zip.sha256'}
+             'public/downloads/atelier-all-30.zip', 'public/downloads/portfolio-source.zip.sha256',
+             'public/downloads/imagination-developer.zip', 'public/downloads/imagination-atelier-creative-kit.zip'}
 SECRETS = re.compile(rb'(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{50,}|-----BEGIN (?:OPENSSH |RSA |EC )?PRIVATE KEY-----)')
 
 class PublishError(RuntimeError): pass

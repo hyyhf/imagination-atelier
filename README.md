@@ -17,13 +17,13 @@
 <td width="50%">
 <a href="docs/screenshots/11-popup.png"><img src="docs/screenshots/11-popup.png" alt="开店之前：二维布置图、三维店面与家具属性编辑界面" width="640"></a>
 <strong>开店之前 · 空间布置</strong><br>
-按真实尺寸摆放家具，同时查看平面占地和三维空间，汇总采购清单并保存方案。<br>
+按房间生成起步布置，检查从入口到陈列的通路，同时管理家具尺寸、预算与现场方案。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/11-popup/index.html">体验作品 ↗</a>
 </td>
 <td width="50%">
 <a href="docs/screenshots/12-packaging.png"><img src="docs/screenshots/12-packaging.png" alt="折成一份心意：礼盒展开纸样与三维折叠预览" width="640"></a>
 <strong>折成一份心意 · 包装设计</strong><br>
-输入礼物尺寸，编辑文字与图案，观察礼盒折起效果，导出带毫米尺寸的 SVG 纸样。<br>
+输入礼物尺寸，设计专属印记，观察折起效果，用家用 A4 打印机输出 1:1 拼接纸样。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/12-packaging/index.html">体验作品 ↗</a>
 </td>
 </tr>
@@ -37,7 +37,7 @@
 <td width="50%">
 <a href="docs/screenshots/21-fit.png"><img src="docs/screenshots/21-fit.png" alt="数据会说话：拟合曲线、残差与独立留出误差分析" width="640"></a>
 <strong>数据会说话 · 数据分析</strong><br>
-导入 CSV，比较拟合模型、残差与留出误差，把实验条件、图表和结果一起带走。<br>
+粘贴表格并选择数据列，同屏比较模型、追踪疑点、进行标定，带走完整分析报告。<br>
 <a href="https://hyyhf.github.io/imagination-atelier/works/21-fit/index.html">体验作品 ↗</a>
 </td>
 </tr>
@@ -95,6 +95,8 @@ Skill 位于 skills/imagination-developer，请安装完整目录。
 ### 普通聊天中使用
 
 不支持 Skills 的助手也可以使用：复制[完整创作提示词](prompts/full-meta-prompt.txt)，在末尾追加你的需求，然后一起发送给 AI。
+
+也可以下载[创作工具包](https://hyyhf.github.io/imagination-atelier/downloads/imagination-atelier-creative-kit.zip)：解压后打开 `START.html`，写下想法、选择交付方式，再一次复制完整指令。包内同时提供元提示词与完整 Skill 目录。
 
 ## 使用
 

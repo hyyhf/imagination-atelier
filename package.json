@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "check": "node scripts/run-python.cjs scripts/check_source.py",
     "test": "node scripts/run-python.cjs -m unittest discover -s qa -p \"test_*.py\"",
+    "test:works": "node qa/workflows/space.cjs && node qa/workflows/packaging.cjs && node qa/workflows/data.cjs",
     "publish:github": "node scripts/run-python.cjs scripts/publish.py --repo hyyhf/imagination-atelier",
     "package": "node scripts/run-python.cjs scripts/package.py",
     "predev": "node scripts/run-python.cjs scripts/package.py"

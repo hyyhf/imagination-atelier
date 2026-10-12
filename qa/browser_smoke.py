@@ -10,6 +10,55 @@ ROOT=Path(__file__).resolve().parent.parent
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 
+def verify_workflows(page,base,output):
+ """Exercise the three improved tools through their public HTTP UI."""
+ from playwright.sync_api import expect
+ errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
+ page.set_viewport_size({'width':1280,'height':720})
+ page.goto(base+'works/11-popup/index.html',wait_until='load')
+ expect(page.get_by_text('4 / 7',exact=True)).to_be_visible()
+ page.get_by_role('button',name='整理当前家具 ↗',exact=True).click()
+ expect(page.get_by_text('7 / 7',exact=True)).to_be_visible()
+ page.get_by_role('button',name='↶ 撤销',exact=True).click()
+ expect(page.get_by_text('4 / 7',exact=True)).to_be_visible()
+ page.get_by_role('button',name='↷ 重做',exact=True).click()
+ expect(page.get_by_text('7 / 7',exact=True)).to_be_visible()
+ page.goto(base+'works/12-packaging/index.html',wait_until='load')
+ page.get_by_role('button',name='手作香皂 90 × 65 × 30',exact=True).click()
+ page.get_by_role('button',name='02 设计',exact=True).click()
+ with page.expect_file_chooser() as picker:
+  page.get_by_role('button',name='＋ 导入我的图形 PNG / JPG · 转为单色印记',exact=True).click()
+ picker.value.set_files(str(ROOT/'.artifacts/model-regression/12-packaging/source-mark.png'))
+ expect(page.get_by_text('已导入。深色笔画变为印记色，浅色背景透明；可在纸样上拖动。',exact=True)).to_be_visible()
+ page.get_by_role('button',name='03 打印',exact=True).click()
+ expect(page.get_by_text('1 张 A4',exact=True)).to_be_visible()
+ with page.expect_download() as downloaded:
+  page.get_by_role('button',name='下载 A4 拼接打印页',exact=True).click()
+ destination=output/'personal-gift-A4.html';downloaded.value.save_as(destination)
+ paper=destination.read_text(encoding='utf-8')
+ assert 'width="210mm" height="297mm"' in paper and 'data:image/png;base64,' in paper
+ assert '@page{size:A4 portrait;margin:0}' in paper and '<script' not in paper
+ page.goto(base+'works/21-fit/index.html',wait_until='load')
+ page.get_by_role('button',name='＋ 导入 / 粘贴数据',exact=True).click()
+ page.get_by_role('textbox',name='粘贴含列名的表格',exact=True).fill('样本\t电压\t浓度\nA\t0\t1\nB\t1\t3\nC\t2\t5\nD\t3\t7\nE\t4\t9\nF\t5\t11')
+ page.get_by_role('button',name='预览与选择列 →',exact=True).click()
+ page.get_by_role('combobox',name='观测名称（可选）',exact=True).select_option(label='样本')
+ page.get_by_role('textbox',name='x 单位',exact=True).fill('V')
+ page.get_by_role('textbox',name='y 单位',exact=True).fill('mg/L')
+ page.get_by_role('button',name='替换观察记录',exact=True).click()
+ expect(page.get_by_text('电压 = 2 V',exact=True)).to_be_visible()
+ expect(page.get_by_text('4.4 mg/L',exact=True)).to_be_visible()
+ assert page.get_by_role('textbox',name='第 1 行名称',exact=True).input_value()=='A'
+ assert page.get_by_role('spinbutton',name='第 1 行 x',exact=True).input_value()=='0'
+ with page.expect_download() as downloaded:
+  page.get_by_role('button',name='↓ 带走分析报告',exact=True).click()
+ destination=output/'personal-data-report.html';downloaded.value.save_as(destination)
+ analysis=destination.read_text(encoding='utf-8')
+ assert 'mg/L' in analysis and 'data:image/png;base64,' in analysis
+ assert '<script' not in analysis
+ assert not errors,'Workflow browser exceptions: '+repr(errors)
+ return {'spatialTidyUndoRedo':True,'personalPNGDecoded':True,'actualA4Download':True,'personalTSVMapping':True,'forwardAndInversePrediction':True,'actualReportDownload':True,'pageErrors':errors,'scope':'HTTP browser workflows; physical printing and file protocol not tested'}
+
 def main():
  p=argparse.ArgumentParser();p.add_argument('--site',type=Path);p.add_argument('--artifacts',action='store_true');p.add_argument('--offline',action='store_true');p.add_argument('--start',type=int,default=1);p.add_argument('--end',type=int,default=30);a=p.parse_args()
  output=ROOT/'.artifacts/browser';output.mkdir(parents=True,exist_ok=True)
@@ -56,6 +105,8 @@ def main():
     assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth+1'),'Horizontal overflow'
     assert not errors,'React page exceptions: '+repr(errors)
     report['siteTests']={'mode':'built-react','defaultCards':30,'scienceCards':10,'allCards':30,'search':True,'modal':True,'promptLoaded':True,'mobileOverflow':False,'pageErrors':errors}
+   if a.site and not a.offline:
+    report['workflows']=verify_workflows(page,base,output)
    page.close()
    if a.artifacts:
     for item in items:

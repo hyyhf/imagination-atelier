@@ -14,7 +14,8 @@ def main():
  files=set(source_files())
  for directory in ['public/docs','public/skills','public/prompts']:
   files.update(p for p in (ROOT/directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts)
- for name in ['public/README.html','public/build-info.json','public/downloads/atelier-all-30.zip']:
+ for name in ['public/README.html','public/build-info.json','public/downloads/atelier-all-30.zip',
+              'public/downloads/imagination-developer.zip','public/downloads/imagination-atelier-creative-kit.zip']:
   files.add(ROOT/name)
  destination=a.output or ROOT/'public/downloads/portfolio-source.zip';destination=destination.resolve();destination.parent.mkdir(parents=True,exist_ok=True)
  files.discard(destination)

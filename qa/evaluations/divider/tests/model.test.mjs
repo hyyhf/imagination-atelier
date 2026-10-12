@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {clone,defaultState,validate,cells,parts,status,fitItem,resize,nextDrawer,packing,svgSheet,coupon,csv} from '../source/model.mjs';
+const dir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../../.artifacts/divider-model');fs.mkdirSync(dir,{recursive:true});
+let checks=0;const check=(name,fn)=>{fn();checks++;console.log('PASS',name);};
+const first={...defaultState(),name:'工具抽屉 525 × 415',w:525,d:415,insideH:110,h:80,t:4,c:1.5,fit:.2,x:[180,355],y:[235],items:[]};
+check('own drawer validates',()=>validate(first));
+check('independent clear dimensions conserve total width',()=>{const row=cells(first).filter(c=>c.r===0);assert.deepEqual(row.map(c=>c.w),[176.5,171,166.5]);assert.equal(row.reduce((a,c)=>a+c.w,0)+2*4+2*1.5,525);});
+check('paired half-laps use true length and axis',()=>{const p=parts(first);assert.equal(p.length,3);assert.deepEqual(p.map(x=>x.length),[412,412,522]);assert.deepEqual(p[0].slots,[233.5]);assert.deepEqual(p[2].slots,[178.5,353.5]);assert.deepEqual(p.map(x=>x.open),['top','top','bottom']);});
+check('polygon material area matches independent rectangle-minus-notches',()=>{for(const p of parts(first)){const area=Math.abs(p.points.reduce((a,v,i)=>{const n=p.points[(i+1)%p.points.length];return a+v[0]*n[1]-n[0]*v[1];},0)/2);assert.ok(Math.abs(area-(p.length*80-p.slots.length*4.2*40))<1e-6);}});
+check('joint complementary depth, no material overlap',()=>{const inside=(pts,x,y)=>{let hit=false;for(let i=0,j=pts.length-1;i<pts.length;j=i++){const a=pts[i],b=pts[j];if((a[1]>y)!==(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])hit=!hit;}return hit;};const p=parts(first);for(let z=.5;z<80;z++)assert.equal(inside(p[0].points,233.5,z)&&inside(p[2].points,178.5,z),false);assert.equal(inside(p[0].points,233.5,20),true);assert.equal(inside(p[2].points,178.5,60),true);});
+first.items=[{id:'caliper',name:'卡尺盒',w:220,d:90,h:35,x:260,y:70}];
+check('cross-board object rejected then auto rotated to fit',()=>{assert.equal(status(first,first.items[0]).ok,false);const fitted=fitItem(first,first.items[0]);assert.ok(fitted);assert.equal(fitted.w,90);assert.equal(fitted.d,220);first.items[0]=fitted;assert.equal(status(first,fitted).ok,true);});
+check('height and overlap detected',()=>{const n=clone(first);n.items.push({...n.items[0],id:'dup',h:111});assert.match(status(n,n.items[1]).reasons.join(' '),/超过净高/);assert.match(status(n,n.items[1]).reasons.join(' '),/重叠/);});
+check('invalid board overlap and corrupted import rejected',()=>{const n=clone(first);n.x=[180,181];assert.throws(()=>validate(n));assert.throws(()=>validate({...first,t:NaN}));assert.throws(()=>validate({...first,x:[]}));});
+check('SVG is mm, correct closed path count, no engraving',()=>{const pk=packing(first);const pages=Math.max(...pk.map(p=>p.page))+1;let count=0;for(let i=0;i<pages;i++){const svg=svgSheet(first,i);assert.match(svg,/width="600mm"/);assert.match(svg,/height="400mm"/);assert.doesNotMatch(svg,/<text/);const paths=[...svg.matchAll(/<path id="([AB]\d+)" d="([^"]+)"/g)];for(const p of paths)assert.match(p[2],/ Z$/);count+=paths.length;fs.writeFileSync(path.join(dir,`drawer-1-sheet-${i+1}.svg`),svg);}assert.equal(count,3);});
+check('sheet packed bounds and no overlapping rectangles',()=>{const pk=packing(first);for(const p of pk){assert.ok(p.x>=8&&p.y>=8&&p.x+p.length<=592&&p.y+p.height<=392);for(const q of pk)if(p!==q&&p.page===q.page)assert.ok(p.x+p.length<=q.x||q.x+q.length<=p.x||p.y+p.height<=q.y||q.y+q.height<=p.y);}});
+check('oversize stock blocks output',()=>assert.throws(()=>packing({...first,sheetW:200})));
+const second=nextDrawer(first,640,390);second.name='第二抽屉 640 × 390';
+check('second drawer preserves rules, clears previous objects',()=>{assert.equal(second.t,4);assert.equal(second.fit,.2);assert.equal(second.h,80);assert.equal(second.items.length,0);assert.equal(second.x.length,2);assert.equal(second.y.length,1);assert.deepEqual(parts(second).map(p=>p.length),[387,387,637]);});
+second.sheetW=750;second.items.push({id:'driver',name:'螺丝刀盒',w:200,d:70,h:45,x:100,y:300});second.items[0]=fitItem(second,second.items[0]);
+check('second object independently fits',()=>assert.equal(status(second,second.items[0]).ok,true));
+for(const [i,s]of [[1,first],[2,second]]){const j=JSON.stringify(s,null,2);fs.writeFileSync(path.join(dir,`drawer-${i}.json`),j);const actual=validate(JSON.parse(fs.readFileSync(path.join(dir,`drawer-${i}.json`),'utf8')));assert.deepEqual(actual,s);fs.writeFileSync(path.join(dir,`drawer-${i}-parts.csv`),csv(s));fs.writeFileSync(path.join(dir,`drawer-${i}-coupon.svg`),coupon(s));for(let p=0;p<=Math.max(...packing(s).map(x=>x.page));p++)fs.writeFileSync(path.join(dir,`drawer-${i}-sheet-${p+1}.svg`),svgSheet(s,p));}
+check('portable project actual file round trip',()=>assert.equal(JSON.parse(fs.readFileSync(path.join(dir,'drawer-2.json'),'utf8')).items[0].name,'螺丝刀盒'));
+fs.writeFileSync(path.join(dir,'test-results.txt'),`${checks} meaningful checks passed. Source model imported directly. Physical cutting/assembly not tested.\n`);console.log(checks+' checks passed');

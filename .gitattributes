@@ -2,3 +2,4 @@
 # These standalone artifacts are verified against byte-for-byte SHA-256 hashes.
 public/works/**/index.html -text
 qa/fixtures/** -text
+qa/evaluations/**/*.html -text

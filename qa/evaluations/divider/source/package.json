@@ -1,0 +1,1 @@
+{"private":true,"scripts":{"build":"node build.cjs","check-bundle":"node build.cjs --check","test":"node ../tests/model.test.mjs"},"dependencies":{"three":"0.170.0","fflate":"0.8.2","esbuild":"0.24.2"}}

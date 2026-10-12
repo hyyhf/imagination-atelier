@@ -32,7 +32,7 @@ def main():
     <footer class="site-footer"><a class="brand" href="#"><span class="brand-symbol">ia.</span>想象显影机</a><p>原创内容 MIT · 第三方资源保留各自许可<br>每件作品有自己的科学模型与使用边界。</p><div><a href="downloads/atelier-all-30.zip" download>下载全部作品 ↓</a><a href="downloads/imagination-developer.zip" download>Skill ↓</a></div></footer>
     <script>(()=>{let filter='all';const search=document.getElementById('search'),cards=[...document.querySelectorAll('.work-card')];function update(){let n=0;const q=search.value.toLowerCase().trim();for(const c of cards){const visible=(filter==='all'||c.dataset.series===filter)&&c.textContent.toLowerCase().includes(q);c.hidden=!visible;if(visible)n++;}document.getElementById('count').textContent=n+' 件作品';document.getElementById('empty').hidden=!!n;}for(const b of document.querySelectorAll('[data-filter]'))b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));update();});search.addEventListener('input',update);})();</script></body></html>'''
     featured=[]
-    for number in [1,10,2]:
+    for number in [3,5,10]:
         w=next(item for item in data if item['number']==number)
         e=lambda s:html.escape(str(s),quote=True)
         featured.append(f'<article class="featured-work"><a class="featured-image" href="{e(w["entry"])}"><img src="{e(w["preview"])}" alt="{e(w["title"])}实际画面"></a><div class="featured-caption"><div><span class="feature-label">{e(w["domain"])}</span><h2><a href="{e(w["entry"])}">{e(w["title"])}</a></h2><p>{e(w["description"])}</p></div></div></article>')

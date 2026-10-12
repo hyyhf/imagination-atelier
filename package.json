@@ -17,6 +17,10 @@
     "predev": "node scripts/run-python.cjs scripts/package.py"
   },
   "dependencies": {
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "@fontsource-variable/noto-sans-sc": "5.3.1",
+    "@fontsource-variable/noto-serif-sc": "5.3.1",
     "@heroui/react": "^3.2.1",
     "@heroui/styles": "^3.2.1",
     "gsap": "3.15.0",

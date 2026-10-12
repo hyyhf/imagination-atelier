@@ -17,9 +17,9 @@
   --border: var(--line);
   --page-gutter: clamp(24px, 5.5vw, 88px);
   --page-width: 1280px;
-  --serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+  --serif: var(--font-serif);
   --ease: cubic-bezier(.22, 1, .36, 1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--font-sans);
   font-synthesis: none;
   color: var(--ink);
   background: var(--paper);
@@ -61,7 +61,7 @@ button:active:not(:disabled), .action-link:active { transform: scale(.98); }
   backdrop-filter: blur(16px);
 }
 .brand { display: flex; align-items: center; gap: 13px; font-size: 18px; font-weight: 600; white-space: nowrap; line-height: 1.35; }
-.brand-symbol { font: italic 46px/1 Georgia, serif; letter-spacing: -4px; color: var(--accent); padding-right: 4px; }
+.brand-symbol { font: italic 46px/1 var(--font-sans); letter-spacing: -4px; color: var(--accent); padding-right: 4px; }
 .brand small { display: block; font-size: 11px; font-weight: 400; letter-spacing: .4px; color: var(--muted); margin-top: 5px; }
 .site-header nav { display: flex; align-items: center; gap: 32px; }
 .site-header nav a { position: relative; padding: 10px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
@@ -103,7 +103,7 @@ button:active:not(:disabled), .action-link:active { transform: scale(.98); }
 .featured-caption h2 button, .work-card h3 button { background: transparent; border: 0; padding: 0; color: inherit; text-align: left; font: inherit; }
 .featured-caption h2 button:hover, .work-card h3 button:hover { color: var(--accent); }
 .featured-caption p { font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.8; }
-.featured-index { font: italic 27px/1.5 Georgia, serif; color: #877d6b; margin-top: 19px; }
+.featured-index { font: italic 27px/1.5 var(--font-sans); color: #877d6b; margin-top: 19px; }
 .hero-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 32px; padding: 20px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 .hero-bottom a { display: inline-flex; align-items: center; gap: 12px; color: var(--accent); }
 .hero-bottom .icon { width: 17px; height: 17px; }
@@ -113,7 +113,7 @@ button:active:not(:disabled), .action-link:active { transform: scale(.98); }
 .section-heading h2 { font-family: var(--serif); font-size: 39px; font-weight: 500; line-height: 1.4; letter-spacing: -1px; }
 .section-heading p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-top: 10px; }
 .section-heading > .text-link { margin-bottom: 3px; }
-.heading-count { font: italic 18px/1.3 Georgia, serif; color: var(--accent); display: inline-block; vertical-align: top; margin: 7px 0 0 12px; letter-spacing: 0; }
+.heading-count { font: italic 18px/1.3 var(--font-sans); color: var(--accent); display: inline-block; vertical-align: top; margin: 7px 0 0 12px; letter-spacing: 0; }
 .collection-filters { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
 .collection-buttons { display: flex; gap: 6px; padding: 4px; border-radius: 10px; background: var(--sand); }
 .collection-buttons .button { display: flex; gap: 10px; align-items: center; border: 0; box-shadow: none; border-radius: 7px; background: transparent; min-height: 42px; padding: 10px 16px; color: var(--muted); font-size: 14px; font-weight: 400; white-space: nowrap; }
@@ -171,7 +171,7 @@ button:active:not(:disabled), .action-link:active { transform: scale(.98); }
 .step { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #ded6c8; }
 .step:first-child { padding-top: 0; }
 .step:last-child { border-bottom: 0; padding-bottom: 0; }
-.step > span { font: italic 22px/1.6 Georgia, serif; color: var(--accent); }
+.step > span { font: italic 22px/1.6 var(--font-sans); color: var(--accent); }
 .step h3 { font-size: 18px; font-weight: 500; line-height: 1.7; }
 .step p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-top: 6px; }
 
@@ -200,18 +200,18 @@ button:active:not(:disabled), .action-link:active { transform: scale(.98); }
 .preview-toggle { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; min-height: 46px; border: 0; border-top: 1px solid var(--line); background: transparent; padding: 12px 0; font-size: 14px; color: var(--muted); text-align: left; }
 .preview-toggle:hover { color: var(--accent); }
 .preview-toggle .icon { width: 16px; height: 16px; }
-.starter-panel .complete-instruction { height: 260px; min-height: 180px; font: 13px/1.8 ui-monospace, Consolas, monospace; margin: 4px 0 16px; animation: panel-enter .25s var(--ease); }
+.starter-panel .complete-instruction { height: 260px; min-height: 180px; font: 13px/1.8 var(--font-mono); margin: 4px 0 16px; animation: panel-enter .25s var(--ease); }
 .starter-panel details { border-top: 1px solid var(--line); padding-top: 12px; font-size: 13px; color: var(--muted); }
 .starter-panel summary { cursor: pointer; min-height: 32px; line-height: 1.8; }
 .starter-panel details p { margin: 12px 0; line-height: 1.8; }
-.starter-panel code { display: block; overflow-wrap: anywhere; padding: 12px; background: var(--sand); border-radius: 6px; font: 12px/1.8 ui-monospace, Consolas, monospace; color: var(--ink); }
+.starter-panel code { display: block; overflow-wrap: anywhere; padding: 12px; background: var(--sand); border-radius: 6px; font: 12px/1.8 var(--font-mono); color: var(--ink); }
 .starter-panel details .text-link { margin-top: 12px; }
 
 .downloads-section { padding-top: 56px; padding-bottom: 64px; border-top: 1px solid var(--line); }
 .download-format { font-size: 13px; color: var(--muted); margin-bottom: 3px; white-space: nowrap; }
 .download-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
 .download-card { display: flex; align-items: center; gap: 20px; min-width: 0; padding: 26px 0; border-bottom: 1px solid var(--line); }
-.download-number { font: italic 20px/1.5 Georgia, serif; color: var(--muted); flex-shrink: 0; }
+.download-number { font: italic 20px/1.5 var(--font-sans); color: var(--muted); flex-shrink: 0; }
 .download-card > div { min-width: 0; flex: 1; }
 .download-card h3 { font-size: 18px; font-weight: 500; line-height: 1.7; }
 .download-card p { font-size: 13px; color: var(--muted); line-height: 1.85; margin-top: 4px; }
@@ -258,7 +258,7 @@ button:active:not(:disabled), .action-link:active { transform: scale(.98); }
 .file-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 20px; }
 .file-actions h3 { font-size: 18px; font-weight: 500; margin-right: auto; }
 .file-actions .button { font-size: 14px; border-radius: 8px; }
-.file-reader textarea { width: 100%; height: 56vh; min-height: 280px; padding: 18px; border: 1px solid #d8d0c3; border-radius: 9px; resize: vertical; background: var(--cream); color: var(--ink); font: 14px/1.85 ui-monospace, Consolas, monospace; }
+.file-reader textarea { width: 100%; height: 56vh; min-height: 280px; padding: 18px; border: 1px solid #d8d0c3; border-radius: 9px; resize: vertical; background: var(--cream); color: var(--ink); font: 14px/1.85 var(--font-mono); }
 .reader-status { font-size: 13px; min-height: 24px; margin: 10px 0; color: var(--muted); }
 .error-page { padding: 10vh 8%; display: grid; gap: 20px; }
 .error-page a { color: var(--accent); text-decoration: underline; }

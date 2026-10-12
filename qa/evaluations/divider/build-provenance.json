@@ -1,0 +1,14 @@
+{
+  "sha256": "6172078b8a62d41f9f773cd23b7b11465eace5c51ca14cc02da811953e3cfdfc",
+  "dependencies": {
+    "three": "0.170.0",
+    "fflate": "0.8.2",
+    "esbuild": "0.24.2"
+  },
+  "sources": {
+    "model.mjs": "21fa15067c5603aab9963c0015d551ac2b853bfc080c68ceb3070361ccd717b3",
+    "app.mjs": "19b8838acef70ed2fadec3771d4cf9f5181fb2286a8789191f18e0281ec7f2d2",
+    "shell.html": "365ac1288487d50fe5671212daa12337d0b742b5c50378679cf69ba9aad2d561",
+    "build.cjs": "cbb8391fa82b4bd85843e5425c4149c964d8cf8d095cf8fb0e3b7f35627ff0ed"
+  }
+}

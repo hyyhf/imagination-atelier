@@ -1,3 +1,5 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+@import "./fonts.css";
 @import "./site.css";
+@import "./editorial.css";

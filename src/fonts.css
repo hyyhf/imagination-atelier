@@ -1,0 +1,20 @@
+@import "@fontsource-variable/noto-sans-sc";
+@import "@fontsource-variable/noto-serif-sc";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@font-face {
+  font-family: "Geist Pixel Square";
+  src: url("./assets/fonts/GeistPixel-Square.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* Latin glyphs use Geist; Chinese glyphs fall through to the Noto family. */
+  --font-sans: "Geist Variable", "Noto Sans SC Variable", sans-serif;
+  --font-serif: "Geist Variable", "Noto Serif SC Variable", serif;
+  --font-mono: "Geist Mono Variable", "Noto Sans SC Variable", monospace;
+  --font-pixel: "Geist Pixel Square", "Noto Sans SC Variable", sans-serif;
+}

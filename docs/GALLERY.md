@@ -4,6 +4,22 @@
 
 [全部作品](EXAMPLES.md) · [回到 README](../README.md)
 
+## 照片多规格裁切
+
+![实际运行画面](screenshots/03-photo-batch.jpg)
+
+圈定主体，联动生成多种比例，逐图微调并成套导出；换下一批沿用规格。
+
+[打开作品](../public/works/03-photo-batch/index.html) · [使用说明](../public/works/03-photo-batch/readme.txt)
+
+## 抽屉分隔板设计
+
+![实际运行画面](screenshots/05-drawer.jpg)
+
+调整净格与板厚，联动插接槽口和装配，检查物品适配，导出1:1切割图与板件清单。
+
+[打开作品](../public/works/05-drawer/index.html) · [使用说明](../public/works/05-drawer/readme.txt)
+
 ## 机械装配与爆炸图编辑器
 
 ![实际运行画面](screenshots/01-assembly.jpg)

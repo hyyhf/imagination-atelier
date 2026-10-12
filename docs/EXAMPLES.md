@@ -1,6 +1,6 @@
 # 作品列表
 
-每个名称直接说明用途。选择作品后，可读取使用说明、制作提示词与验证记录。
+名称直接说明用途。每件附使用说明、制作提示词与验证记录。
 
 [回到 README](../README.md) · [在线体验](https://hyyhf.github.io/imagination-atelier/)
 
@@ -9,9 +9,9 @@
 | 作品 | 用途 | 文件 |
 |---|---|---|
 | **机械装配与爆炸图编辑器** | 导入自己的零件，编辑装配关系、爆炸向量与拆装步骤，输出资料图、零件清单和说明。 | [打开](../public/works/01-assembly/index.html) · [说明](../public/works/01-assembly/readme.txt) · [提示词](../public/works/01-assembly/prompt.txt) · [记录](../public/works/01-assembly/record.txt) |
-| **三维地层剖面观察与导出** | 推进和旋转切面，查看连续岩层并导出矢量剖面。 | [打开](../public/works/03-strata/index.html) · [说明](../public/works/03-strata/readme.txt) · [提示词](../public/works/03-strata/prompt.txt) · [记录](../public/works/03-strata/record.txt) |
+| **照片多规格裁切** | 圈定主体，联动生成多种比例，逐图微调并成套导出；换下一批沿用规格。 | [打开](../public/works/03-photo-batch/index.html) · [说明](../public/works/03-photo-batch/readme.txt) · [提示词](../public/works/03-photo-batch/prompt.txt) · [记录](../public/works/03-photo-batch/record.txt) |
 | **陶器3D器形设计工具** | 捏口、推腹、查看内腔，把器形带走。 | [打开](../public/works/04-pottery/index.html) · [说明](../public/works/04-pottery/readme.txt) · [提示词](../public/works/04-pottery/prompt.txt) · [记录](../public/works/04-pottery/record.txt) |
-| **晶格近邻与原胞3D观察** | 从外部晶格走到中心原子，理解近邻与边界。 | [打开](../public/works/05-crystal/index.html) · [说明](../public/works/05-crystal/readme.txt) · [提示词](../public/works/05-crystal/prompt.txt) · [记录](../public/works/05-crystal/record.txt) |
+| **抽屉分隔板设计** | 调整净格与板厚，联动插接槽口和装配，检查物品适配，导出1:1切割图与板件清单。 | [打开](../public/works/05-drawer/index.html) · [说明](../public/works/05-drawer/readme.txt) · [提示词](../public/works/05-drawer/prompt.txt) · [记录](../public/works/05-drawer/record.txt) |
 | **反射光路设计与目标测试** | 调整有限圆镜，让真实反射光线抵达靶面。 | [打开](../public/works/06-optics/index.html) · [说明](../public/works/06-optics/readme.txt) · [提示词](../public/works/06-optics/prompt.txt) · [记录](../public/works/06-optics/record.txt) |
 | **交通信号配时与排队对比** | 改变绿灯份额，用相同到达流比较等待代价。 | [打开](../public/works/07-crossing/index.html) · [说明](../public/works/07-crossing/readme.txt) · [提示词](../public/works/07-crossing/prompt.txt) · [记录](../public/works/07-crossing/record.txt) |
 | **3D产品摄影与海报制作** | 导入商品模型与标识，调整材质、布光和镜头，制作高分辨率产品照片、海报与多视角图片。 | [打开](../public/works/10-product-studio/index.html) · [说明](../public/works/10-product-studio/readme.txt) · [提示词](../public/works/10-product-studio/prompt.txt) · [记录](../public/works/10-product-studio/record.txt) |

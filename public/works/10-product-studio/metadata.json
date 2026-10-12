@@ -1,0 +1,43 @@
+{
+  "name": "3D 产品摄影与海报制作",
+  "purpose": "供产品设计与电商工作室导入自有三维商品、标识和图片素材，布光取景并生成可用于展示的产品图片与海报，保留摄影方案后快速换品。",
+  "entry": "index.html",
+  "format": "自包含 HTML；PNG 单图；多视角 PNG + 摄影参数 JSON 的 ZIP；包含全部素材的可恢复 JSON 摄影方案",
+  "runtime": {"renderer": "Three.js 0.170.0", "archive": "fflate 0.8.2", "installationRequired": false, "serverRequiredByDesign": false, "cdn": false, "embeddedRuntime": true, "webglRequired": true},
+  "capabilities": [
+    "默认虚构相机具有 290 个表面，含滚花、蒙皮纹理、金属盖板、镜头结构、曲面镀膜镜片、热靴、按键、挂耳、螺钉和铭文",
+    "第二内置示例为玻璃精华瓶，含滴管、金属肩套细齿和完整纸标签",
+    "未压缩 GLB、GLTF+BIN+贴图、OBJ+MTL+贴图、STL 文件选择与拖入，缺资源时给错误并保留当前作品",
+    "自动居中落地；校准实物高度显示尺寸；精确位置、角度与缩放；三维平移/旋转操纵轴",
+    "射线拾取可见表面与表面列表；各表面独立颜色、粗糙度、金属度与 UV 贴图",
+    "连续无缝背景、可选展示台、主光阴影、物理材质与环境反射；主光功率/方位/高度/颜色，补光、轮廓光、曝光和灯光预设",
+    "轨道镜头、焦距与五种取景视角；构图线与编辑轮廓不会进入成片",
+    "标题、副标题、页脚、留白、字号、对齐、自有标识及图像背景，PNG/JPEG/WebP/自包含 SVG 输入",
+    "按目标像素重新渲染真实 PNG，透明背景与实际预览；常用比例与自定义尺寸",
+    "四个实际不同摄影视角生成 PNG，并打包为附完整摄影方案的 ZIP；结束恢复原镜头",
+    "方案保存/恢复包含模型、全部资源、贴图、标识、背景、镜头、布光、产品变换、海报与输出；换品保留摄影设置",
+    "20 步撤销/重做、异步导入代次保护、加载和出图状态保护、无效方案保护"
+  ],
+  "limits": {"imageMB": 25, "modelResourcesMB": 150, "projectMB": 250, "outputEdgePx": [256,6000], "outputMaxPixels": 24000000, "historySteps": 20},
+  "boundaries": [
+    "Three.js 实时物理材质渲染，无离线路径追踪、景深、颜色校样或 CAD 测量认证",
+    "实物高度校准显示尺寸，位置按归一化场景单位；模型统一 Y 轴向上",
+    "不支持 Draco、Meshopt、KTX2 压缩、USDZ、STEP 或 FBX；动画模型按静止状态摄影",
+    "贴图依赖已有 UV，不做自动 UV、AI 生图、背景分割或云保存",
+    "有外部资源的模型须用户一起选择；OBJ 的 Phong 材质会转为 PBR 近似",
+    "实际输出上限受 WebGL 显卡能力和内存影响；未做手机触屏和 Safari 设备验收",
+    "运行资源全部内嵌，但本次 file:// 与断网冷启动受会话安全策略限制，准确标为未验证"
+  ],
+  "verification": {
+    "date": "2026-10-12",
+    "browser": "Codex In-app Browser via approved Browser runtime",
+    "url": "http://127.0.0.1:4176/meta-skill-rebuild/10-product-studio/index.html",
+    "actualBrowserOperations": ["OBJ+MTL 文件选择器导入", "SVG 标识导入", "海报文案编辑", "2400×3000 PNG 实际生成", "实际页面生成 JSON 再经文件选择器回导", "第二独立 GLB 替换并保留摄影设置", "3840×2160 PNG 实际生成", "精确 X 输入与撤销", "四视角 800×1000 PNG 的 ZIP 生成", "1024×1280 透明 PNG 生成", "非法方案拒绝且当前产品保留", "最终恢复验证与真实首屏截图"],
+    "regression": "node regression.cjs：40 项通过，含独立 PNG 解码、alpha、ZIP 解包与四视角像素差异，及官方 OBJ/GLTF 加载器几何检查",
+    "downloadPersistence": "页面生成的 PNG / ZIP / JSON 实际内容经 DOM 输出读取保存并独立检查；浏览器自动下载保存路径未获工具可核实反馈",
+    "fileProtocol": "未验证；会话安全策略禁止，未重试或绕过",
+    "offlineColdStart": "未验证"
+  },
+  "license": {"applicationAndOriginalAssets": "MIT — LICENSE.txt", "Three.js": "MIT — THREE-LICENSE.txt", "fflate": "MIT — FFLATE-LICENSE.txt"},
+  "portablePackage": "3D产品摄影与海报制作.zip"
+}

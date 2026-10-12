@@ -1,0 +1,14 @@
+{
+ "name":"CSV 表格批量清洗工具",
+ "purpose":"接入自有 CSV/TSV，按字段编排清洗规则、校验并修正异常、追踪原值，输出结果并复用规则处理下一批。",
+ "entry":"index.html",
+ "format":"自包含 HTML；CSV/TSV；问题与隔离 CSV；HTML 处理报告；完整 JSON 方案与 JSON 规则文件",
+ "capabilities":["真实CSV/TSV与粘贴输入，明确编码与多文件合并","12种有顺序的字段清洗/转换/去重/校验/筛选/关联规则","BigInt十进制金额舍入，不自动将编号转数值","原始/结果/问题/隔离视图、搜索分页、来源原记录定位","人工修正与原值分别保留、重跑、手动隔离","有效记录范围与公式保护、真实导出","完整方案保存恢复、规则复用、下一批清材料保规则、35次撤销/重做"],
+ "limits":{"rows":10000,"columns":120,"inputMiB":10,"projectMiB":25,"decimalPlaces":[0,12]},
+ "boundaries":["不直接导入XLSX；日期按明确格式，不自动猜测","CSV保留前导零，但Excel自行推断列类型需用户按文本导入","公式保护会添加安全前缀，数据管道可明确关闭","不作AI语义纠错、业务真实性判断或远端数据库操作","file://及离线冷启动未验证；仅HTTP实际Browser验收"],
+ "runtime":{"embedded":"Papa Parse 5.7.0 + application","installRequired":false,"serverRequiredByDesign":false,"cdn":false},
+ "license":{"applicationAndOriginalFixtures":"MIT","Papa Parse 5.7.0":"MIT；完整第三方声明在 index.html"},
+ "verification":{"date":"2026-10-12","actualBrowser":["独立5行CSV文件选择器输入","精确金额与前导零显示","错误邮箱/日期修正及原值追踪","撤销/重做","保存与导出按钮","VM方案fixture经文件选择器恢复","第二批3行复用规则","真实TSV剪贴板输出"],"regression":"实际HTML内嵌模型 VM，59项通过","screenshots":["preview.png","preview-first.png","preview-second.png"],"downloadPersistence":"CI后续核实；未把VM预期文件冒称浏览器下载","offlineColdStart":"未验证；file协议已禁，未绕过"},
+ "skillFeedback":"record.txt 末尾：金额/编号/CSV引用边界、来源追踪、重复任务与证据来源应更具体"
+}
+

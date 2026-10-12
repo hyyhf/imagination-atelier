@@ -82,7 +82,7 @@ def main():
     assert page.locator('.work-card:visible').count()==30
     page.get_by_role('button',name=re.compile('科学实验室')).click();assert page.locator('.work-card:visible').count()==10
     page.get_by_role('button',name=re.compile('全部作品')).click()
-    page.get_by_role('searchbox',name='搜索作品').fill('数据会说话');assert page.locator('.work-card:visible').count()==1
+    page.get_by_role('searchbox',name='搜索作品').fill('数据拟合比较');assert page.locator('.work-card:visible').count()==1
     page.get_by_role('searchbox',name='搜索作品').fill('')
     page.screenshot(path=str(output/'offline-catalog-desktop.jpg'),type='jpeg',quality=86)
     page.set_viewport_size({'width':390,'height':844});page.screenshot(path=str(output/'offline-catalog-mobile.jpg'),type='jpeg',quality=86)
@@ -91,11 +91,14 @@ def main():
    elif a.site:
     errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
     page.goto(base,wait_until='networkidle');page.locator('.work-card').first.wait_for()
-    assert page.locator('.work-card').count()==30,'Expected all works by default'
+    assert page.locator('.work-card').count()==9,'Expected first nine works by default'
+    page.get_by_role('button',name='展开全部作品',exact=True).click()
+    assert page.locator('.work-card').count()==30
     page.get_by_role('button',name=re.compile('科学实验室')).click();assert page.locator('.work-card').count()==10
-    page.get_by_role('button',name=re.compile('全部作品')).click();assert page.locator('.work-card').count()==30
-    page.get_by_role('searchbox',name='搜索作品').fill('数据会说话');assert page.locator('.work-card').count()==1
-    page.get_by_role('button',name='查看数据会说话',exact=True).click()
+    page.get_by_role('button',name=re.compile('全部作品')).click()
+    page.get_by_role('button',name='展开全部作品',exact=True).click();assert page.locator('.work-card').count()==30
+    page.get_by_role('searchbox',name='搜索作品').fill('数据拟合比较');assert page.locator('.work-card').count()==1
+    page.get_by_role('button',name='查看数据拟合比较与反向标定',exact=True).click()
     page.get_by_role('dialog').wait_for();page.get_by_role('tab',name='制作提示词',exact=True).click()
     page.get_by_role('textbox',name='独立制作提示词',exact=True).wait_for()
     assert len(page.get_by_role('textbox',name='独立制作提示词',exact=True).input_value())>100
@@ -105,9 +108,13 @@ def main():
     page.set_viewport_size({'width':390,'height':844});page.screenshot(path=str(output/'react-gallery-mobile.jpg'),type='jpeg',quality=86)
     assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth+1'),'Horizontal overflow'
     assert not errors,'React page exceptions: '+repr(errors)
-    report['siteTests']={'mode':'built-react','defaultCards':30,'scienceCards':10,'allCards':30,'search':True,'modal':True,'promptLoaded':True,'mobileOverflow':False,'pageErrors':errors}
+    report['siteTests']={'mode':'built-react','defaultCards':9,'scienceCards':10,'allCards':30,'search':True,'modal':True,'promptLoaded':True,'mobileOverflow':False,'pageErrors':errors}
    if a.site and not a.offline:
     report['workflows']=verify_workflows(page,base,output)
+    from new_workflows import verify as verify_new_workflows
+    from text_csv_workflows import verify as verify_text_csv
+    report['newWorkflows']=verify_new_workflows(page,base,output)
+    report['textCSVWorkflows']=verify_text_csv(page,base,output)
    page.close()
    if a.artifacts:
     for item in items:

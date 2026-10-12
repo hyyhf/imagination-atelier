@@ -1,0 +1,48 @@
+机械装配查看与资料制作 · 制作与验收记录
+日期：2026-10-12
+范围：所有实现、源码、依赖、fixture 与 QA 仅在 .artifacts/meta-skill-rebuild/01-assembly 内创建。没有读取历史作品/评估或其他代理实现；没有改根 package.json、正式 public/src/skill，没有 Git 或远端写入。
+使用技能：本仓库 skills/imagination-developer/SKILL.md，及其 spatial-3d/local-delivery/delivery-standard/state-and-content/art-direction 参考；浏览器先读 control-in-app-browser 技能，使用已允许的 Browser runtime。
+
+技术与对象：
+Three.js 0.170.0 与官方加载器/轨道/变换控制器；RoomEnvironment/PMREM、基于粗糙度和金属度的材质、真实几何开孔与阴影。
+esbuild 0.25.5 制作阶段打包为普通 IIFE，全运行资源写入 index.html，无遮蔽的远程脚本/字体/CDN 依赖。
+原创 26 件蜗轮减速器，按毫米构造壳体开孔、螺旋、齿轮、阶梯轴、键槽、轴承滚珠和紧固密封细节。轴系中心差 33mm，输入轴承底部高于底板，齿轮顶部低于箱体顶板。齿形与若干零件尺寸为原创装配表达，不是制造级设计。
+
+状态：
+Controller 统一拥有零件、安装关系、装配坐标、爆炸向量、材料、步骤、备注和显示设置。导入先完整解析验证，确认有效代次后提交。项目损坏或循环引用不覆盖已有内容。可恢复文件包含网格及必要基础颜色贴图；修改项目的属性、几何、排序与删除可撤销，数据量较大时减少历史步数。
+安装到用于组织资料；独立坐标，不实现配合求解。生成报告取同一快照，暂时合拢/展开及关闭剖切捕获两图后恢复原状态。图号、CSV、资料表与步骤由同一零件顺序生成。
+
+实际浏览器证据（HTTP，不是 file://）：
+先用 Invoke-WebRequest 确認 127.0.0.1:4176 返回 200。
+在允许的 Codex In-app Browser 创建本任务自己的标签，只导航 HTTP .artifacts 路径。没有清理其他人的标签。
+1. 首屏、26件默认模型真实 WebGL 截图：qa/default-screen.jpg；材质、轴系、开孔、螺钉与箱体透明状态实际可见。
+2. 导入独立 flange-a.obj，拆出3网格；操作名称、代号、材质预设、安装关系、步骤与爆炸向量，生成资料预览。
+3. 最终工具中的第一套任务使用 flange-a.glb（原始单位米，选择 m），得到70.60×70.60×6.60mm法兰，保留三件原始颜色。设置中文名称、代号、关系、步骤与爆炸向量，保存可见导出的完整 JSON 与资料 HTML：qa/browser-task-a.assembly.json、qa/browser-task-a-report.html。
+4. 复制为下一套，替换首件为 flange-b.stl（选择 mm），新局部尺寸79.00×63.00×17.65mm，真实中心孔和安装孔。确认三个稳定ID、安装引用、各件爆炸向量全部保留，首件几何改变。改标题/代号/说明后生成第二套独立输出：qa/browser-task-b.assembly.json、qa/browser-task-b-report.html；截图 browser-task-b-screen.jpg、browser-task-b-report-screen.jpg。
+5. 用文件选择器重新打开实际从工具导出的 browser-task-a.assembly.json，标题、网格、关系、备注与视图恢复；随后打开损坏索引 fixture，被具体错误拒绝，仍保留任务A和3件零件。
+6. 正视真实表面点选两点得到43.932mm，截图 browser-measure-screen.jpg；这证明表面拾取与距离变化，独立尺寸精度另由脚本核对。拖动定位轴红色X轴，数值变为8.878mm；撤销回0，截图 browser-drag-screen.jpg。X方向剖切截图 browser-section-screen.jpg。
+7. 将实际生成的资料 HTML 通过 HTTP 独立打开，查看两张1600×1000 PNG、3行清单和步骤，截图 standalone-report-screen.jpg。
+8. 修正验证中发现的新任务旧说明残留、应用属性和材料保存的边界、输入验证、默认联轴器螺钉位置；最终副本重新加载确认标题和26件默认模型存在，并重新截图。没有把过往初始化错误作为最终通过证据。
+
+文件获取的证据边界：
+工具用标准 Blob/download 属性生成文件；实际点击下载按钮能显示生成反馈。Browser runtime 的 download 事件等待超时，故未声明浏览器已落盘。验收使用工具明确提供、可见且展开的“查看/复制文件原文”文本框，按文本块读取真实完整输出并保存到 qa，再由同一浏览器文件选择器回读。没有调用隐藏状态或用假数据替代导出。资料图的PNG头和1600×1000尺寸由独立文件解析核对。
+
+替代/脚本证据（不是浏览器证据）：
+regression.cjs 共24项通过，qa/regression-results.json。
+官方 OBJ/STL/GLTF 加载器解析独立输入；Three Raycaster 独立射线判据证实中心孔及安装孔无三角形、材料区有三角形；尺寸按合理范围检查。
+模型/控制器验证爆炸不覆盖装配坐标、循环关系原子拒绝、损坏网格拒绝、非有限/零比例/坏镜头/步骤范围拒绝、撤销/重做、稳定身份与编号、删除引用清理、CSV引号/逗号/换行、HTML文本转义、保存到磁盘后回读、复用/替换/新任务及过期异步导入拒绝。
+脚本另外读取两套真实浏览器输出，验证稳定身份/引用/爆炸向量、新几何、真实PNG尺寸、清单行数及任务B代号。
+构建后解析内嵌脚本语法，检查只有一个普通内嵌script，無外部src/link或未替换占位符。
+
+尚未验证：
+本会话 file:// 被安全策略禁止，因此未重试、未绕过、未切换其他自动化表面测试该协议。双击打开、首次断网冷启动未实测。未做生产级公差、齿形、碰撞、运动、强度、扭矩或实物装配验证。未实际打印PDF或验证最大300万顶点负载/触屏/所有GPU；只验收了本次适中尺寸的机械输入。GLB内嵌基础颜色贴图路径已经实现，但此次GLB fixture无贴图，未做贴图浏览器验收。
+
+制作方复跑（普通使用者无需执行）：
+cd source
+npm ci
+node create-fixtures.mjs
+node build.cjs
+cd ..
+node regression.cjs
+源码与依赖只在本目录。assembly-tool.zip 仅含终端使用需要的 index.html、readme.txt、LICENSES.txt、metadata.json、prompt.txt、record.txt。
+

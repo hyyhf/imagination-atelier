@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "batchName": "10 月第 3 周 · 机加工订单",
+  "rules": {
+    "startDate": "2026-10-12", "horizonDays": 21, "days": [1,2,3,4,5,6], "closedDates": [],
+    "shifts": [{"id":"AM","name":"早班","start":"08:00","end":"12:00"},{"id":"PM","name":"午班","start":"13:00","end":"17:00"}],
+    "machines": [
+      {"id":"LAS-01","name":"激光下料机","capacity":1,"shiftIds":["AM","PM"],"downtimes":[]},
+      {"id":"CNC-01","name":"加工中心 1","capacity":1,"shiftIds":["AM","PM"],"downtimes":[{"start":"2026-10-13T08:00","end":"2026-10-13T10:00"}]},
+      {"id":"CNC-02","name":"加工中心 2","capacity":1,"shiftIds":["AM","PM"],"downtimes":[]},
+      {"id":"DRL-01","name":"台式钻床","capacity":1,"shiftIds":["AM","PM"],"downtimes":[]},
+      {"id":"DEB-01","name":"去毛刺工位","capacity":1,"shiftIds":["AM","PM"],"downtimes":[]},
+      {"id":"ASM-01","name":"装配工作台","capacity":1,"shiftIds":["AM","PM"],"downtimes":[]},
+      {"id":"QC-01","name":"终检台","capacity":2,"shiftIds":["AM","PM"],"downtimes":[]}
+    ]
+  },
+  "orders": [
+    {"id":"MO-261012-01","product":"液压阀块 VH-40","qty":120,"release":"2026-10-12T08:00","due":"2026-10-15T17:00","priority":4},
+    {"id":"MO-261012-02","product":"安装支架 BR-12","qty":240,"release":"2026-10-12T08:00","due":"2026-10-14T17:00","priority":3},
+    {"id":"MO-261012-03","product":"传动轴 AX-18","qty":80,"release":"2026-10-12T08:00","due":"2026-10-13T17:00","priority":5},
+    {"id":"MO-261012-04","product":"机壳底板 CP-22","qty":180,"release":"2026-10-12T10:00","due":"2026-10-15T12:00","priority":3}
+  ],
+  "operations": [
+    {"id":"01-10","orderId":"MO-261012-01","name":"板料下料","machineIds":["LAS-01"],"setupMin":15,"cycleMin":1,"batchSize":1,"predecessors":[],"transferMin":0},
+    {"id":"01-20","orderId":"MO-261012-01","name":"铣面 / 开槽","machineIds":["CNC-01","CNC-02"],"setupMin":40,"cycleMin":3.2,"batchSize":1,"predecessors":["01-10"],"transferMin":20},
+    {"id":"01-30","orderId":"MO-261012-01","name":"钻孔 / 攻丝","machineIds":["DRL-01"],"setupMin":25,"cycleMin":1.2,"batchSize":1,"predecessors":["01-20"],"transferMin":15},
+    {"id":"01-40","orderId":"MO-261012-01","name":"去毛刺清洗","machineIds":["DEB-01"],"setupMin":15,"cycleMin":0.8,"batchSize":1,"predecessors":["01-30"],"transferMin":15},
+    {"id":"01-50","orderId":"MO-261012-01","name":"密封件装配","machineIds":["ASM-01"],"setupMin":30,"cycleMin":1.8,"batchSize":1,"predecessors":["01-40"],"transferMin":20},
+    {"id":"01-60","orderId":"MO-261012-01","name":"尺寸 / 气密终检","machineIds":["QC-01"],"setupMin":20,"cycleMin":0.75,"batchSize":1,"predecessors":["01-50"],"transferMin":10},
+    {"id":"02-10","orderId":"MO-261012-02","name":"支架下料","machineIds":["LAS-01"],"setupMin":20,"cycleMin":0.9,"batchSize":1,"predecessors":[],"transferMin":0},
+    {"id":"02-20","orderId":"MO-261012-02","name":"安装孔加工","machineIds":["DRL-01"],"setupMin":20,"cycleMin":1.4,"batchSize":1,"predecessors":["02-10"],"transferMin":15},
+    {"id":"02-30","orderId":"MO-261012-02","name":"边缘去毛刺","machineIds":["DEB-01"],"setupMin":15,"cycleMin":0.5,"batchSize":1,"predecessors":["02-20"],"transferMin":10},
+    {"id":"02-40","orderId":"MO-261012-02","name":"外观 / 孔距终检","machineIds":["QC-01"],"setupMin":15,"cycleMin":0.35,"batchSize":1,"predecessors":["02-30"],"transferMin":10},
+    {"id":"03-10","orderId":"MO-261012-03","name":"棒料下料","machineIds":["LAS-01"],"setupMin":15,"cycleMin":0.7,"batchSize":1,"predecessors":[],"transferMin":0},
+    {"id":"03-20","orderId":"MO-261012-03","name":"轴肩 / 键槽加工","machineIds":["CNC-01","CNC-02"],"setupMin":45,"cycleMin":4.6,"batchSize":1,"predecessors":["03-10"],"transferMin":20},
+    {"id":"03-30","orderId":"MO-261012-03","name":"端面钻孔","machineIds":["DRL-01"],"setupMin":20,"cycleMin":1.5,"batchSize":1,"predecessors":["03-20"],"transferMin":15},
+    {"id":"03-40","orderId":"MO-261012-03","name":"倒角 / 去毛刺","machineIds":["DEB-01"],"setupMin":10,"cycleMin":0.8,"batchSize":1,"predecessors":["03-30"],"transferMin":10},
+    {"id":"03-50","orderId":"MO-261012-03","name":"跳动 / 尺寸终检","machineIds":["QC-01"],"setupMin":20,"cycleMin":1,"batchSize":1,"predecessors":["03-40"],"transferMin":10},
+    {"id":"04-10","orderId":"MO-261012-04","name":"底板下料","machineIds":["LAS-01"],"setupMin":20,"cycleMin":1.1,"batchSize":1,"predecessors":[],"transferMin":0},
+    {"id":"04-20","orderId":"MO-261012-04","name":"定位面铣削","machineIds":["CNC-01","CNC-02"],"setupMin":35,"cycleMin":2.1,"batchSize":1,"predecessors":["04-10"],"transferMin":20},
+    {"id":"04-30","orderId":"MO-261012-04","name":"固定孔加工","machineIds":["DRL-01"],"setupMin":20,"cycleMin":1.1,"batchSize":1,"predecessors":["04-20"],"transferMin":15},
+    {"id":"04-40","orderId":"MO-261012-04","name":"边缘去毛刺","machineIds":["DEB-01"],"setupMin":15,"cycleMin":0.65,"batchSize":1,"predecessors":["04-30"],"transferMin":10},
+    {"id":"04-50","orderId":"MO-261012-04","name":"定位销装配","machineIds":["ASM-01"],"setupMin":20,"cycleMin":1.25,"batchSize":1,"predecessors":["04-40"],"transferMin":15},
+    {"id":"04-60","orderId":"MO-261012-04","name":"平面度终检","machineIds":["QC-01"],"setupMin":15,"cycleMin":0.6,"batchSize":1,"predecessors":["04-50"],"transferMin":10}
+  ]
+}

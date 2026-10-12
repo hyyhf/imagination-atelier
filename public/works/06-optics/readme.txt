@@ -1,4 +1,4 @@
-把光送过去 / A LINE THROUGH SPACE
+反射光路设计与目标测试 / A LINE THROUGH SPACE
 
 双击 index.html，无需网络、安装或服务器。拖动主画面观察空间，滚轮缩放；“经典视角”或“俯视光路”可以快速复位。
 

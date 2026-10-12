@@ -1,0 +1,57 @@
+{
+  "title": "生产订单排程工具",
+  "task": "小工厂计划人员导入自有订单和工艺路线，分配多道工序到设备及班次；改交期或手动编排后定位依赖、容量、日历冲突，比较方案，导出可执行派工明细，并保留规则迅速重排下一批。",
+  "entry": "index.html",
+  "delivery": "独立内嵌 HTML；最终用户只打开 HTML，不需要项目、安装或命令行。",
+  "capabilities": [
+    "CSV / JSON 选择、拖入或粘贴；规范英文及中文表头；完整校验后原子导入；错误不破坏现有状态",
+    "订单与工序新增、数量/产品/投产/交期/优先级/工时/每批件数/多前置/允许设备编辑",
+    "交期优先、优先级优先、短工时优先的确定性排程；可用设备与独立容量位置选择",
+    "真实跨班次、午休、工作日与停机排程；逐段显示；未排工序及阻塞原因保留",
+    "甘特条块 15 分钟拖动；详情分钟精度输入设备、位置和开始；手动锁定及解除锁定",
+    "设备位置冲突、投产、前置转运、工时、日历、停机、结构和未排检查；点击具体问题定位工序",
+    "完整方案保存与逐单完成/逾期对照；整体应用方案；40 步撤销/重做",
+    "编辑设备容量、班次、周工作日、停工日期、设备停机、起始日和排程范围",
+    "生产计划 JSON 保存/回导、浏览器便利暂存、规则预设导入/导出；新批次保留全部规则",
+    "设备/班次派工 CSV、交付检查 CSV、打印交付表；真实载荷预览，可复制备份"
+  ],
+  "actual_algorithm": {
+    "method": "Serial schedule generation heuristic; topologically ready operations sorted by EDD, priority or SPT. Earliest dependency/release time, enumerate eligible machine lanes, consume working calendar, avoid reservations/downtimes, choose earliest completion. Locked assignments are retained and audited.",
+    "duration": "ceil(setupMin + ceil(order.qty / batchSize) * cycleMin), with exact decimal rational arithmetic via BigInt to avoid floating-point ceiling errors.",
+    "calendar": "Minute-granular factory wall-clock timestamps; stored using UTC arithmetic without converting the entered local clock. Working days, closed dates and machine-enabled shifts. Same-day shifts can end at 24:00; overnight shifts are entered as two calendar windows.",
+    "capacity": "Each capacity unit is an independent machine lane. Working segments cannot overlap within the same lane. Downtime affects every lane. Utilization denominator merges overlapping downtime and subtracts its intersection with available working windows.",
+    "dependencies": "All predecessor lots must finish plus the successor transfer allowance before starting. No transfer batches. Multiple predecessor joins supported.",
+    "guarantee": "Constraint auditing and deterministic heuristic results, not global optimality. An impossible horizon retains every unplanned operation and reason."
+  },
+  "assumptions": [
+    "工序按整批流转；暂停仅发生于班次间，夹具与准备状态保留，准备工时只计一次",
+    "自动排程不会把进行中的工序跨设备停机拆开；会寻找完整可用工作位置",
+    "工厂墙上时钟语义；不处理时区或夏令时转换",
+    "容量是独立加工位置，不代表工作人员或物料可用"
+  ],
+  "outputs": [
+    {"format":"UTF-8 BOM CSV","purpose":"设备/班次逐段派工；数量、工时、前置、转运、位置、锁定与检查；准备仅首段计整工序一次，未排项保留"},
+    {"format":"UTF-8 BOM CSV","purpose":"订单预计完成、交期、逾期分钟和约束状态"},
+    {"format":"JSON schemaVersion 1","purpose":"可恢复所有订单、工艺、资源日历、锁定安排和最多6个对照方案"},
+    {"format":"JSON rules preset","purpose":"可复用设备、班次、工作日、停机与排程范围"},
+    {"format":"browser print","purpose":"订单交付表打印；完整执行时段使用派工CSV"}
+  ],
+  "boundaries": {
+    "limits":"300 orders, 1200 operations, 1–90 days, up to 10 lanes per machine, 5 MB import, 6 named scenarios, 40 undo steps",
+    "unsupported":"人员排班、物料库存、外协、良率、实际完工反馈、流转小批；不保证全局最优；规范CSV格式，不自动映射任意表格列",
+    "network":"No runtime dependencies, CDN, remote fonts, network requests or adjacent-file fetch.",
+    "offline_cold_start":"Not tested: this session prohibits file:// navigation. No prohibited attempt or protocol bypass was made. HTTP QA and source dependency inspection do not prove offline cold boot.",
+    "downloads":"Actual browser generated and requested JSON/CSV downloads. Exact visible export payloads were copied to fixtures, checked, and JSON re-imported through file chooser. Browser download-folder persistence was not inspected.",
+    "printing":"Print CSS is implemented; physical print/PDF dialog output was not verified."
+  },
+  "verification": {
+    "model":"planner-regression.cjs: 17 model/controller regressions, independent minute accounting and actual disk snapshot readback",
+    "browser_payload":"browser-output-regression.cjs checks actual user-visible JSON/CSV payload fixtures",
+    "browser":"HTTP actual file chooser import, manual resource/release conflicts, lock-preserving replan/unlock repair, 60-minute drag with dependency detection and undo, due edit comparison, rule changes, backup re-import, rejected import atomicity, second-batch rule reuse, direct manual order/operation creation",
+    "screenshots":["screenshot-default.png","screenshot-conflict.png","screenshot-second-batch.png","screenshot-user-plan.png"]
+  },
+  "licenses": [{"component":"Original HTML/CSS/JavaScript, model and controllers","license":"MIT","file":"LICENSE.txt"}],
+  "third_party_runtime_dependencies": [],
+  "development_source_files":["planner-model.cjs","planner-ui.js","index-shell.html","build-index.cjs","planner-regression.cjs","browser-output-regression.cjs"],
+  "record":"record.txt"
+}

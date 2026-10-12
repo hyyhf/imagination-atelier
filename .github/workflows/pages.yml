@@ -32,7 +32,7 @@ jobs:
         run: python3 scripts/check_source.py
       - name: Test publisher safety and configuration branches
         run: python3 -m unittest discover -s qa -p 'test_*.py' -v
-      - name: Verify spatial routes, printable paper and analysis workflows
+      - name: Verify spatial routes, paper, analysis, scheduling and text-data workflows
         run: npm run test:works
       - name: Install locked dependencies
         run: npm ci

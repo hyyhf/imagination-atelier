@@ -1,103 +1,429 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>想象显影机 · 30件独立作品</title><style>:root{
-  color-scheme:light;
-  --paper:#fbf8f2;--cream:#fffdf9;--ink:#302b25;--muted:#7d756a;--line:#e5ddd0;--sand:#f0e8dc;
-  --acid:#eed5bb;--accent:#925a3e;--accent-foreground:#fffdf9;--focus:#a56847;--radius:16px;
-  --background:var(--paper);--foreground:var(--ink);--surface:var(--cream);--surface-foreground:var(--ink);--border:var(--line);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  color:var(--ink);background:var(--paper);font-synthesis:none;
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>想象显影机 · 30件独立作品</title><style>:root {
+  color-scheme: light;
+  --paper: #fbf9f4;
+  --cream: #fffdf9;
+  --ink: #34332e;
+  --muted: #68645b;
+  --line: #e5e0d6;
+  --sand: #f1ede4;
+  --accent: #895a40;
+  --accent-foreground: #fffdf9;
+  --focus: #895a40;
+  --radius: 14px;
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --surface: var(--cream);
+  --surface-foreground: var(--ink);
+  --border: var(--line);
+  --page-gutter: clamp(24px, 5.5vw, 88px);
+  --page-width: 1280px;
+  --serif: "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+  color: var(--ink);
+  background: var(--paper);
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:32px}body{margin:0}
-button,input,select,textarea{font:inherit}button,a,input,select,summary{touch-action:manipulation}
-button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:5px}img{display:block;max-width:100%}h1,h2,h3,p{margin:0}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:5px}
-button:disabled{cursor:default;opacity:.5}button,a{transition:background .2s,color .2s,border-color .2s,transform .2s}
-.site-header{height:92px;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:28px}
-.brand{display:flex;align-items:center;gap:15px;font-size:19px;font-weight:650;white-space:nowrap}.brand:hover{text-decoration:none}
-.brand-symbol{font:italic 44px/1 Georgia,"Times New Roman",serif;letter-spacing:-4px;color:#9a6042;padding-right:4px}
-.brand small{display:block;font-size:8px;letter-spacing:2px;font-weight:500;margin-top:7px;color:var(--muted)}
-.site-header nav{display:flex;gap:30px;font-size:13px}.site-header nav a{padding:10px 0;color:#655d52}
-.site-header nav a:hover{color:var(--accent)}.header-cta{font-size:12px;border:1px solid #d7c9b7;border-radius:30px;padding:12px 19px;background:#fffdf780}
-.header-cta:hover{background:var(--sand);text-decoration:none}.skip-link{position:absolute;top:-100px;left:20px;background:var(--ink);color:white;padding:12px;z-index:1000}.skip-link:focus{top:10px}
-.hero{padding:70px 5.5% 76px;display:grid;grid-template-columns:.95fr 1.05fr;gap:7%;align-items:center;min-height:690px}
-.eyebrow{font-size:9px;line-height:1.6;letter-spacing:2px;font-weight:650;color:#9b7759}
-.dot{display:inline-block;width:5px;height:5px;background:var(--accent);border-radius:50%;margin-right:6px}
-.hero h1{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",Georgia,serif;font-size:clamp(56px,5.8vw,88px);letter-spacing:-3px;line-height:1.2;font-weight:500;margin:28px 0 25px}
-.hero h1 span{color:#925a3e}.hero h1 i{display:none}.hero-description{font-size:19px;line-height:1.9;letter-spacing:.3px}
-.hero-intro{font-size:13px;line-height:1.95;color:var(--muted);margin-top:17px}.hero-buttons{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin-top:29px}
-.action-link{display:inline-flex;align-items:center;justify-content:center;gap:22px;border:1px solid #d7c9b7;border-radius:28px;padding:13px 23px;line-height:1.5;font-size:13px;background:var(--cream)}
-.action-link.primary{background:var(--accent);border-color:var(--accent);color:var(--cream)}.action-link:hover{background:#efe3d4;text-decoration:none;color:var(--ink)}.action-link.primary:hover{background:#7e4a31;color:white}
-.text-link{font-size:12px;text-decoration:underline;text-underline-offset:6px;text-decoration-color:#bf9a7e}
-.hero-foot{display:flex;flex-wrap:wrap;gap:18px;font-size:10px;color:#908372;letter-spacing:.5px;margin-top:30px}.hero-foot span+span:before{content:'·';margin-right:18px}
-.hero-art{background:#f4eee4;border:1px solid #e9dfd1;border-radius:24px;overflow:hidden;position:relative;min-width:0;box-shadow:0 14px 44px #4b372108}
-.feature-tabs{display:flex;align-items:center;gap:5px;padding:17px 20px;border-bottom:1px solid #e8ddce;background:#fffcf780}
-.feature-tabs button{border:0;padding:8px 13px;border-radius:18px;background:transparent;font-size:10px;color:var(--muted)}
-.feature-tabs button[aria-pressed=true]{background:#fffdf9;color:var(--accent);box-shadow:0 1px 5px #5840200b}.feature-count{margin-left:auto;font-size:9px;color:#a18e78;letter-spacing:1px}
-.hero-art-button{display:block;border:0;padding:0;background:#f4eee4;position:relative;min-height:310px;width:100%;overflow:hidden}
-.hero-art-button img{width:100%;height:325px;object-fit:contain;transition:transform .6s}.hero-art-button:hover img{transform:scale(1.035)}
-.feature-open{position:absolute;bottom:17px;right:20px;background:#fffdf9e8;border:1px solid #ddd0bc;border-radius:20px;padding:8px 14px;font-size:10px;color:#765b44}
-.art-caption{display:flex;align-items:center;justify-content:space-between;padding:20px 25px 12px;gap:16px;border-top:1px solid #e7dccd;background:#fcf8f0}
-.art-caption h2{font-size:25px;letter-spacing:-.6px;font-weight:550;margin:7px 0 6px}.art-caption p:not(.eyebrow){font-size:11px;color:var(--muted);line-height:1.8}
-.feature-arrow{border:1px solid #d9c7b1;background:transparent;border-radius:50%;width:42px;height:42px;font-size:22px;color:var(--accent);flex-shrink:0}.feature-arrow:hover{background:#ebdcc8}
-.feature-step{font-size:10px;color:#988673;padding:0 25px 23px;line-height:1.8;background:#fcf8f0}
-.art-topline{padding:20px 25px;font-size:10px;display:flex;justify-content:space-between}.art-caption small{font-size:10px;display:block;margin-bottom:7px}.art-caption strong{font-size:25px}.orbit-mark{position:absolute;right:18px;bottom:18px;border-radius:50%;background:var(--cream);padding:12px;font-size:20px}
-.manifesto{margin:0 5.5%;padding:24px 0;display:flex;align-items:center;gap:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.manifesto>span:first-child{font-size:13px;color:var(--muted);margin-right:auto}.manifesto>div{display:flex;align-items:center;gap:10px}.manifesto strong{font:24px Georgia,serif;color:#795f48}.manifesto>div>span{font-size:9px;color:var(--muted)}.manifesto-count{margin-left:auto;font-size:11px;letter-spacing:3px}
-.collection-section{padding:78px 5.5% 94px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:36px}
-.section-heading h2,h2{font-family:"Noto Serif SC","Songti SC","STSong","SimSun",Georgia,serif;font-size:clamp(32px,3.4vw,50px);letter-spacing:-1.5px;font-weight:500;line-height:1.3;margin-top:14px}
-.section-heading>p{font-size:12px;color:var(--muted);line-height:2}.section-heading>p>a{display:inline-block;margin-top:7px;color:var(--accent);font-size:11px}
-.collection-filters{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.collection-buttons{display:flex;gap:7px;flex-wrap:wrap}.collection-buttons button{border-radius:22px;padding:11px 17px;min-height:40px;font-size:12px;background:transparent;border:1px solid var(--line);color:#756b5e;display:flex;gap:9px;align-items:center}
-.collection-buttons button[aria-pressed=true]{background:#eee2d2;color:#68472f;border-color:#dac4aa}.collection-buttons small{font-size:9px;opacity:.7}
-.search-box{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:22px;padding:10px 15px;background:#fffdf880;width:255px}.search-box>span{font-size:21px;color:#9b8670}.search-box input{border:0;background:transparent;outline:none;font-size:12px;width:100%;min-width:0;color:var(--ink)}
-.collection-caption{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}.collection-caption p{font-size:10px;color:var(--muted);margin-top:6px}.medium-filter{display:flex;gap:22px;font-size:10px;align-items:center;white-space:nowrap;color:var(--muted)}.medium-filter select{background:transparent;border:0;border-bottom:1px solid var(--line);padding:5px;color:var(--ink)}
-.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:37px 24px}.work-card{min-width:0}
-.work-image{position:relative;display:block;width:100%;border:1px solid #eae1d5;padding:0;overflow:hidden;border-radius:15px;background:#f0e9dd;aspect-ratio:1.5}
-.work-image img{width:100%;height:100%;object-fit:contain;transition:transform .5s;padding:0}.work-image:hover img{transform:scale(1.035)}
-.work-card:nth-child(3n+2) .work-image{background:#f4efe6}.work-card:nth-child(3n) .work-image{background:#eee8e0}
-.work-number{position:absolute;top:11px;left:11px;font-size:9px;background:#fffdf9e8;padding:5px 8px;border-radius:15px;border:1px solid #e6dacb;color:#80694f}
-.image-arrow{position:absolute;right:11px;bottom:11px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#fffdf9e8;border:1px solid #e6dacb;font-size:18px;color:#80694f}
-.work-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:9px;color:#9a8975;margin-top:14px}.work-meta .chip{background:transparent;font-size:9px;min-height:0;height:23px;padding:2px 8px;border:1px solid var(--line);color:#90816e}
-.work-card h3{font-size:20px;letter-spacing:-.6px;line-height:1.45;margin:8px 0 7px;font-weight:550}.work-card h3 button{all:unset;cursor:pointer}.work-card h3 button:focus-visible{outline:2px solid var(--focus)}
-.work-card>p{font-size:11px;color:var(--muted);line-height:1.9;min-height:42px}.work-links{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:11px;margin-top:16px;font-size:10px;color:#8e6647}.work-links button{border:0;padding:0;background:transparent;color:inherit}
-.empty-state{padding:55px 20px;text-align:center;background:#f0e8dd;border-radius:18px}.empty-state p{margin:14px 0 22px;font-size:13px;color:var(--muted)}.empty-state a{display:inline-block;font-size:12px;margin-left:18px}
-.method-section{background:#f0e8dc;border-top:1px solid #e5d9c9;border-bottom:1px solid #e5d9c9;padding:76px 8%;display:grid;grid-template-columns:1fr 1.1fr;gap:9%}
-.method-intro h2{font-size:48px;margin-top:24px}.method-intro p:not(.eyebrow){font-size:12px;line-height:2.05;color:#7b6c5c;margin:25px 0}.method-intro a{color:#8b5d3c}
-.steps{display:grid}.step{display:flex;gap:23px;padding:22px 0;border-bottom:1px solid #ddcebc}.step:first-child{padding-top:0}.step:last-child{border:0}.step>span{font:17px Georgia,serif;color:#aa8863;padding-top:5px}.step h3{font-size:18px;font-weight:550}.step p{font-size:11px;line-height:1.9;color:#8b7b68;margin-top:9px;max-width:410px}
-.skill-section{margin:82px 5.5% 0;padding:52px 4%;border:1px solid var(--line);border-radius:24px;display:grid;grid-template-columns:.9fr 1.1fr;gap:8%;background:#fffdf9}
-.skill-section h2{margin-bottom:21px;font-size:45px}.skill-intro>p:not(.eyebrow){font-size:12px;line-height:2;color:var(--muted)}.skill-notes{display:grid;gap:13px;margin:31px 0 29px;font-size:11px;color:#9b7b5c}
-.starter-panel{background:#f5eee3;border:1px solid #e5d9c7;padding:24px;border-radius:17px;min-width:0}
-.starter-modes{display:flex;gap:4px;border-bottom:1px solid #e0d1bc;padding-bottom:18px;margin-bottom:20px}.starter-modes button{border:0;background:transparent;color:#8d7963;border-radius:18px;padding:8px 11px;font-size:10px}.starter-modes button[aria-pressed=true]{background:#fffdf9;color:#895532;box-shadow:0 1px 5px #7b5c300c}
-.starter-panel>label{font-size:12px;display:block;margin-bottom:11px;color:#74604c}.starter-panel textarea{display:block;width:100%;height:142px;min-height:100px;border:1px solid #dcccba;resize:vertical;border-radius:10px;background:#fffdf9;padding:14px;font-size:13px;line-height:1.95;color:var(--ink)}
-.idea-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}.idea-suggestions button{padding:0;background:transparent;border:0;font-size:9px;color:#a0876b;line-height:1.8}.idea-suggestions button:hover{color:#875231}
-.starter-panel .copy-instruction{border-radius:23px;width:100%;min-height:43px;font-size:12px;background:var(--accent);color:#fffdf9}.starter-panel p.subtle{font-size:10px;min-height:35px;margin:13px 0;line-height:1.9}
-.preview-toggle{display:block;width:100%;border:0;background:transparent;text-align:left;padding:9px 0;font-size:10px;color:#9b7a58}.starter-panel .complete-instruction{height:250px;font:11px/1.8 ui-monospace,Consolas,monospace;margin:9px 0 17px}
-.starter-panel details{font-size:10px;line-height:1.9;padding-top:12px;margin-top:4px;border-top:1px solid #decfbb}.starter-panel summary{cursor:pointer;color:#8b745b}.starter-panel details p{margin:12px 0;color:var(--muted)}.starter-panel details code{display:block;font:10px/1.8 ui-monospace,Consolas,monospace;overflow-wrap:anywhere;padding:10px;background:#fffaf3;border-radius:7px}.starter-panel details a{display:block;text-decoration:underline;margin-top:12px;color:var(--accent)}
-.downloads-section{padding:79px 5.5% 90px}.download-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.download-card{border:1px solid var(--line);padding:24px;border-radius:14px;min-height:195px;display:flex;flex-direction:column;background:#fffdf780}.download-card:hover{background:#f1e5d5;border-color:#dcc8af;text-decoration:none}.download-card>span{font-size:9px;letter-spacing:1.5px;color:#a58d72}.download-card h3{font-size:19px;font-weight:550;margin:22px 0 9px}.download-card p{font-size:11px;color:var(--muted);line-height:1.9}.download-card strong{font-size:10px;font-weight:500;color:#976a45;padding-top:18px;margin-top:auto;align-self:flex-end}
-.site-footer{padding:33px 5.5%;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;align-items:center;background:#f3ece1}.site-footer p{font-size:10px;line-height:1.9;color:#9b8a76}.site-footer>div{display:flex;gap:21px;font-size:10px;color:#876f55}.site-footer .brand{font-size:15px}.site-footer .brand-symbol{font-size:35px}.site-footer .brand small{font-size:7px;letter-spacing:1px}
-.subtle{font-size:11px;line-height:1.9;color:var(--muted)}.case-dialog{background:var(--cream)!important;color:var(--ink)!important;max-width:1500px!important;width:100%;border-radius:18px!important}.case-title{font-size:32px!important;line-height:1.3!important;letter-spacing:-1px;margin:8px 0!important}.modal__header>p{font-size:12px;line-height:1.8;color:var(--muted)}.modal__close-trigger{right:18px!important;top:18px!important}.case-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 0}.case-tools .action-link{font-size:11px;padding:9px 14px}.frame-shell{height:min(72vh,900px);position:relative;border:1px solid var(--line);background:#f5eee3;border-radius:10px;overflow:hidden}.frame-shell iframe{width:100%;height:100%;border:0;position:relative;z-index:1}.frame-shell>p{font-size:12px;position:absolute;top:20px;left:20px}.tabs__panel>p.subtle{margin-top:12px}.tabs__list-container{max-width:100%;overflow:auto}.tabs__tab{font-size:12px!important}
-.file-actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap;padding-top:18px}.file-actions h3{font-size:17px;margin-right:auto}.file-actions a{font-size:11px}.file-reader textarea{width:100%;height:58vh;min-height:280px;padding:18px;font:12px/1.9 ui-monospace,SFMono-Regular,Consolas,monospace;border:1px solid var(--line);border-radius:10px;resize:vertical;background:#f8f3ea;color:var(--ink)}.reader-status{font-size:11px;min-height:23px;margin:9px 0}.error-page{padding:10vh 8%;display:grid;gap:20px}.error-page a{text-decoration:underline}.error-page button{justify-self:start}.offline-banner{margin:0 5.5%;font-size:11px;background:#f1e6d5;padding:12px 18px;border-radius:8px;line-height:1.9}.offline-banner a{text-decoration:underline}
-@media(min-width:1700px){.hero,.collection-section,.downloads-section,.site-header,.site-footer{padding-left:max(5.5%,calc((100vw - 1450px)/2));padding-right:max(5.5%,calc((100vw - 1450px)/2))}}
-@media(max-width:1050px){.site-header nav{gap:20px}.hero{gap:5%;padding-top:55px;min-height:640px}.hero h1{font-size:62px}.hero-description{font-size:16px}.hero-intro{font-size:12px}.hero-art-button img{height:285px}.feature-tabs{padding:14px}.feature-tabs button{font-size:9px;padding:8px 9px}.art-caption{padding:17px 18px 10px}.feature-step{padding:0 18px 19px}.hero-buttons{gap:18px}.manifesto{gap:25px}.manifesto>span:first-child{font-size:11px}.work-grid{gap:30px 18px}.work-card h3{font-size:18px}.method-section{gap:7%;padding:60px 6%}.method-intro h2{font-size:40px}.skill-section{gap:5%;padding:35px 4%}.skill-section h2{font-size:36px}.starter-panel{padding:20px}.starter-modes button{padding:8px 9px;font-size:9px}.site-footer{flex-wrap:wrap}}
-@media(max-width:760px){
- .site-header{height:76px;padding:0 5%;gap:15px}.brand{font-size:15px;gap:10px}.brand-symbol{font-size:35px}.brand small{font-size:6px;letter-spacing:1.3px;margin-top:5px}.site-header nav{gap:17px;font-size:11px}.site-header nav a:nth-child(2),.site-header nav a:last-child,.header-cta{display:none}
- .hero{padding:39px 5% 37px;grid-template-columns:1fr;gap:32px;min-height:0}.hero .eyebrow{font-size:7px;letter-spacing:1.7px}.hero h1{font-size:clamp(47px,12.5vw,72px);letter-spacing:-2px;margin:22px 0 20px;line-height:1.2}.hero-description{font-size:16px}.hero-intro{font-size:11px;margin-top:15px}.hero-buttons{margin-top:24px;gap:19px}.action-link{font-size:11px;padding:12px 19px}.text-link{font-size:11px}.hero-foot{font-size:9px;gap:14px;margin-top:23px}.hero-foot span+span:before{margin-right:14px}
- .hero-art{border-radius:17px}.feature-tabs{padding:11px 12px}.feature-tabs button{font-size:9px;padding:8px 10px}.feature-count{font-size:8px}.hero-art-button{min-height:250px}.hero-art-button img{height:260px}.feature-open{font-size:9px;padding:7px 12px;right:14px;bottom:14px}.art-caption{padding:16px 19px 9px}.art-caption h2{font-size:23px}.art-caption p:not(.eyebrow){font-size:10px}.feature-arrow{width:36px;height:36px;font-size:20px}.feature-step{font-size:9px;padding:0 19px 18px}
- .manifesto{margin:0 5%;flex-wrap:wrap;gap:17px;padding:19px 0}.manifesto>span:first-child{width:100%;font-size:11px}.manifesto>div{gap:7px}.manifesto strong{font-size:20px}.manifesto>div>span{font-size:8px}
- .collection-section,.downloads-section{padding:48px 5% 55px}.section-heading{display:block;margin-bottom:25px}.section-heading h2,h2{font-size:34px;letter-spacing:-1px}.section-heading>p{font-size:11px;line-height:1.95;margin-top:18px}.collection-filters{gap:13px;padding-bottom:17px}.collection-buttons{gap:5px;width:100%}.collection-buttons button{font-size:10px;padding:9px 11px;min-height:37px;gap:6px}.collection-buttons small{font-size:8px}.search-box{width:100%;padding:9px 13px}.search-box input{font-size:11px}.collection-caption{align-items:start;flex-direction:column;gap:13px;padding:19px 0}.collection-caption p{font-size:9px}.medium-filter{width:100%;justify-content:space-between;font-size:9px}
- .work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 13px}.work-image{aspect-ratio:1.25;border-radius:10px}.work-card h3{font-size:16px;line-height:1.45;min-height:23px;margin:7px 0}.work-card>p{font-size:10px;min-height:58px;line-height:1.85}.work-meta{font-size:8px;margin-top:11px;flex-wrap:wrap;gap:5px}.work-meta .chip{font-size:8px;height:21px;padding:2px 6px}.work-links{font-size:9px;gap:5px;align-items:center;margin-top:13px;padding-top:9px}.work-number{left:7px;top:7px;font-size:8px;padding:3px 6px}.image-arrow{width:23px;height:23px;font-size:16px;right:7px;bottom:7px}
- .method-section{padding:45px 6%;grid-template-columns:1fr;gap:30px}.method-intro h2{font-size:35px}.method-intro p:not(.eyebrow){font-size:11px;margin:20px 0}.step{padding:19px 0;gap:17px}.step h3{font-size:17px}.step p{font-size:10px}.step>span{font-size:15px}
- .skill-section{margin:45px 5% 0;padding:27px 6%;grid-template-columns:1fr;gap:27px;border-radius:18px}.skill-section h2{font-size:33px;margin-bottom:19px}.skill-intro>p:not(.eyebrow){font-size:11px}.skill-notes{gap:10px;font-size:10px;margin:22px 0}.starter-panel{padding:17px;border-radius:13px}.starter-modes{gap:1px;padding-bottom:14px;margin-bottom:16px}.starter-modes button{font-size:9px;padding:7px 8px}.starter-panel textarea{font-size:12px;height:160px;padding:12px}.idea-suggestions{gap:8px}.idea-suggestions button{font-size:8px}.starter-panel .copy-instruction{font-size:11px}.starter-panel details code{font-size:9px}
- .download-grid{grid-template-columns:1fr 1fr;gap:11px}.download-card{padding:17px;min-height:195px}.download-card h3{font-size:16px;margin:19px 0 8px}.download-card p{font-size:10px}.download-card>span{font-size:8px}.download-card strong{font-size:9px}.site-footer{padding:28px 5%;flex-direction:column;align-items:start;gap:22px}.site-footer p{font-size:9px}.site-footer>div{font-size:10px}
- .case-title{font-size:25px!important}.case-tools{gap:8px}.case-tools .action-link{font-size:10px;padding:8px 11px}.frame-shell{height:65vh}.file-reader textarea{font-size:11px;padding:13px}.file-actions{gap:10px}.file-actions h3{font-size:14px}.tabs__tab{font-size:11px!important}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 108px; }
+body { margin: 0; font-size: 15px; line-height: 1.7; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, summary { touch-action: manipulation; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { text-wrap: balance; }
+p { text-wrap: pretty; }
+.keep-together { white-space: nowrap; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; }
+button:disabled { cursor: default; opacity: .5; }
+button, a { transition: color .2s, background .2s, border-color .2s, transform .25s var(--ease); }
+button:active:not(:disabled), .action-link:active { transform: scale(.98); }
+.icon { display: inline-block; flex: 0 0 auto; width: 19px; height: 19px; vertical-align: middle; }
+.skip-link { position: fixed; top: -100px; left: 24px; padding: 12px 18px; background: var(--ink); color: var(--cream); z-index: 100; border-radius: 8px; }
+.skip-link:focus { top: 12px; }
+
+.site-header {
+  height: 84px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-inline: max(var(--page-gutter), calc((100% - var(--page-width)) / 2));
+  border-bottom: 1px solid var(--line);
+  background: #fbf9f4f2;
+  backdrop-filter: blur(16px);
 }
-@media(max-width:370px){.collection-buttons button{font-size:9px;padding:8px 9px}.site-header nav{gap:12px}.work-grid{grid-template-columns:1fr}.work-image{aspect-ratio:1.5}.work-card>p{min-height:0}.download-grid{grid-template-columns:1fr}.manifesto{gap:12px}.manifesto>div{gap:5px}.manifesto strong{font-size:18px}.hero-buttons{gap:14px}.text-link{font-size:10px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;animation-iteration-count:1!important}}
+.brand { display: flex; align-items: center; gap: 13px; font-size: 18px; font-weight: 600; white-space: nowrap; line-height: 1.35; }
+.brand-symbol { font: italic 46px/1 Georgia, serif; letter-spacing: -4px; color: var(--accent); padding-right: 4px; }
+.brand small { display: block; font-size: 11px; font-weight: 400; letter-spacing: .4px; color: var(--muted); margin-top: 5px; }
+.site-header nav { display: flex; align-items: center; gap: 32px; }
+.site-header nav a { position: relative; padding: 10px 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
+.site-header nav a:hover, .site-header nav a[aria-current] { color: var(--accent); }
+.site-header nav a::after { position: absolute; content: ''; left: 0; right: 0; bottom: 3px; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform .25s var(--ease); }
+.site-header nav a[aria-current]::after { transform: scaleX(1); }
+.header-cta { display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; border: 1px solid var(--line); border-radius: 9px; font-size: 13px; }
+.header-cta:hover { background: var(--sand); border-color: #c8bcaa; }
+.header-cta .icon { width: 16px; height: 16px; }
+.menu-toggle { display: none; }
+
+.hero, .collection-section, .skill-section, .downloads-section { width: min(var(--page-width), calc(100% - var(--page-gutter) * 2)); margin-inline: auto; }
+.hero { padding-top: 48px; padding-bottom: 0; }
+.hero-copy { text-align: center; }
+.hero h1 { font-family: var(--serif); font-size: clamp(48px, 5.5vw, 78px); font-weight: 500; line-height: 1.3; letter-spacing: -3px; }
+.hero h1 span { color: var(--accent); }
+.hero-copy > p { margin-top: 18px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+.hero-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.action-link { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 47px; padding: 11px 22px; border: 1px solid transparent; border-radius: 9px; font-size: 14px; font-weight: 500; line-height: 1.6; white-space: nowrap; }
+.action-link.primary { background: var(--accent); color: var(--cream); }
+.action-link.primary:hover { background: #734a33; }
+.action-link.secondary { background: transparent; border-color: #d8d0c3; }
+.action-link.secondary:hover { background: var(--sand); border-color: #baac98; }
+.action-link:hover .icon { transform: translateX(3px); }
+.action-link .icon { transition: transform .25s var(--ease); }
+.text-link { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--accent); line-height: 1.7; }
+.text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.text-link .icon { width: 17px; height: 17px; }
+.featured-grid { display: grid; grid-template-columns: 1fr 1.12fr 1fr; gap: 22px; align-items: end; margin-top: 40px; }
+.featured-work { min-width: 0; }
+.featured-image { position: relative; display: block; border: 0; padding: 0; width: 100%; aspect-ratio: 1.54; border-radius: 14px; overflow: hidden; background: var(--sand); }
+.featured-work:nth-child(2) .featured-image { aspect-ratio: 1.47; }
+.featured-image img { width: 100%; height: 100%; object-fit: cover; }
+.feature-open, .image-arrow { position: absolute; display: grid; place-items: center; background: var(--cream); color: var(--ink); border-radius: 50%; right: 15px; bottom: 15px; width: 39px; height: 39px; transition: background .2s, transform .3s var(--ease); }
+.featured-image:hover .feature-open, .work-image:hover .image-arrow { background: var(--accent); color: var(--cream); transform: rotate(-35deg); }
+.featured-caption { display: flex; justify-content: space-between; gap: 12px; margin-top: 17px; }
+.feature-label { color: var(--muted); font-size: 13px; }
+.featured-caption h2 { font-size: 22px; font-weight: 600; font-family: var(--serif); line-height: 1.5; margin-top: 3px; }
+.featured-caption h2 button, .work-card h3 button { background: transparent; border: 0; padding: 0; color: inherit; text-align: left; font: inherit; }
+.featured-caption h2 button:hover, .work-card h3 button:hover { color: var(--accent); }
+.featured-caption p { font-size: 14px; color: var(--muted); margin-top: 3px; line-height: 1.8; }
+.featured-index { font: italic 27px/1.5 Georgia, serif; color: #877d6b; margin-top: 19px; }
+.hero-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 32px; padding: 20px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.hero-bottom a { display: inline-flex; align-items: center; gap: 12px; color: var(--accent); }
+.hero-bottom .icon { width: 17px; height: 17px; }
+
+.collection-section { padding-top: 60px; padding-bottom: 64px; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+.section-heading h2 { font-family: var(--serif); font-size: 39px; font-weight: 500; line-height: 1.4; letter-spacing: -1px; }
+.section-heading p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-top: 10px; }
+.section-heading > .text-link { margin-bottom: 3px; }
+.heading-count { font: italic 18px/1.3 Georgia, serif; color: var(--accent); display: inline-block; vertical-align: top; margin: 7px 0 0 12px; letter-spacing: 0; }
+.collection-filters { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.collection-buttons { display: flex; gap: 6px; padding: 4px; border-radius: 10px; background: var(--sand); }
+.collection-buttons .button { display: flex; gap: 10px; align-items: center; border: 0; box-shadow: none; border-radius: 7px; background: transparent; min-height: 42px; padding: 10px 16px; color: var(--muted); font-size: 14px; font-weight: 400; white-space: nowrap; }
+.collection-buttons .button:hover { color: var(--ink); background: #e9e3d8; }
+.collection-buttons .button[aria-pressed=true] { color: var(--ink); background: var(--cream); box-shadow: 0 1px 3px #34332e0c; font-weight: 500; }
+.collection-buttons .button > span { font-size: 12px; font-variant-numeric: tabular-nums; }
+.search-box { display: flex; gap: 10px; align-items: center; width: 278px; min-width: 180px; padding: 11px 13px; min-height: 46px; border: 1px solid #d8d0c3; border-radius: 9px; background: transparent; color: var(--muted); }
+.search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px #895a400d; }
+.search-box input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 14px; line-height: 1.6; }
+.search-box input:focus-visible { outline: 0; }
+.search-box input::placeholder { color: var(--muted); opacity: 1; }
+.search-box .icon { width: 17px; height: 17px; }
+.collection-caption { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 20px 0 24px; color: var(--muted); }
+.collection-caption > p { font-size: 13px; line-height: 1.8; }
+.medium-filter { display: flex; align-items: center; gap: 24px; font-size: 13px; white-space: nowrap; }
+.medium-filter label { display: flex; align-items: center; gap: 10px; }
+.medium-filter select { color: var(--ink); border: 0; padding: 7px 22px 7px 8px; border-radius: 6px; background-color: var(--sand); font-size: 13px; }
+.work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 24px; }
+.work-card { min-width: 0; display: flex; flex-direction: column; }
+.work-image { display: block; position: relative; border: 0; padding: 0; width: 100%; aspect-ratio: 1.5; border-radius: 11px; overflow: hidden; background: var(--sand); }
+.work-image img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--preview-scale, 1)); transform-origin: var(--preview-origin, 50% 50%); transition: transform .65s var(--ease); }
+.work-image:hover img { transform: scale(calc(var(--preview-scale, 1) + .045)); }
+.work-image[data-work="11-popup"] { --preview-scale: 1.5; --preview-origin: 44% 100%; }
+.work-image[data-work="12-packaging"] { --preview-scale: 1.3; --preview-origin: 40% 80%; }
+.work-image[data-work="21-fit"] { --preview-scale: 1.4; --preview-origin: 16% 55%; }
+.image-arrow { width: 34px; height: 34px; right: 12px; bottom: 12px; }
+.image-arrow .icon { width: 18px; height: 18px; }
+.work-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 5px 10px; font-size: 12px; line-height: 1.8; color: var(--muted); margin-top: 16px; }
+.meta-divider { margin: 0 9px; color: #9a8e7d; }
+.work-dimension { font-size: 12px; color: var(--muted); }
+.work-card h3 { font-size: 22px; font-weight: 600; line-height: 1.55; margin-top: 4px; letter-spacing: -.4px; }
+.work-card > p { font-size: 14px; line-height: 1.85; color: var(--muted); margin-top: 6px; }
+.work-links { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding-top: 16px; margin-top: auto; font-size: 13px; }
+.work-links button, .work-links a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; }
+.work-links button { background: transparent; border: 0; padding: 0; color: var(--accent); font-weight: 500; }
+.work-links a { color: var(--muted); }
+.work-links a:hover { color: var(--accent); }
+.work-links .icon { width: 16px; height: 16px; }
+.collection-more { display: flex; flex-direction: column; align-items: center; gap: 13px; margin-top: 40px; }
+.collection-more > span { font-size: 13px; color: var(--muted); }
+.collection-more .button { min-height: 46px; padding-inline: 24px; font-size: 14px; background: transparent; color: var(--ink); border: 1px solid #d8d0c3; border-radius: 9px; gap: 18px; box-shadow: none; }
+.collection-more .button:hover { background: var(--sand); }
+.empty-state { padding: 50px 20px; text-align: center; border-radius: 12px; background: var(--sand); }
+.empty-state > .icon { width: 28px; height: 28px; margin-bottom: 18px; color: var(--accent); }
+.empty-state h3 { font-size: 22px; font-weight: 500; }
+.empty-state p { margin: 10px 0 24px; color: var(--muted); font-size: 14px; }
+.empty-state .button { background: var(--cream); margin-right: 20px; font-size: 14px; border-radius: 9px; min-height: 44px; }
+
+.method-section { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 9%; padding: 64px max(var(--page-gutter), calc((100% - var(--page-width)) / 2)); background: var(--sand); }
+.section-label { display: inline-block; font-size: 14px; color: var(--accent); margin-bottom: 24px; }
+.method-intro h2, .skill-intro h2 { font-family: var(--serif); font-size: clamp(34px, 3.1vw, 46px); line-height: 1.45; font-weight: 500; letter-spacing: -1px; }
+.method-intro > p, .skill-intro > p { font-size: 15px; line-height: 1.95; color: var(--muted); margin-top: 21px; }
+.method-intro > .text-link { margin-top: 25px; }
+.steps { display: grid; }
+.step { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #ded6c8; }
+.step:first-child { padding-top: 0; }
+.step:last-child { border-bottom: 0; padding-bottom: 0; }
+.step > span { font: italic 22px/1.6 Georgia, serif; color: var(--accent); }
+.step h3 { font-size: 18px; font-weight: 500; line-height: 1.7; }
+.step p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-top: 6px; }
+
+.skill-section { display: grid; grid-template-columns: .92fr 1.08fr; gap: 9%; align-items: center; padding-top: 76px; padding-bottom: 76px; }
+.skill-intro h2 > span { color: var(--accent); }
+.skill-notes { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 27px 0 32px; color: var(--muted); font-size: 13px; }
+.skill-notes .icon { width: 16px; height: 16px; color: var(--accent); }
+.starter-panel { background: var(--cream); border: 1px solid var(--line); border-radius: 14px; padding: 28px; min-width: 0; box-shadow: 0 8px 32px #34332e04; }
+.starter-modes { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; padding: 4px; background: var(--sand); border-radius: 9px; margin-bottom: 26px; }
+.mode-indicator { position: absolute; left: 4px; top: 4px; bottom: 4px; width: calc((100% - 8px) / 3); background: var(--cream); border-radius: 6px; box-shadow: 0 1px 4px #34332e0a; transition: transform .28s var(--ease); pointer-events: none; }
+.starter-modes button { position: relative; border: 0; border-radius: 6px; background: transparent; padding: 10px 5px; min-height: 42px; font-size: 14px; color: var(--muted); }
+.starter-modes button[aria-pressed=true] { color: var(--accent); font-weight: 500; }
+.starter-panel > label { font-size: 16px; font-weight: 500; display: block; margin-bottom: 12px; }
+.starter-panel textarea { display: block; width: 100%; min-height: 152px; height: 160px; resize: vertical; padding: 15px 16px; border: 1px solid #d8d0c3; border-radius: 9px; background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.85; }
+.starter-panel textarea:focus { border-color: var(--accent); }
+.idea-suggestions { margin-top: 14px; margin-bottom: 24px; }
+.idea-suggestions > span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.idea-suggestions > div { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.idea-suggestions button { min-height: 34px; border: 0; padding: 2px 0; background: transparent; color: var(--accent); font-size: 13px; text-decoration: underline; text-decoration-color: #d0bbab; text-underline-offset: 4px; }
+.idea-suggestions button:hover { text-decoration-color: var(--accent); }
+.starter-panel .copy-instruction { display: flex; justify-content: center; align-items: center; gap: 16px; width: 100%; min-height: 48px; font-size: 15px; border-radius: 9px; background: var(--accent); color: var(--cream); box-shadow: none; }
+.starter-panel .copy-instruction:hover { background: #734a33; }
+.starter-panel .copy-instruction.has-feedback .icon { animation: feedback-pop .3s var(--ease); }
+.copy-status { min-height: 45px; margin-top: 12px; }
+.subtle { font-size: 13px; line-height: 1.8; color: var(--muted); }
+.preview-toggle { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; min-height: 46px; border: 0; border-top: 1px solid var(--line); background: transparent; padding: 12px 0; font-size: 14px; color: var(--muted); text-align: left; }
+.preview-toggle:hover { color: var(--accent); }
+.preview-toggle .icon { width: 16px; height: 16px; }
+.starter-panel .complete-instruction { height: 260px; min-height: 180px; font: 13px/1.8 ui-monospace, Consolas, monospace; margin: 4px 0 16px; animation: panel-enter .25s var(--ease); }
+.starter-panel details { border-top: 1px solid var(--line); padding-top: 12px; font-size: 13px; color: var(--muted); }
+.starter-panel summary { cursor: pointer; min-height: 32px; line-height: 1.8; }
+.starter-panel details p { margin: 12px 0; line-height: 1.8; }
+.starter-panel code { display: block; overflow-wrap: anywhere; padding: 12px; background: var(--sand); border-radius: 6px; font: 12px/1.8 ui-monospace, Consolas, monospace; color: var(--ink); }
+.starter-panel details .text-link { margin-top: 12px; }
+
+.downloads-section { padding-top: 56px; padding-bottom: 64px; border-top: 1px solid var(--line); }
+.download-format { font-size: 13px; color: var(--muted); margin-bottom: 3px; white-space: nowrap; }
+.download-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+.download-card { display: flex; align-items: center; gap: 20px; min-width: 0; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.download-number { font: italic 20px/1.5 Georgia, serif; color: var(--muted); flex-shrink: 0; }
+.download-card > div { min-width: 0; flex: 1; }
+.download-card h3 { font-size: 18px; font-weight: 500; line-height: 1.7; }
+.download-card p { font-size: 13px; color: var(--muted); line-height: 1.85; margin-top: 4px; }
+.download-action { display: flex; flex-direction: column; align-items: center; gap: 5px; color: var(--accent); font-size: 12px; flex-shrink: 0; margin-left: 6px; }
+.download-action .icon { width: 21px; height: 21px; transition: transform .25s var(--ease); }
+.download-card:hover h3 { color: var(--accent); }
+.download-card:hover .download-action .icon { transform: translateY(3px); }
+
+.site-footer { padding: 36px max(var(--page-gutter), calc((100% - var(--page-width)) / 2)) 22px; border-top: 1px solid var(--line); background: var(--sand); }
+.footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 26px; }
+.footer-top > p { font-family: var(--serif); font-size: 17px; color: var(--muted); }
+.footer-top > div { display: flex; gap: 26px; font-size: 13px; color: var(--muted); }
+.footer-top > div a { display: inline-flex; align-items: center; gap: 5px; }
+.footer-top .icon { width: 15px; height: 15px; }
+.footer-top a:hover { color: var(--accent); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 28px; padding-top: 18px; border-top: 1px solid #ded6c8; font-size: 12px; color: var(--muted); }
+.footer-bottom a { display: inline-flex; align-items: center; gap: 6px; }
+.footer-bottom .icon { width: 15px; height: 15px; }
+
+.case-dialog { background: var(--paper) !important; color: var(--ink) !important; max-width: 1500px !important; width: 100%; border-radius: 16px !important; }
+.case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; font-size: 13px; color: var(--accent); }
+.case-meta > span { color: var(--muted); }
+.case-title { font: 500 32px/1.4 var(--serif) !important; margin: 8px 0 !important; }
+.modal__header > p { font-size: 14px; line-height: 1.85; color: var(--muted); }
+.modal__header { padding-right: 62px !important; }
+.modal__close-trigger { right: 18px !important; top: 18px !important; }
+.case-dialog .modal__close-trigger { width: 44px; height: 44px; border-radius: 9px; border: 1px solid var(--line); background: var(--sand); color: var(--muted); }
+.case-dialog .modal__close-trigger:hover { background: #e7dfd3; color: var(--ink); }
+.case-dialog .modal__close-trigger .icon { width: 18px; height: 18px; }
+.case-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 16px 0; }
+.case-tools .action-link { font-size: 13px; padding: 9px 16px; min-height: 42px; gap: 12px; }
+.case-tools .chip { background: var(--sand); font-size: 12px; border-radius: 6px; color: var(--muted); }
+.frame-shell { height: min(68vh, 900px); position: relative; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; background: var(--sand); }
+.frame-shell iframe { width: 100%; height: 100%; border: 0; position: relative; z-index: 1; display: block; }
+.frame-shell > p { position: absolute; inset: 20px auto auto 20px; display: flex; align-items: center; gap: 9px; font-size: 14px; color: var(--muted); }
+.loading-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: feedback-pop .8s var(--ease) infinite alternate; }
+.case-help { margin-top: 14px; }
+.case-dialog .tabs__list-container { max-width: 100%; overflow-x: auto; background: var(--sand); border-radius: 9px; }
+.case-dialog .tabs__indicator { background: var(--cream); border-radius: 7px; box-shadow: 0 1px 4px #34332e0a; }
+.case-dialog .button { border-radius: 8px; font-size: 14px; }
+.case-dialog .modal__footer .button { background: var(--sand); color: var(--ink); }
+.tabs__tab { min-height: 44px !important; font-size: 14px !important; white-space: nowrap; }
+.tabs__tab[data-selected=true] { color: var(--accent) !important; }
+.file-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 20px; }
+.file-actions h3 { font-size: 18px; font-weight: 500; margin-right: auto; }
+.file-actions .button { font-size: 14px; border-radius: 8px; }
+.file-reader textarea { width: 100%; height: 56vh; min-height: 280px; padding: 18px; border: 1px solid #d8d0c3; border-radius: 9px; resize: vertical; background: var(--cream); color: var(--ink); font: 14px/1.85 ui-monospace, Consolas, monospace; }
+.reader-status { font-size: 13px; min-height: 24px; margin: 10px 0; color: var(--muted); }
+.error-page { padding: 10vh 8%; display: grid; gap: 20px; }
+.error-page a { color: var(--accent); text-decoration: underline; }
+.error-page button { justify-self: start; }
+
+@keyframes feedback-pop { from { transform: scale(.85); opacity: .4; } to { transform: scale(1); opacity: 1; } }
+@keyframes panel-enter { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 1100px) {
+  .site-header nav { gap: 22px; }
+  .collection-buttons .button { padding-inline: 12px; gap: 7px; }
+  .search-box { width: 245px; }
+  .featured-grid { gap: 18px; }
+  .featured-caption p { font-size: 13px; }
+  .method-section { gap: 6%; }
+  .skill-section { gap: 6%; }
+  .starter-panel { padding: 23px; }
+  .skill-intro > p, .method-intro > p { font-size: 14px; }
+  .desktop-break { display: none; }
+  .download-grid { column-gap: 30px; }
+}
+
+@media (max-width: 900px) {
+  .header-cta { display: none; }
+  .hero h1 { font-size: 61px; }
+  .featured-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .featured-image, .featured-work:nth-child(2) .featured-image { aspect-ratio: 1.3; }
+  .featured-caption h2 { font-size: 20px; }
+  .featured-index { display: none; }
+  .collection-filters { flex-wrap: wrap; }
+  .search-box { width: 100%; }
+  .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .collection-caption { align-items: start; }
+  .medium-filter { gap: 14px; }
+  .method-intro h2, .skill-intro h2 { font-size: 34px; }
+  .skill-section { grid-template-columns: .8fr 1.2fr; gap: 30px; }
+  .skill-notes { gap: 8px; font-size: 12px; }
+  .starter-panel { padding: 20px; }
+  .download-card { gap: 13px; }
+}
+
+@media (max-width: 760px) {
+  :root { --page-gutter: 24px; }
+  html { scroll-padding-top: 94px; }
+  .site-header { height: 72px; gap: 16px; }
+  .brand { font-size: 16px; gap: 11px; }
+  .brand-symbol { font-size: 39px; }
+  .brand small { font-size: 10px; margin-top: 3px; }
+  .menu-toggle { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); }
+  .menu-toggle .icon { width: 20px; height: 20px; }
+  .site-header nav { display: none; position: absolute; inset: 71px 0 auto; background: var(--paper); padding: 14px 24px 22px; border-bottom: 1px solid var(--line); box-shadow: 0 12px 24px #34332e08; }
+  .site-header nav.is-open { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; animation: panel-enter .2s var(--ease); }
+  .site-header nav a { padding: 12px 0; font-size: 15px; }
+  .site-header nav a::after { right: auto; width: 36px; }
+  .hero { padding-top: 28px; }
+  .hero h1 { font-size: clamp(38px, 7.5vw, 56px); letter-spacing: -1.5px; }
+  .hero h1 span { display: block; }
+  .hero-copy > p { max-width: 345px; margin: 14px auto 0; font-size: 14px; padding-inline: 6px; }
+  .hero-buttons { gap: 10px; margin-top: 22px; }
+  .action-link { min-height: 45px; padding: 10px 16px; gap: 12px; font-size: 14px; }
+  .featured-grid { display: flex; gap: 16px; align-items: start; margin-top: 24px; margin-right: calc(-1 * var(--page-gutter)); padding-right: var(--page-gutter); padding-bottom: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #c8bcaa transparent; }
+  .featured-work { flex: 0 0 calc(100% - 24px); scroll-snap-align: start; }
+  .featured-image, .featured-work:nth-child(2) .featured-image { aspect-ratio: 1.45; }
+  .featured-caption { margin-top: 13px; }
+  .featured-caption h2 { font-size: 23px; }
+  .featured-caption p { font-size: 14px; }
+  .featured-index { display: block; margin-top: 13px; font-size: 25px; }
+  .feature-label { font-size: 12px; }
+  .hero-bottom { align-items: start; gap: 16px; margin-top: 26px; font-size: 12px; }
+  .hero-bottom > span { max-width: 180px; }
+  .hero-bottom a { white-space: nowrap; gap: 7px; }
+  .collection-section { padding-top: 38px; padding-bottom: 45px; }
+  .section-heading { flex-wrap: wrap; gap: 13px; margin-bottom: 22px; }
+  .section-heading h2 { font-size: 31px; letter-spacing: -.8px; }
+  .section-heading p { font-size: 14px; margin-top: 8px; }
+  .section-heading > .text-link { font-size: 13px; }
+  .collection-filters { gap: 13px; padding-bottom: 16px; }
+  .collection-buttons { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 4px; }
+  .collection-buttons .button { justify-content: space-between; font-size: 14px; padding: 10px 15px; min-height: 44px; }
+  .search-box { min-height: 45px; padding: 10px 13px; }
+  .search-box input { font-size: 14px; }
+  .collection-caption { flex-direction: column; gap: 13px; padding: 16px 0 20px; }
+  .collection-caption > p { font-size: 13px; }
+  .medium-filter { width: 100%; justify-content: space-between; font-size: 13px; }
+  .work-grid { grid-template-columns: 1fr; gap: 28px; }
+  .work-image { aspect-ratio: 1.55; }
+  .work-meta { margin-top: 12px; }
+  .work-card h3 { font-size: 22px; }
+  .work-card > p { font-size: 14px; }
+  .work-links { padding-top: 5px; }
+  .collection-more { margin-top: 28px; }
+  .method-section { grid-template-columns: 1fr; gap: 32px; padding-block: 42px; }
+  .section-label { font-size: 13px; margin-bottom: 20px; }
+  .method-intro h2, .skill-intro h2 { font-size: 32px; line-height: 1.45; }
+  .method-intro > p, .skill-intro > p { font-size: 14px; margin-top: 17px; }
+  .method-intro > .text-link { margin-top: 19px; }
+  .step { gap: 20px; padding: 17px 0; }
+  .step h3 { font-size: 17px; }
+  .step p { font-size: 14px; }
+  .skill-section { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; padding-bottom: 44px; }
+  .skill-notes { font-size: 13px; gap: 10px; margin: 20px 0; }
+  .starter-panel { padding: 19px; }
+  .starter-modes { margin-bottom: 21px; }
+  .starter-modes button { font-size: 13px; padding-inline: 2px; }
+  .starter-panel textarea { font-size: 16px; padding: 13px; height: 182px; }
+  .starter-panel > label { font-size: 15px; }
+  .idea-suggestions > div { column-gap: 12px; }
+  .idea-suggestions button { font-size: 13px; }
+  .starter-panel .copy-instruction { font-size: 14px; }
+  .copy-status { min-height: 49px; }
+  .starter-panel .complete-instruction { font-size: 13px; }
+  .downloads-section { padding-top: 38px; padding-bottom: 42px; }
+  .download-grid { grid-template-columns: 1fr; }
+  .download-card { gap: 17px; padding: 22px 0; }
+  .download-card h3 { font-size: 18px; }
+  .download-card p { font-size: 13px; }
+  .download-format { font-size: 12px; }
+  .site-footer { padding-top: 30px; }
+  .footer-top { flex-direction: column; align-items: start; gap: 20px; }
+  .footer-top > p { font-size: 16px; }
+  .footer-top > div { gap: 20px; }
+  .footer-bottom { align-items: start; font-size: 12px; }
+  .case-dialog { border-radius: 12px !important; }
+  .case-title { font-size: 26px !important; }
+  .modal__header > p { font-size: 13px; }
+  .case-meta { gap: 10px; font-size: 12px; }
+  .case-tools { gap: 8px; }
+  .case-tools .action-link { font-size: 12px; padding: 9px 12px; gap: 8px; }
+  .tabs__tab { font-size: 13px !important; padding-inline: 12px !important; }
+  .frame-shell { height: 62vh; }
+  .file-actions { gap: 12px; }
+  .file-actions h3 { width: 100%; font-size: 17px; }
+  .file-reader textarea { font-size: 13px; padding: 13px; }
+  .modal__footer { flex-wrap: wrap; }
+}
+
+@media (min-width: 520px) and (max-width: 760px) {
+  .hero h1 span { display: inline; }
+  .featured-work { flex-basis: calc(50% - 12px); }
+  .featured-image, .featured-work:nth-child(2) .featured-image { aspect-ratio: 1.3; }
+  .work-grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+  .work-card h3 { font-size: 19px; }
+  .work-image { aspect-ratio: 1.3; }
+}
+
+@media (max-width: 359px) {
+  :root { --page-gutter: 18px; }
+  .hero h1 { font-size: 36px; }
+  .action-link { padding-inline: 13px; gap: 9px; font-size: 13px; }
+  .hero-buttons { gap: 8px; }
+  .starter-panel { padding: 15px; }
+  .starter-modes button { font-size: 12px; }
+  .hero-bottom { flex-direction: column; gap: 8px; }
+  .hero-bottom > span { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
 </style></head><body>
     <header class="site-header"><a class="brand" href="#"><span class="brand-symbol">ia.</span><span>想象显影机<small>IMAGINATION ATELIER</small></span></a><nav><a href="#works">30 件作品</a><a href="downloads/meta-prompt.txt" download>元提示词 ↓</a><a href="README.html">安装与说明 ↗</a></nav></header>
-    <main><section class="hero"><div class="hero-copy"><p class="eyebrow"><span class="dot"></span>THIRTY IDEAS. ONE CREATIVE SKILL.</p><h1>把想象，<br><span>做成作品。</span></h1><p class="hero-description">从「大概是这样」，到「原来真的可以」。<br>数学、物理、生活与创作。把三十件作品放在手边。</p><div class="hero-buttons"><a class="action-link primary" href="#works">进入作品展览 ↓</a><a class="text-link" href="downloads/meta-prompt.txt" download>从我的想法开始 ↗</a></div><p class="hero-foot">LOCAL FIRST · 30 COMPLETE HTML WORKS · MIT</p></div><div class="hero-art"><div class="art-topline"><span>SPATIAL WORKBENCH / 011</span><span>空间布置 · 同源模型</span></div><a class="hero-art-button" href="works/11-popup/index.html"><img src="images/11-popup.jpg" alt="开店之前三维场景"><span class="orbit-mark">↗</span></a><div class="art-caption"><div><small>同一套尺寸，不同的判断</small><strong>开店之前。</strong></div><a class="action-link" href="works/11-popup/index.html">布置与对照 ↗</a></div></div></section>
+    <main><section class="hero"><div class="hero-copy"><h1>把想象，<span>做成作品。</span></h1><p>直接看用途，带入自己的材料，完成任务，再快速开始下一件。</p><div class="hero-buttons"><a class="action-link primary" href="#works">选择作品 ↓</a><a class="action-link secondary" href="downloads/meta-prompt.txt">带走元提示词 ↗</a></div></div><div class="featured-grid"><article class="featured-work"><a class="featured-image" href="works/01-assembly/index.html"><img src="images/01-assembly.jpg" alt="机械装配与爆炸图编辑器实际画面"></a><div class="featured-caption"><div><span class="feature-label">机械 / 维修与说明</span><h2><a href="works/01-assembly/index.html">机械装配与爆炸图编辑器</a></h2><p>导入自己的零件，编辑装配关系、爆炸向量与拆装步骤，输出资料图、零件清单和说明。</p></div></div></article><article class="featured-work"><a class="featured-image" href="works/10-product-studio/index.html"><img src="images/10-product-studio.jpg" alt="3D产品摄影与海报制作实际画面"></a><div class="featured-caption"><div><span class="feature-label">产品 / 商业摄影</span><h2><a href="works/10-product-studio/index.html">3D产品摄影与海报制作</a></h2><p>导入商品模型与标识，调整材质、布光和镜头，制作高分辨率产品照片、海报与多视角图片。</p></div></div></article><article class="featured-work"><a class="featured-image" href="works/02-production/index.html"><img src="images/02-production.jpg" alt="生产订单排程工具实际画面"></a><div class="featured-caption"><div><span class="feature-label">制造 / 计划与调度</span><h2><a href="works/02-production/index.html">生产订单排程工具</a></h2><p>带入订单与工艺路线，按设备、班次和前置约束排程，修复冲突、比较交期并导出派工。</p></div></div></article></div></section>
     <div class="manifesto"><span>下载后打开作品，即可使用自己的内容继续创作。</span><strong>30 件独立 HTML</strong></div>
     <section id="works" class="collection-section"><div class="section-heading"><div><p class="eyebrow">THE COMPLETE COLLECTION</p><h2>不同的想法，<br>有不同的形状。</h2></div><p>所有图片来自作品实际绘制。<br>所有作品都可以独立打开。<br>每件都附有制作提示词、说明与边界。</p></div>
-    <div class="collection-filters"><div class="collection-buttons" role="group" aria-label="作品辑别"><button data-filter="all" aria-pressed="true">全部作品 <small>30</small></button><button data-filter="science" aria-pressed="false">科学实验室 <small>10</small></button><button data-filter="practical" aria-pressed="false">实用工坊 <small>10</small></button><button data-filter="explore" aria-pressed="false">想象展览 <small>10</small></button></div><label class="search-box"><span>⌕</span><input type="search" id="search" aria-label="搜索作品" placeholder="搜题目、用途、学科…"></label></div><div class="collection-caption"><p>打开一个作品，从默认方案开始，也可以换成自己的内容。</p><span id="count" role="status">30 件作品</span></div><div class="work-grid"><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/01-lightroom/index.html"><img src="images/01-lightroom.png" alt="光在小屋里实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">01</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>建筑 / 日光</span><span>3D</span></div><h3><a href="works/01-lightroom/index.html">光在小屋里</a></h3><p>改变真实天窗开口，观察同一房间内的光与阴影。</p><div class="work-links"><a href="works/01-lightroom/readme.txt">说明 ↗</a><a href="works/01-lightroom/upgrade-v4.txt">创作记录 ↗</a><a href="works/01-lightroom/prompt.txt">提示词 ↗</a><a href="works/01-lightroom/index.html" download="01-lightroom.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/02-differential/index.html"><img src="images/02-differential.png" alt="弯路，留一点余地实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">02</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>机械 / 运动</span><span>3D</span></div><h3><a href="works/02-differential/index.html">弯路，留一点余地</a></h3><p>改变转弯强度，拆开观察差速器的传动关系。</p><div class="work-links"><a href="works/02-differential/readme.txt">说明 ↗</a><a href="works/02-differential/upgrade-v4.txt">创作记录 ↗</a><a href="works/02-differential/prompt.txt">提示词 ↗</a><a href="works/02-differential/index.html" download="02-differential.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/03-strata/index.html"><img src="images/03-strata.png" alt="山的里面实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">03</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地层 / 剖面</span><span>3D</span></div><h3><a href="works/03-strata/index.html">山的里面</a></h3><p>推进和旋转切面，查看连续岩层并导出矢量剖面。</p><div class="work-links"><a href="works/03-strata/readme.txt">说明 ↗</a><a href="works/03-strata/upgrade-v4.txt">创作记录 ↗</a><a href="works/03-strata/prompt.txt">提示词 ↗</a><a href="works/03-strata/index.html" download="03-strata.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/04-pottery/index.html"><img src="images/04-pottery.png" alt="收一点实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">04</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>陶艺 / 塑形</span><span>3D</span></div><h3><a href="works/04-pottery/index.html">收一点</a></h3><p>捏口、推腹、查看内腔，把器形带走。</p><div class="work-links"><a href="works/04-pottery/readme.txt">说明 ↗</a><a href="works/04-pottery/upgrade-v4.txt">创作记录 ↗</a><a href="works/04-pottery/prompt.txt">提示词 ↗</a><a href="works/04-pottery/index.html" download="04-pottery.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/05-crystal/index.html"><img src="images/05-crystal.png" alt="一个原子的四周实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">05</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>晶体 / 几何</span><span>3D</span></div><h3><a href="works/05-crystal/index.html">一个原子的四周</a></h3><p>从外部晶格走到中心原子，理解近邻与边界。</p><div class="work-links"><a href="works/05-crystal/readme.txt">说明 ↗</a><a href="works/05-crystal/upgrade-v4.txt">创作记录 ↗</a><a href="works/05-crystal/prompt.txt">提示词 ↗</a><a href="works/05-crystal/index.html" download="05-crystal.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/06-optics/index.html"><img src="images/06-optics.png" alt="把光送过去实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">06</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>光学 / 反射</span><span>3D</span></div><h3><a href="works/06-optics/index.html">把光送过去</a></h3><p>调整有限圆镜，让真实反射光线抵达靶面。</p><div class="work-links"><a href="works/06-optics/readme.txt">说明 ↗</a><a href="works/06-optics/upgrade-v4.txt">创作记录 ↗</a><a href="works/06-optics/prompt.txt">提示词 ↗</a><a href="works/06-optics/index.html" download="06-optics.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="2D"><a class="work-image" href="works/07-crossing/index.html"><img src="images/07-crossing.png" alt="路口的节拍实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">07</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>交通 / 配时</span><span>2D</span></div><h3><a href="works/07-crossing/index.html">路口的节拍</a></h3><p>改变绿灯份额，用相同到达流比较等待代价。</p><div class="work-links"><a href="works/07-crossing/readme.txt">说明 ↗</a><a href="works/07-crossing/upgrade-v4.txt">创作记录 ↗</a><a href="works/07-crossing/prompt.txt">提示词 ↗</a><a href="works/07-crossing/index.html" download="07-crossing.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="2D"><a class="work-image" href="works/08-typewind/index.html"><img src="images/08-typewind.png" alt="字有天气实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">08</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>文字 / 生成艺术</span><span>2D</span></div><h3><a href="works/08-typewind/index.html">字有天气</a></h3><p>把手势变成风，编辑并导出自己的动态字形海报。</p><div class="work-links"><a href="works/08-typewind/readme.txt">说明 ↗</a><a href="works/08-typewind/upgrade-v4.txt">创作记录 ↗</a><a href="works/08-typewind/prompt.txt">提示词 ↗</a><a href="works/08-typewind/index.html" download="08-typewind.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="2D"><a class="work-image" href="works/09-waterway/index.html"><img src="images/09-waterway.png" alt="纸下水声实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">09</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地图 / 证据叙事</span><span>2D</span></div><h3><a href="works/09-waterway/index.html">纸下水声</a></h3><p>勘读八处虚构档案，用证据拼回一条旧水道。</p><div class="work-links"><a href="works/09-waterway/readme.txt">说明 ↗</a><a href="works/09-waterway/upgrade-v4.txt">创作记录 ↗</a><a href="works/09-waterway/prompt.txt">提示词 ↗</a><a href="works/09-waterway/index.html" download="09-waterway.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/10-tidewalk/index.html"><img src="images/10-tidewalk.png" alt="墙背后的小海实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">10</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>游戏 / 空间叙事</span><span>3D</span></div><h3><a href="works/10-tidewalk/index.html">墙背后的小海</a></h3><p>沿石路穿过拱门与小院，亲自走进去，再从原路回来。</p><div class="work-links"><a href="works/10-tidewalk/readme.txt">说明 ↗</a><a href="works/10-tidewalk/upgrade-v4.txt">创作记录 ↗</a><a href="works/10-tidewalk/prompt.txt">提示词 ↗</a><a href="works/10-tidewalk/index.html" download="10-tidewalk.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/11-popup/index.html"><img src="images/11-popup.jpg" alt="开店之前实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">11</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>商业 / 空间陈列</span><span>3D + 2D</span></div><h3><a href="works/11-popup/index.html">开店之前</a></h3><p>带入房间尺寸，布置家具，检查入口通路与预算，带走现场布置单。</p><div class="work-links"><a href="works/11-popup/readme.txt">说明 ↗</a><a href="works/11-popup/upgrade-v4.txt">创作记录 ↗</a><a href="works/11-popup/prompt.txt">提示词 ↗</a><a href="works/11-popup/index.html" download="11-popup.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/12-packaging/index.html"><img src="images/12-packaging.jpg" alt="折成一份心意实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">12</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>包装 / 纸结构</span><span>3D + 2D</span></div><h3><a href="works/12-packaging/index.html">折成一份心意</a></h3><p>输入礼物尺寸与自己的图形，预览折盒，生成实际尺寸的 A4 拼接纸样。</p><div class="work-links"><a href="works/12-packaging/readme.txt">说明 ↗</a><a href="works/12-packaging/upgrade-v4.txt">创作记录 ↗</a><a href="works/12-packaging/prompt.txt">提示词 ↗</a><a href="works/12-packaging/index.html" download="12-packaging.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/13-cutlist/index.html"><img src="images/13-cutlist.png" alt="一块板的余地实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">13</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>木作 / 排料</span><span>3D + 2D</span></div><h3><a href="works/13-cutlist/index.html">一块板的余地</a></h3><p>设计书架、展开板件，考虑锯缝与木纹生成下料单。</p><div class="work-links"><a href="works/13-cutlist/readme.txt">说明 ↗</a><a href="works/13-cutlist/upgrade-v4.txt">创作记录 ↗</a><a href="works/13-cutlist/prompt.txt">提示词 ↗</a><a href="works/13-cutlist/index.html" download="13-cutlist.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/14-garden/index.html"><img src="images/14-garden.png" alt="阳台的一季实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">14</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>园艺 / 养护</span><span>3D + 2D</span></div><h3><a href="works/14-garden/index.html">阳台的一季</a></h3><p>布置种植箱、核算土量与株数，导出养护日历。</p><div class="work-links"><a href="works/14-garden/readme.txt">说明 ↗</a><a href="works/14-garden/upgrade-v4.txt">创作记录 ↗</a><a href="works/14-garden/prompt.txt">提示词 ↗</a><a href="works/14-garden/index.html" download="14-garden.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/15-mealprep/index.html"><img src="images/15-mealprep.png" alt="今晚一起开饭实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">15</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>备餐 / 排程</span><span>2D</span></div><h3><a href="works/15-mealprep/index.html">今晚一起开饭</a></h3><p>从上桌时间倒排动作，把人手、设备和购物一起安排。</p><div class="work-links"><a href="works/15-mealprep/readme.txt">说明 ↗</a><a href="works/15-mealprep/upgrade-v4.txt">创作记录 ↗</a><a href="works/15-mealprep/prompt.txt">提示词 ↗</a><a href="works/15-mealprep/index.html" download="15-mealprep.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/16-lesson/index.html"><img src="images/16-lesson.png" alt="一堂课的导演实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">16</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>教学 / 现场组织</span><span>2D</span></div><h3><a href="works/16-lesson/index.html">一堂课的导演</a></h3><p>编排教案、控制现场计时、处理名单与分组。</p><div class="work-links"><a href="works/16-lesson/readme.txt">说明 ↗</a><a href="works/16-lesson/upgrade-v4.txt">创作记录 ↗</a><a href="works/16-lesson/prompt.txt">提示词 ↗</a><a href="works/16-lesson/index.html" download="16-lesson.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/17-shotplanner/index.html"><img src="images/17-shotplanner.png" alt="镜头先走一步实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">17</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>摄影 / 预演</span><span>3D</span></div><h3><a href="works/17-shotplanner/index.html">镜头先走一步</a></h3><p>布置人物和道具，调整机位焦距，输出真实分镜接触表。</p><div class="work-links"><a href="works/17-shotplanner/readme.txt">说明 ↗</a><a href="works/17-shotplanner/upgrade-v4.txt">创作记录 ↗</a><a href="works/17-shotplanner/prompt.txt">提示词 ↗</a><a href="works/17-shotplanner/index.html" download="17-shotplanner.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/18-research/index.html"><img src="images/18-research.png" alt="线索成章实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">18</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>研究 / 定性分析</span><span>2D</span></div><h3><a href="works/18-research/index.html">线索成章</a></h3><p>从原始访谈到主题墙，让每条摘录与结论有迹可循。</p><div class="work-links"><a href="works/18-research/readme.txt">说明 ↗</a><a href="works/18-research/upgrade-v4.txt">创作记录 ↗</a><a href="works/18-research/prompt.txt">提示词 ↗</a><a href="works/18-research/index.html" download="18-research.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/19-packing/index.html"><img src="images/19-packing.png" alt="出发前，装得下实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">19</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>出行 / 空间装箱</span><span>3D + 2D</span></div><h3><a href="works/19-packing/index.html">出发前，装得下</a></h3><p>用实测物品尺寸排箱，检查重叠、边界和计划总重。</p><div class="work-links"><a href="works/19-packing/readme.txt">说明 ↗</a><a href="works/19-packing/upgrade-v4.txt">创作记录 ↗</a><a href="works/19-packing/prompt.txt">提示词 ↗</a><a href="works/19-packing/index.html" download="19-packing.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/20-audio/index.html"><img src="images/20-audio.png" alt="把声音剪好实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">20</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>音频 / 内容制作</span><span>2D + Audio</span></div><h3><a href="works/20-audio/index.html">把声音剪好</a></h3><p>导入短音频，裁切、分割、淡化与混音，导出真实 WAV。</p><div class="work-links"><a href="works/20-audio/readme.txt">说明 ↗</a><a href="works/20-audio/upgrade-v4.txt">创作记录 ↗</a><a href="works/20-audio/prompt.txt">提示词 ↗</a><a href="works/20-audio/index.html" download="20-audio.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/21-fit/index.html"><img src="images/21-fit.jpg" alt="数据会说话实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">21</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>数学 / 数据与统计</span><span>2D</span></div><h3><a href="works/21-fit/index.html">数据会说话</a></h3><p>粘贴自己的表格，比较三种模型，追踪异常，完成预测与反向标定。</p><div class="work-links"><a href="works/21-fit/readme.txt">说明 ↗</a><a href="works/21-fit/upgrade-v4.txt">创作记录 ↗</a><a href="works/21-fit/prompt.txt">提示词 ↗</a><a href="works/21-fit/index.html" download="21-fit.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/22-optimization/index.html"><img src="images/22-optimization.png" alt="曲面的下一步实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">22</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>数学 / 优化</span><span>3D + 2D</span></div><h3><a href="works/22-optimization/index.html">曲面的下一步</a></h3><p>比较梯度下降、动量与 Adam，观察曲面上的真实迭代。</p><div class="work-links"><a href="works/22-optimization/readme.txt">说明 ↗</a><a href="works/22-optimization/upgrade-v4.txt">创作记录 ↗</a><a href="works/22-optimization/prompt.txt">提示词 ↗</a><a href="works/22-optimization/index.html" download="22-optimization.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/23-orbit/index.html"><img src="images/23-orbit.png" alt="轨道窗口实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">23</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>物理 / 航天力学</span><span>3D</span></div><h3><a href="works/23-orbit/index.html">轨道窗口</a></h3><p>计算理想霍曼转移，让位置随计算时间而变化。</p><div class="work-links"><a href="works/23-orbit/readme.txt">说明 ↗</a><a href="works/23-orbit/upgrade-v4.txt">创作记录 ↗</a><a href="works/23-orbit/prompt.txt">提示词 ↗</a><a href="works/23-orbit/index.html" download="23-orbit.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/24-circuit/index.html"><img src="images/24-circuit.png" alt="让电路自己回答实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">24</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>物理 / 电路</span><span>2D</span></div><h3><a href="works/24-circuit/index.html">让电路自己回答</a></h3><p>编辑元件与节点，计算直流和 RC 暂态并输出结果。</p><div class="work-links"><a href="works/24-circuit/readme.txt">说明 ↗</a><a href="works/24-circuit/upgrade-v4.txt">创作记录 ↗</a><a href="works/24-circuit/prompt.txt">提示词 ↗</a><a href="works/24-circuit/index.html" download="24-circuit.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/25-watershed/index.html"><img src="images/25-watershed.png" alt="一滴雨的去向实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">25</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地理 / 汇水</span><span>3D + 2D</span></div><h3><a href="works/25-watershed/index.html">一滴雨的去向</a></h3><p>导入高度格网，查看流向、汇水范围和雨量体积估算。</p><div class="work-links"><a href="works/25-watershed/readme.txt">说明 ↗</a><a href="works/25-watershed/upgrade-v4.txt">创作记录 ↗</a><a href="works/25-watershed/prompt.txt">提示词 ↗</a><a href="works/25-watershed/index.html" download="25-watershed.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/26-globe/index.html"><img src="images/26-globe.png" alt="把地球摊开实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">26</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地理 / 地图投影</span><span>3D + 2D</span></div><h3><a href="works/26-globe/index.html">把地球摊开</a></h3><p>在球面与平面间对照路线、距离和投影变形。</p><div class="work-links"><a href="works/26-globe/readme.txt">说明 ↗</a><a href="works/26-globe/upgrade-v4.txt">创作记录 ↗</a><a href="works/26-globe/prompt.txt">提示词 ↗</a><a href="works/26-globe/index.html" download="26-globe.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/27-network/index.html"><img src="images/27-network.png" alt="一封数据包的旅程实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">27</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>计算机 / 网络</span><span>2D</span></div><h3><a href="works/27-network/index.html">一封数据包的旅程</a></h3><p>搭建拓扑，改变带宽与队列，追踪包的等待、转发和丢失。</p><div class="work-links"><a href="works/27-network/readme.txt">说明 ↗</a><a href="works/27-network/upgrade-v4.txt">创作记录 ↗</a><a href="works/27-network/prompt.txt">提示词 ↗</a><a href="works/27-network/index.html" download="27-network.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/28-compression/index.html"><img src="images/28-compression.png" alt="像素的第二种生命实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">28</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>计算机 / 图像压缩</span><span>2D</span></div><h3><a href="works/28-compression/index.html">像素的第二种生命</a></h3><p>导入图片，检查 DCT 与量化，导出并解码 PX8 文件。</p><div class="work-links"><a href="works/28-compression/readme.txt">说明 ↗</a><a href="works/28-compression/upgrade-v4.txt">创作记录 ↗</a><a href="works/28-compression/prompt.txt">提示词 ↗</a><a href="works/28-compression/index.html" download="28-compression.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/29-transformer/index.html"><img src="images/29-transformer.png" alt="一句话的内部实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">29</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>大模型 / 机制学习</span><span>2D</span></div><h3><a href="works/29-transformer/index.html">一句话的内部</a></h3><p>在短语料上训练小型 Transformer，查看注意力并保存训练状态。</p><div class="work-links"><a href="works/29-transformer/readme.txt">说明 ↗</a><a href="works/29-transformer/upgrade-v4.txt">创作记录 ↗</a><a href="works/29-transformer/prompt.txt">提示词 ↗</a><a href="works/29-transformer/index.html" download="29-transformer.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/30-rag/index.html"><img src="images/30-rag.png" alt="答案之前，先找证据实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">30</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>大模型 / 检索基础</span><span>2D</span></div><h3><a href="works/30-rag/index.html">答案之前，先找证据</a></h3><p>用自己的资料比较 BM25 与 TF-IDF，评测检索并导出证据提示词。</p><div class="work-links"><a href="works/30-rag/readme.txt">说明 ↗</a><a href="works/30-rag/upgrade-v4.txt">创作记录 ↗</a><a href="works/30-rag/prompt.txt">提示词 ↗</a><a href="works/30-rag/index.html" download="30-rag.html">HTML ↓</a></div></article></div><p id="empty" hidden class="empty-state">没有匹配的作品，请调整搜索。</p></section></main>
+    <div class="collection-filters"><div class="collection-buttons" role="group" aria-label="作品辑别"><button data-filter="all" aria-pressed="true">全部作品 <small>30</small></button><button data-filter="science" aria-pressed="false">科学实验室 <small>10</small></button><button data-filter="practical" aria-pressed="false">工作与生活 <small>10</small></button><button data-filter="explore" aria-pressed="false">设计与工程 <small>10</small></button></div><label class="search-box"><span>⌕</span><input type="search" id="search" aria-label="搜索作品" placeholder="搜题目、用途、学科…"></label></div><div class="collection-caption"><p>打开一个作品，从默认方案开始，也可以换成自己的内容。</p><span id="count" role="status">30 件作品</span></div><div class="work-grid"><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/01-assembly/index.html"><img src="images/01-assembly.jpg" alt="机械装配与爆炸图编辑器实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">01</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>机械 / 维修与说明</span><span>3D</span></div><h3><a href="works/01-assembly/index.html">机械装配与爆炸图编辑器</a></h3><p>导入自己的零件，编辑装配关系、爆炸向量与拆装步骤，输出资料图、零件清单和说明。</p><div class="work-links"><a href="works/01-assembly/readme.txt">说明 ↗</a><a href="works/01-assembly/record.txt">创作记录 ↗</a><a href="works/01-assembly/prompt.txt">提示词 ↗</a><a href="works/01-assembly/index.html" download="01-assembly.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/02-production/index.html"><img src="images/02-production.jpg" alt="生产订单排程工具实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">02</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>制造 / 计划与调度</span><span>2D</span></div><h3><a href="works/02-production/index.html">生产订单排程工具</a></h3><p>带入订单与工艺路线，按设备、班次和前置约束排程，修复冲突、比较交期并导出派工。</p><div class="work-links"><a href="works/02-production/readme.txt">说明 ↗</a><a href="works/02-production/record.txt">创作记录 ↗</a><a href="works/02-production/prompt.txt">提示词 ↗</a><a href="works/02-production/index.html" download="02-production.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/03-strata/index.html"><img src="images/03-strata.png" alt="三维地层剖面观察与导出实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">03</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地层 / 剖面</span><span>3D</span></div><h3><a href="works/03-strata/index.html">三维地层剖面观察与导出</a></h3><p>推进和旋转切面，查看连续岩层并导出矢量剖面。</p><div class="work-links"><a href="works/03-strata/readme.txt">说明 ↗</a><a href="works/03-strata/record.txt">创作记录 ↗</a><a href="works/03-strata/prompt.txt">提示词 ↗</a><a href="works/03-strata/index.html" download="03-strata.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/04-pottery/index.html"><img src="images/04-pottery.png" alt="陶器3D器形设计工具实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">04</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>陶艺 / 塑形</span><span>3D</span></div><h3><a href="works/04-pottery/index.html">陶器3D器形设计工具</a></h3><p>捏口、推腹、查看内腔，把器形带走。</p><div class="work-links"><a href="works/04-pottery/readme.txt">说明 ↗</a><a href="works/04-pottery/record.txt">创作记录 ↗</a><a href="works/04-pottery/prompt.txt">提示词 ↗</a><a href="works/04-pottery/index.html" download="04-pottery.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/05-crystal/index.html"><img src="images/05-crystal.png" alt="晶格近邻与原胞3D观察实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">05</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>晶体 / 几何</span><span>3D</span></div><h3><a href="works/05-crystal/index.html">晶格近邻与原胞3D观察</a></h3><p>从外部晶格走到中心原子，理解近邻与边界。</p><div class="work-links"><a href="works/05-crystal/readme.txt">说明 ↗</a><a href="works/05-crystal/record.txt">创作记录 ↗</a><a href="works/05-crystal/prompt.txt">提示词 ↗</a><a href="works/05-crystal/index.html" download="05-crystal.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/06-optics/index.html"><img src="images/06-optics.png" alt="反射光路设计与目标测试实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">06</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>光学 / 反射</span><span>3D</span></div><h3><a href="works/06-optics/index.html">反射光路设计与目标测试</a></h3><p>调整有限圆镜，让真实反射光线抵达靶面。</p><div class="work-links"><a href="works/06-optics/readme.txt">说明 ↗</a><a href="works/06-optics/record.txt">创作记录 ↗</a><a href="works/06-optics/prompt.txt">提示词 ↗</a><a href="works/06-optics/index.html" download="06-optics.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="2D"><a class="work-image" href="works/07-crossing/index.html"><img src="images/07-crossing.png" alt="交通信号配时与排队对比实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">07</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>交通 / 配时</span><span>2D</span></div><h3><a href="works/07-crossing/index.html">交通信号配时与排队对比</a></h3><p>改变绿灯份额，用相同到达流比较等待代价。</p><div class="work-links"><a href="works/07-crossing/readme.txt">说明 ↗</a><a href="works/07-crossing/record.txt">创作记录 ↗</a><a href="works/07-crossing/prompt.txt">提示词 ↗</a><a href="works/07-crossing/index.html" download="07-crossing.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/08-csv-cleaner/index.html"><img src="images/08-csv-cleaner.jpg" alt="CSV表格批量清洗工具实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">08</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>数据 / 表格处理</span><span>2D</span></div><h3><a href="works/08-csv-cleaner/index.html">CSV表格批量清洗工具</a></h3><p>导入多份 CSV，编排清洗规则，追踪并修正异常，导出结果，复用规则处理下一批。</p><div class="work-links"><a href="works/08-csv-cleaner/readme.txt">说明 ↗</a><a href="works/08-csv-cleaner/record.txt">创作记录 ↗</a><a href="works/08-csv-cleaner/prompt.txt">提示词 ↗</a><a href="works/08-csv-cleaner/index.html" download="08-csv-cleaner.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/09-text-compare/index.html"><img src="images/09-text-compare.jpg" alt="文本差异对比与逐条审校实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">09</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>编辑 / 文稿审校</span><span>2D</span></div><h3><a href="works/09-text-compare/index.html">文本差异对比与逐条审校</a></h3><p>导入两份文稿，逐条接受、保留或自定义变更，留下审校记录与确认合稿，承接下一版。</p><div class="work-links"><a href="works/09-text-compare/readme.txt">说明 ↗</a><a href="works/09-text-compare/record.txt">创作记录 ↗</a><a href="works/09-text-compare/prompt.txt">提示词 ↗</a><a href="works/09-text-compare/index.html" download="09-text-compare.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/10-product-studio/index.html"><img src="images/10-product-studio.jpg" alt="3D产品摄影与海报制作实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">10</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>产品 / 商业摄影</span><span>3D</span></div><h3><a href="works/10-product-studio/index.html">3D产品摄影与海报制作</a></h3><p>导入商品模型与标识，调整材质、布光和镜头，制作高分辨率产品照片、海报与多视角图片。</p><div class="work-links"><a href="works/10-product-studio/readme.txt">说明 ↗</a><a href="works/10-product-studio/record.txt">创作记录 ↗</a><a href="works/10-product-studio/prompt.txt">提示词 ↗</a><a href="works/10-product-studio/index.html" download="10-product-studio.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/11-popup/index.html"><img src="images/11-popup.jpg" alt="店铺空间布置与动线规划实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">11</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>商业 / 空间陈列</span><span>3D + 2D</span></div><h3><a href="works/11-popup/index.html">店铺空间布置与动线规划</a></h3><p>带入房间尺寸，布置家具，检查入口通路与预算，带走现场布置单。</p><div class="work-links"><a href="works/11-popup/readme.txt">说明 ↗</a><a href="works/11-popup/record.txt">创作记录 ↗</a><a href="works/11-popup/prompt.txt">提示词 ↗</a><a href="works/11-popup/index.html" download="11-popup.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/12-packaging/index.html"><img src="images/12-packaging.jpg" alt="礼盒纸样设计与A4拼接打印实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">12</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>包装 / 纸结构</span><span>3D + 2D</span></div><h3><a href="works/12-packaging/index.html">礼盒纸样设计与A4拼接打印</a></h3><p>输入礼物尺寸与自己的图形，预览折盒，生成实际尺寸的 A4 拼接纸样。</p><div class="work-links"><a href="works/12-packaging/readme.txt">说明 ↗</a><a href="works/12-packaging/record.txt">创作记录 ↗</a><a href="works/12-packaging/prompt.txt">提示词 ↗</a><a href="works/12-packaging/index.html" download="12-packaging.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/13-cutlist/index.html"><img src="images/13-cutlist.png" alt="书架设计与板材排料实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">13</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>木作 / 排料</span><span>3D + 2D</span></div><h3><a href="works/13-cutlist/index.html">书架设计与板材排料</a></h3><p>设计书架、展开板件，考虑锯缝与木纹生成下料单。</p><div class="work-links"><a href="works/13-cutlist/readme.txt">说明 ↗</a><a href="works/13-cutlist/record.txt">创作记录 ↗</a><a href="works/13-cutlist/prompt.txt">提示词 ↗</a><a href="works/13-cutlist/index.html" download="13-cutlist.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/14-garden/index.html"><img src="images/14-garden.png" alt="阳台种植布局与养护计划实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">14</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>园艺 / 养护</span><span>3D + 2D</span></div><h3><a href="works/14-garden/index.html">阳台种植布局与养护计划</a></h3><p>布置种植箱、核算土量与株数，导出养护日历。</p><div class="work-links"><a href="works/14-garden/readme.txt">说明 ↗</a><a href="works/14-garden/record.txt">创作记录 ↗</a><a href="works/14-garden/prompt.txt">提示词 ↗</a><a href="works/14-garden/index.html" download="14-garden.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/15-mealprep/index.html"><img src="images/15-mealprep.png" alt="备餐时间倒排与购物清单实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">15</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>备餐 / 排程</span><span>2D</span></div><h3><a href="works/15-mealprep/index.html">备餐时间倒排与购物清单</a></h3><p>从上桌时间倒排动作，把人手、设备和购物一起安排。</p><div class="work-links"><a href="works/15-mealprep/readme.txt">说明 ↗</a><a href="works/15-mealprep/record.txt">创作记录 ↗</a><a href="works/15-mealprep/prompt.txt">提示词 ↗</a><a href="works/15-mealprep/index.html" download="15-mealprep.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/16-lesson/index.html"><img src="images/16-lesson.png" alt="教案编排与课堂计时分组实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">16</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>教学 / 现场组织</span><span>2D</span></div><h3><a href="works/16-lesson/index.html">教案编排与课堂计时分组</a></h3><p>编排教案、控制现场计时、处理名单与分组。</p><div class="work-links"><a href="works/16-lesson/readme.txt">说明 ↗</a><a href="works/16-lesson/record.txt">创作记录 ↗</a><a href="works/16-lesson/prompt.txt">提示词 ↗</a><a href="works/16-lesson/index.html" download="16-lesson.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="3D"><a class="work-image" href="works/17-shotplanner/index.html"><img src="images/17-shotplanner.png" alt="3D分镜与机位预演实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">17</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>摄影 / 预演</span><span>3D</span></div><h3><a href="works/17-shotplanner/index.html">3D分镜与机位预演</a></h3><p>布置人物和道具，调整机位焦距，输出真实分镜接触表。</p><div class="work-links"><a href="works/17-shotplanner/readme.txt">说明 ↗</a><a href="works/17-shotplanner/record.txt">创作记录 ↗</a><a href="works/17-shotplanner/prompt.txt">提示词 ↗</a><a href="works/17-shotplanner/index.html" download="17-shotplanner.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/18-research/index.html"><img src="images/18-research.png" alt="访谈摘录整理与主题分析实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">18</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>研究 / 定性分析</span><span>2D</span></div><h3><a href="works/18-research/index.html">访谈摘录整理与主题分析</a></h3><p>从原始访谈到主题墙，让每条摘录与结论有迹可循。</p><div class="work-links"><a href="works/18-research/readme.txt">说明 ↗</a><a href="works/18-research/record.txt">创作记录 ↗</a><a href="works/18-research/prompt.txt">提示词 ↗</a><a href="works/18-research/index.html" download="18-research.html">HTML ↓</a></div></article><article class="work-card" data-series="explore" data-medium="3D"><a class="work-image" href="works/19-packing/index.html"><img src="images/19-packing.png" alt="行李与物品3D装箱规划实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">19</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>出行 / 空间装箱</span><span>3D + 2D</span></div><h3><a href="works/19-packing/index.html">行李与物品3D装箱规划</a></h3><p>用实测物品尺寸排箱，检查重叠、边界和计划总重。</p><div class="work-links"><a href="works/19-packing/readme.txt">说明 ↗</a><a href="works/19-packing/record.txt">创作记录 ↗</a><a href="works/19-packing/prompt.txt">提示词 ↗</a><a href="works/19-packing/index.html" download="19-packing.html">HTML ↓</a></div></article><article class="work-card" data-series="practical" data-medium="2D"><a class="work-image" href="works/20-audio/index.html"><img src="images/20-audio.png" alt="本地音频剪辑与混音实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">20</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>音频 / 内容制作</span><span>2D + Audio</span></div><h3><a href="works/20-audio/index.html">本地音频剪辑与混音</a></h3><p>导入短音频，裁切、分割、淡化与混音，导出真实 WAV。</p><div class="work-links"><a href="works/20-audio/readme.txt">说明 ↗</a><a href="works/20-audio/record.txt">创作记录 ↗</a><a href="works/20-audio/prompt.txt">提示词 ↗</a><a href="works/20-audio/index.html" download="20-audio.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/21-fit/index.html"><img src="images/21-fit.jpg" alt="数据拟合比较与反向标定实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">21</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>数学 / 数据与统计</span><span>2D</span></div><h3><a href="works/21-fit/index.html">数据拟合比较与反向标定</a></h3><p>粘贴自己的表格，比较三种模型，追踪异常，完成预测与反向标定。</p><div class="work-links"><a href="works/21-fit/readme.txt">说明 ↗</a><a href="works/21-fit/record.txt">创作记录 ↗</a><a href="works/21-fit/prompt.txt">提示词 ↗</a><a href="works/21-fit/index.html" download="21-fit.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/22-optimization/index.html"><img src="images/22-optimization.png" alt="优化算法迭代对比实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">22</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>数学 / 优化</span><span>3D + 2D</span></div><h3><a href="works/22-optimization/index.html">优化算法迭代对比</a></h3><p>比较梯度下降、动量与 Adam，观察曲面上的真实迭代。</p><div class="work-links"><a href="works/22-optimization/readme.txt">说明 ↗</a><a href="works/22-optimization/record.txt">创作记录 ↗</a><a href="works/22-optimization/prompt.txt">提示词 ↗</a><a href="works/22-optimization/index.html" download="22-optimization.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/23-orbit/index.html"><img src="images/23-orbit.png" alt="轨道转移计算与3D演示实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">23</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>物理 / 航天力学</span><span>3D</span></div><h3><a href="works/23-orbit/index.html">轨道转移计算与3D演示</a></h3><p>计算理想霍曼转移，让位置随计算时间而变化。</p><div class="work-links"><a href="works/23-orbit/readme.txt">说明 ↗</a><a href="works/23-orbit/record.txt">创作记录 ↗</a><a href="works/23-orbit/prompt.txt">提示词 ↗</a><a href="works/23-orbit/index.html" download="23-orbit.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/24-circuit/index.html"><img src="images/24-circuit.png" alt="直流电路与RC暂态仿真实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">24</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>物理 / 电路</span><span>2D</span></div><h3><a href="works/24-circuit/index.html">直流电路与RC暂态仿真</a></h3><p>编辑元件与节点，计算直流和 RC 暂态并输出结果。</p><div class="work-links"><a href="works/24-circuit/readme.txt">说明 ↗</a><a href="works/24-circuit/record.txt">创作记录 ↗</a><a href="works/24-circuit/prompt.txt">提示词 ↗</a><a href="works/24-circuit/index.html" download="24-circuit.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/25-watershed/index.html"><img src="images/25-watershed.png" alt="地形汇水与降雨体积估算实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">25</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地理 / 汇水</span><span>3D + 2D</span></div><h3><a href="works/25-watershed/index.html">地形汇水与降雨体积估算</a></h3><p>导入高度格网，查看流向、汇水范围和雨量体积估算。</p><div class="work-links"><a href="works/25-watershed/readme.txt">说明 ↗</a><a href="works/25-watershed/record.txt">创作记录 ↗</a><a href="works/25-watershed/prompt.txt">提示词 ↗</a><a href="works/25-watershed/index.html" download="25-watershed.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="3D"><a class="work-image" href="works/26-globe/index.html"><img src="images/26-globe.png" alt="地图投影与球面路线对比实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">26</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>地理 / 地图投影</span><span>3D + 2D</span></div><h3><a href="works/26-globe/index.html">地图投影与球面路线对比</a></h3><p>在球面与平面间对照路线、距离和投影变形。</p><div class="work-links"><a href="works/26-globe/readme.txt">说明 ↗</a><a href="works/26-globe/record.txt">创作记录 ↗</a><a href="works/26-globe/prompt.txt">提示词 ↗</a><a href="works/26-globe/index.html" download="26-globe.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/27-network/index.html"><img src="images/27-network.png" alt="网络拓扑与数据包仿真实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">27</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>计算机 / 网络</span><span>2D</span></div><h3><a href="works/27-network/index.html">网络拓扑与数据包仿真</a></h3><p>搭建拓扑，改变带宽与队列，追踪包的等待、转发和丢失。</p><div class="work-links"><a href="works/27-network/readme.txt">说明 ↗</a><a href="works/27-network/record.txt">创作记录 ↗</a><a href="works/27-network/prompt.txt">提示词 ↗</a><a href="works/27-network/index.html" download="27-network.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/28-compression/index.html"><img src="images/28-compression.png" alt="图像DCT压缩与误差分析实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">28</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>计算机 / 图像压缩</span><span>2D</span></div><h3><a href="works/28-compression/index.html">图像DCT压缩与误差分析</a></h3><p>导入图片，检查 DCT 与量化，导出并解码 PX8 文件。</p><div class="work-links"><a href="works/28-compression/readme.txt">说明 ↗</a><a href="works/28-compression/record.txt">创作记录 ↗</a><a href="works/28-compression/prompt.txt">提示词 ↗</a><a href="works/28-compression/index.html" download="28-compression.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/29-transformer/index.html"><img src="images/29-transformer.png" alt="小型Transformer训练与注意力观察实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">29</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>大模型 / 机制学习</span><span>2D</span></div><h3><a href="works/29-transformer/index.html">小型Transformer训练与注意力观察</a></h3><p>在短语料上训练小型 Transformer，查看注意力并保存训练状态。</p><div class="work-links"><a href="works/29-transformer/readme.txt">说明 ↗</a><a href="works/29-transformer/record.txt">创作记录 ↗</a><a href="works/29-transformer/prompt.txt">提示词 ↗</a><a href="works/29-transformer/index.html" download="29-transformer.html">HTML ↓</a></div></article><article class="work-card" data-series="science" data-medium="2D"><a class="work-image" href="works/30-rag/index.html"><img src="images/30-rag.png" alt="本地文档检索与证据评测实际绘制画面" loading="lazy" width="960" height="640"><span class="work-number">30</span><span class="image-arrow">↗</span></a><div class="work-meta"><span>大模型 / 检索基础</span><span>2D</span></div><h3><a href="works/30-rag/index.html">本地文档检索与证据评测</a></h3><p>用自己的资料比较 BM25 与 TF-IDF，评测检索并导出证据提示词。</p><div class="work-links"><a href="works/30-rag/readme.txt">说明 ↗</a><a href="works/30-rag/record.txt">创作记录 ↗</a><a href="works/30-rag/prompt.txt">提示词 ↗</a><a href="works/30-rag/index.html" download="30-rag.html">HTML ↓</a></div></article></div><p id="empty" hidden class="empty-state">没有匹配的作品，请调整搜索。</p></section></main>
     <footer class="site-footer"><a class="brand" href="#"><span class="brand-symbol">ia.</span>想象显影机</a><p>原创内容 MIT · 第三方资源保留各自许可<br>每件作品有自己的科学模型与使用边界。</p><div><a href="downloads/atelier-all-30.zip" download>下载全部作品 ↓</a><a href="downloads/imagination-developer.zip" download>Skill ↓</a></div></footer>
     <script>(()=>{let filter='all';const search=document.getElementById('search'),cards=[...document.querySelectorAll('.work-card')];function update(){let n=0;const q=search.value.toLowerCase().trim();for(const c of cards){const visible=(filter==='all'||c.dataset.series===filter)&&c.textContent.toLowerCase().includes(q);c.hidden=!visible;if(visible)n++;}document.getElementById('count').textContent=n+' 件作品';document.getElementById('empty').hidden=!!n;}for(const b of document.querySelectorAll('[data-filter]'))b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));update();});search.addEventListener('input',update);})();</script></body></html>

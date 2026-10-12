@@ -1,4 +1,4 @@
 interface:
   display_name: "想象显影机"
-  short_description: "将模糊想法变成有独立表达、能直接使用并带走成果的本地 HTML 作品"
-  default_prompt: "使用 $imagination-developer，把我的想法发展成具体制作提示词；我要求成品时，交付可以直接本地打开的完整作品。"
+  short_description: "把任意行业的想法做成可直接操作、导出成果并快速重复使用的本地作品"
+  default_prompt: "使用 $imagination-developer，把我的想法做成精细、实用、可继续完成下一项任务的本地 HTML 成品；我只要求提示词时再输出制作指令。"

@@ -1,1 +1,0 @@
-可选兼容渲染器 Atelier3D 2.0.0，MIT。不是默认推荐渲染器，不是 Three.js。优先选择适合目标的成熟依赖，并在制作环境离线打包。当前引擎的功能边界及验证范围见 references/spatial-3d.md。

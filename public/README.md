@@ -1,76 +1,40 @@
 # 想象显影机 · Imagination Atelier
 
-**把一个想法，做成可以亲手使用的作品。**
+**把说不清的想法，做成能完成自己任务的作品。**
 
-想象显影机是面向 AI Agent 的创作 Skill，调用名为 `imagination-developer`。它帮助 AI 把模糊的愿望、参考图片或已有素材，发展为具体的制作方案，并进一步实现可在浏览器中使用的工具、实验、教学演示、故事与艺术作品。
+想象显影机是一套面向 AI Agent 的快速作品元 Skill，调用名为 `imagination-developer`。从一句愿望、参考图片、现成资料或工作中的麻烦开始，让 AI 梳理需要操作的对象、必须遵守的规则和最后想得到的结果，直接制作一个或少量可本地打开的 HTML 文件。
 
-它把需求梳理、内容组织、视觉设计、交互逻辑和文件交付连接起来：明确用户要完成什么，选择合适的表达方式，让输入、操作和结果形成一段完整体验。你可以先探索方向、只生成制作提示词，也可以直接要求交付成品。
+它不按行业套模板。机械零件、订单、文稿、音频、教学内容、游戏规则或一个还没有名字的想法，都可以成为起点。二维、三维、时间线和互动叙事由任务决定；完成当前任务后，还要考虑如何换一份材料、复用设置，快速完成下一件。
 
-[体验 30 件作品](https://hyyhf.github.io/imagination-atelier/) · [安装 Skill](#安装) · [使用方法](#使用) · [阅读 Skill](skills/imagination-developer/SKILL.md)
+[体验作品](https://hyyhf.github.io/imagination-atelier/) · [安装](#安装) · [使用](#使用) · [下载创作工具包](https://hyyhf.github.io/imagination-atelier/downloads/imagination-atelier-creative-kit.zip) · [阅读 Skill](skills/imagination-developer/SKILL.md)
 
 ## 作品效果
 
-仓库收录 30 件独立 HTML 作品，涵盖空间设计、日常工具、科学实验与创意表达。下面是其中 6 件作品的真实浏览器截图；点击图片可查看原图，点击「体验作品」可直接操作。
+下面是实际可操作的 HTML 作品。截图来自真实运行页面，点击「体验」即可带入自己的材料；每件附有独立制作提示词、使用说明和验证记录。
 
-<table>
-<tr>
-<td width="50%">
-<a href="docs/screenshots/11-popup.jpg"><img src="docs/screenshots/11-popup.jpg" alt="开店之前：二维布置图、三维店面与家具属性编辑界面" width="640"></a>
-<strong>开店之前 · 空间布置</strong><br>
-按房间生成起步布置，检查从入口到陈列的通路，同时管理家具尺寸、预算与现场方案。<br>
-<a href="https://hyyhf.github.io/imagination-atelier/works/11-popup/index.html">体验作品 ↗</a>
-</td>
-<td width="50%">
-<a href="docs/screenshots/12-packaging.jpg"><img src="docs/screenshots/12-packaging.jpg" alt="折成一份心意：礼盒展开纸样与三维折叠预览" width="640"></a>
-<strong>折成一份心意 · 包装设计</strong><br>
-输入礼物尺寸，设计专属印记，观察折起效果，用家用 A4 打印机输出 1:1 拼接纸样。<br>
-<a href="https://hyyhf.github.io/imagination-atelier/works/12-packaging/index.html">体验作品 ↗</a>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<a href="docs/screenshots/20-audio.jpg"><img src="docs/screenshots/20-audio.jpg" alt="把声音剪好：双轨波形、片段裁切与淡入淡出编辑界面" width="640"></a>
-<strong>把声音剪好 · 音频编辑</strong><br>
-导入音频，在双轨时间线上裁切、分割、移动和淡化片段，导出 WAV 与可恢复的方案。<br>
-<a href="https://hyyhf.github.io/imagination-atelier/works/20-audio/index.html">体验作品 ↗</a>
-</td>
-<td width="50%">
-<a href="docs/screenshots/21-fit.jpg"><img src="docs/screenshots/21-fit.jpg" alt="数据会说话：拟合曲线、残差与独立留出误差分析" width="640"></a>
-<strong>数据会说话 · 数据分析</strong><br>
-粘贴表格并选择数据列，同屏比较模型、追踪疑点、进行标定，带走完整分析报告。<br>
-<a href="https://hyyhf.github.io/imagination-atelier/works/21-fit/index.html">体验作品 ↗</a>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<a href="docs/screenshots/22-optimization.jpg"><img src="docs/screenshots/22-optimization.jpg" alt="曲面的下一步：三维目标函数与三种优化方法的迭代轨迹" width="640"></a>
-<strong>曲面的下一步 · 数学实验</strong><br>
-调整起点与学习率，在同一曲面上比较梯度下降、动量与 Adam，回放并导出迭代轨迹。<br>
-<a href="https://hyyhf.github.io/imagination-atelier/works/22-optimization/index.html">体验作品 ↗</a>
-</td>
-<td width="50%">
-<a href="docs/screenshots/30-rag.jpg"><img src="docs/screenshots/30-rag.jpg" alt="答案之前，先找证据：资料列表、检索证据与参数对照界面" width="640"></a>
-<strong>答案之前，先找证据 · 检索实验</strong><br>
-导入自己的资料，比较 BM25 与 TF-IDF，标注相关性，导出带来源的证据包和评测报告。<br>
-<a href="https://hyyhf.github.io/imagination-atelier/works/30-rag/index.html">体验作品 ↗</a>
-</td>
-</tr>
-</table>
+<table><tr>
+<td width="50%"><a href="docs/screenshots/01-assembly.jpg"><img src="docs/screenshots/01-assembly.jpg" alt="机械装配与爆炸图编辑器的实际三维零件和结构编辑画面" width="640"></a><br><strong>机械装配与爆炸图编辑器</strong><br>导入自己的零件，修改装配关系、爆炸向量、材质和拆装步骤，输出资料图、零件清单和说明。<br><a href="https://hyyhf.github.io/imagination-atelier/works/01-assembly/index.html">体验 ↗</a></td>
+<td width="50%"><a href="docs/screenshots/10-product-studio.jpg"><img src="docs/screenshots/10-product-studio.jpg" alt="3D产品摄影与海报制作的实际模型布光取景界面" width="640"></a><br><strong>3D 产品摄影与海报制作</strong><br>导入商品模型、贴图与标识，调整材质、灯光和镜头，生成高分辨率照片、海报与多视角图片；换品保留摄影设置。<br><a href="https://hyyhf.github.io/imagination-atelier/works/10-product-studio/index.html">体验 ↗</a></td>
+</tr><tr>
+<td width="50%"><a href="docs/screenshots/02-production.jpg"><img src="docs/screenshots/02-production.jpg" alt="生产订单排程工具的实际订单甘特图与工序约束" width="640"></a><br><strong>生产订单排程工具</strong><br>导入订单与工艺路线，按设备、班次、停机和前置约束排程。手动调度、定位冲突、比较交期，导出派工明细。<br><a href="https://hyyhf.github.io/imagination-atelier/works/02-production/index.html">体验 ↗</a></td>
+<td width="50%"><a href="docs/screenshots/08-csv-cleaner.jpg"><img src="docs/screenshots/08-csv-cleaner.jpg" alt="CSV表格批量清洗工具的实际规则和异常追踪" width="640"></a><br><strong>CSV 表格批量清洗工具</strong><br>合并本地表格，编排清洗与校验规则，更正异常并追踪原值，导出结果和问题清单；同一规则可处理下一批。<br><a href="https://hyyhf.github.io/imagination-atelier/works/08-csv-cleaner/index.html">体验 ↗</a></td>
+</tr><tr>
+<td width="50%"><a href="docs/screenshots/09-text-compare.jpg"><img src="docs/screenshots/09-text-compare.jpg" alt="文本差异对比与逐条审校的真实文稿对照和人工决定" width="640"></a><br><strong>文本差异对比与逐条审校</strong><br>对比两份文稿，逐条接受、保留或自定义改写，记录备注，生成确认合稿和报告；合稿可成为下一版原稿。<br><a href="https://hyyhf.github.io/imagination-atelier/works/09-text-compare/index.html">体验 ↗</a></td>
+<td width="50%"><a href="docs/screenshots/12-packaging.jpg"><img src="docs/screenshots/12-packaging.jpg" alt="礼盒纸样设计与A4拼接打印的实际纸样及折叠预览" width="640"></a><br><strong>礼盒纸样设计与 A4 拼接打印</strong><br>输入礼物尺寸、编辑文字和印记，观察折起效果，用家用打印机输出 1:1 拼接纸样。<br><a href="https://hyyhf.github.io/imagination-atelier/works/12-packaging/index.html">体验 ↗</a></td>
+</tr></table>
 
-更多作品包括日光观察、陶艺塑形、交通配时、字体海报、备餐排程和镜头预演。每件作品附有制作提示词与使用说明，可在[在线展厅](https://hyyhf.github.io/imagination-atelier/)查看，也可下载 HTML 到本地使用。
+更多作品包括空间布置、板材排料、备餐计划、音频剪辑、数据标定、教学与科学实验，完整目录见[作品列表](docs/EXAMPLES.md)。这些案例是方法的实例；Skill 的适用范围不限于案例题目。
 
-## 它如何工作
+## 它怎样提升作品质量
 
-1. **把愿望变成具体任务。** 从「我想做个小工具」出发，明确谁会使用、带入什么内容、完成什么操作，以及最后需要留下什么成果。
-2. **为题目选择表达方式。** 空间关系用三维，数据规律用图表，时间与声音用时间线，阅读与叙事用适合内容的组织方式。版式、材质、文字和反馈围绕题目决定。
-3. **让内容、操作与结果连起来。** 用同一份数据驱动画面、数值和导出，考虑连续修改、撤销、保存与恢复，让作品能够接受用户自己的内容。
-4. **检查实际交付。** 打开最终文件，核对画面、关键操作与输出；根据任务检查窄屏、异常输入和离线使用，并说明必要的使用范围。
+1. **从用户要完成的事出发。** 明确带入什么材料、操作什么对象、遵守什么规则，以及最终需要什么成果。
+2. **把精细落实到作品本体。** 三维看结构、厚度、连接和材质；表格看原始记录、精度和异常；排程看工序、资源和时间约束；文稿看段落、差异、决定与来源。
+3. **让自己的内容走完整个流程。** 输入、编辑、反馈、比较和导出使用同一份状态，错误可修正，关键操作可撤销，成果可保存恢复。
+4. **检查第二次使用。** 换新的材料继续完成任务，保留真正有用的规则、资源或设置。质量以实际任务检验。
 
-适合把教学知识做成可操作的实验，把生活或工作中的小需求做成工具，也适合从参考材料出发创作有独立表达的互动作品。
+表达类作品也有自己的质量要求：内容、节奏、互动与输出应形成完整体验。Skill 不强迫每个题目都做成后台、套用同一界面或加入无关功能。
 
 ## 安装
-
-### 使用安装命令
 
 在装有 Node.js 的终端中运行：
 
@@ -78,57 +42,56 @@
 npx skills add hyyhf/imagination-atelier --skill imagination-developer
 ```
 
-通过 [Skills CLI](https://github.com/vercel-labs/skills) 安装到当前项目，支持的助手包括 Codex、Claude Code 和 Cursor。如需在多个项目中使用，可在命令末尾加上 `--global`。
+[Skills CLI](https://github.com/vercel-labs/skills) 可安装到支持的助手。需要在多个项目中使用时，在命令末尾加上 `--global`。
 
-### 让 Agent 安装
-
-把下面这段话交给支持安装 Skills 的助手：
+也可以让支持安装 Skills 的助手执行：
 
 ```text
-请帮我安装 imagination-developer Skill：
+请安装 imagination-developer Skill：
 https://github.com/hyyhf/imagination-atelier
 Skill 位于 skills/imagination-developer，请安装完整目录。
 ```
 
-手动安装时，从仓库复制整个 [skills/imagination-developer](https://github.com/hyyhf/imagination-atelier/tree/main/skills/imagination-developer) 文件夹到助手的技能目录，保留其中的 `SKILL.md`、`references`、`assets` 和 `scripts`。
+手动安装时，将整个 [skills/imagination-developer](https://github.com/hyyhf/imagination-atelier/tree/main/skills/imagination-developer) 文件夹复制到助手的技能目录，保留 `SKILL.md`、`references`、`scripts` 和 `agents`。
 
-### 普通聊天中使用
-
-不支持 Skills 的助手也可以使用：复制[完整创作提示词](prompts/full-meta-prompt.txt)，在末尾追加你的需求，然后一起发送给 AI。
-
-也可以下载[创作工具包](https://hyyhf.github.io/imagination-atelier/downloads/imagination-atelier-creative-kit.zip)：解压后打开 `START.html`，写下想法、选择交付方式，再一次复制完整指令。包内同时提供元提示词与完整 Skill 目录。
+普通聊天也可以使用：复制[完整元提示词](prompts/full-meta-prompt.txt)，在末尾追加自己的需求，一起发送给 AI。或者下载[创作工具包](https://hyyhf.github.io/imagination-atelier/downloads/imagination-atelier-creative-kit.zip)，解压后打开 `START.html`，写下想法、选择交付方式，一次复制完整指令。包内包含元提示词和完整 Skill。
 
 ## 使用
 
-安装后，在任务中点名使用 `imagination-developer`，并说明想要方向、提示词还是成品。
+点名使用 `imagination-developer`。说「做一个」「实现」「完善」时默认直接交付成品；明确要求制作提示词时，才只交付提示词。
 
-### 还没有明确方向
-
-```text
-使用 imagination-developer。我想让中学生通过亲手操作理解光的反射，
-请提出三个不同的互动作品方向，说明每个方向中学生会做什么、看到什么。
-```
-
-### 先生成制作提示词
+### 直接做作品
 
 ```text
-使用 imagination-developer。我想做一个小展览布置工具：
-输入展厅和展品尺寸，尝试摆放，检查遮挡，最后导出布置图。
-请把这个想法写成可以交给另一个 AI 独立执行的完整制作提示词。
+使用 imagination-developer。
+我每周收到几个渠道的报名表，总要手动整理日期、去重、补齐字段。
+做一个本地打开的工具，让我自己设规则，看到有问题的记录并修改，
+导出处理好的表格，下周换一批文件还能用同一套规则。
+交付完整 HTML 和简短使用说明。
 ```
 
-### 直接制作作品
+### 想法还不清楚
 
 ```text
-使用 imagination-developer，直接制作一个可本地打开的礼盒设计工具。
-我希望输入礼物尺寸、修改文字和颜色、查看折起效果，并导出 SVG 纸样。
-请交付完整 HTML 文件和简短使用说明。
+使用 imagination-developer。
+我想把奶奶的故事、照片和声音留给家人，但不想只做一个相册。
+先提出三个体验不同的方向，说明家人会做什么、看到什么，
+以及我还需要提供哪些材料。
 ```
 
-有参考截图、数据、文案或现成项目时，可以一并提供。已有作品也可以要求继续改进，例如「让布置图和采购清单随家具修改同步更新，补上保存与恢复」。
+### 只需要制作提示词
 
-只要求制作提示词时，得到的是包含内容、视觉、交互和验收要求的完整指令；明确要求制作时，得到的是实际作品文件。默认交付目标是一个或少量可在本地浏览器中打开的 HTML 文件，按任务提供图像、SVG、CSV、JSON 或音频等成果。
+```text
+使用 imagination-developer。
+我想输入展厅和展品尺寸，尝试摆放，检查遮挡与通道，
+最后带走布置图和物品清单。
+请写成可以交给另一个 AI 独立执行的完整制作提示词。
+```
+
+图片、模型、表格、文案和参考项目都可以一并提供。已有作品也可以继续改进，例如「让模型调整与导出图片一致」「新增批次时保留规则」「让异常能定位到原始记录」。
+
+默认交付一个或少量 HTML 文件，按需要附 CSS、JavaScript 或本地素材。使用成品无需进入工程、安装依赖或启动开发环境；可根据任务输出图片、纸样、文稿、表格、音频和可恢复方案。具体输入格式、运行条件与验证范围见各作品说明。
 
 ## 许可
 
-原创代码、Skill 和文档采用 [MIT License](LICENSE)。作品中使用的第三方资源保留各自许可，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+原创代码、Skill 与文档采用 [MIT License](LICENSE)。第三方库与素材保留各自许可，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

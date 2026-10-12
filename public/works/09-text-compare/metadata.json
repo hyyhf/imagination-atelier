@@ -1,0 +1,14 @@
+{
+ "name":"文本差异对比与逐条审校",
+ "purpose":"接入用户两份纯文稿，对新增删除修改逐项决定，保存自定义合稿与备注，输出确认稿后承接下一版。",
+ "entry":"index.html",
+ "format":"自包含 HTML；TXT/Markdown输入；TXT确认合稿；独立可打印HTML审校报告；完整JSON审校方案",
+ "capabilities":["两份真实文件/粘贴输入与明确编码","jsdiff行/字符对比，真实新增/删除/修改及原稿修订行位置","每项接受/保留/待审/自定义/备注，空自定义可删除","导航、状态筛选、搜索、上下文与完整合稿","未审禁确认导出及下一版，复制为明确预览","完整方案保存恢复，35次撤销重做","确认合稿承接下一版，保留输出设置并清旧决定/备注","CRLF/LF原行尾跨文件文本框、自定义合稿与下一版保持"],
+ "limits":{"textCharactersEach":400000,"fileMiB":2,"projectMiB":5},
+ "boundaries":["只处理纯文本，不直接解析Word/PDF","不判断法律、专业或事实真实性","大差异会降为整篇对照；重排需人工决定","file://与离线冷启动未验证；只有HTTP实际Browser验收"],
+ "runtime":{"embedded":"jsdiff 9.0.0 + application","installRequired":false,"serverRequiredByDesign":false,"cdn":false},
+ "license":{"applicationAndOriginalFixtures":"MIT","jsdiff 9.0.0":"BSD-3-Clause；完整声明在 index.html"},
+ "verification":{"date":"2026-10-12","actualBrowser":["独立CRLF原稿/LF修订文件选择器输入","4项真实变更与未审禁导出","自定义/备注、接受删除新增、保留原文","撤销重做与门禁复核","保存/确认导出按钮","VM完整方案fixture文件恢复","第二版修订文件承接","真实合稿剪贴板内容","两处CRLF问题报告修复并最终实际复验"],"regression":"最终HTML内嵌模型 VM，38项通过","actualOutputs":["fixtures/browser-merged-fixed.txt","fixtures/browser-second-final.txt"],"screenshots":["preview.png","preview-first.png","preview-second.png"],"downloadPersistence":"CI后续核实；VM预期不是浏览器下载文件","offlineColdStart":"未验证；file协议已禁，未绕过"},
+ "skillFeedback":"record.txt 末尾：文本框换行规范化、确认输出承接、未审门禁与证据来源应具体验证"
+}
+

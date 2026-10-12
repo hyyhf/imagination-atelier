@@ -1,0 +1,4 @@
+order_id,product,quantity,release,due,priority,operation_id,operation,machines,setup_min,cycle_min,batch_size,predecessors,transfer_min
+NEXT-301,连接座 CZ-9,28,2026-10-19T08:00,2026-10-20T17:00,4,N1-10,下料,LAS-01,12,2,1,,0
+NEXT-301,连接座 CZ-9,28,2026-10-19T08:00,2026-10-20T17:00,4,N1-20,孔位加工,DRL-01,15,3,1,N1-10,10
+NEXT-301,连接座 CZ-9,28,2026-10-19T08:00,2026-10-20T17:00,4,N1-30,终检,QC-01,10,1.5,2,N1-20,10

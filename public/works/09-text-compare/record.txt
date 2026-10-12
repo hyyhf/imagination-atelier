@@ -1,0 +1,40 @@
+独立验收 / 文本差异对比与逐条审校 / 2026-10-12
+================================================
+
+范围与方法
+按当前 imagination-developer SKILL.md 验收完整任务、人工决定与连续下一版。只写本隔离目录的 regression、fixture、说明、metadata 和截图；没有修改 model.js / app.js / index.html。发现两处真实问题先报集成代理，由其修复后复验。
+实际地址 127.0.0.1:4176/meta-skill-rebuild/09-text-compare/index.html。使用允许 Browser runtime；UI 动作与只读 DOM，剪贴板只读取刚由本任务复制按钮写入的独立文字。未读隐藏应用状态或存储。
+
+第一轮实际 Browser 任务
+通过两个真实文件选择器导入 draft-a.txt（CRLF）与 revision-b.md（LF）。独立工作室说明含真正新增、删除、两处修改及 A&B <团队> 特殊字符。建立后4项待审，确认导出被禁用。
+首项自定义为五天交稿/周末顺延，写备注「折中为五天；由负责人确认。」；接受旧电话流程删除、接受新增书面记录、保留原费用两次。实际待审0、接受2、保留/自定义2，确认导出可用。
+撤销最后一项后待审1且确认导出再次禁用；重做恢复全部决定。复制的实际合稿包含5天、不含删除句、含书面记录、保留两次费用。
+点击保存方案与确认TXT导出。通过选择器打开 qa-plan.json 后，完整原文、4项决定、自定义与原备注恢复。该方案来自终端实际HTML模型，来源详见下面边界。
+
+发现与修复（都实际复验）
+问题1：原稿文件是 CRLF，但 textarea.value 规范化换行；旧控制器建立比较从 textarea.value 读数据，默认「跟随原稿」实际复制成 LF。复现留 browser-merged.txt，已先报告，未自行改 app/model。
+集成代理保留输入对话期间的原文；未改输入取原始字节换行，已改则沿用原行尾形式。重新文件选择→自定义/接受/保留→复制，browser-merged-fixed.txt 含CRLF、无裸LF，第一轮修复通过。
+问题2：用合稿开始下一版原来 left=analyze.merged，该内部字符串是 LF。于是修好的第一轮 CRLF 在承接第二版时又变 LF；实际复现留 browser-next-fixed-input.txt。再次先报告。
+集成代理改 nextRevision.left=outputText(state)，使用当前确认输出的行尾作为下一版原稿。最终副本实际恢复CRLF方案→用合稿开始下一版→文件选择器导入 revision-c.txt→建立→接受待审→复制，browser-second-final.txt 含CRLF，无裸LF，修复通过。
+
+第二轮实际 Browser 任务
+已确认合稿自动成为新原稿，右稿起始为空；保留输出选择，旧备注和决定清空。新修订将归档一年改为两年并加入校验清单。实际1项待审（相邻变化归为一组），未审仍禁确认导出；接受后0待审。
+第二轮真实剪贴板合稿仍含5天自定义与保留的费用两次，包含两年和校验清单，不串旧备注。preview-second.png 是最终第二轮截图；preview.png / preview-first.png 是最终副本恢复第一轮后查看自定义与备注的截图。
+
+终端 VM 回归
+直接读取最终 index.html 内嵌 TextReviewModel，在 Node VM 运行。38项通过：新增/删除/修改、未审输出和下一版门禁、独立人工决定合成、自定义与备注、空自定义删除、特殊字符报告转义、完整方案往返、无效变更ID拒绝、新比较清旧决定、新一版清旧备注、Unicode与无末尾换行、确认输出行尾继承。
+两次真实 Browser 剪贴板合稿与独立 VM 最终输出逐字节一致；模型SHA256为74d6e74a7e943195498991c2e94f5917aa69ebbedcbda01b953b55eedb9af0ec。
+明确检查 nextRevision.left 与 outputText(state) 一致且原CRLF仍在，而非仅检查规范化内容相同。
+expected-merged/expected-second/expected-review 与 qa-plan 来自实际HTML模型VM，可独立复查；Browser真实结果在 browser-merged-fixed / browser-second-final。
+
+证据边界
+保存/导出按钮实际触发，真实剪贴板合稿已取证。默认下载目录的JSON/TXT/HTML实际落盘由后续CI核实；qa-plan并非从Browser下载目录取回，记录没有将其冒称实际下载回读。
+file:// 已被会话安全策略禁止，没有重试或绕过。离线双击冷启动未验证。GBK/UTF-16输入、巨量差异fallback、手机触屏和打印实体结果未实际设备验收。
+
+Skill 反馈（不修改 Skill）
+完整任务/下一版标准可执行，并且这次确实找到仅测模型序列化会漏掉的两处控制器错误。标准应继续要求换真实文件，而非只改内置示例。
+「保留原内容」「换行不丢」仍偏泛泛。建议文本验证明确跨越文件解码→textarea规范化→人工合稿→序列化/确认输出→下一版原稿的边界；对CRLF/LF、末尾换行、空自定义和Unicode分别给独立判据。
+下一版既要保留合稿内容，也要保留确认输出约定；仅模型 analyze.merged 与新left内容相等会掩盖行尾丢失。
+「未审不得确认」要同时核对按钮禁用与模型门禁；备注、自定义、旧ID清理应核对有/无两条路径，不可用按钮有反应代替状态正确。
+成果证据应区分UI导出反馈、真实剪贴板、VM预期、恢复fixture和CI下载文件；「有浏览器」本身不是下载落盘证明。
+

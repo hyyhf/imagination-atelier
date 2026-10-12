@@ -1,4 +1,4 @@
-把声音剪好 · A SMALL AUDIO ROOM
+本地音频剪辑与混音 · A SMALL AUDIO ROOM
 ==============================
 
 打开 index.html 即进入完整工作台，全部运行资源内嵌。

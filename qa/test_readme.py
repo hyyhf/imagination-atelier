@@ -1,4 +1,4 @@
-import sys,unittest
+import re,sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'scripts'))
 from render_readme import inline,render,document
@@ -15,6 +15,8 @@ class TestReadme(unittest.TestCase):
   self.assertIn('<img src="picture.png">',render('<table>\n<tr><td><img src="picture.png"></td></tr>\n</table>'))
  def test_complete_readme_renders(self):
   p=Path(__file__).resolve().parent.parent/'README.md';result=document(p.read_text())
-  self.assertIn('src="docs/screenshots/11-popup.jpg"',result)
+  pictures=re.findall(r'<img\s+src="([^"]+)"',p.read_text())
+  self.assertGreater(len(pictures),0)
+  for picture in pictures:self.assertIn('src="'+picture+'"',result)
   self.assertNotIn('\x00',result)
 if __name__=='__main__':unittest.main()

@@ -10,6 +10,7 @@ def inline(source: str) -> str:
     def store(value):
         key=f'\x00{len(saved)}\x00';saved.append(value);return key
     source=re.sub(r'`([^`]+)`',lambda m:store('<code>'+html.escape(m[1])+'</code>'),source)
+    source=re.sub(r'<br\s*/?>',lambda m:store('<br>'),source,flags=re.I)
     source=re.sub(r'!\[([^\]]*)\]\(([^)\s]+)\)',lambda m:store('<img src="'+html.escape(m[2],quote=True)+'" alt="'+html.escape(m[1],quote=True)+'" loading="lazy">'),source)
     source=re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)',lambda m:store('<a href="'+html.escape(m[2],quote=True)+'">'+html.escape(m[1])+'</a>'),source)
     source=html.escape(source)

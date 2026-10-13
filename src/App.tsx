@@ -3,6 +3,8 @@ import { Button, Chip, Modal, Tabs } from '@heroui/react';
 import { asset, collections, repo, steps, works, type Work } from './data';
 import { Icon } from './Icons';
 import { useAtelierMotion } from './useAtelierMotion';
+import { useGlassHeader } from './useGlassHeader';
+import { GitHubMark } from './GitHubMark';
 import metaPrompt from '../prompts/full-meta-prompt.txt?raw';
 
 const selectedFromHash = () => {
@@ -108,6 +110,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('');
   const completeArea = useRef<HTMLTextAreaElement>(null);
   const main = useRef<HTMLElement>(null);
+  const header = useRef<HTMLElement>(null);
+  useGlassHeader(header);
   useAtelierMotion(main, JSON.stringify([collection, medium, query, expanded, preview, copied]));
 
   useEffect(() => {
@@ -127,7 +131,7 @@ export default function App() {
   useEffect(() => {
     if (!menuOpen) return;
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') setMenuOpen(false); };
-    const media = matchMedia('(min-width: 681px)');
+    const media = matchMedia('(min-width: 961px)');
     const closeOnResize = () => { if (media.matches) setMenuOpen(false); };
     addEventListener('keydown', closeOnEscape);
     media.addEventListener('change', closeOnResize);
@@ -156,12 +160,15 @@ export default function App() {
 
   return <>
     <a className="skip-link" href="#works">跳到作品目录</a>
-    <header className="site-header">
-      <a className="brand" href="#hero" aria-label="想象显影机首页"><span className="brand-symbol" aria-hidden="true">ia.</span><span>想象显影机<small>Imagination Atelier</small></span></a>
+    <div className="header-shell">
+    <header ref={header} className={`site-header${menuOpen ? ' menu-is-open' : ''}`}>
+      <a className="brand header-brand" href="#hero" aria-label="想象显影机首页"><img className="brand-logo" src={asset('favicon.svg')} width="42" height="42" alt="" /><span className="brand-caption"><span>想象显影机</span><small>Imagination Atelier</small></span></a>
       <nav id="main-navigation" className={menuOpen ? 'is-open' : ''} aria-label="主导航">{navItems.map(([id, label]) => <a key={id} href={`#${id}`} aria-current={activeSection === id ? 'location' : undefined} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>
       <a className="header-cta" href="#skill">开始创作 <Icon name="external" /></a>
+      <a className="github-button" href={repo} target="_blank" rel="noopener noreferrer" aria-label="查看 GitHub 项目（新窗口）" title="查看 GitHub 项目"><GitHubMark /></a>
       <button className="menu-toggle" aria-controls="main-navigation" aria-expanded={menuOpen} aria-label={menuOpen ? '关闭导航' : '打开导航'} onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? 'close' : 'menu'} /></button>
     </header>
+    </div>
 
     <main ref={main}>
       <section id="hero" className="hero">

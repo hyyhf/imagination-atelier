@@ -1,0 +1,72 @@
+.header-shell {
+  position: sticky;
+  top: 0;
+  height: 72px;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+}
+.site-header {
+  --header-progress: 0;
+  --header-inset: max(48px, calc((100vw - 1120px) / 2));
+  --header-padding: max(var(--page-gutter), calc((100vw - var(--page-width)) / 2));
+  position: relative;
+  top: calc(12px * var(--header-progress));
+  width: calc(100% - var(--header-inset) * 2 * var(--header-progress));
+  height: calc(72px - 12px * var(--header-progress));
+  padding-inline: calc(var(--header-padding) + (24px - var(--header-padding)) * var(--header-progress));
+  gap: 20px;
+  border: 1px solid rgb(214 205 194 / calc(.64 * var(--header-progress)));
+  border-radius: calc(36px * var(--header-progress));
+  background: rgb(250 248 242 / calc(1 - .28 * var(--header-progress)));
+  backdrop-filter: blur(calc(24px * var(--header-progress))) saturate(calc(100% + 45% * var(--header-progress)));
+  -webkit-backdrop-filter: blur(calc(24px * var(--header-progress))) saturate(calc(100% + 45% * var(--header-progress)));
+  box-shadow: 0 calc(8px * var(--header-progress)) calc(32px * var(--header-progress)) rgb(65 47 29 / calc(.08 * var(--header-progress))), inset 0 1px 0 rgb(255 255 255 / calc(.55 * var(--header-progress)));
+  pointer-events: auto;
+}
+.header-brand { flex-shrink: 0; gap: 12px; font-size: 18px; font-weight: 650; }
+.brand-logo { width: 42px; height: 42px; flex-shrink: 0; border-radius: 11px; }
+.brand-caption { display: flex; align-items: baseline; gap: 12px; }
+.header-brand small { display: inline; margin: 0; font: 400 13px/1.4 var(--font-pixel); letter-spacing: .15px; color: #59514b; }
+.site-header nav { gap: clamp(16px, 1.6vw, 23px); }
+.site-header .header-cta { margin: 0; gap: 18px; padding: 9px 17px; font-size: 13px; }
+.github-button { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #d2c9be; border-radius: 50%; color: var(--ink); flex-shrink: 0; }
+.github-mark { width: 20px; height: 20px; }
+.github-button:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-1px); }
+.site-header .menu-toggle { display: none; }
+
+@media (max-width: 1160px) {
+  .site-header { gap: 18px; }
+  .site-header .header-cta { display: none; }
+  .header-brand { font-size: 17px; }
+  .header-brand small { font-size: 12px; }
+}
+@media (max-width: 960px) {
+  .site-header { --header-inset: 24px; }
+  .github-button { margin-left: auto; }
+  .site-header .menu-toggle { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; background: transparent; color: var(--ink); border: 1px solid #d2c9be; border-radius: 50%; flex-shrink: 0; }
+  .site-header nav { display: none; position: absolute; inset: calc(100% + 8px) 0 auto; margin: 0; padding: 16px 22px; border: 1px solid var(--line); border-radius: 18px; background: #faf8f2ed; backdrop-filter: blur(24px); box-shadow: 0 8px 28px #41301b0c; }
+  .site-header nav.is-open { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .site-header nav a { font-size: 14px; padding-block: 12px; }
+  .site-header nav a::after { width: 36px; }
+}
+@media (max-width: 680px) {
+  .header-shell { height: 64px; }
+  .site-header { --header-inset: 12px; --header-padding: 20px; height: calc(64px - 6px * var(--header-progress)); top: calc(8px * var(--header-progress)); padding-inline: calc(20px - 6px * var(--header-progress)); gap: 12px; border-radius: calc(32px * var(--header-progress)); }
+  .header-brand { gap: 9px; font-size: 16px; }
+  .brand-logo { width: 34px; height: 34px; border-radius: 9px; }
+  .brand-caption { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .header-brand small { font-size: 10px; line-height: 1.1; letter-spacing: .1px; }
+  .github-button, .site-header .menu-toggle { width: 38px; height: 38px; }
+  .github-mark { width: 19px; height: 19px; }
+  .site-header .menu-toggle .icon { width: 19px; height: 19px; }
+}
+@media (max-width: 359px) {
+  .site-header { --header-padding: 14px; padding-inline: calc(14px - 4px * var(--header-progress)); gap: 9px; }
+  .header-brand { gap: 7px; font-size: 14px; }
+  .brand-logo { width: 30px; height: 30px; }
+  .header-brand small { font-size: 9px; }
+  .github-button, .site-header .menu-toggle { width: 36px; height: 36px; }
+}

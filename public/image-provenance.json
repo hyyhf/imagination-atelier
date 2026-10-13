@@ -50,5 +50,13 @@
     "htmlSha256": "6172078b8a62d41f9f773cd23b7b11465eace5c51ca14cc02da811953e3cfdfc",
     "imageSha256": "4d2cbd6ddf2a3772667d9e25291484a15ba812cab84f70c4a40eda0e112787b0",
     "method": "Actual native browser screenshot of the shipping HTML; sample photos are original product renders, not camera photographs."
+  },
+  {
+    "id": "25-water-cycle",
+    "title": "水循环三维沙盘",
+    "source": "images/25-water-cycle.jpg",
+    "htmlSha256": "43a4d6a7d4d1ee38f1aa7152763709a9c9e375febd76ea4f36b8c6a4e91ac1d6",
+    "imageSha256": "da87af824b13a16011a25600c6f17b980aee2164a01b16693273cbefca211183",
+    "method": "Actual native browser screenshot of the user-supplied shipping HTML."
   }
 ]

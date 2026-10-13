@@ -8,6 +8,7 @@
 
 - 网站使用 Vite、React、HeroUI、Lucide React 1.55.0（ISC）与 GSAP 3.15.0（[Standard License](https://gsap.com/standard-license/)）；完整版本与传递依赖见 `package-lock.json` 和各依赖包的许可。
 - 机械装配、产品摄影与抽屉分隔板作品内嵌 Three.js 0.170.0 及使用到的官方控制器、模型加载器（MIT）。原创示例模型由本项目制作；许可正文随作品保存。
+- 水循环三维沙盘内嵌 Three.js 0.180.0（MIT）；用户提供的 HTML 已保留库的完整版权与许可正文。
 - 产品摄影与抽屉分隔板作品内嵌 fflate 0.8.2（MIT），用于生成实际 ZIP；许可正文随作品保存。
 - 照片多规格裁切内置的陶瓷杯、台灯图片是本项目产品摄影工具生成的原创渲染图，不是真实拍摄照片。图片处理使用浏览器 Canvas，无运行期第三方库。
 - CI 使用 [Pillow 11.3.0](https://pypi.org/project/pillow/11.3.0/)（MIT-CMU）独立解码图片，仅用于验收，不进入成品运行环境。

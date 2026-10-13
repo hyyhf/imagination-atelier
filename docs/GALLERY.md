@@ -4,6 +4,14 @@
 
 [全部作品](EXAMPLES.md) · [回到 README](../README.md)
 
+## 水循环三维沙盘
+
+![实际运行画面](screenshots/25-water-cycle.jpg)
+
+从海洋、城市、水库与高山到内陆湖，观察地上地下的水循环；比较城市化和海绵城市，核对水量平衡并完成随堂检测。
+
+[打开作品](../public/works/25-water-cycle/index.html) · [使用说明](../public/works/25-water-cycle/readme.txt) · [原始提示词](../public/works/25-water-cycle/prompt.txt)
+
 ## 照片多规格裁切
 
 ![实际运行画面](screenshots/03-photo-batch.jpg)

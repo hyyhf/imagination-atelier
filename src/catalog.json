@@ -633,42 +633,29 @@
   },
   {
     "number": 25,
-    "slug": "watershed",
-    "title": "地形汇水与降雨体积估算",
-    "domain": "地理 / 汇水",
+    "slug": "water-cycle",
+    "id": "25-water-cycle",
+    "title": "水循环三维沙盘",
+    "domain": "地理 / 水循环课堂",
     "dimension": "3D + 2D",
-    "description": "导入高度格网，查看流向、汇水范围和雨量体积估算。",
-    "entry": "works/25-watershed/index.html",
-    "guide": "works/25-watershed/readme.txt",
-    "source_sha256": "9752ee6e32ef82b20d468fc869aefea6fec10fc84557ed77c5fc761b9e79a9d1",
-    "preview": "images/25-watershed.png",
-    "limits": [
-      "5—48行列完整正方形格网；无NoData或真实投影",
-      "边界格均为出口；平地按填洼父链路由",
-      "均匀降雨与径流系数只得到体积，不是洪水、水深或流量预测",
-      "原生场景和算法已核对；未做浏览器实机验收"
-    ],
-    "sources": [
-      {
-        "title": "Barnes, Lehman & Mulla / Priority-Flood",
-        "url": "https://arxiv.org/abs/1511.04463"
-      },
-      {
-        "title": "作者算法与说明",
-        "url": "https://github.com/r-barnes/Barnes2013-Depressions"
-      }
-    ],
-    "id": "25-watershed",
-    "prompt": "works/25-watershed/prompt.txt",
-    "record": "works/25-watershed/record.txt",
+    "description": "观察海洋到内陆湖的地上地下循环，对照城市与海绵城市，核对水量平衡并完成随堂检测。",
+    "entry": "works/25-water-cycle/index.html",
+    "guide": "works/25-water-cycle/readme.txt",
+    "prompt": "works/25-water-cycle/prompt.txt",
+    "record": "works/25-water-cycle/record.txt",
+    "preview": "images/25-water-cycle.jpg",
     "series": "science",
     "subject": "地理",
-    "bytes": 350590,
-    "previous_sha256": "be6a227d20356bfeb7c57fe00dd8ef7c1feab79df97d9b0dc72055c05fa14e6a",
-    "edition": "4.0.0",
+    "bytes": 619914,
+    "source_sha256": "43a4d6a7d4d1ee38f1aa7152763709a9c9e375febd76ea4f36b8c6a4e91ac1d6",
+    "edition": "user-supplied",
+    "limits": [
+      "地形与粒子为教学示意，时间经过压缩",
+      "采用简化24小时水量模型，不用于真实洪水预报"
+    ],
     "upgrade": [
-      "渲染管线：抗锯齿、画面级微倒角、环境接触遮蔽、镜头平移与快速档",
-      "专属实验册：当前状态对照、版本备份恢复、注释、指标重算、报告、专注与操作入口"
+      "三类水循环、地下剖面与粒子过程演示",
+      "城市化与海绵城市对照、水量平衡和随堂检测"
     ]
   },
   {

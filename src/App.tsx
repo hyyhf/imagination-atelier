@@ -9,10 +9,11 @@ const selectedFromHash = () => {
   const raw = location.hash.startsWith('#work=') ? location.hash.slice(6) : '';
   try { return works.find(w => w.id === decodeURIComponent(raw)) || null; } catch { return null; }
 };
+// User-selected Hero order; catalog additions do not change this editorial selection.
 const featured = [
-  { work: works.find(w => w.id === '03-photo-batch')!, title: '照片多规格裁切', label: '照片批量出图', note: '圈定主体，联动多种比例，整批带走可用图片。' },
-  { work: works.find(w => w.id === '05-drawer')!, title: '抽屉分隔板设计', label: '抽屉分隔板', note: '改净格尺寸，查看插接装配，带走 1:1 切割图。' },
-  { work: works.find(w => w.id === '10-product-studio')!, title: '3D 产品摄影', label: '3D 产品摄影', note: '导入自己的产品模型，布光取景，输出照片与海报。' },
+  { work: works.find(w => w.id === '11-popup')!, title: '店铺空间布置', label: '店铺空间布置', note: '摆放展架，调整动线，把开店的想法放进真实空间。' },
+  { work: works.find(w => w.id === '04-pottery')!, title: '陶器 3D', label: '陶器 3D', note: '捏口、推腹、查看内腔，亲手塑造一件自己的陶器。' },
+  { work: works.find(w => w.id === '01-assembly')!, title: '机械装配', label: '机械装配', note: '导入零件，编排拆装步骤，带走图解与零件清单。' },
 ];
 const gallerySelection = ['03-photo-batch', '05-drawer', '10-product-studio', '01-assembly', '12-packaging', '02-production']
   .map(id => works.find(work => work.id === id)!).filter(Boolean);

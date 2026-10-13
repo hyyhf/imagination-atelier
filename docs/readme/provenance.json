@@ -1,0 +1,30 @@
+{
+  "method": "Repository-native HTML layout composed from actual running-work screenshots; exported as PNG.",
+  "images": {
+    "docs/readme/cover.png": {
+      "width": 1280,
+      "height": 608,
+      "bytes": 316461
+    },
+    "docs/readme/showcase.png": {
+      "width": 1280,
+      "height": 864,
+      "bytes": 441801
+    }
+  },
+  "sources": [
+    "docs/screenshots/11-popup.jpg",
+    "public/images/04-pottery.png",
+    "docs/screenshots/01-assembly.jpg",
+    "docs/screenshots/03-photo-batch.jpg",
+    "docs/screenshots/12-packaging.jpg",
+    "docs/screenshots/25-water-cycle.jpg"
+  ],
+  "fonts": [
+    "Noto Sans SC",
+    "Noto Serif SC",
+    "Geist Sans",
+    "Geist Mono",
+    "Geist Pixel Square"
+  ]
+}
